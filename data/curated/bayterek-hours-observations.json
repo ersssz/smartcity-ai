@@ -1,0 +1,44 @@
+{
+  "research_format_version": 1,
+  "subject": "Astana-Bayterek monument",
+  "poi_id": "osm:way/230401645",
+  "kind": "published_schedule_claims_not_live_open_status",
+  "sources": [
+    {
+      "id": "institution",
+      "url": "https://a-vm.kz/objects/bayterek/",
+      "authority": "municipal venue operator",
+      "fetched_at": "2026-10-19T21:54:11.4386755Z",
+      "decoded_utf8_sha256": "2dd1077aa5c4a5fe27f2945ead3b12183fe9d2bb1d14ef5c48f82a2aed38a0d4",
+      "published_at": null,
+      "effective_year": null,
+      "weekdays": null,
+      "seasons": [
+        {"from_mm_dd": "06-01", "through_mm_dd": "08-31", "opens": "10:00", "closes": "22:00"},
+        {"from_mm_dd": "09-01", "through_mm_dd": "05-31", "opens": "10:00", "closes": "21:00"}
+      ]
+    },
+    {
+      "id": "tourism",
+      "url": "https://visitastana.kz/ru/map/",
+      "authority": "official city tourism page",
+      "fetched_at": "2026-10-19T21:54:11.9993410Z",
+      "decoded_utf8_sha256": "5a317af9f9a150c3dd6faf37734de8390f947a0fa1679189be4e311fe988da79",
+      "published_at": null,
+      "effective_year": null,
+      "weekdays": "daily",
+      "seasons": [{"from_mm_dd": "01-01", "through_mm_dd": "12-31", "opens": "10:00", "closes": "21:00"}]
+    }
+  ],
+  "resolution": {
+    "summer_closing_rule": {"state": "conflicting", "observed_values": ["22:00", "21:00"], "preferred_claim_source": "institution"},
+    "winter_closing_rule": {"state": "known", "value": "21:00", "meaning": "Both retrieved publications agree on the closing rule"},
+    "current_open": {"state": "unknown", "value": null},
+    "effective_year": {"state": "unknown", "value": null},
+    "institution_weekdays": {"state": "unknown", "value": null},
+    "holiday_exceptions": {"state": "unknown", "value": null},
+    "policy": "Prefer the institution's seasonal claim for editorial follow-up; do not promote it to confirmed visit availability. Unknown effective year, weekdays and holiday exceptions block an open-at-ETA promise. Retrieval time does not refresh a fact's publication date."
+  },
+  "rights": "Minimal attributed factual schedule observations; source narrative/images/HTML not redistributed. No general reuse licence asserted for official pages.",
+  "field_verified": false
+}
