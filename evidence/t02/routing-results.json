@@ -1,0 +1,507 @@
+{
+  "format_version": 1,
+  "mode": "local_public_osm_graph_probe",
+  "generated_at": "2026-10-19T22:01:29.314081+00:00",
+  "graph": {
+    "source_ways": 6705,
+    "accepted_ways": 5904,
+    "excluded_ways": 801,
+    "blocked_segments": 256
+  },
+  "walk_node_count": 24356,
+  "pairs": [
+    {
+      "id": "P01",
+      "category": "mapped_public_footway_outbound",
+      "expected_kind": "technical_path",
+      "technical_expectation_met": true,
+      "checks": {
+        "kind": true,
+        "requested_node_endpoints": true,
+        "required_nodes": true,
+        "required_ways": true,
+        "forbidden_ways": true,
+        "plausible_distance": true
+      },
+      "elapsed_ms": 0.386,
+      "result": {
+        "kind": "technical_path",
+        "node_ids": [
+          4974019359,
+          4974019360,
+          4974019339,
+          4974019207,
+          10142060034,
+          4974019361,
+          4974019213,
+          10242167713,
+          10148735958,
+          10148735961,
+          10148735963,
+          1277445540
+        ],
+        "way_ids": [
+          112384548,
+          112384548,
+          112384548,
+          112384548,
+          112384548,
+          112384548,
+          112384548,
+          112384548,
+          112384548,
+          112384548,
+          112384548
+        ],
+        "distance_m": 383.82,
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              71.4142723,
+              51.1533268
+            ],
+            [
+              71.4150563,
+              51.1534824
+            ],
+            [
+              71.4156838,
+              51.1535987
+            ],
+            [
+              71.415918,
+              51.1536466
+            ],
+            [
+              71.4161239,
+              51.1536946
+            ],
+            [
+              71.4165734,
+              51.1537665
+            ],
+            [
+              71.4169534,
+              51.1538628
+            ],
+            [
+              71.4176427,
+              51.153996
+            ],
+            [
+              71.418425,
+              51.1541471
+            ],
+            [
+              71.4189558,
+              51.1542496
+            ],
+            [
+              71.4191352,
+              51.1542842
+            ],
+            [
+              71.4195212,
+              51.1543588
+            ]
+          ]
+        },
+        "endpoint_mode": "exact_public_osm_nodes",
+        "snap_distance_m": 0,
+        "connector": "not_required_for_exact_node_probe",
+        "field_verified": false,
+        "profile": "local_conservative_foot_v1"
+      }
+    },
+    {
+      "id": "P02",
+      "category": "return_to_identical_public_origin",
+      "expected_kind": "technical_path",
+      "technical_expectation_met": true,
+      "checks": {
+        "kind": true,
+        "requested_node_endpoints": true,
+        "required_nodes": true,
+        "required_ways": true,
+        "forbidden_ways": true,
+        "plausible_distance": true
+      },
+      "elapsed_ms": 18.45,
+      "result": {
+        "kind": "technical_path",
+        "node_ids": [
+          1277445540,
+          10148735963,
+          10148735961,
+          10148735958,
+          10242167713,
+          4974019213,
+          4974019361,
+          10142060034,
+          4974019207,
+          4974019339,
+          4974019360,
+          4974019359
+        ],
+        "way_ids": [
+          112384548,
+          112384548,
+          112384548,
+          112384548,
+          112384548,
+          112384548,
+          112384548,
+          112384548,
+          112384548,
+          112384548,
+          112384548
+        ],
+        "distance_m": 383.82,
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              71.4195212,
+              51.1543588
+            ],
+            [
+              71.4191352,
+              51.1542842
+            ],
+            [
+              71.4189558,
+              51.1542496
+            ],
+            [
+              71.418425,
+              51.1541471
+            ],
+            [
+              71.4176427,
+              51.153996
+            ],
+            [
+              71.4169534,
+              51.1538628
+            ],
+            [
+              71.4165734,
+              51.1537665
+            ],
+            [
+              71.4161239,
+              51.1536946
+            ],
+            [
+              71.415918,
+              51.1536466
+            ],
+            [
+              71.4156838,
+              51.1535987
+            ],
+            [
+              71.4150563,
+              51.1534824
+            ],
+            [
+              71.4142723,
+              51.1533268
+            ]
+          ]
+        },
+        "endpoint_mode": "exact_public_osm_nodes",
+        "snap_distance_m": 0,
+        "connector": "not_required_for_exact_node_probe",
+        "field_verified": false,
+        "profile": "local_conservative_foot_v1"
+      }
+    },
+    {
+      "id": "P03",
+      "category": "mapped_seruen_pedestrian_bridge",
+      "expected_kind": "technical_path",
+      "technical_expectation_met": true,
+      "checks": {
+        "kind": true,
+        "requested_node_endpoints": true,
+        "required_nodes": true,
+        "required_ways": true,
+        "forbidden_ways": true,
+        "plausible_distance": true
+      },
+      "elapsed_ms": 0.016,
+      "result": {
+        "kind": "technical_path",
+        "node_ids": [
+          13397202258,
+          10548654990
+        ],
+        "way_ids": [
+          263517343
+        ],
+        "distance_m": 151.24,
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              71.4183545,
+              51.1609467
+            ],
+            [
+              71.4192181,
+              51.1596991
+            ]
+          ]
+        },
+        "endpoint_mode": "exact_public_osm_nodes",
+        "snap_distance_m": 0,
+        "connector": "not_required_for_exact_node_probe",
+        "field_verified": false,
+        "profile": "local_conservative_foot_v1"
+      }
+    },
+    {
+      "id": "P04",
+      "category": "reverse_pedestrian_bridge_direction",
+      "expected_kind": "technical_path",
+      "technical_expectation_met": true,
+      "checks": {
+        "kind": true,
+        "requested_node_endpoints": true,
+        "required_nodes": true,
+        "required_ways": true,
+        "forbidden_ways": true,
+        "plausible_distance": true
+      },
+      "elapsed_ms": 0.111,
+      "result": {
+        "kind": "technical_path",
+        "node_ids": [
+          10548654990,
+          13397202258
+        ],
+        "way_ids": [
+          263517343
+        ],
+        "distance_m": 151.24,
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              71.4192181,
+              51.1596991
+            ],
+            [
+              71.4183545,
+              51.1609467
+            ]
+          ]
+        },
+        "endpoint_mode": "exact_public_osm_nodes",
+        "snap_distance_m": 0,
+        "connector": "not_required_for_exact_node_probe",
+        "field_verified": false,
+        "profile": "local_conservative_foot_v1"
+      }
+    },
+    {
+      "id": "P05",
+      "category": "mapped_road_crossing",
+      "expected_kind": "technical_path",
+      "technical_expectation_met": true,
+      "checks": {
+        "kind": true,
+        "requested_node_endpoints": true,
+        "required_nodes": true,
+        "required_ways": true,
+        "forbidden_ways": true,
+        "plausible_distance": true
+      },
+      "elapsed_ms": 0.03,
+      "result": {
+        "kind": "technical_path",
+        "node_ids": [
+          4107301281,
+          652855975,
+          13912289523
+        ],
+        "way_ids": [
+          1412122403,
+          1526421963
+        ],
+        "distance_m": 9.2,
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              71.4173898,
+              51.1385013
+            ],
+            [
+              71.4174569,
+              51.1384806
+            ],
+            [
+              71.417508,
+              51.1384647
+            ]
+          ]
+        },
+        "endpoint_mode": "exact_public_osm_nodes",
+        "snap_distance_m": 0,
+        "connector": "not_required_for_exact_node_probe",
+        "field_verified": false,
+        "profile": "local_conservative_foot_v1"
+      }
+    },
+    {
+      "id": "P06",
+      "category": "mapped_pedestrian_underpass_layer_minus_one",
+      "expected_kind": "technical_path",
+      "technical_expectation_met": true,
+      "checks": {
+        "kind": true,
+        "requested_node_endpoints": true,
+        "required_nodes": true,
+        "required_ways": true,
+        "forbidden_ways": true,
+        "plausible_distance": true
+      },
+      "elapsed_ms": 0.056,
+      "result": {
+        "kind": "technical_path",
+        "node_ids": [
+          4109037044,
+          4109037045,
+          5101439175
+        ],
+        "way_ids": [
+          409009113,
+          409009113
+        ],
+        "distance_m": 78.83,
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              71.4304569,
+              51.1531652
+            ],
+            [
+              71.4305711,
+              51.1532446
+            ],
+            [
+              71.4312224,
+              51.1536868
+            ]
+          ]
+        },
+        "endpoint_mode": "exact_public_osm_nodes",
+        "snap_distance_m": 0,
+        "connector": "not_required_for_exact_node_probe",
+        "field_verified": false,
+        "profile": "local_conservative_foot_v1"
+      }
+    },
+    {
+      "id": "P07",
+      "category": "private_gate_explicit_foot_no_refused",
+      "expected_kind": "unmatched_endpoint",
+      "technical_expectation_met": true,
+      "checks": {
+        "kind": true
+      },
+      "elapsed_ms": 0.002,
+      "result": {
+        "kind": "unmatched_endpoint",
+        "reason": "exact_mapped_walk_node_required"
+      }
+    },
+    {
+      "id": "P08",
+      "category": "unknown_lift_gate_not_assumed_open",
+      "expected_kind": "unmatched_endpoint",
+      "technical_expectation_met": true,
+      "checks": {
+        "kind": true
+      },
+      "elapsed_ms": 0.002,
+      "result": {
+        "kind": "unmatched_endpoint",
+        "reason": "exact_mapped_walk_node_required"
+      }
+    },
+    {
+      "id": "P09",
+      "category": "bayterek_building_center_is_not_verified_entrance",
+      "expected_kind": "clarification",
+      "technical_expectation_met": true,
+      "checks": {
+        "kind": true
+      },
+      "elapsed_ms": 25.38,
+      "result": {
+        "kind": "clarification",
+        "reason": "choose_start_or_end_no_verified_connector",
+        "requested_endpoints_preserved": true
+      }
+    },
+    {
+      "id": "P10",
+      "category": "public_manual_point_offset_no_connector_no_silent_anchor_change",
+      "expected_kind": "clarification",
+      "technical_expectation_met": true,
+      "checks": {
+        "kind": true
+      },
+      "elapsed_ms": 44.474,
+      "result": {
+        "kind": "clarification",
+        "reason": "choose_start_or_end_no_verified_connector",
+        "requested_endpoints_preserved": true
+      }
+    }
+  ],
+  "acceptance": {
+    "hosted_foot_provider": "PENDING",
+    "actual_gps_origin": "PENDING",
+    "managed_pgrouting_resources_latency": "PENDING",
+    "field": "NOT_TESTED"
+  },
+  "limitations": [
+    "Local research algorithm, not deployed routing fallback",
+    "Only exact public OSM graph nodes; no snap or unverified connectors",
+    "Mapped paths do not prove legal/current access, pavement, entrances or winter safety",
+    "Wall/path geometric obstacle intersections without shared OSM nodes are not validated",
+    "Missing routes mean snapshot/model limits, not proven city-wide impossibility"
+  ],
+  "source": {
+    "endpoint": "https://download.geofabrik.de/asia/kazakhstan-latest.osm.pbf",
+    "source_pbf_sha256": "9ad8e895d4703248b97a5d17e883e49dc58549305aa4ba6bd6661d247cb98bdb",
+    "fetched_at": "2026-10-19T21:52:31.3613250Z",
+    "sha256": "e3db0146acb00e261bbbe2c02ec36a330054d87a25b02af7783aa0e386e01c01",
+    "license": "ODbL-1.0",
+    "bbox_south_west_north_east": [
+      51.115,
+      71.4,
+      51.16,
+      71.45
+    ],
+    "source_format": "Geofabrik OSM PBF converted locally; Overpass-shaped JSON is an internal format",
+    "exporter": "osmium==4.3.2",
+    "elements": 36014,
+    "bytes": 4017606,
+    "export_seconds": 369.837,
+    "base_graph_sha256": "63577bba3db3a554974038b09c49fe8effb538cad46121ecd2dc97727f5dfc4f",
+    "linear_barrier_ways": 32,
+    "barrier_export_seconds": 13.709,
+    "barrier_exporter": "augment_barriers.py with osmium==4.3.2"
+  },
+  "source_sha256": "e3db0146acb00e261bbbe2c02ec36a330054d87a25b02af7783aa0e386e01c01",
+  "source_osm_timestamp": null,
+  "attribution": "© OpenStreetMap contributors; ODbL 1.0",
+  "license_url": "https://www.openstreetmap.org/copyright"
+}

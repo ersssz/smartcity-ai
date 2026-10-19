@@ -69,6 +69,14 @@ class IngestionTests(unittest.TestCase):
         self.assertEqual(card["fields"]["name"]["value"], "New name")
         self.assertIsNone(card["fields"]["opening_hours"]["raw"])
 
+    def test_graph_only_barrier_record_without_center_is_quarantined(self):
+        raw = json.dumps({"elements": [{"type": "way", "id": 99, "nodes": [1, 2],
+                         "tags": {"name": "Fixture park fence", "leisure": "park", "barrier": "fence"}}]}).encode()
+        meta = {"sha256": hashlib.sha256(raw).hexdigest(), "fetched_at": "2026-10-20T00:00:00Z", "endpoint": "fixture"}
+        result = normalize(raw, meta, now="2026-10-20T01:00:00Z")
+        self.assertEqual(result["cards"], [])
+        self.assertEqual(result["coverage"]["quarantined_records"][0]["id"], "osm:way/99")
+
 
 if __name__ == "__main__":
     unittest.main()

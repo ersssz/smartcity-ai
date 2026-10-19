@@ -50,7 +50,7 @@ uv run --no-project --python 3.14 --with osmium==4.3.2 python tools/data/augment
 
 python tools/data/ingest_poi.py --raw raw-data/walking-with-barriers.json `
   --metadata raw-data/walking-with-barriers.metadata.json `
-  --as-of 2026-10-19T21:52:31.3613250Z --out data/curated/poi-bayterek-all.json
+  --as-of 2026-10-19T21:52:31.3613250Z --out raw-data/poi-bayterek-all.json
 
 python tools/data/ingest_poi.py --raw raw-data/walking-with-barriers.json `
   --metadata raw-data/walking-with-barriers.metadata.json `
@@ -120,7 +120,62 @@ then passing. Tests use explicitly synthetic source records; live PBF import
 is separately reported. No fixture represents a physical visit or live
 provider acceptance. No paid API is enabled by these tools.
 
-Actual live record counts and derived checksum are in `poi-bayterek.json` and
-the raw export metadata. Gates for lawful current GPS routing, managed
+## Actual frozen result
+
+The delivered sample `data/curated/poi-bayterek.json` has **20** genuinely
+imported located POIs, 51,099 bytes, SHA-256
+`fab677b51b9366cfcd08ff1a2f9cd0ef3b37e73ae1b587474c4df4f20f914849`.
+The larger research catalog is retained only in ignored
+`raw-data/poi-bayterek-all.json`: **247** located cards, 583,520 bytes, SHA-256
+`b66f6ff18112b012a08a742b742cc16f1c1e493784ffd95f55a565a253af4126`.
+Both use the same fixed evaluation instant as acquisition.
+
+The selected source has 36,014 distinct OSM records; repeated exact IDs removed:
+**0**. The conservative nearby-equal-name heuristic found **0** candidate pairs;
+this is not proof that all semantic duplicates have been identified. **6**
+additional named graph-only barrier records lacked a POI point/center and are
+listed as quarantined unknown coordinates rather than counted as located POIs.
+All **247/247** located records have coordinates; **64/247** retain raw hours,
+but **0** have structured/current verified hours or verified outdoor anchors.
+Locale-specific names are present for RU **39**, KK **20**, EN **44** of 247.
+This is no denominator for citywide completeness or guaranteed multilingual
+content. All outdoor-anchor and accessibility fields remain unknown.
+
+| Frozen sample ID | Source name |
+| --- | --- |
+| node/455447676 | Жамбыл |
+| node/2616721347 | памятник Курмангазы |
+| node/4892204728 | Мұстафа Кемал Ататүрік |
+| node/4929123022 | Памятник Шарлю Де Голлю |
+| node/4958412863 | Zur Sultan |
+| node/7684091171 | Н. Ә. Назарбаев |
+| node/11500907369 | Городские часы |
+| node/12893538292 | Асқар Забикулин |
+| node/13333409377 | Махтумкули Фраги |
+| node/13397184827 | Юнус Эмре |
+| way/230401645 | Бәйтерек |
+| node/2388707906 | Астана-Экспо КС |
+| node/4109068593 | Жер-ана (Томирис) |
+| node/4209560711 | Т34-85 |
+| node/10148735979 | Олимпиада сақиналары |
+| node/10168959440 | Ailand |
+| node/13340040665 | Жетігенші |
+| node/13340040666 | Қобызшы |
+| node/13340050452 | Хатико |
+| node/14087643081 | Жылқылар үйірі |
+
+The locally derived base graph is 4,009,619 bytes / 35,983 elements, SHA-256
+`63577bba3db3a554974038b09c49fe8effb538cad46121ecd2dc97727f5dfc4f`;
+export duration **369.837 s**. The mandatory augmented source is 4,017,606 bytes /
+36,014 elements, SHA-256
+`e3db0146acb00e261bbbe2c02ec36a330054d87a25b02af7783aa0e386e01c01`;
+**32** linear barrier ways were retained in **13.709 s**. All 20 sample IDs,
+coordinates, source times and license fields were checked against this actual
+source independently of the synthetic tests. **7/7** ingestion tests passed
+on both CPython 3.12 and 3.14 on this Windows laptop. Python compilation passed.
+
+The sample's coverage object deliberately reports the complete pre-sample
+catalog; `selection.selected_cards=20` distinguishes the actual payload count.
+Gates for lawful current GPS routing, managed
 backend performance/capacity, real generator quality and field entrances remain
 outside this ingestion evidence; none is implicitly accepted by data import.

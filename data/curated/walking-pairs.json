@@ -1,0 +1,18 @@
+{
+  "research_format_version": 1,
+  "mode": "public_osm_snapshot_cases_not_gps_or_field",
+  "source_sha256": "e3db0146acb00e261bbbe2c02ec36a330054d87a25b02af7783aa0e386e01c01",
+  "selection": "Six positive foot legs and four deliberate refusal cases, independently specified from source tags/topology. Bounds are loose technical plausibility checks, not physical measurements. Seruen bridge's north endpoint is a retained complete-way descendant ~105 m north of the selection box; this context is explicitly included.",
+  "pairs": [
+    {"id":"P01","category":"mapped_public_footway_outbound","start_osm_node":4974019359,"end_osm_node":1277445540,"expected_kind":"technical_path","must_use_ways":[112384548],"distance_range_m":[300,1000],"source_urls":["https://www.openstreetmap.org/way/112384548"]},
+    {"id":"P02","category":"return_to_identical_public_origin","start_osm_node":1277445540,"end_osm_node":4974019359,"expected_kind":"technical_path","must_use_ways":[112384548],"distance_range_m":[300,1000],"source_urls":["https://www.openstreetmap.org/way/112384548"]},
+    {"id":"P03","category":"mapped_seruen_pedestrian_bridge","start_osm_node":13397202258,"end_osm_node":10548654990,"expected_kind":"technical_path","must_use_ways":[263517343],"must_avoid_ways":[39362507],"distance_range_m":[100,250],"source_urls":["https://www.openstreetmap.org/way/263517343"]},
+    {"id":"P04","category":"reverse_pedestrian_bridge_direction","start_osm_node":10548654990,"end_osm_node":13397202258,"expected_kind":"technical_path","must_use_ways":[263517343],"must_avoid_ways":[39362507],"distance_range_m":[100,250],"source_urls":["https://www.openstreetmap.org/way/263517343"]},
+    {"id":"P05","category":"mapped_road_crossing","start_osm_node":4107301281,"end_osm_node":13912289523,"expected_kind":"technical_path","must_visit_nodes":[652855975],"must_use_ways":[1412122403,1526421963],"distance_range_m":[1,100],"source_urls":["https://www.openstreetmap.org/node/652855975"]},
+    {"id":"P06","category":"mapped_pedestrian_underpass_layer_minus_one","start_osm_node":4109037044,"end_osm_node":5101439175,"expected_kind":"technical_path","must_use_ways":[409009113],"distance_range_m":[30,200],"source_urls":["https://www.openstreetmap.org/way/409009113"]},
+    {"id":"P07","category":"private_gate_explicit_foot_no_refused","start_osm_node":2388707905,"end_osm_node":4974019359,"expected_kind":"unmatched_endpoint","source_urls":["https://www.openstreetmap.org/node/2388707905"]},
+    {"id":"P08","category":"unknown_lift_gate_not_assumed_open","start_osm_node":2636616232,"end_osm_node":4974019359,"expected_kind":"unmatched_endpoint","source_urls":["https://www.openstreetmap.org/node/2636616232"]},
+    {"id":"P09","category":"bayterek_building_center_is_not_verified_entrance","public_start":[71.4304546,51.12828825],"public_end":[71.4142723,51.1533268],"expected_kind":"clarification","source_urls":["https://www.openstreetmap.org/way/230401645"]},
+    {"id":"P10","category":"public_manual_point_offset_no_connector_no_silent_anchor_change","public_start":[71.4142733,51.1533268],"public_end":[71.4142723,51.1533268],"expected_kind":"clarification","source_urls":["https://www.openstreetmap.org/node/4974019359"]}
+  ]
+}

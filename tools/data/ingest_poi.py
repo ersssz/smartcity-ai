@@ -92,7 +92,7 @@ def normalize(raw_bytes, metadata, *, now):
                                              len(element.get("tags", {})) <= len(old.get("tags", {}))):
                 continue
         elements[key] = element
-    cards = []
+    cards, quarantine = [], []
     for (kind, osm_id), element in sorted(elements.items()):
         tags = element.get("tags", {})
         name = tags.get("name") or tags.get("name:ru") or tags.get("name:kk") or tags.get("name:en")
@@ -101,6 +101,9 @@ def normalize(raw_bytes, metadata, *, now):
             continue
         coords = element if kind == "node" else element.get("center", {})
         lat, lon = coords.get("lat"), coords.get("lon")
+        if lat is None or lon is None:
+            quarantine.append({"id": f"osm:{kind}/{osm_id}", "coordinates": _field(reason="No source point/center; graph-only record not usable as located POI")})
+            continue
         if lat is not None and lon is not None:
             if not (math.isfinite(lat) and math.isfinite(lon) and -90 <= lat <= 90 and -180 <= lon <= 180):
                 raise ValueError("Invalid source coordinate")
@@ -142,6 +145,7 @@ def normalize(raw_bytes, metadata, *, now):
             "coverage": {"zone": "Bayterek research bounding box, Astana", "cards": len(cards),
                          "input_elements": len(document["elements"]), "unique_elements": len(elements),
                          "repeated_osm_ids_removed": duplicates, "possible_semantic_duplicates": possible,
+                         "quarantined_records": quarantine,
                          "coordinate_cards": sum(c["fields"]["coordinates"]["value"] is not None for c in cards),
                          "raw_hours_cards": sum(c["fields"]["opening_hours"]["raw"] is not None for c in cards),
                          "named_by_locale": {locale: sum(locale in c["names"] for c in cards) for locale in ("ru", "kk", "en")},
@@ -160,7 +164,7 @@ def main():
     parser.add_argument("--metadata", type=Path, required=True)
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--as-of", required=True, help="Explicit UTC timestamp for deterministic freshness")
-    parser.add_argument("--limit", type=int, help="Optional frozen sample: landmarks, parks, then other POIs, stable OSM ID order")
+    parser.add_argument("--limit", type=int, help="Optional frozen sample: heritage, visitor attractions, parks, then other POIs; stable OSM ID order")
     args = parser.parse_args()
     result = normalize(args.raw.read_bytes(), json.loads(args.metadata.read_text(encoding="utf-8-sig")), now=args.as_of)
     if args.limit is not None:
@@ -168,12 +172,13 @@ def main():
             parser.error("--limit must be positive")
         def priority(card):
             category = card["fields"]["category"]["value"]
-            return (0 if category.startswith(("tourism:", "historic:")) else 1 if category == "leisure:park" else 2,
+            visitor = {"tourism:museum", "tourism:gallery", "tourism:artwork", "tourism:attraction", "tourism:aquarium", "tourism:theme_park"}
+            return (0 if category.startswith("historic:") else 1 if category in visitor else 2 if category == "leisure:park" else 3,
                     card["osm_type"], card["osm_id"])
         result["cards"] = sorted(result["cards"], key=priority)[:args.limit]
         result["selection"] = {"kind": "frozen_research_sample", "requested": args.limit,
                                "selected_cards": len(result["cards"]),
-                               "rule": "tourism/historic then park then other; stable OSM type and ID order",
+                               "rule": "historic, visitor attractions, park, other; stable OSM type and ID order",
                                "coverage_describes": "complete imported bbox catalog before sampling"}
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
