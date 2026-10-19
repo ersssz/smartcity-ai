@@ -241,3 +241,128 @@ test("an authorization is a detached immutable diagnostic, not a mutable retarge
   assert.equal(Reflect.set(authorization.request, "endpoint", "https://other.invalid/paid"), false);
   assert.equal(Reflect.set(authorization, "automaticFallback", "paid"), false);
 });
+
+test("an accessor cannot replace a validated output-token ceiling with Infinity in the authorization", () => {
+  let reads = 0;
+  const request = {
+    ...TARGET,
+    maxInputTokens: 100,
+    get maxOutputTokens() {
+      reads += 1;
+      return reads <= 3 ? 100 : Infinity;
+    },
+  };
+  const authorization = authorizeProviderRequest(verifiedEvidence(), request, NOW);
+  assert.equal(authorization.authorized, true);
+  if (!authorization.authorized) {
+    assert.fail("Expected the finite snapshot to be authorized");
+  }
+  assert.equal(authorization.request.maxOutputTokens, 100);
+});
+
+test("a stateful endpoint accessor cannot retarget the validated diagnostic or authorized request", () => {
+  function retargetingRequest() {
+    let reads = 0;
+    return {
+      providerId: TARGET.providerId,
+      model: TARGET.model,
+      get endpoint() {
+        reads += 1;
+        return reads <= 3 ? TARGET.endpoint : "https://provider.invalid/v1/paid";
+      },
+      maxInputTokens: 100,
+      maxOutputTokens: 100,
+    };
+  }
+  const decision = evaluateProviderUse(verifiedEvidence(), retargetingRequest(), NOW);
+  assert.equal(decision.allowed, true);
+  if (!decision.allowed) {
+    assert.fail("Expected the concrete initial target to pass");
+  }
+  assert.equal(decision.target.endpoint, "https://provider.invalid/v1/generate");
+
+  const authorization = authorizeProviderRequest(verifiedEvidence(), retargetingRequest(), NOW);
+  assert.equal(authorization.authorized, true);
+  if (!authorization.authorized) {
+    assert.fail("Expected the concrete initial request target to pass");
+  }
+  assert.equal(authorization.request.endpoint, "https://provider.invalid/v1/generate");
+});
+
+test("a changing quota accessor cannot inflate the allowance after validation", () => {
+  function changingQuota() {
+    let reads = 0;
+    return {
+      ...QUOTA,
+      get remainingOutputTokens() {
+        reads += 1;
+        return reads <= 2 ? 50 : Infinity;
+      },
+    };
+  }
+  assert.deepEqual(
+    authorizeProviderRequest(
+      verifiedEvidence({ quota: changingQuota() }),
+      { ...TARGET, maxInputTokens: 100, maxOutputTokens: 100 },
+      NOW,
+    ),
+    { authorized: false, reason: "REQUEST_EXCEEDS_QUOTA" },
+  );
+
+  const decision = evaluateProviderUse(verifiedEvidence({ quota: changingQuota() }), TARGET, NOW);
+  assert.equal(decision.allowed, true);
+  if (!decision.allowed) {
+    assert.fail("Expected the finite initial quota to pass the diagnostic");
+  }
+  assert.equal(decision.quota.remainingOutputTokens, 50);
+});
+
+test("a proof accessor cannot replace the validated evidence identity in the result", () => {
+  let reads = 0;
+  const evidence = Object.defineProperty(verifiedEvidence(), "proofId", {
+    get() {
+      reads += 1;
+      return reads === 1 ? "fictional-checked-record-1" : "";
+    },
+  });
+  const decision = evaluateProviderUse(evidence, TARGET, NOW);
+  assert.equal(decision.allowed, true);
+  if (!decision.allowed) {
+    assert.fail("Expected the initial auditable proof identity to pass");
+  }
+  assert.equal(decision.proofId, "fictional-checked-record-1");
+});
+
+test("throwing accessors fail closed without leaking their errors", () => {
+  const throwingTarget = {
+    ...TARGET,
+    get endpoint(): string { throw new Error("untrusted target accessor"); },
+  };
+  assert.deepEqual(evaluateProviderUse(verifiedEvidence(), throwingTarget, NOW), {
+    allowed: false, reason: "INVALID_TARGET",
+  });
+
+  const throwingProof = Object.defineProperty(verifiedEvidence(), "proofId", {
+    get() { throw new Error("untrusted proof accessor"); },
+  });
+  assert.deepEqual(evaluateProviderUse(throwingProof, TARGET, NOW), {
+    allowed: false, reason: "INVALID_PROOF",
+  });
+
+  const throwingQuota = {
+    ...QUOTA,
+    get remainingRequests(): number { throw new Error("untrusted quota accessor"); },
+  };
+  assert.deepEqual(evaluateProviderUse(verifiedEvidence({ quota: throwingQuota }), TARGET, NOW), {
+    allowed: false, reason: "INVALID_QUOTA",
+  });
+
+  const throwingRequest = {
+    ...TARGET,
+    maxInputTokens: 100,
+    get maxOutputTokens(): number { throw new Error("untrusted ceiling accessor"); },
+  };
+  assert.deepEqual(authorizeProviderRequest(verifiedEvidence(), throwingRequest, NOW), {
+    authorized: false, reason: "INVALID_REQUEST_BUDGET",
+  });
+});

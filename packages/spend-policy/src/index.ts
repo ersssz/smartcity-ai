@@ -62,15 +62,27 @@ export const MAX_PROOF_AGE_MS = 86_400_000;
 export const MAX_QUOTA_AGE_MS = 300_000;
 
 export function evaluateProviderUse(
-  evidence: unknown,
+  evidenceInput: unknown,
   target: ProviderTarget,
   nowMs: number,
 ): ProviderUseDecision {
   if (!isCount(nowMs)) {
     return { allowed: false, reason: "INVALID_CLOCK" };
   }
-  if (!isSpecificTarget(target)) {
+  let targetSnapshot: unknown;
+  try {
+    targetSnapshot = snapshotTarget(target);
+  } catch {
     return { allowed: false, reason: "INVALID_TARGET" };
+  }
+  if (!isSpecificTarget(targetSnapshot)) {
+    return { allowed: false, reason: "INVALID_TARGET" };
+  }
+  let evidence: unknown;
+  try {
+    evidence = snapshotEvidence(evidenceInput);
+  } catch {
+    return { allowed: false, reason: "INVALID_PROOF" };
   }
   if (!isRecord(evidence) || evidence.verification !== "verified") {
     return { allowed: false, reason: "UNVERIFIED_PROVIDER" };
@@ -79,9 +91,9 @@ export function evaluateProviderUse(
     return { allowed: false, reason: "INVALID_PROOF" };
   }
   if (
-    evidence.providerId !== target.providerId ||
-    evidence.endpoint !== target.endpoint ||
-    evidence.model !== target.model
+    evidence.providerId !== targetSnapshot.providerId ||
+    evidence.endpoint !== targetSnapshot.endpoint ||
+    evidence.model !== targetSnapshot.model
   ) {
     return { allowed: false, reason: "TARGET_MISMATCH" };
   }
@@ -100,7 +112,12 @@ export function evaluateProviderUse(
   if (!proofWindow) {
     return { allowed: false, reason: "STALE_PROOF" };
   }
-  const quota = evidence.quota;
+  let quota: unknown;
+  try {
+    quota = snapshotQuota(evidence.quota);
+  } catch {
+    return { allowed: false, reason: "INVALID_QUOTA" };
+  }
   if (
     !isRecord(quota) ||
     !isCount(quota.remainingRequests) ||
@@ -129,7 +146,11 @@ export function evaluateProviderUse(
       quotaWindow.expiresAtMs,
       quotaWindow.observedAtMs + MAX_QUOTA_AGE_MS,
     ),
-    target: Object.freeze({ providerId: target.providerId, endpoint: target.endpoint, model: target.model }),
+    target: Object.freeze({
+      providerId: targetSnapshot.providerId,
+      endpoint: targetSnapshot.endpoint,
+      model: targetSnapshot.model,
+    }),
     quota: Object.freeze({ ...quotaWindow,
       remainingRequests: quota.remainingRequests,
       remainingInputTokens: quota.remainingInputTokens,
@@ -147,12 +168,20 @@ export function authorizeProviderRequest(
   if (!decision.allowed) {
     return { authorized: false, reason: decision.reason };
   }
-  if (!isCount(request.maxInputTokens) || !isCount(request.maxOutputTokens) ||
-    request.maxInputTokens === 0 || request.maxOutputTokens === 0) {
+  let maxInputTokens: unknown;
+  let maxOutputTokens: unknown;
+  try {
+    maxInputTokens = request.maxInputTokens;
+    maxOutputTokens = request.maxOutputTokens;
+  } catch {
     return { authorized: false, reason: "INVALID_REQUEST_BUDGET" };
   }
-  if (request.maxInputTokens > decision.quota.remainingInputTokens ||
-    request.maxOutputTokens > decision.quota.remainingOutputTokens) {
+  if (!isCount(maxInputTokens) || !isCount(maxOutputTokens) ||
+    maxInputTokens === 0 || maxOutputTokens === 0) {
+    return { authorized: false, reason: "INVALID_REQUEST_BUDGET" };
+  }
+  if (maxInputTokens > decision.quota.remainingInputTokens ||
+    maxOutputTokens > decision.quota.remainingOutputTokens) {
     return { authorized: false, reason: "REQUEST_EXCEEDS_QUOTA" };
   }
   return Object.freeze({
@@ -160,8 +189,8 @@ export function authorizeProviderRequest(
     proofId: decision.proofId,
     validUntilMs: decision.validUntilMs,
     request: Object.freeze({ ...decision.target,
-      maxInputTokens: request.maxInputTokens,
-      maxOutputTokens: request.maxOutputTokens,
+      maxInputTokens,
+      maxOutputTokens,
     }),
     automaticFallback: "none",
     maxBillableCostUsd: 0,
@@ -170,6 +199,48 @@ export function authorizeProviderRequest(
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null && !Array.isArray(value);
+}
+
+function snapshotTarget(value: unknown): unknown {
+  if (!isRecord(value)) {
+    return undefined;
+  }
+  return { providerId: value.providerId, endpoint: value.endpoint, model: value.model };
+}
+
+function snapshotEvidence(value: unknown): unknown {
+  if (!isRecord(value)) {
+    return undefined;
+  }
+  return {
+    verification: value.verification,
+    proofId: value.proofId,
+    verificationSource: value.verificationSource,
+    providerId: value.providerId,
+    endpoint: value.endpoint,
+    model: value.model,
+    verifiedAtMs: value.verifiedAtMs,
+    expiresAtMs: value.expiresAtMs,
+    billingMode: value.billingMode,
+    requiresPaymentDetails: value.requiresPaymentDetails,
+    autoTopUpEnabled: value.autoTopUpEnabled,
+    paidFallbackEnabled: value.paidFallbackEnabled,
+    chargeOnQuotaExhaustion: value.chargeOnQuotaExhaustion,
+    quota: value.quota,
+  };
+}
+
+function snapshotQuota(value: unknown): unknown {
+  if (!isRecord(value)) {
+    return undefined;
+  }
+  return {
+    observedAtMs: value.observedAtMs,
+    expiresAtMs: value.expiresAtMs,
+    remainingRequests: value.remainingRequests,
+    remainingInputTokens: value.remainingInputTokens,
+    remainingOutputTokens: value.remainingOutputTokens,
+  };
 }
 
 function isCount(value: unknown): value is number {
