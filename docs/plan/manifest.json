@@ -1,0 +1,201 @@
+{
+  "format_version": 1,
+  "title": "AstanaAI product creation plan",
+  "plan_date": "2026-10-20",
+  "created_at_utc": "2026-10-19T21:36:04.675276+00:00",
+  "hash_algorithm": "SHA-256",
+  "scope": "All package files except manifest.json; this is a plan, not a product build.",
+  "file_count_excluding_manifest": 38,
+  "files": [
+    {
+      "path": "ARCHITECTURE.md",
+      "size_bytes": 60797,
+      "sha256": "17057a9e171da48ce3170739112950c0cdf9ca91747f1d797e0cc3cbe53faa59"
+    },
+    {
+      "path": "checks/validate_plan.py",
+      "size_bytes": 6084,
+      "sha256": "9963068aafbef960480284e4bb2a3db5c5a30be7d89bc3666e98295a83894d42"
+    },
+    {
+      "path": "DECISIONS.md",
+      "size_bytes": 18466,
+      "sha256": "7ebe2fd7c05d44c0b2cc7dd7a0e03ecc64592323758c469bbe0fd22d846be11b"
+    },
+    {
+      "path": "docs/adr/0001-autonomous-walk-package.md",
+      "size_bytes": 865,
+      "sha256": "4758c2878424ad42779d5d11ea9e49b537e93bc9d083832900417896e7e92bb9"
+    },
+    {
+      "path": "docs/adr/0002-local-identity-and-publication.md",
+      "size_bytes": 876,
+      "sha256": "57fface9ae17b3f8112f89366d8b1628733a3fc301c6576839945387f509810f"
+    },
+    {
+      "path": "docs/adr/0003-facts-before-narrative.md",
+      "size_bytes": 920,
+      "sha256": "0962620f1778e38da2e3ab306917f3bae050bdf42d2d690c9d36a5d9753d32a1"
+    },
+    {
+      "path": "EXECUTION.md",
+      "size_bytes": 20224,
+      "sha256": "9b1f88395c36e69b3cc2709da014a7a7924f60a63a34d85e4948b44ab261f45d"
+    },
+    {
+      "path": "GLOSSARY.md",
+      "size_bytes": 13144,
+      "sha256": "08b756eb92b26ea4eb42b32ae41eda4431d98210d38f9f1ccdd1eae98a761f99"
+    },
+    {
+      "path": "PRODUCT-SPEC.md",
+      "size_bytes": 71489,
+      "sha256": "a8d8a45cb0967894d59e8ce487f4c9c73e3eb5fb63fda6826ffa1fdbdc209fee"
+    },
+    {
+      "path": "README.md",
+      "size_bytes": 11420,
+      "sha256": "914033fb01a09d91886749cba6f51d2fc263bddfa20fa813fa495003807fd5e7"
+    },
+    {
+      "path": "RESEARCH.md",
+      "size_bytes": 25082,
+      "sha256": "f3510aa3801c99cdd5e1d7301cd50511c1b47985a499029fe135c2badf5b0808"
+    },
+    {
+      "path": "skills-lock.json",
+      "size_bytes": 30596,
+      "sha256": "8eaa1dc0dca174efb7680203485c27dab9f374c61e736d9e0d79e860587cd303"
+    },
+    {
+      "path": "SKILLS-WORKFLOW.md",
+      "size_bytes": 7904,
+      "sha256": "d61c46f358e2667333e0cfa856fae42c388ce82fc67d3ae24f44cf2800f4ae3e"
+    },
+    {
+      "path": "tasks/t01-native-capability-gate.md",
+      "size_bytes": 6612,
+      "sha256": "bc8b91e7bd56405c02e1ebc1620fc04cb6ff1d1f18667a72b45205c67d56bccd"
+    },
+    {
+      "path": "tasks/t02-city-data-routing-budget-gate.md",
+      "size_bytes": 9186,
+      "sha256": "7e12726e04eb260c11c9a252306c87b86e35d2e392cac416c86e34ea0c09b958"
+    },
+    {
+      "path": "tasks/t03-walkbundle-foundation.md",
+      "size_bytes": 5578,
+      "sha256": "820119c22fb8a4ed315df64cd6fc6f2a71f48da09cf0aaba53e24457c5e29a66"
+    },
+    {
+      "path": "tasks/t04-first-real-walk.md",
+      "size_bytes": 6076,
+      "sha256": "32c7c35a079e77283d561f80679bb681399cf7f5b4f22fc21050abc43f9fec56"
+    },
+    {
+      "path": "tasks/t05-durable-walk-session.md",
+      "size_bytes": 5074,
+      "sha256": "39e558dc9f82dd9c8a97962ac8bc5e934f5ef7e0af01acb42e52da473faa1212"
+    },
+    {
+      "path": "tasks/t06-grounded-rag.md",
+      "size_bytes": 5433,
+      "sha256": "32b80bf827145deea8811638ae03cdb8661d4bd2b2ebdeb72248c968b5e22936"
+    },
+    {
+      "path": "tasks/t07-gps-arrival.md",
+      "size_bytes": 5897,
+      "sha256": "b7e09632e6378f0cda2ebc093f0cfb1968f6570bc4d4b6c584c96ce23b8859b2"
+    },
+    {
+      "path": "tasks/t08-context-feasibility.md",
+      "size_bytes": 5085,
+      "sha256": "756d7aafb8aa31b7f4eabfc8c81ffef716e55d005e537cb0af7f20442e8e2a51"
+    },
+    {
+      "path": "tasks/t09-three-languages-audio.md",
+      "size_bytes": 5195,
+      "sha256": "c614418508abacb4294c8387ede5a53178744e199d5fd9b104ad5477d3ca56e5"
+    },
+    {
+      "path": "tasks/t10-complete-offline-package.md",
+      "size_bytes": 5692,
+      "sha256": "9e3641931b6dc1d8c3540f9d6ebef6c4c55563dd21e6ab8233900b243aa3e1a2"
+    },
+    {
+      "path": "tasks/t11-quests-achievements-collection.md",
+      "size_bytes": 5740,
+      "sha256": "7b980c9a1ea505da3313220035a6017df98d3d613cfe9263203e33ae6c077264"
+    },
+    {
+      "path": "tasks/t12-consented-adaptation.md",
+      "size_bytes": 6361,
+      "sha256": "c125b631269a7d7621a20f7791d51e5a859c30c3a548132d9bb9a79564f8ef5f"
+    },
+    {
+      "path": "tasks/t13-public-collection-control.md",
+      "size_bytes": 6273,
+      "sha256": "851f9428fc35257b901433dfeef65cd0fe491aaab7c24752eceb32c2ee79b6e0"
+    },
+    {
+      "path": "tasks/t14-editorial-first-walk.md",
+      "size_bytes": 5305,
+      "sha256": "553250b178c74b6f8a25a50623efafd6bc60a803b4c7c15b2afaba7fa839865f"
+    },
+    {
+      "path": "tasks/t15-walkable-ux-accessibility.md",
+      "size_bytes": 5393,
+      "sha256": "bbf8b589ba27219ef87dc23257cbdd8b726a79b8996492908d327e7314706eaa"
+    },
+    {
+      "path": "tasks/t16-privacy-and-cost-control.md",
+      "size_bytes": 5151,
+      "sha256": "1e9ae498bba683bbc37af888320cc3c622824a11ef5a20dd1c89a3319ee0babd"
+    },
+    {
+      "path": "tasks/t17-district-coverage.md",
+      "size_bytes": 6434,
+      "sha256": "8e9b465038ed32e21e218d22aa85511bfd8ba352dbbd8ffa94a3ead2869a67e6"
+    },
+    {
+      "path": "tasks/t18-first-beta-acceptance.md",
+      "size_bytes": 7268,
+      "sha256": "238870fa55f06917ca6183a3a987903356fe32b787fb7153dbbed6aa1e4f3dcb"
+    },
+    {
+      "path": "tasks/t19-pilot-feedback.md",
+      "size_bytes": 6009,
+      "sha256": "41b1ff4aa046bda5757713031cb9f6ea457a9fd9871a6f49140a1593eadfa921"
+    },
+    {
+      "path": "tasks/t20-repeat-value.md",
+      "size_bytes": 4924,
+      "sha256": "bef0ef6de18ca29832a2ba927b1353a782c3b3b065911b9707de7f88da97a5ee"
+    },
+    {
+      "path": "tasks/t21-operational-recovery.md",
+      "size_bytes": 5474,
+      "sha256": "42f660e7cee6861f96958569624ff79cc9971c06037f748a0f7f2355dfb9fd0a"
+    },
+    {
+      "path": "tasks/t22-release-and-track-demo.md",
+      "size_bytes": 5984,
+      "sha256": "e722bf7ae3678ca00cb6cd167eecdee447d19bb141ec83503a325eb49e584137"
+    },
+    {
+      "path": "TEAM-WORKFLOW.md",
+      "size_bytes": 24831,
+      "sha256": "8b87167b9d2b7cdc86b192438961ccdec72aa6653a0962359c8e0fb6fcf5e2f1"
+    },
+    {
+      "path": "validation-report.json",
+      "size_bytes": 879,
+      "sha256": "caf3e86ac60636c26c58e5eb1ff89ca7a3306a97e2a95f5f942a1c5fbba39304"
+    },
+    {
+      "path": "VALIDATION.md",
+      "size_bytes": 7960,
+      "sha256": "78eeef8e2ff4c46fbc28d58a01fc0b0d6423cf2547f36273be060c84018dfa58"
+    }
+  ]
+}

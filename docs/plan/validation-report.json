@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "markdown_files": 35,
+  "local_links_checked": 129,
+  "unique_external_source_links": 69,
+  "user_stories": 38,
+  "acceptance_scenarios": 20,
+  "tickets": 22,
+  "direct_dependency_edges": 32,
+  "initial_ready": [
+    "T01",
+    "T02"
+  ],
+  "topological_order": [
+    "T01",
+    "T02",
+    "T03",
+    "T04",
+    "T05",
+    "T06",
+    "T07",
+    "T08",
+    "T09",
+    "T10",
+    "T11",
+    "T12",
+    "T13",
+    "T14",
+    "T15",
+    "T16",
+    "T17",
+    "T18",
+    "T19",
+    "T20",
+    "T21",
+    "T22"
+  ],
+  "implementation_ac_all_unchecked": true,
+  "ticket_ac_total": 145,
+  "reference_coverage": {
+    "US": 38,
+    "AT": 20
+  },
+  "errors": [],
+  "verified_at_utc": "2026-10-19T21:36:04.653884+00:00",
+  "scope": "Plan structure and references only; not application execution or field acceptance."
+}
