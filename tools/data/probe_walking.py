@@ -23,7 +23,11 @@ def probe(document, pairs):
             result = graph.route_points(pair["public_start"], pair["public_end"])
         checks = {"kind": result["kind"] == pair["expected_kind"]}
         if result["kind"] == "technical_path":
-            checks["requested_node_endpoints"] = result["node_ids"][0] == pair["start_osm_node"] and result["node_ids"][-1] == pair["end_osm_node"]
+            if "start_osm_node" in pair:
+                checks["requested_node_endpoints"] = result["node_ids"][0] == pair["start_osm_node"] and result["node_ids"][-1] == pair["end_osm_node"]
+            else:
+                coordinates = result["geometry"]["coordinates"]
+                checks["requested_coordinate_endpoints"] = coordinates[0] == pair["public_start"] and coordinates[-1] == pair["public_end"]
             checks["required_nodes"] = set(pair.get("must_visit_nodes", [])).issubset(result["node_ids"])
             checks["required_ways"] = set(pair.get("must_use_ways", [])).issubset(result["way_ids"])
             checks["forbidden_ways"] = not set(pair.get("must_avoid_ways", [])).intersection(result["way_ids"])

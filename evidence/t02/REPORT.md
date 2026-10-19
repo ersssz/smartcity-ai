@@ -59,7 +59,7 @@ Actual result: probe exit 0, `pairs=10, technical_expectations_met=10`. The 145-
 
 Six positive legs are foot-network paths; four negatives are expected refusals. This is **not** a claim of ten successful full walks. Loose distance ranges and mandatory mapped nodes/ways are technical plausibility checks, not measured field distances. No car route or straight connector is substituted. Per-case local timing is in routing-results.json; it is not managed SQL, hosted-provider or end-to-end planner latency.
 
-Verification: **24/24 tests PASS** on MSYS CPython 3.12.7 and native CPython 3.14.4. `compileall` and `git diff --check` PASS. A CLI regression verifies UTF-8/LF exports so Git transport preserves the documented JSON checksums. Raw PBF/hash checks, real full-source probe and source/card cross-check are separate from synthetic and recorded-replay tests.
+Verification: **25/25 tests PASS** on MSYS CPython 3.12.7 and native CPython 3.14.4. `compileall` and `git diff --check` PASS. A CLI regression verifies UTF-8/LF exports so Git transport preserves the documented JSON checksums. Raw PBF/hash checks, real full-source probe and source/card cross-check are separate from synthetic and recorded-replay tests.
 
 ## Independent agents and review
 
@@ -67,7 +67,17 @@ Verification: **24/24 tests PASS** on MSYS CPython 3.12.7 and native CPython 3.1
 - `/root/provider_evidence`: official routing/offline/budget sources; independent restriction/entrance review found ignored `foot:backward` and ignored linear barrier ways. Root reproduced both failing tests, corrected directional access/shared-node barriers, and added mandatory source enrichment. Re-review passed with the geometric obstacle limitation retained. No false center-as-entrance/current-open claims found.
 - `/root/hours_evidence`: independent venue/tourism schedule-source comparison, season/freshness/unknown limits.
 
-All received the zero-spending, no-secret-search, no-system-change and no-phone constraints. Their reports do not independently accept the complete T02 gate. Early pinned commit `61b68c75d0cf1632f0627f83932ff3e6cfd27b29` Standards review: 0 violations/actionable smells. Spec review: data/probe then pending, no scope creep/implemented-behaviour defect, one premature INGESTION artifact-reference sentence. Actual card delivery resolves that sentence; GPS/managed/offline/account/RAG acceptance is still open. Final data delta review will be recorded once pinned.
+All received the zero-spending, no-secret-search, no-system-change and no-phone constraints. Their reports do not independently accept the complete T02 gate. Early pinned commit `61b68c75d0cf1632f0627f83932ff3e6cfd27b29` Standards review: 0 violations/actionable smells. Spec review: data/probe then pending, no scope creep/implemented-behaviour defect, one premature INGESTION artifact-reference sentence. Actual card delivery resolves that sentence; GPS/managed/offline/account/RAG acceptance is still open. Final code/data delta through `9c01ade5cc15baecd87b943780b309ef8a0a772a` reviewed independently on both axes:
+
+### Standards
+
+`/root/provider_evidence`: 0 documented-standard violations or actionable smells. Canonical Git-byte hashes, unknown entrance/hours labels and existing restriction fixes verified. Reviewer also found a positive-coordinate probe `KeyError`; Root reproduced a failing regression, fixed endpoint checks to distinguish node/coordinate inputs, and reviewer re-ran all 3 probe tests successfully. No remaining finding in that correction.
+
+### Spec
+
+`/root/hours_evidence`: 20 unique source cards independently matched against retained source; six positive foot legs/four honest refusals, 145-record replay limitation and checksum confirmed. No scope creep or new scoped implementation defect. Earlier missing-catalog wording resolved by delivered artifact. Full T02 remains unaccepted: actual-GPS/managed routing, measured offline package and account/RAG experiments are still missing.
+
+Review totals: Standards 0 violations; Spec 0 remaining known scoped defects, with the three full-acceptance groups above explicitly open. This is review-ready evidence, not complete T02 acceptance.
 
 ## Handoff
 

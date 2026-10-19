@@ -179,3 +179,5 @@ catalog; `selection.selected_cards=20` distinguishes the actual payload count.
 Gates for lawful current GPS routing, managed
 backend performance/capacity, real generator quality and field entrances remain
 outside this ingestion evidence; none is implicitly accepted by data import.
+
+Generated JSON uses explicit UTF-8/LF on every platform. Documented curated hashes match committed Git bytes, independently checked after Windows line-ending normalization.
