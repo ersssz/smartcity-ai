@@ -21,7 +21,7 @@ Task base: `cbea535fb7b655e5830ad9a3c46aabfd6d88753f`; branch `codex/t02-city-da
 
 Public source: [Geofabrik Kazakhstan](https://download.geofabrik.de/asia/kazakhstan.html), [OSM licence](https://www.openstreetmap.org/copyright). PBF SHA-256 `9ad8e895d4703248b97a5d17e883e49dc58549305aa4ba6bd6661d247cb98bdb` independently rechecked by Root. Full extraction took 369.837 s plus 13.709 s for 32 linear barrier ways. Augmented source SHA-256 `e3db0146acb00e261bbbe2c02ec36a330054d87a25b02af7783aa0e386e01c01`. The technical graph has 24,356 walk nodes, 5,904 accepted ways and 256 blocked segments. These serialized/local figures do **not** measure PostgreSQL size/indexes or SQL latency.
 
-Root independently checked every delivered card ID/name/coordinate/time/license against the augmented source; 20/20 matched. Sample SHA-256 `fab677b51b9366cfcd08ff1a2f9cd0ef3b37e73ae1b587474c4df4f20f914849`. The coverage object describes the 247-record pre-sample catalog and `selection.selected_cards=20` describes the actual payload. Zero repeated IDs and zero nearby equal-name candidates were found; this heuristic is not proof of exhaustive entity resolution. Six graph-only records without coordinates are quarantined. Critical entrance/accessibility/current-hours remain unknown. See [INGESTION.md](INGESTION.md), [HOURS.md](HOURS.md), [PROVIDERS.md](PROVIDERS.md).
+Root independently checked every delivered card ID/name/coordinate/time/license against the augmented source; 20/20 matched. Sample SHA-256 `8526ee65b745d9eb007ee7cb594af004dc80dd1c0008d7732de372b34d56d033`. The coverage object describes the 247-record pre-sample catalog and `selection.selected_cards=20` describes the actual payload. Zero repeated IDs and zero nearby equal-name candidates were found; this heuristic is not proof of exhaustive entity resolution. Six graph-only records without coordinates are quarantined. Critical entrance/accessibility/current-hours remain unknown. See [INGESTION.md](INGESTION.md), [HOURS.md](HOURS.md), [PROVIDERS.md](PROVIDERS.md).
 
 The research Interface is separate from the Root-owned mobile contract. `WalkingGraph(document).route(start_node_id, end_node_id)` returns a technical path only over mapped node topology. `route_points` requires exact unambiguous mapped public coordinates and otherwise requests clarification. It never draws a connector or silently changes an endpoint. This research CLI is not a production fallback or offline rerouting feature.
 
@@ -42,7 +42,7 @@ python -m tools.data.probe_walking --source raw-data/walking-with-barriers.json 
 python -m tools.data.curate_probe --source raw-data/walking-with-barriers.json --results evidence/t02/routing-results.json --pairs data/curated/walking-pairs.json --output data/curated/walking-probe-replay.json
 ```
 
-Actual result: probe exit 0, `pairs=10, technical_expectations_met=10`. The 145-record, 26,798-byte attributed replay slice contains selected **real recorded source records**, not invented fixtures; alternate topology is removed. Its test needs no network/key/PBF, but it cannot replace the full-source probe or live acceptance. Source/output checksums and mode labels keep these experiments separate.
+Actual result: probe exit 0, `pairs=10, technical_expectations_met=10`. The 145-record, 25,457-byte attributed replay slice contains selected **real recorded source records**, not invented fixtures; alternate topology is removed. Its test needs no network/key/PBF, but it cannot replace the full-source probe or live acceptance. Source/output checksums and mode labels keep these experiments separate.
 
 | Case | Technical result | Distance | Limitation |
 |---|---|---:|---|
@@ -58,6 +58,8 @@ Actual result: probe exit 0, `pairs=10, technical_expectations_met=10`. The 145-
 | P10 public manual point ~0.07 m off-node | PASS: clarification | — | No silent snap, no consent inferred, not a GPS observation |
 
 Six positive legs are foot-network paths; four negatives are expected refusals. This is **not** a claim of ten successful full walks. Loose distance ranges and mandatory mapped nodes/ways are technical plausibility checks, not measured field distances. No car route or straight connector is substituted. Per-case local timing is in routing-results.json; it is not managed SQL, hosted-provider or end-to-end planner latency.
+
+Verification: **24/24 tests PASS** on MSYS CPython 3.12.7 and native CPython 3.14.4. `compileall` and `git diff --check` PASS. A CLI regression verifies UTF-8/LF exports so Git transport preserves the documented JSON checksums. Raw PBF/hash checks, real full-source probe and source/card cross-check are separate from synthetic and recorded-replay tests.
 
 ## Independent agents and review
 

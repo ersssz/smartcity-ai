@@ -2,11 +2,30 @@
 import hashlib
 import json
 import unittest
+from pathlib import Path
+import subprocess
+import sys
+import tempfile
 
 from tools.data.ingest_poi import normalize, resolve_field
 
 
 class IngestionTests(unittest.TestCase):
+    def test_cli_exports_utf8_lf_so_git_transport_preserves_checksums(self):
+        with tempfile.TemporaryDirectory() as directory:
+            folder = Path(directory)
+            raw = json.dumps({"elements": [{"type": "node", "id": 7, "lat": 51.13, "lon": 71.43,
+                "tags": {"name": "Синтетическая карточка", "amenity": "cafe"}}]}).encode()
+            (folder / "raw.json").write_bytes(raw)
+            (folder / "meta.json").write_text(json.dumps({"sha256": hashlib.sha256(raw).hexdigest(),
+                "fetched_at": "2026-10-19T00:00:00Z", "endpoint": "fixture"}), encoding="utf-8")
+            subprocess.run([sys.executable, "-m", "tools.data.ingest_poi", "--raw", str(folder / "raw.json"),
+                "--metadata", str(folder / "meta.json"), "--as-of", "2026-10-20T00:00:00Z", "--out", str(folder / "out.json")],
+                check=True, capture_output=True)
+            output = (folder / "out.json").read_bytes()
+            self.assertNotIn(b"\r\n", output)
+            self.assertIn("Синтетическая карточка".encode("utf-8"), output)
+
     def test_repeated_osm_id_keeps_full_tags_without_claiming_verified_entrance(self):
         raw = json.dumps({"elements": [
             {"type": "node", "id": 7, "lat": 51.13, "lon": 71.43,

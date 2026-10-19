@@ -46,7 +46,7 @@ def main():
               "license_url": results["license_url"],
               "limitations": "Alternate topology removed; replay is NOT live/GPS/field or full-graph acceptance",
               "elements": elements}
-    args.output.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    args.output.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
     print(json.dumps({"retained_source_records": len(elements), "bytes": args.output.stat().st_size}))
 
 

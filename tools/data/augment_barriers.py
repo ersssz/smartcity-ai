@@ -66,7 +66,7 @@ def main():
             "elements": len(augmented["elements"]), "linear_barrier_ways": count,
             "barrier_export_seconds": round(time.monotonic() - started, 3),
             "barrier_exporter": "augment_barriers.py with osmium==4.3.2"}
-    args.out.with_suffix(".metadata.json").write_text(json.dumps(meta, indent=2) + "\n", encoding="utf-8")
+    args.out.with_suffix(".metadata.json").write_text(json.dumps(meta, indent=2) + "\n", encoding="utf-8", newline="\n")
     print(json.dumps(meta, indent=2))
 
 

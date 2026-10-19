@@ -181,7 +181,7 @@ def main():
                                "rule": "historic, visitor attractions, park, other; stable OSM type and ID order",
                                "coverage_describes": "complete imported bbox catalog before sampling"}
     args.out.parent.mkdir(parents=True, exist_ok=True)
-    args.out.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    args.out.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
     print(json.dumps(result["coverage"], ensure_ascii=False, indent=2))
 
 

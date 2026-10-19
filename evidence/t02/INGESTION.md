@@ -59,7 +59,7 @@ python tools/data/ingest_poi.py --raw raw-data/walking-with-barriers.json `
 python -m unittest discover -s tests/data -p test_ingest_poi.py -v
 ```
 
-The moving `latest` URL will change. Reproducing this precise dataset requires
+Generated JSON uses UTF-8 with explicit LF on Windows and other systems; the documented curated-file checksum matches committed Git bytes. The moving `latest` URL will change. Reproducing this precise dataset requires
 the retained PBF with the above SHA-256, not an unverified later download.
 The exporter checks that PBF hash before reading it; the normalizer checks the
 derived JSON hash. The bytes/hash/fetch time/license/PBF lineage are copied to
@@ -123,11 +123,11 @@ provider acceptance. No paid API is enabled by these tools.
 ## Actual frozen result
 
 The delivered sample `data/curated/poi-bayterek.json` has **20** genuinely
-imported located POIs, 51,099 bytes, SHA-256
-`fab677b51b9366cfcd08ff1a2f9cd0ef3b37e73ae1b587474c4df4f20f914849`.
+imported located POIs, 49,525 bytes, SHA-256
+`8526ee65b745d9eb007ee7cb594af004dc80dd1c0008d7732de372b34d56d033`.
 The larger research catalog is retained only in ignored
-`raw-data/poi-bayterek-all.json`: **247** located cards, 583,520 bytes, SHA-256
-`b66f6ff18112b012a08a742b742cc16f1c1e493784ffd95f55a565a253af4126`.
+`raw-data/poi-bayterek-all.json`: **247** located cards, 565,664 bytes, SHA-256
+`51d470e91eb6e4ee74557e1378c0fcb9c0911a8ad54a7f8e11d5daa7724678ec`.
 Both use the same fixed evaluation instant as acquisition.
 
 The selected source has 36,014 distinct OSM records; repeated exact IDs removed:
@@ -171,7 +171,7 @@ export duration **369.837 s**. The mandatory augmented source is 4,017,606 bytes
 `e3db0146acb00e261bbbe2c02ec36a330054d87a25b02af7783aa0e386e01c01`;
 **32** linear barrier ways were retained in **13.709 s**. All 20 sample IDs,
 coordinates, source times and license fields were checked against this actual
-source independently of the synthetic tests. **7/7** ingestion tests passed
+source independently of the synthetic tests. **8/8** ingestion tests passed
 on both CPython 3.12 and 3.14 on this Windows laptop. Python compilation passed.
 
 The sample's coverage object deliberately reports the complete pre-sample

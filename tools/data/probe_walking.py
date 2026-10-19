@@ -68,7 +68,7 @@ def main():
     result["attribution"] = "© OpenStreetMap contributors; ODbL 1.0"
     result["license_url"] = "https://www.openstreetmap.org/copyright"
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    args.output.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
     print(json.dumps({"pairs": len(result["pairs"]), "technical_expectations_met":
                       sum(p["technical_expectation_met"] for p in result["pairs"])}))
     return 0 if all(p["technical_expectation_met"] for p in result["pairs"]) else 1

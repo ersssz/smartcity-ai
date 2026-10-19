@@ -1,7 +1,7 @@
 {
   "format_version": 1,
   "mode": "local_public_osm_graph_probe",
-  "generated_at": "2026-10-19T22:01:29.314081+00:00",
+  "generated_at": "2026-10-19T22:03:13.506970+00:00",
   "graph": {
     "source_ways": 6705,
     "accepted_ways": 5904,
@@ -23,7 +23,7 @@
         "forbidden_ways": true,
         "plausible_distance": true
       },
-      "elapsed_ms": 0.386,
+      "elapsed_ms": 0.36,
       "result": {
         "kind": "technical_path",
         "node_ids": [
@@ -127,7 +127,7 @@
         "forbidden_ways": true,
         "plausible_distance": true
       },
-      "elapsed_ms": 18.45,
+      "elapsed_ms": 21.782,
       "result": {
         "kind": "technical_path",
         "node_ids": [
@@ -319,7 +319,7 @@
         "forbidden_ways": true,
         "plausible_distance": true
       },
-      "elapsed_ms": 0.03,
+      "elapsed_ms": 0.027,
       "result": {
         "kind": "technical_path",
         "node_ids": [
@@ -369,7 +369,7 @@
         "forbidden_ways": true,
         "plausible_distance": true
       },
-      "elapsed_ms": 0.056,
+      "elapsed_ms": 0.054,
       "result": {
         "kind": "technical_path",
         "node_ids": [
@@ -428,7 +428,7 @@
       "checks": {
         "kind": true
       },
-      "elapsed_ms": 0.002,
+      "elapsed_ms": 0.001,
       "result": {
         "kind": "unmatched_endpoint",
         "reason": "exact_mapped_walk_node_required"
@@ -442,7 +442,7 @@
       "checks": {
         "kind": true
       },
-      "elapsed_ms": 25.38,
+      "elapsed_ms": 25.134,
       "result": {
         "kind": "clarification",
         "reason": "choose_start_or_end_no_verified_connector",
@@ -457,7 +457,7 @@
       "checks": {
         "kind": true
       },
-      "elapsed_ms": 44.474,
+      "elapsed_ms": 47.771,
       "result": {
         "kind": "clarification",
         "reason": "choose_start_or_end_no_verified_connector",

@@ -105,7 +105,7 @@ def main():
                 "source_format": "Geofabrik OSM PBF converted locally; Overpass-shaped JSON is an internal format",
                 "exporter": "osmium==4.3.2", "elements": len(result["elements"]),
                 "bytes": len(raw), "export_seconds": round(time.monotonic()-started, 3)}
-    args.out.with_suffix(".metadata.json").write_text(json.dumps(out_meta, indent=2) + "\n", encoding="utf-8")
+    args.out.with_suffix(".metadata.json").write_text(json.dumps(out_meta, indent=2) + "\n", encoding="utf-8", newline="\n")
     print(json.dumps(out_meta, indent=2))
 
 
