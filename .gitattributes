@@ -1,0 +1,6 @@
+* text=auto eol=lf
+docs/plan/** -text
+*.png binary
+*.jpg binary
+*.mp3 binary
+*.zip binary
