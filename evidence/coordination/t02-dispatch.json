@@ -1,0 +1,20 @@
+{
+  "observed_date": "2026-10-20",
+  "task": "T02",
+  "baseline": "cbea535fb7b655e5830ad9a3c46aabfd6d88753f",
+  "bundle_sha256": "67d2afd32669ea7687217677e0ead39063ecbfa96219e4ff32cd4ce6f4c3bf14",
+  "delivery": "Windows-MCP Type followed by visual confirmation of received message",
+  "state": "working",
+  "remote_subagents": [
+    "/root/poi_ingestion",
+    "/root/provider_evidence"
+  ],
+  "evidence": [
+    "remote structured started/working reports received",
+    "fresh remote screenshot shows 2 active subagents"
+  ],
+  "result_accepted": false,
+  "purchases_authorized": false,
+  "paid_api_authorized": false,
+  "physical_phone_available": false
+}
