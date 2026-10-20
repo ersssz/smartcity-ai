@@ -1,0 +1,59 @@
+{
+  "status": "PASS_FRAGMENT_REPLAY_ONLY",
+  "legs": [
+    {
+      "from": "bayterek-outdoor",
+      "to": "nurzhol-outdoor",
+      "meters": 501.915186,
+      "edges": 28
+    },
+    {
+      "from": "nurzhol-outdoor",
+      "to": "round-square-outdoor",
+      "meters": 604.184692,
+      "edges": 34
+    },
+    {
+      "from": "round-square-outdoor",
+      "to": "bayterek-outdoor",
+      "meters": 2117.004562,
+      "edges": 154
+    }
+  ],
+  "directedEdgeTraversals": 216,
+  "distinctUndirectedEdges": 210,
+  "distinctUsedWays": 45,
+  "repeatedExtraMeters": 60.188527,
+  "meters": 3223.10444,
+  "speedAssumptionMps": 1.0,
+  "exactWalkingMinutes": 53.718407336165534,
+  "displayWalkingMinutes": 54,
+  "storyQuestMinutes": 18,
+  "reserveMinutes": 8,
+  "displayTotalMinutes": 80,
+  "budgetMinutes": 80,
+  "field": "OPEN",
+  "actualGpsConnectors": "NOT_CALCULATED",
+  "geometricObstacleIntersectionsWithoutSharedNodes": "NOT_VALIDATED",
+  "anchorContext": {
+    "selectedNode": 3874361286,
+    "circleWay": 384147232,
+    "mappedCircleLayer": "-1",
+    "vehicleBridgeWay": 255969480,
+    "mappedBridgeLayer": "1",
+    "bridgeUsedForRouting": false,
+    "geographicAssociation": "editorial source correspondence, not an OSM name or surveyed coordinate",
+    "physicalGradeAndAccessibility": "OPEN"
+  },
+  "sourceCompleteness": "NOT_PROVEN_WITHOUT_RETAINED_FULL_INPUT",
+  "witnessBarrierWaysRetained": 32,
+  "witnessRelationsRetained": 816,
+  "witnessRecords": 1825,
+  "sourceSha256": "e3db0146acb00e261bbbe2c02ec36a330054d87a25b02af7783aa0e386e01c01",
+  "candidateSha256": "3f700ecf9e4edac484c4dd213ce42c8713cd0970d1dc4d7b612dee0722d9f5d3",
+  "fragmentSha256": "7c71e91aa760e046c7a706ebd68fca4954d71fd457fa7d8c1d7a744fb9e5799b",
+  "contextSha256": "465ded9ff687e66dc1433664341a54228060b5afa648651cf2490b8a026b8442",
+  "candidateHasCrlf": false,
+  "fragmentHasCrlf": false,
+  "contextHasCrlf": false
+}

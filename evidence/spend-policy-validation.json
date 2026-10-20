@@ -1,0 +1,17 @@
+{
+  "date_local": "2026-10-20",
+  "reviewed_commit": "ed070147efca4dbbca4ec296789f68561a38c26d",
+  "baseline": "cbea535fb7b655e5830ad9a3c46aabfd6d88753f",
+  "runtime": "Node 22.22.2",
+  "root_independent_checks": {
+    "behavior_tests": {"command": "node --experimental-strip-types --test test/spend-policy.test.ts", "cwd": "packages/spend-policy", "passed": 22, "failed": 0, "exit_code": 0},
+    "source_typecheck": {"command": "node ../../apps/mobile/node_modules/typescript/bin/tsc --noEmit --strict --target es2022 --module nodenext --moduleResolution nodenext src/index.ts", "cwd": "packages/spend-policy", "exit_code": 0}
+  },
+  "reviews": {
+    "standards": {"agent": "spend_standards_review", "commit": "08fe07eff7ea2deca6d24097f1ef47ae8ab171d5", "findings": 0},
+    "spec": {"agent": "delegation_design", "initial_findings": 1, "remaining_findings": 0, "fix_commit": "ed070147efca4dbbca4ec296789f68561a38c26d", "repro": "A stateful getter replaced a checked token ceiling with Infinity; scalar snapshots now bind validation and descriptor. Independent original repro plus 24 single-read guards passed."}
+  },
+  "live_provider_verified": false,
+  "paid_calls": 0,
+  "limitations": ["Diagnostic descriptor only", "Caller must supply actually verified evidence", "No atomic quota reservation", "No provider adapter or credentials loaded"]
+}

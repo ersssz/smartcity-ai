@@ -1,0 +1,19 @@
+{
+  "name": "@astanaai/contracts",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": { "types": "./src/index.ts", "react-native": "./dist/index.js", "import": "./dist/index.js" },
+  "scripts": {
+    "test": "node --test test/*.test.cjs",
+    "artifacts": "node scripts/generate-artifacts.cjs",
+    "check:artifacts": "node scripts/generate-artifacts.cjs --check",
+    "typecheck": "node ../../apps/mobile/node_modules/typescript/bin/tsc --noEmit --strict --noUncheckedIndexedAccess --target es2022 --module nodenext --moduleResolution nodenext src/index.ts"
+  },
+  "dependencies": {
+    "zod": "3.25.76"
+  },
+  "devDependencies": {
+    "zod-to-json-schema": "3.25.2"
+  }
+}

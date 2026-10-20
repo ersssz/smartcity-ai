@@ -1,0 +1,12 @@
+{
+  "name": "astanaai",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "workspaces": ["packages/*"],
+  "scripts": {
+    "build:node": "node scripts/build-node.cjs",
+    "test:node-runtime": "node --experimental-sqlite --test tests/runtime/*.test.mjs"
+  },
+  "dependencies": { "zod": "3.25.76" }
+}

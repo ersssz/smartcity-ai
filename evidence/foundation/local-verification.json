@@ -1,0 +1,32 @@
+{
+  "evaluatedAt": "2026-10-20T13:31:50Z",
+  "baseCommit": "2be738f1c815b746334dfb9125148d897cbfc85b",
+  "scope": "Canonical contract and local audio build foundation; not full T03 or beta acceptance",
+  "platform": "Windows, PowerShell, Node 22.22.2, Python 3.12.14, existing mobile TypeScript 6.0.3",
+  "command": "./scripts/verify-local.ps1 -PythonPath <bundled-python> -NodePath <node22>",
+  "exitCode": 0,
+  "log": "local-checks.txt",
+  "checks": {
+    "dataAndRealSourceReplay": 25,
+    "noChargePolicy": 22,
+    "canonicalBundleAndParentRevision": 46,
+    "audioInputAndModelIntegrity": 12,
+    "mobileLifecycleSimulatedOS": 10,
+    "editorialProgressRealSQLiteAndPriorityStop": 23,
+    "cityGuideAndPreferences": 3,
+    "syntheticGeometryEdges": 5,
+    "totalTests": 146,
+    "strictTypeScriptTargets": 3,
+    "generatedSchemaAndFixtures": "pass",
+    "catalogMalformedInputSelfTest": "pass; not added to test count"
+  },
+  "limitations": [
+    "Canonical bundle fixtures and regression edge cases are synthetic, clearly marked CC0.",
+    "The actual-file asset test uses synthetic bytes and does not prove audio decoding or offline map rendering.",
+    "Source topology/current connectors, claim entailment and live RAG require their actual adapters.",
+    "Consent is derived for an unapplied proposal; durable Session acceptance/CAS is not implemented by contracts.",
+    "No mobile canonical-bundle migration, new APK, native pack/player, hosted provider, field, human-language or pilot acceptance occurred in this checkpoint.",
+    "Friend Codex dispatch and two active subagents were observed through Windows-MCP; its data deliverables were not accepted here.",
+    "No paid API, purchase, billing, account creation or deployment was used."
+  ]
+}

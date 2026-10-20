@@ -1,0 +1,87 @@
+{
+  "task": "T04-first-walk-routing",
+  "checks": {
+    "committedBytes": "7/7 files match working bytes, LF",
+    "bundleVerify": "PASS, one branch, base prerequisite",
+    "deterministicGeneration": "3/3 exported JSON exact bytes match",
+    "fullSource": "216/216 directed traversals PASS",
+    "independentReview": "No remaining blocking technical finding",
+    "witnessOnly": "216/216 PASS_FRAGMENT_REPLAY_ONLY",
+    "dataTests": "25/25 PASS CPython 3.12.7",
+    "reviewerSensitivity": "10 in-memory mutation checks rejected"
+  },
+  "pending": [
+    "field/current access/entrances/visibility/accessibility/physical grade",
+    "actual GPS approach and return connectors NOT_CALCULATED",
+    "wall/path geometric intersections without shared OSM node NOT_VALIDATED",
+    "witness-only replay cannot independently prove full-source completeness"
+  ],
+  "clean": true,
+  "bundle": {
+    "bytes": 58605,
+    "sha256": "dbcb22c8cf0b764adec2cc8094a5a321286aa3244884fab7895fb7bd642846ca",
+    "onlyRef": "refs/heads/codex/t04-first-walk-routing",
+    "requiredBase": "9859ba9aecc9622d12eb7ec2e3bd6421c447d475",
+    "receipt": {
+      "ok": true,
+      "file": "result-20261020T092404.913633Z-dbcb22c8cf0b764adec2cc8094a5a321286aa3244884fab7895fb7bd642846ca-5678e723165d4776b861cc6812ffe416.bundle",
+      "bytes": 58605,
+      "sha256": "dbcb22c8cf0b764adec2cc8094a5a321286aa3244884fab7895fb7bd642846ca",
+      "received_at_utc": "20261020T092404.913633Z"
+    }
+  },
+  "artifacts": {
+    "pbfSha256": "9ad8e895d4703248b97a5d17e883e49dc58549305aa4ba6bd6661d247cb98bdb",
+    "snapshotSha256": "e3db0146acb00e261bbbe2c02ec36a330054d87a25b02af7783aa0e386e01c01",
+    "candidateSha256": "3f700ecf9e4edac484c4dd213ce42c8713cd0970d1dc4d7b612dee0722d9f5d3",
+    "graphWitnessSha256": "7c71e91aa760e046c7a706ebd68fca4954d71fd457fa7d8c1d7a744fb9e5799b",
+    "locatorContextSha256": "465ded9ff687e66dc1433664341a54228060b5afa648651cf2490b8a026b8442"
+  },
+  "route": {
+    "displayTotalMinutes": 80,
+    "sourceWayCount": 45,
+    "endRule": "return_to_start",
+    "reserveMinutes": 8,
+    "nodeIds": [
+      14080470212,
+      14086334441,
+      3874361286
+    ],
+    "storyQuestMinutes": 18,
+    "repeatedTraversalMeters": 60.188527,
+    "budgetMinutes": 80,
+    "exactWalkingMinutes": 53.718407336165534,
+    "exactTotalMinutes": 79.71840733616554,
+    "fieldVerified": false,
+    "walkingPaceMetersPerMinute": 60,
+    "distanceMeters": 3223.10444,
+    "keys": [
+      "baiterek",
+      "nurzhol",
+      "round-square"
+    ]
+  },
+  "preserved": [
+    "Original PBF retained and rehashed",
+    "Original T02 branch 0ea6f8f93bef07e7a16406143eecd7d069411989 and clean clone preserved"
+  ],
+  "files": [
+    "data/first-walk/route-candidate.json",
+    "evidence/first-walk/routing-build.md",
+    "evidence/first-walk/routing-check.py",
+    "evidence/first-walk/routing-review.md",
+    "evidence/first-walk/routing-source.json",
+    "evidence/first-walk/routing-source-context.json",
+    "tools/data/first_walk_export.py"
+  ],
+  "scope": "First public-anchor walking route candidate, not full T04/field acceptance",
+  "state": "review_ready",
+  "agentIds": [
+    "/root/poi_ingestion",
+    "/root/provider_evidence"
+  ],
+  "branch": "codex/t04-first-walk-routing",
+  "base": "9859ba9aecc9622d12eb7ec2e3bd6421c447d475",
+  "handoff": "See evidence/first-walk/routing-review.md for full-source and hash-pinned witness-only CLI. Old dispatch was not executed.",
+  "head": "59e50d9a4e857cf14af0fe2b4a90bed2f3f2f022"
+}

@@ -1,0 +1,54 @@
+TAP version 13
+# Subtest: the app opens the actual six-district guide with linked evidence in all three languages
+ok 1 - the app opens the actual six-district guide with linked evidence in all three languages
+  ---
+  duration_ms: 2.2104
+  type: 'test'
+  ...
+# (node:14940) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: the city viewing marker persists after reopening the local store
+ok 2 - the city viewing marker persists after reopening the local store
+  ---
+  duration_ms: 16.0655
+  type: 'test'
+  ...
+# Subtest: a failed finish remains unseen and can be retried without losing the preference store
+ok 3 - a failed finish remains unseen and can be retried without losing the preference store
+  ---
+  duration_ms: 1.4971
+  type: 'test'
+  ...
+# Subtest: Stop immediately cancels native and audio while a permission/save operation is still pending, then durably pauses
+ok 4 - Stop immediately cancels native and audio while a permission/save operation is still pending, then durably pauses
+  ---
+  duration_ms: 2.765
+  type: 'test'
+  ...
+# Subtest: cleanup failure cannot suppress the other cleanup or durable pause after the pending operation
+ok 5 - cleanup failure cannot suppress the other cleanup or durable pause after the pending operation
+  ---
+  duration_ms: 0.8218
+  type: 'test'
+  ...
+# Subtest: a rejected pending operation still pauses after both cleanup promises settle
+ok 6 - a rejected pending operation still pauses after both cleanup promises settle
+  ---
+  duration_ms: 0.5971
+  type: 'test'
+  ...
+# Subtest: durable pause failure rejects Stop instead of reporting successful cleanup as saved progress
+ok 7 - durable pause failure rejects Stop instead of reporting successful cleanup as saved progress
+  ---
+  duration_ms: 1.4798
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 833.8111

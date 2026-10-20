@@ -1,0 +1,9 @@
+{
+  "tests": 272,
+  "failed": 0,
+  "skipped": 0,
+  "sourceCommit": "28a18fdd91fa08fa6f42a02b3833943bfff3bb94",
+  "logSha256": "8bc8b7493e20390dafab0faac4da2001e539cfd40d5c33a9b41c42a499a51904",
+  "scope": "source-local; not device or field acceptance",
+  "types": "PASS"
+}

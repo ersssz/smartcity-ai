@@ -1,0 +1,447 @@
+{
+  "checkedAtUtc": "2026-10-20T14:18:30.920987+00:00",
+  "kind": "actual-delivery-root-independent-media-check",
+  "manifestSha256": "f4f0e5c4d5ec40316c01fcad554942f561c563c133ad1d72d1ca053e15ba58c6",
+  "entries": 54,
+  "bytes": 9793210,
+  "durationSecondsAcrossLocales": 1219.171281,
+  "files": [
+    {
+      "id": "chapter:bayterek-outdoor:ru",
+      "locale": "ru",
+      "bytes": 752109,
+      "sha256": "b78a7645a8f376d9ec9734136beeb7791b582b9d0ba816b7360b856e15ef6424",
+      "durationSeconds": 93.935,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "chapter:nurzhol-outdoor:ru",
+      "locale": "ru",
+      "bytes": 766125,
+      "sha256": "f5f60024e2c9d538185e9840b486dc237712f811b018dea152a4b27d6155b4b9",
+      "durationSeconds": 95.685,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "chapter:round-square-outdoor:ru",
+      "locale": "ru",
+      "bytes": 773037,
+      "sha256": "8a9becab04088e571bac5e651495a3f23ce3617ef338b7c5b381639744eae7b2",
+      "durationSeconds": 96.53,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "quest-tree:question:ru",
+      "locale": "ru",
+      "bytes": 64365,
+      "sha256": "290a56bf0868a27e0b1ce200aa1e9bcd132e2cb84ab49ad819e6c500f64bf7db",
+      "durationSeconds": 7.945958,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "quest-tree:hint:ru",
+      "locale": "ru",
+      "bytes": 52269,
+      "sha256": "3ef240cfc13fc151548738d9222b6f97129bd67cefb008da5f5b1ec0b34998ac",
+      "durationSeconds": 6.45,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "quest-tree:explanation:ru",
+      "locale": "ru",
+      "bytes": 80493,
+      "sha256": "bfaa886f816a8ce977a8fd2de63e181c6e58d8bcbdc601d61daff93f440a98b3",
+      "durationSeconds": 9.97,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "quest-line:question:ru",
+      "locale": "ru",
+      "bytes": 91245,
+      "sha256": "8cc3f442fdea1c78b9f34dd5257fba61d339767a869edce293d696be958396a1",
+      "durationSeconds": 11.325,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "quest-line:hint:ru",
+      "locale": "ru",
+      "bytes": 38445,
+      "sha256": "d9e86da324f13beb5d4c870477f168b3711045704d16e5dcbaab2679a834c7ae",
+      "durationSeconds": 4.72,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "quest-line:explanation:ru",
+      "locale": "ru",
+      "bytes": 74925,
+      "sha256": "31778bb5708249bf24f579f996213f58a17ae9ddc80e33772324048605d5b975",
+      "durationSeconds": 9.27,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "quest-circle:question:ru",
+      "locale": "ru",
+      "bytes": 95469,
+      "sha256": "0a075aa2cc4eb952419634c7a86f32a9123667d284194b1497677f7e7e6788a2",
+      "durationSeconds": 11.84,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "quest-circle:hint:ru",
+      "locale": "ru",
+      "bytes": 37677,
+      "sha256": "193ca035a47959055410adff96de2f2f7e8a4334d7ba17b9f34b8e992b342ba8",
+      "durationSeconds": 4.63,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "quest-circle:explanation:ru",
+      "locale": "ru",
+      "bytes": 84909,
+      "sha256": "9e9bfec883a3efb1cd3424789d7710f167a97e05f79f6c5d19ba3f649ba6dd95",
+      "durationSeconds": 10.515,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "cue:start:ru",
+      "locale": "ru",
+      "bytes": 11373,
+      "sha256": "c72a24269d33db07120e81d411a31164c7598018596cd57ad07b413699311bf7",
+      "durationSeconds": 1.325,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "cue:nearby:ru",
+      "locale": "ru",
+      "bytes": 12333,
+      "sha256": "4961f0b810935d65c687bc20ab659dfa1951d1373b790480a74bae12b8c894a3",
+      "durationSeconds": 1.46,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "cue:pause:ru",
+      "locale": "ru",
+      "bytes": 13101,
+      "sha256": "aa8b1c93dbad4fb90b3235a4e4c1b2cce01a908b89a9c880ed006f4ca9b5c622",
+      "durationSeconds": 1.555,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "cue:resume:ru",
+      "locale": "ru",
+      "bytes": 12525,
+      "sha256": "624b0ae5e56c95907127e5662c57b4076ac9b6c3ba1379a5094cf9576fa657bb",
+      "durationSeconds": 1.465958,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "cue:complete:ru",
+      "locale": "ru",
+      "bytes": 174765,
+      "sha256": "8b28cea28056f2505a1ba7ed23a3d1b7cf524261db036248398d70662c6cd606",
+      "durationSeconds": 21.755,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "cue:abandon:ru",
+      "locale": "ru",
+      "bytes": 16365,
+      "sha256": "c607ab4205fddb7442b3fa11c1ada27ba15aaab9802034bf781c905395353a1d",
+      "durationSeconds": 1.955,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "chapter:bayterek-outdoor:kk",
+      "locale": "kk",
+      "bytes": 793957,
+      "sha256": "f5750cad929195cb3b37ed5b98067dc5f5eaf0ab84f4913bf715fd525ffae4fd",
+      "durationSeconds": 99.160816,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "chapter:nurzhol-outdoor:kk",
+      "locale": "kk",
+      "bytes": 778910,
+      "sha256": "d5f416cf7c22c54da0867fb41eac4d9913c45d17aa423d1ea63d07b0ae132a56",
+      "durationSeconds": 97.28,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "chapter:round-square-outdoor:kk",
+      "locale": "kk",
+      "bytes": 758013,
+      "sha256": "3a4a81fbb661a747b9563c74e362524ba328b9fb57d1ec839041180b48a338ea",
+      "durationSeconds": 94.667755,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "quest-tree:question:kk",
+      "locale": "kk",
+      "bytes": 62528,
+      "sha256": "f46b0cb0ffd1b44a203a36a9c678f80db1af1976d3f5027ae1843026b46517fe",
+      "durationSeconds": 7.720635,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "quest-tree:hint:kk",
+      "locale": "kk",
+      "bytes": 53124,
+      "sha256": "3f8c0ae1e5325a05952c43745333534977471ee5c7b0190527fa7a9a490cc42b",
+      "durationSeconds": 6.548027,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "quest-tree:explanation:kk",
+      "locale": "kk",
+      "bytes": 97637,
+      "sha256": "4902b61b32f95d3ead4310d484f06d12392357124805ed85ea2c900cb1fa9cee",
+      "durationSeconds": 12.109206,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "quest-line:question:kk",
+      "locale": "kk",
+      "bytes": 95965,
+      "sha256": "266add590b435d4ffebcf573bf4eda51312b50c2f45f916cd66a05f6d6f13ebc",
+      "durationSeconds": 11.888617,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "quest-line:hint:kk",
+      "locale": "kk",
+      "bytes": 42048,
+      "sha256": "0cee3598b4eb7f9435cb0fdafe45cb895b324a3460297f3a0d82c2eb9dadd83b",
+      "durationSeconds": 5.16644,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "quest-line:explanation:kk",
+      "locale": "kk",
+      "bytes": 72768,
+      "sha256": "27b363f1b90580fa290091a3c53175651c6d0f65c8cfd8af4cb88664e75b14dc",
+      "durationSeconds": 9.009342,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "quest-circle:question:kk",
+      "locale": "kk",
+      "bytes": 105578,
+      "sha256": "8b6f6bef0a28db3cdc74fb6f3bb8015ab6a8d4cff8ef419925671e3a54dae567",
+      "durationSeconds": 13.107664,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "quest-circle:hint:kk",
+      "locale": "kk",
+      "bytes": 37660,
+      "sha256": "d19e2f253614ffad6d08bc9b0abd1b597992bd6db969b683c891b47b794adb90",
+      "durationSeconds": 4.620771,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "quest-circle:explanation:kk",
+      "locale": "kk",
+      "bytes": 101817,
+      "sha256": "376cf1d78a82e6634b37aa280f1a9eabef6b1642ea79e0d59a20cbf15488bae8",
+      "durationSeconds": 12.643265,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "cue:start:kk",
+      "locale": "kk",
+      "bytes": 12164,
+      "sha256": "80f9b1dcb4063dd6ece36118fee3a6a59169892669aaca9c76e4ec3047b1e68c",
+      "durationSeconds": 1.416417,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "cue:nearby:kk",
+      "locale": "kk",
+      "bytes": 15926,
+      "sha256": "7b303137a8f45dda3f1e54bc9990b741a0ce6f7f957d930cfe39788e53bc30e2",
+      "durationSeconds": 1.892426,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "cue:pause:kk",
+      "locale": "kk",
+      "bytes": 14672,
+      "sha256": "9b88748e6506138ef7fbd4d2d7e76186dd51e2f1188dcdef676eb1bb9a990f01",
+      "durationSeconds": 1.741497,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "cue:resume:kk",
+      "locale": "kk",
+      "bytes": 14254,
+      "sha256": "286fb9b7b6eb5aefefc2d57e5f8f74dd3fa3cbf6ed772264cf03ef5592d10ccc",
+      "durationSeconds": 1.683447,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "cue:complete:kk",
+      "locale": "kk",
+      "bytes": 205679,
+      "sha256": "3b22454178e66d51b62e3d2be8163d39fe8051631d139cc79544f3c3ee86151f",
+      "durationSeconds": 25.61161,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "cue:abandon:kk",
+      "locale": "kk",
+      "bytes": 19270,
+      "sha256": "a8567f810c667f5f13c4435ffed4a35b995ba2dce604f228339486c774db7e84",
+      "durationSeconds": 2.310385,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "chapter:bayterek-outdoor:en",
+      "locale": "en",
+      "bytes": 822587,
+      "sha256": "c7e65f207f054d427fa31f7cb6c75512a6bbcd22f8490b2494ff8425112b2e5f",
+      "durationSeconds": 102.725079,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "chapter:nurzhol-outdoor:en",
+      "locale": "en",
+      "bytes": 851217,
+      "sha256": "a0a6a6ab4148edfb23e1659f87a907b635d12d8c86e3103baec3b94a4ae8f360",
+      "durationSeconds": 106.300952,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "chapter:round-square-outdoor:en",
+      "locale": "en",
+      "bytes": 772014,
+      "sha256": "8cfa75daa3561b7b373913644a926f54857b7c9ca840771d4fe7c37c3edcb529",
+      "durationSeconds": 96.409252,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "quest-tree:question:en",
+      "locale": "en",
+      "bytes": 71724,
+      "sha256": "f61ab38741d02c07d284a0a9f67f3782ac5fe3c8728b230848e67bd44c3aa4fe",
+      "durationSeconds": 8.881633,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "quest-tree:hint:en",
+      "locale": "en",
+      "bytes": 50199,
+      "sha256": "2ef97b38404a31c33f096f3f76d39a4b6c833da65c77df6535254579a3494f81",
+      "durationSeconds": 6.176508,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "quest-tree:explanation:en",
+      "locale": "en",
+      "bytes": 86770,
+      "sha256": "4a25daac41b823c3bacbe052c6dca432a74e1e97cbc3d865da3860de83bd0f48",
+      "durationSeconds": 10.750839,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "quest-line:question:en",
+      "locale": "en",
+      "bytes": 114146,
+      "sha256": "7e1002d37383baa7c8d5731df0ee5d4802abe5aac929508124631fa96b55d0cf",
+      "durationSeconds": 14.175782,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "quest-line:hint:en",
+      "locale": "en",
+      "bytes": 48945,
+      "sha256": "cc3a56e95810d6f6453d0e468f928043067115b93e54d9d43d2cdce85df7d1d6",
+      "durationSeconds": 6.013968,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "quest-line:explanation:en",
+      "locale": "en",
+      "bytes": 95338,
+      "sha256": "689436e160b55123c0ad9e6d956f24c31f5420beccf6f6140c30dcd8741cba1a",
+      "durationSeconds": 11.830567,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "quest-circle:question:en",
+      "locale": "en",
+      "bytes": 94920,
+      "sha256": "c132b03e2b2ba29f9ac4178626b396b41aef193ff192b874b27f9e9bce8ad255",
+      "durationSeconds": 11.772517,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "quest-circle:hint:en",
+      "locale": "en",
+      "bytes": 34316,
+      "sha256": "aa51f2a03d1f7cc4caf79ec0a5e5e1b042ef09498b9071ceb976dbe9baa922d6",
+      "durationSeconds": 4.202812,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "quest-circle:explanation:en",
+      "locale": "en",
+      "bytes": 82799,
+      "sha256": "f34b6fe599eb8e0170e259ecaecd015408f93630e5a59bef703cc13a21e14b45",
+      "durationSeconds": 10.26322,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "cue:start:en",
+      "locale": "en",
+      "bytes": 10701,
+      "sha256": "48a8ac16cb3daade338a796ae3a7adf089b4b5051c170c817bfa56dc9a2f242c",
+      "durationSeconds": 1.242268,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "cue:nearby:en",
+      "locale": "en",
+      "bytes": 10701,
+      "sha256": "d1e4e15fca0f9172d92defa76f80fb36bc6cd267a5066ee26830735f452a4d69",
+      "durationSeconds": 1.230658,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "cue:pause:en",
+      "locale": "en",
+      "bytes": 9030,
+      "sha256": "de1d0e0292b436536ff389a2bdce1cf44e577371c8ebf684e56267af2ad1e7dd",
+      "durationSeconds": 1.021678,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "cue:resume:en",
+      "locale": "en",
+      "bytes": 10701,
+      "sha256": "c20853215cf0ba37f62b5720067add4c27790dda46244af97069bb5478f8d077",
+      "durationSeconds": 1.230658,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "cue:complete:en",
+      "locale": "en",
+      "bytes": 182901,
+      "sha256": "8f286a8cde9102fd9e977b70011f615ee4b950fb63e6489d3ab76e159b088521",
+      "durationSeconds": 22.778776,
+      "mp3Decode": "PASS"
+    },
+    {
+      "id": "cue:abandon:en",
+      "locale": "en",
+      "bytes": 10701,
+      "sha256": "d4637c0a5df64d1fe0b0f7ca7d431308faffac9ed4806305369a013bf8295c8e",
+      "durationSeconds": 1.253878,
+      "mp3Decode": "PASS"
+    }
+  ],
+  "limits": [
+    "MP3 bytes/codec/duration verified; no human listening/pronunciation review",
+    "No phone playback/audio focus or full offline-map acceptance",
+    "Generator provenance and text binding are recorded separately"
+  ]
+}

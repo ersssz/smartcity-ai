@@ -1,0 +1,22 @@
+{
+  "result": "PASS_BOUNDED_PREPARED_CATALOG",
+  "directedTraversalsIndependentlyMatched": 216,
+  "catalogGeometryUnchanged": true,
+  "method": "Root reconstructed existing WalkingGraph from hash-pinned witness, compared every ordered raw edge and final catalog coordinate",
+  "graphStats": {
+    "source_ways": 77,
+    "accepted_ways": 45,
+    "excluded_ways": 32,
+    "blocked_segments": 0
+  },
+  "catalogSha256": "4c361722fd6eefc31488431ca84e8bf9fe17fa09b83d193256381512ba86422b",
+  "fullSnapshotCompleteness": "not independently proven on main laptop; retained source/PBF reviewed on friend laptop",
+  "fieldVerified": false,
+  "canonicalBackendPoiIdentity": false,
+  "preparedAnchorNamespace": "prepared-anchor:osm-node:",
+  "limitations": [
+    "No current personal GPS connector",
+    "No field access, elevation or geometric obstacle intersection acceptance",
+    "Online base map, system TTS offline unverified, KK/EN human review pending"
+  ]
+}

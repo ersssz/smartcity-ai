@@ -1,0 +1,1574 @@
+{
+  "research_format_version": 1,
+  "evaluated_at": "2026-10-19T21:52:31.3613250Z",
+  "source": {
+    "endpoint": "https://download.geofabrik.de/asia/kazakhstan-latest.osm.pbf",
+    "source_pbf_sha256": "9ad8e895d4703248b97a5d17e883e49dc58549305aa4ba6bd6661d247cb98bdb",
+    "fetched_at": "2026-10-19T21:52:31.3613250Z",
+    "sha256": "e3db0146acb00e261bbbe2c02ec36a330054d87a25b02af7783aa0e386e01c01",
+    "license": "ODbL-1.0",
+    "bbox_south_west_north_east": [
+      51.115,
+      71.4,
+      51.16,
+      71.45
+    ],
+    "source_format": "Geofabrik OSM PBF converted locally; Overpass-shaped JSON is an internal format",
+    "exporter": "osmium==4.3.2",
+    "elements": 36014,
+    "bytes": 4017606,
+    "export_seconds": 369.837,
+    "base_graph_sha256": "63577bba3db3a554974038b09c49fe8effb538cad46121ecd2dc97727f5dfc4f",
+    "linear_barrier_ways": 32,
+    "barrier_export_seconds": 13.709,
+    "barrier_exporter": "augment_barriers.py with osmium==4.3.2"
+  },
+  "license": "ODbL-1.0",
+  "attribution": "© OpenStreetMap contributors",
+  "attribution_url": "https://www.openstreetmap.org/copyright",
+  "coverage": {
+    "zone": "Bayterek research bounding box, Astana",
+    "cards": 247,
+    "input_elements": 36014,
+    "unique_elements": 36014,
+    "repeated_osm_ids_removed": 0,
+    "possible_semantic_duplicates": [],
+    "quarantined_records": [
+      {
+        "id": "osm:way/258126538",
+        "coordinates": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [],
+          "reason": "No source point/center; graph-only record not usable as located POI"
+        }
+      },
+      {
+        "id": "osm:way/258761318",
+        "coordinates": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [],
+          "reason": "No source point/center; graph-only record not usable as located POI"
+        }
+      },
+      {
+        "id": "osm:way/258797368",
+        "coordinates": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [],
+          "reason": "No source point/center; graph-only record not usable as located POI"
+        }
+      },
+      {
+        "id": "osm:way/261515251",
+        "coordinates": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [],
+          "reason": "No source point/center; graph-only record not usable as located POI"
+        }
+      },
+      {
+        "id": "osm:way/424894690",
+        "coordinates": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [],
+          "reason": "No source point/center; graph-only record not usable as located POI"
+        }
+      },
+      {
+        "id": "osm:way/424894706",
+        "coordinates": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [],
+          "reason": "No source point/center; graph-only record not usable as located POI"
+        }
+      }
+    ],
+    "coordinate_cards": 247,
+    "raw_hours_cards": 64,
+    "named_by_locale": {
+      "ru": 39,
+      "kk": 20,
+      "en": 44
+    },
+    "unique_source_records": 247,
+    "structured_current_hours_cards": 0,
+    "field_state_counts": {
+      "name": {
+        "known": 247,
+        "unknown": 0,
+        "stale": 0,
+        "conflicting": 0
+      },
+      "coordinates": {
+        "known": 247,
+        "unknown": 0,
+        "stale": 0,
+        "conflicting": 0
+      },
+      "category": {
+        "known": 247,
+        "unknown": 0,
+        "stale": 0,
+        "conflicting": 0
+      },
+      "opening_hours": {
+        "known": 0,
+        "unknown": 247,
+        "stale": 0,
+        "conflicting": 0
+      },
+      "outdoor_anchor": {
+        "known": 0,
+        "unknown": 247,
+        "stale": 0,
+        "conflicting": 0
+      },
+      "accessibility": {
+        "known": 0,
+        "unknown": 247,
+        "stale": 0,
+        "conflicting": 0
+      }
+    },
+    "verified_outdoor_anchors": 0,
+    "city_completeness": "unknown"
+  },
+  "cards": [
+    {
+      "id": "osm:node/455447676",
+      "osm_type": "node",
+      "osm_id": 455447676,
+      "source_url": "https://www.openstreetmap.org/node/455447676",
+      "source_fetched_at": "2026-10-19T21:52:31.3613250Z",
+      "source_sha256": "e3db0146acb00e261bbbe2c02ec36a330054d87a25b02af7783aa0e386e01c01",
+      "source_element_timestamp": null,
+      "license": "ODbL-1.0",
+      "license_url": "https://www.openstreetmap.org/copyright",
+      "fields": {
+        "name": {
+          "state": "known",
+          "value": "Жамбыл",
+          "source_refs": [
+            "https://www.openstreetmap.org/node/455447676"
+          ],
+          "reason": null
+        },
+        "coordinates": {
+          "state": "known",
+          "value": [
+            71.4454592,
+            51.1513903
+          ],
+          "source_refs": [
+            "https://www.openstreetmap.org/node/455447676"
+          ],
+          "reason": "OSM point"
+        },
+        "category": {
+          "state": "known",
+          "value": "historic:monument",
+          "source_refs": [
+            "https://www.openstreetmap.org/node/455447676"
+          ],
+          "reason": null
+        },
+        "opening_hours": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [
+            "https://www.openstreetmap.org/node/455447676"
+          ],
+          "reason": "No parsed, dated, independently confirmed interval; raw tag retained",
+          "raw": null
+        },
+        "outdoor_anchor": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [],
+          "reason": "No verified outdoor approach/entrance evidence; center is not an anchor"
+        },
+        "accessibility": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [],
+          "reason": "OSM wheelchair tag alone is not a verified accessible walking approach"
+        }
+      },
+      "names": {},
+      "raw_tags": {
+        "historic": "monument",
+        "name": "Жамбыл"
+      },
+      "field_verified": false
+    },
+    {
+      "id": "osm:node/2616721347",
+      "osm_type": "node",
+      "osm_id": 2616721347,
+      "source_url": "https://www.openstreetmap.org/node/2616721347",
+      "source_fetched_at": "2026-10-19T21:52:31.3613250Z",
+      "source_sha256": "e3db0146acb00e261bbbe2c02ec36a330054d87a25b02af7783aa0e386e01c01",
+      "source_element_timestamp": null,
+      "license": "ODbL-1.0",
+      "license_url": "https://www.openstreetmap.org/copyright",
+      "fields": {
+        "name": {
+          "state": "known",
+          "value": "памятник Курмангазы",
+          "source_refs": [
+            "https://www.openstreetmap.org/node/2616721347"
+          ],
+          "reason": null
+        },
+        "coordinates": {
+          "state": "known",
+          "value": [
+            71.4130319,
+            51.1534935
+          ],
+          "source_refs": [
+            "https://www.openstreetmap.org/node/2616721347"
+          ],
+          "reason": "OSM point"
+        },
+        "category": {
+          "state": "known",
+          "value": "historic:memorial",
+          "source_refs": [
+            "https://www.openstreetmap.org/node/2616721347"
+          ],
+          "reason": null
+        },
+        "opening_hours": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [
+            "https://www.openstreetmap.org/node/2616721347"
+          ],
+          "reason": "No parsed, dated, independently confirmed interval; raw tag retained",
+          "raw": null
+        },
+        "outdoor_anchor": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [],
+          "reason": "No verified outdoor approach/entrance evidence; center is not an anchor"
+        },
+        "accessibility": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [],
+          "reason": "OSM wheelchair tag alone is not a verified accessible walking approach"
+        }
+      },
+      "names": {
+        "ru": "памятник Курмангазы"
+      },
+      "raw_tags": {
+        "historic": "memorial",
+        "name:ru": "памятник Курмангазы",
+        "source": "Bing Sat"
+      },
+      "field_verified": false
+    },
+    {
+      "id": "osm:node/4892204728",
+      "osm_type": "node",
+      "osm_id": 4892204728,
+      "source_url": "https://www.openstreetmap.org/node/4892204728",
+      "source_fetched_at": "2026-10-19T21:52:31.3613250Z",
+      "source_sha256": "e3db0146acb00e261bbbe2c02ec36a330054d87a25b02af7783aa0e386e01c01",
+      "source_element_timestamp": null,
+      "license": "ODbL-1.0",
+      "license_url": "https://www.openstreetmap.org/copyright",
+      "fields": {
+        "name": {
+          "state": "known",
+          "value": "Мұстафа Кемал Ататүрік",
+          "source_refs": [
+            "https://www.openstreetmap.org/node/4892204728"
+          ],
+          "reason": null
+        },
+        "coordinates": {
+          "state": "known",
+          "value": [
+            71.4320358,
+            51.1511586
+          ],
+          "source_refs": [
+            "https://www.openstreetmap.org/node/4892204728"
+          ],
+          "reason": "OSM point"
+        },
+        "category": {
+          "state": "known",
+          "value": "historic:memorial",
+          "source_refs": [
+            "https://www.openstreetmap.org/node/4892204728"
+          ],
+          "reason": null
+        },
+        "opening_hours": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [
+            "https://www.openstreetmap.org/node/4892204728"
+          ],
+          "reason": "No parsed, dated, independently confirmed interval; raw tag retained",
+          "raw": null
+        },
+        "outdoor_anchor": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [],
+          "reason": "No verified outdoor approach/entrance evidence; center is not an anchor"
+        },
+        "accessibility": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [],
+          "reason": "OSM wheelchair tag alone is not a verified accessible walking approach"
+        }
+      },
+      "names": {
+        "en": "Monument to Mustafa Kemal Ataturk",
+        "ru": "Мустафе Кемалю Ататюрку"
+      },
+      "raw_tags": {
+        "historic": "memorial",
+        "material": "bronze",
+        "memorial": "statue",
+        "name": "Мұстафа Кемал Ататүрік",
+        "name:en": "Monument to Mustafa Kemal Ataturk",
+        "name:ru": "Мустафе Кемалю Ататюрку",
+        "start_date": "2009"
+      },
+      "field_verified": false
+    },
+    {
+      "id": "osm:node/4929123022",
+      "osm_type": "node",
+      "osm_id": 4929123022,
+      "source_url": "https://www.openstreetmap.org/node/4929123022",
+      "source_fetched_at": "2026-10-19T21:52:31.3613250Z",
+      "source_sha256": "e3db0146acb00e261bbbe2c02ec36a330054d87a25b02af7783aa0e386e01c01",
+      "source_element_timestamp": null,
+      "license": "ODbL-1.0",
+      "license_url": "https://www.openstreetmap.org/copyright",
+      "fields": {
+        "name": {
+          "state": "known",
+          "value": "Памятник Шарлю Де Голлю",
+          "source_refs": [
+            "https://www.openstreetmap.org/node/4929123022"
+          ],
+          "reason": null
+        },
+        "coordinates": {
+          "state": "known",
+          "value": [
+            71.4486596,
+            51.1414649
+          ],
+          "source_refs": [
+            "https://www.openstreetmap.org/node/4929123022"
+          ],
+          "reason": "OSM point"
+        },
+        "category": {
+          "state": "known",
+          "value": "historic:monument",
+          "source_refs": [
+            "https://www.openstreetmap.org/node/4929123022"
+          ],
+          "reason": null
+        },
+        "opening_hours": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [
+            "https://www.openstreetmap.org/node/4929123022"
+          ],
+          "reason": "No parsed, dated, independently confirmed interval; raw tag retained",
+          "raw": null
+        },
+        "outdoor_anchor": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [],
+          "reason": "No verified outdoor approach/entrance evidence; center is not an anchor"
+        },
+        "accessibility": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [],
+          "reason": "OSM wheelchair tag alone is not a verified accessible walking approach"
+        }
+      },
+      "names": {},
+      "raw_tags": {
+        "historic": "monument",
+        "name": "Памятник Шарлю Де Голлю"
+      },
+      "field_verified": false
+    },
+    {
+      "id": "osm:node/4958412863",
+      "osm_type": "node",
+      "osm_id": 4958412863,
+      "source_url": "https://www.openstreetmap.org/node/4958412863",
+      "source_fetched_at": "2026-10-19T21:52:31.3613250Z",
+      "source_sha256": "e3db0146acb00e261bbbe2c02ec36a330054d87a25b02af7783aa0e386e01c01",
+      "source_element_timestamp": null,
+      "license": "ODbL-1.0",
+      "license_url": "https://www.openstreetmap.org/copyright",
+      "fields": {
+        "name": {
+          "state": "known",
+          "value": "Zur Sultan",
+          "source_refs": [
+            "https://www.openstreetmap.org/node/4958412863"
+          ],
+          "reason": null
+        },
+        "coordinates": {
+          "state": "known",
+          "value": [
+            71.4077184,
+            51.1318179
+          ],
+          "source_refs": [
+            "https://www.openstreetmap.org/node/4958412863"
+          ],
+          "reason": "OSM point"
+        },
+        "category": {
+          "state": "known",
+          "value": "historic:memorial",
+          "source_refs": [
+            "https://www.openstreetmap.org/node/4958412863"
+          ],
+          "reason": null
+        },
+        "opening_hours": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [
+            "https://www.openstreetmap.org/node/4958412863"
+          ],
+          "reason": "No parsed, dated, independently confirmed interval; raw tag retained",
+          "raw": null
+        },
+        "outdoor_anchor": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [],
+          "reason": "No verified outdoor approach/entrance evidence; center is not an anchor"
+        },
+        "accessibility": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [],
+          "reason": "OSM wheelchair tag alone is not a verified accessible walking approach"
+        }
+      },
+      "names": {
+        "en": "Zul Sultan"
+      },
+      "raw_tags": {
+        "historic": "memorial",
+        "memorial": "statue",
+        "name": "Zur Sultan",
+        "name:en": "Zul Sultan"
+      },
+      "field_verified": false
+    },
+    {
+      "id": "osm:node/7684091171",
+      "osm_type": "node",
+      "osm_id": 7684091171,
+      "source_url": "https://www.openstreetmap.org/node/7684091171",
+      "source_fetched_at": "2026-10-19T21:52:31.3613250Z",
+      "source_sha256": "e3db0146acb00e261bbbe2c02ec36a330054d87a25b02af7783aa0e386e01c01",
+      "source_element_timestamp": null,
+      "license": "ODbL-1.0",
+      "license_url": "https://www.openstreetmap.org/copyright",
+      "fields": {
+        "name": {
+          "state": "known",
+          "value": "Н. Ә. Назарбаев",
+          "source_refs": [
+            "https://www.openstreetmap.org/node/7684091171"
+          ],
+          "reason": null
+        },
+        "coordinates": {
+          "state": "known",
+          "value": [
+            71.431928,
+            51.1562423
+          ],
+          "source_refs": [
+            "https://www.openstreetmap.org/node/7684091171"
+          ],
+          "reason": "OSM point"
+        },
+        "category": {
+          "state": "known",
+          "value": "historic:memorial",
+          "source_refs": [
+            "https://www.openstreetmap.org/node/7684091171"
+          ],
+          "reason": null
+        },
+        "opening_hours": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [
+            "https://www.openstreetmap.org/node/7684091171"
+          ],
+          "reason": "No parsed, dated, independently confirmed interval; raw tag retained",
+          "raw": null
+        },
+        "outdoor_anchor": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [],
+          "reason": "No verified outdoor approach/entrance evidence; center is not an anchor"
+        },
+        "accessibility": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [],
+          "reason": "OSM wheelchair tag alone is not a verified accessible walking approach"
+        }
+      },
+      "names": {
+        "kk": "Н. Ә. Назарбаев",
+        "ru": "Н. А. Назарбаеву"
+      },
+      "raw_tags": {
+        "fixme": "Уточнить позицию после переноса памятника",
+        "historic": "memorial",
+        "memorial": "statue",
+        "name": "Н. Ә. Назарбаев",
+        "name:kk": "Н. Ә. Назарбаев",
+        "name:ru": "Н. А. Назарбаеву",
+        "start_date": "2020-05-03"
+      },
+      "field_verified": false
+    },
+    {
+      "id": "osm:node/11500907369",
+      "osm_type": "node",
+      "osm_id": 11500907369,
+      "source_url": "https://www.openstreetmap.org/node/11500907369",
+      "source_fetched_at": "2026-10-19T21:52:31.3613250Z",
+      "source_sha256": "e3db0146acb00e261bbbe2c02ec36a330054d87a25b02af7783aa0e386e01c01",
+      "source_element_timestamp": null,
+      "license": "ODbL-1.0",
+      "license_url": "https://www.openstreetmap.org/copyright",
+      "fields": {
+        "name": {
+          "state": "known",
+          "value": "Городские часы",
+          "source_refs": [
+            "https://www.openstreetmap.org/node/11500907369"
+          ],
+          "reason": null
+        },
+        "coordinates": {
+          "state": "known",
+          "value": [
+            71.4139175,
+            51.1533667
+          ],
+          "source_refs": [
+            "https://www.openstreetmap.org/node/11500907369"
+          ],
+          "reason": "OSM point"
+        },
+        "category": {
+          "state": "known",
+          "value": "historic:monument",
+          "source_refs": [
+            "https://www.openstreetmap.org/node/11500907369"
+          ],
+          "reason": null
+        },
+        "opening_hours": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [
+            "https://www.openstreetmap.org/node/11500907369"
+          ],
+          "reason": "No parsed, dated, independently confirmed interval; raw tag retained",
+          "raw": null
+        },
+        "outdoor_anchor": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [],
+          "reason": "No verified outdoor approach/entrance evidence; center is not an anchor"
+        },
+        "accessibility": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [],
+          "reason": "OSM wheelchair tag alone is not a verified accessible walking approach"
+        }
+      },
+      "names": {
+        "ru": "Городские часы"
+      },
+      "raw_tags": {
+        "historic": "monument",
+        "name:ru": "Городские часы"
+      },
+      "field_verified": false
+    },
+    {
+      "id": "osm:node/12893538292",
+      "osm_type": "node",
+      "osm_id": 12893538292,
+      "source_url": "https://www.openstreetmap.org/node/12893538292",
+      "source_fetched_at": "2026-10-19T21:52:31.3613250Z",
+      "source_sha256": "e3db0146acb00e261bbbe2c02ec36a330054d87a25b02af7783aa0e386e01c01",
+      "source_element_timestamp": null,
+      "license": "ODbL-1.0",
+      "license_url": "https://www.openstreetmap.org/copyright",
+      "fields": {
+        "name": {
+          "state": "known",
+          "value": "Асқар Забикулин",
+          "source_refs": [
+            "https://www.openstreetmap.org/node/12893538292"
+          ],
+          "reason": null
+        },
+        "coordinates": {
+          "state": "known",
+          "value": [
+            71.4057852,
+            51.116732
+          ],
+          "source_refs": [
+            "https://www.openstreetmap.org/node/12893538292"
+          ],
+          "reason": "OSM point"
+        },
+        "category": {
+          "state": "known",
+          "value": "historic:memorial",
+          "source_refs": [
+            "https://www.openstreetmap.org/node/12893538292"
+          ],
+          "reason": null
+        },
+        "opening_hours": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [
+            "https://www.openstreetmap.org/node/12893538292"
+          ],
+          "reason": "No parsed, dated, independently confirmed interval; raw tag retained",
+          "raw": null
+        },
+        "outdoor_anchor": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [],
+          "reason": "No verified outdoor approach/entrance evidence; center is not an anchor"
+        },
+        "accessibility": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [],
+          "reason": "OSM wheelchair tag alone is not a verified accessible walking approach"
+        }
+      },
+      "names": {
+        "ru": "Аскару Забикулину"
+      },
+      "raw_tags": {
+        "historic": "memorial",
+        "memorial": "bust",
+        "name": "Асқар Забикулин",
+        "name:ru": "Аскару Забикулину"
+      },
+      "field_verified": false
+    },
+    {
+      "id": "osm:node/13333409377",
+      "osm_type": "node",
+      "osm_id": 13333409377,
+      "source_url": "https://www.openstreetmap.org/node/13333409377",
+      "source_fetched_at": "2026-10-19T21:52:31.3613250Z",
+      "source_sha256": "e3db0146acb00e261bbbe2c02ec36a330054d87a25b02af7783aa0e386e01c01",
+      "source_element_timestamp": null,
+      "license": "ODbL-1.0",
+      "license_url": "https://www.openstreetmap.org/copyright",
+      "fields": {
+        "name": {
+          "state": "known",
+          "value": "Махтумкули Фраги",
+          "source_refs": [
+            "https://www.openstreetmap.org/node/13333409377"
+          ],
+          "reason": null
+        },
+        "coordinates": {
+          "state": "known",
+          "value": [
+            71.4010254,
+            51.1303587
+          ],
+          "source_refs": [
+            "https://www.openstreetmap.org/node/13333409377"
+          ],
+          "reason": "OSM point"
+        },
+        "category": {
+          "state": "known",
+          "value": "historic:memorial",
+          "source_refs": [
+            "https://www.openstreetmap.org/node/13333409377"
+          ],
+          "reason": null
+        },
+        "opening_hours": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [
+            "https://www.openstreetmap.org/node/13333409377"
+          ],
+          "reason": "No parsed, dated, independently confirmed interval; raw tag retained",
+          "raw": null
+        },
+        "outdoor_anchor": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [],
+          "reason": "No verified outdoor approach/entrance evidence; center is not an anchor"
+        },
+        "accessibility": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [],
+          "reason": "OSM wheelchair tag alone is not a verified accessible walking approach"
+        }
+      },
+      "names": {},
+      "raw_tags": {
+        "historic": "memorial",
+        "memorial": "statue",
+        "name": "Махтумкули Фраги"
+      },
+      "field_verified": false
+    },
+    {
+      "id": "osm:node/13397184827",
+      "osm_type": "node",
+      "osm_id": 13397184827,
+      "source_url": "https://www.openstreetmap.org/node/13397184827",
+      "source_fetched_at": "2026-10-19T21:52:31.3613250Z",
+      "source_sha256": "e3db0146acb00e261bbbe2c02ec36a330054d87a25b02af7783aa0e386e01c01",
+      "source_element_timestamp": null,
+      "license": "ODbL-1.0",
+      "license_url": "https://www.openstreetmap.org/copyright",
+      "fields": {
+        "name": {
+          "state": "known",
+          "value": "Юнус Эмре",
+          "source_refs": [
+            "https://www.openstreetmap.org/node/13397184827"
+          ],
+          "reason": null
+        },
+        "coordinates": {
+          "state": "known",
+          "value": [
+            71.4303536,
+            51.1518841
+          ],
+          "source_refs": [
+            "https://www.openstreetmap.org/node/13397184827"
+          ],
+          "reason": "OSM point"
+        },
+        "category": {
+          "state": "known",
+          "value": "historic:memorial",
+          "source_refs": [
+            "https://www.openstreetmap.org/node/13397184827"
+          ],
+          "reason": null
+        },
+        "opening_hours": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [
+            "https://www.openstreetmap.org/node/13397184827"
+          ],
+          "reason": "No parsed, dated, independently confirmed interval; raw tag retained",
+          "raw": null
+        },
+        "outdoor_anchor": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [],
+          "reason": "No verified outdoor approach/entrance evidence; center is not an anchor"
+        },
+        "accessibility": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [],
+          "reason": "OSM wheelchair tag alone is not a verified accessible walking approach"
+        }
+      },
+      "names": {
+        "en": "Yunus Emre"
+      },
+      "raw_tags": {
+        "alt_name": "Жүніс Әміре",
+        "historic": "memorial",
+        "memorial": "statue",
+        "name": "Юнус Эмре",
+        "name:en": "Yunus Emre"
+      },
+      "field_verified": false
+    },
+    {
+      "id": "osm:way/230401645",
+      "osm_type": "way",
+      "osm_id": 230401645,
+      "source_url": "https://www.openstreetmap.org/way/230401645",
+      "source_fetched_at": "2026-10-19T21:52:31.3613250Z",
+      "source_sha256": "e3db0146acb00e261bbbe2c02ec36a330054d87a25b02af7783aa0e386e01c01",
+      "source_element_timestamp": null,
+      "license": "ODbL-1.0",
+      "license_url": "https://www.openstreetmap.org/copyright",
+      "fields": {
+        "name": {
+          "state": "known",
+          "value": "Бәйтерек",
+          "source_refs": [
+            "https://www.openstreetmap.org/way/230401645"
+          ],
+          "reason": null
+        },
+        "coordinates": {
+          "state": "known",
+          "value": [
+            71.4304546,
+            51.12828825
+          ],
+          "source_refs": [
+            "https://www.openstreetmap.org/way/230401645"
+          ],
+          "reason": "OSM bounding-box center; not an entrance"
+        },
+        "category": {
+          "state": "known",
+          "value": "historic:monument",
+          "source_refs": [
+            "https://www.openstreetmap.org/way/230401645"
+          ],
+          "reason": null
+        },
+        "opening_hours": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [
+            "https://www.openstreetmap.org/way/230401645"
+          ],
+          "reason": "No parsed, dated, independently confirmed interval; raw tag retained",
+          "raw": null
+        },
+        "outdoor_anchor": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [],
+          "reason": "No verified outdoor approach/entrance evidence; center is not an anchor"
+        },
+        "accessibility": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [],
+          "reason": "OSM wheelchair tag alone is not a verified accessible walking approach"
+        }
+      },
+      "names": {
+        "en": "Bayterek",
+        "kk": "Бәйтерек",
+        "ru": "Байтерек"
+      },
+      "raw_tags": {
+        "access": "yes",
+        "addr:city": "Астана",
+        "addr:country": "KZ",
+        "addr:housenumber": "14",
+        "addr:street": "Нұржол желек жолы",
+        "building": "yes",
+        "building:levels": "27",
+        "historic": "monument",
+        "layer": "1",
+        "name": "Бәйтерек",
+        "name:de": "Bajterek-Turm",
+        "name:en": "Bayterek",
+        "name:ja": "バイテレック・タワー・タワー",
+        "name:kk": "Бәйтерек",
+        "name:ml": "ബൈറ്റെറെക് ടവർ",
+        "name:ru": "Байтерек",
+        "wikidata": "Q804210",
+        "wikipedia": "kk:Бәйтерек (монумент)",
+        "wikipedia:ru": "ru:Байтерек (монумент)"
+      },
+      "field_verified": false
+    },
+    {
+      "id": "osm:node/2388707906",
+      "osm_type": "node",
+      "osm_id": 2388707906,
+      "source_url": "https://www.openstreetmap.org/node/2388707906",
+      "source_fetched_at": "2026-10-19T21:52:31.3613250Z",
+      "source_sha256": "e3db0146acb00e261bbbe2c02ec36a330054d87a25b02af7783aa0e386e01c01",
+      "source_element_timestamp": null,
+      "license": "ODbL-1.0",
+      "license_url": "https://www.openstreetmap.org/copyright",
+      "fields": {
+        "name": {
+          "state": "known",
+          "value": "Астана-Экспо КС",
+          "source_refs": [
+            "https://www.openstreetmap.org/node/2388707906"
+          ],
+          "reason": null
+        },
+        "coordinates": {
+          "state": "known",
+          "value": [
+            71.4182513,
+            51.1294931
+          ],
+          "source_refs": [
+            "https://www.openstreetmap.org/node/2388707906"
+          ],
+          "reason": "OSM point"
+        },
+        "category": {
+          "state": "known",
+          "value": "tourism:gallery",
+          "source_refs": [
+            "https://www.openstreetmap.org/node/2388707906"
+          ],
+          "reason": null
+        },
+        "opening_hours": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [
+            "https://www.openstreetmap.org/node/2388707906"
+          ],
+          "reason": "No parsed, dated, independently confirmed interval; raw tag retained",
+          "raw": null
+        },
+        "outdoor_anchor": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [],
+          "reason": "No verified outdoor approach/entrance evidence; center is not an anchor"
+        },
+        "accessibility": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [],
+          "reason": "OSM wheelchair tag alone is not a verified accessible walking approach"
+        }
+      },
+      "names": {},
+      "raw_tags": {
+        "amenity": "community_centre",
+        "contact:email": "office@astana-expo.com",
+        "contact:fax": "+7(7172) 52-43-03",
+        "contact:phone": "+7(7172) 52-42-33",
+        "contact:website": "http://www.astana-expo.com",
+        "name": "Астана-Экспо КС",
+        "tourism": "gallery"
+      },
+      "field_verified": false
+    },
+    {
+      "id": "osm:node/4109068593",
+      "osm_type": "node",
+      "osm_id": 4109068593,
+      "source_url": "https://www.openstreetmap.org/node/4109068593",
+      "source_fetched_at": "2026-10-19T21:52:31.3613250Z",
+      "source_sha256": "e3db0146acb00e261bbbe2c02ec36a330054d87a25b02af7783aa0e386e01c01",
+      "source_element_timestamp": null,
+      "license": "ODbL-1.0",
+      "license_url": "https://www.openstreetmap.org/copyright",
+      "fields": {
+        "name": {
+          "state": "known",
+          "value": "Жер-ана (Томирис)",
+          "source_refs": [
+            "https://www.openstreetmap.org/node/4109068593"
+          ],
+          "reason": null
+        },
+        "coordinates": {
+          "state": "known",
+          "value": [
+            71.4317199,
+            51.1533831
+          ],
+          "source_refs": [
+            "https://www.openstreetmap.org/node/4109068593"
+          ],
+          "reason": "OSM point"
+        },
+        "category": {
+          "state": "known",
+          "value": "tourism:artwork",
+          "source_refs": [
+            "https://www.openstreetmap.org/node/4109068593"
+          ],
+          "reason": null
+        },
+        "opening_hours": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [
+            "https://www.openstreetmap.org/node/4109068593"
+          ],
+          "reason": "No parsed, dated, independently confirmed interval; raw tag retained",
+          "raw": null
+        },
+        "outdoor_anchor": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [],
+          "reason": "No verified outdoor approach/entrance evidence; center is not an anchor"
+        },
+        "accessibility": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [],
+          "reason": "OSM wheelchair tag alone is not a verified accessible walking approach"
+        }
+      },
+      "names": {
+        "en": "Zher-ana (Tomiris)",
+        "ru": "Жер-ана (Томирис)"
+      },
+      "raw_tags": {
+        "artwork_type": "statue",
+        "name": "Жер-ана (Томирис)",
+        "name:en": "Zher-ana (Tomiris)",
+        "name:ru": "Жер-ана (Томирис)",
+        "tourism": "artwork"
+      },
+      "field_verified": false
+    },
+    {
+      "id": "osm:node/4209560711",
+      "osm_type": "node",
+      "osm_id": 4209560711,
+      "source_url": "https://www.openstreetmap.org/node/4209560711",
+      "source_fetched_at": "2026-10-19T21:52:31.3613250Z",
+      "source_sha256": "e3db0146acb00e261bbbe2c02ec36a330054d87a25b02af7783aa0e386e01c01",
+      "source_element_timestamp": null,
+      "license": "ODbL-1.0",
+      "license_url": "https://www.openstreetmap.org/copyright",
+      "fields": {
+        "name": {
+          "state": "known",
+          "value": "Т34-85",
+          "source_refs": [
+            "https://www.openstreetmap.org/node/4209560711"
+          ],
+          "reason": null
+        },
+        "coordinates": {
+          "state": "known",
+          "value": [
+            71.4323473,
+            51.1554129
+          ],
+          "source_refs": [
+            "https://www.openstreetmap.org/node/4209560711"
+          ],
+          "reason": "OSM point"
+        },
+        "category": {
+          "state": "known",
+          "value": "tourism:attraction",
+          "source_refs": [
+            "https://www.openstreetmap.org/node/4209560711"
+          ],
+          "reason": null
+        },
+        "opening_hours": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [
+            "https://www.openstreetmap.org/node/4209560711"
+          ],
+          "reason": "No parsed, dated, independently confirmed interval; raw tag retained",
+          "raw": null
+        },
+        "outdoor_anchor": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [],
+          "reason": "No verified outdoor approach/entrance evidence; center is not an anchor"
+        },
+        "accessibility": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [],
+          "reason": "OSM wheelchair tag alone is not a verified accessible walking approach"
+        }
+      },
+      "names": {},
+      "raw_tags": {
+        "fixme": "position",
+        "historic": "tank",
+        "name": "Т34-85",
+        "tourism": "attraction"
+      },
+      "field_verified": false
+    },
+    {
+      "id": "osm:node/10148735979",
+      "osm_type": "node",
+      "osm_id": 10148735979,
+      "source_url": "https://www.openstreetmap.org/node/10148735979",
+      "source_fetched_at": "2026-10-19T21:52:31.3613250Z",
+      "source_sha256": "e3db0146acb00e261bbbe2c02ec36a330054d87a25b02af7783aa0e386e01c01",
+      "source_element_timestamp": null,
+      "license": "ODbL-1.0",
+      "license_url": "https://www.openstreetmap.org/copyright",
+      "fields": {
+        "name": {
+          "state": "known",
+          "value": "Олимпиада сақиналары",
+          "source_refs": [
+            "https://www.openstreetmap.org/node/10148735979"
+          ],
+          "reason": null
+        },
+        "coordinates": {
+          "state": "known",
+          "value": [
+            71.4196456,
+            51.1540747
+          ],
+          "source_refs": [
+            "https://www.openstreetmap.org/node/10148735979"
+          ],
+          "reason": "OSM point"
+        },
+        "category": {
+          "state": "known",
+          "value": "tourism:attraction",
+          "source_refs": [
+            "https://www.openstreetmap.org/node/10148735979"
+          ],
+          "reason": null
+        },
+        "opening_hours": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [
+            "https://www.openstreetmap.org/node/10148735979"
+          ],
+          "reason": "No parsed, dated, independently confirmed interval; raw tag retained",
+          "raw": null
+        },
+        "outdoor_anchor": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [],
+          "reason": "No verified outdoor approach/entrance evidence; center is not an anchor"
+        },
+        "accessibility": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [],
+          "reason": "OSM wheelchair tag alone is not a verified accessible walking approach"
+        }
+      },
+      "names": {
+        "en": "Олимпийские кольца",
+        "kk": "Олимпиада сақиналары"
+      },
+      "raw_tags": {
+        "int_name": "Olïmpïada saqïnaları",
+        "name": "Олимпиада сақиналары",
+        "name:en": "Олимпийские кольца",
+        "name:kk": "Олимпиада сақиналары",
+        "tourism": "attraction"
+      },
+      "field_verified": false
+    },
+    {
+      "id": "osm:node/10168959440",
+      "osm_type": "node",
+      "osm_id": 10168959440,
+      "source_url": "https://www.openstreetmap.org/node/10168959440",
+      "source_fetched_at": "2026-10-19T21:52:31.3613250Z",
+      "source_sha256": "e3db0146acb00e261bbbe2c02ec36a330054d87a25b02af7783aa0e386e01c01",
+      "source_element_timestamp": null,
+      "license": "ODbL-1.0",
+      "license_url": "https://www.openstreetmap.org/copyright",
+      "fields": {
+        "name": {
+          "state": "known",
+          "value": "Ailand",
+          "source_refs": [
+            "https://www.openstreetmap.org/node/10168959440"
+          ],
+          "reason": null
+        },
+        "coordinates": {
+          "state": "known",
+          "value": [
+            71.4159887,
+            51.1478402
+          ],
+          "source_refs": [
+            "https://www.openstreetmap.org/node/10168959440"
+          ],
+          "reason": "OSM point"
+        },
+        "category": {
+          "state": "known",
+          "value": "tourism:aquarium",
+          "source_refs": [
+            "https://www.openstreetmap.org/node/10168959440"
+          ],
+          "reason": null
+        },
+        "opening_hours": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [
+            "https://www.openstreetmap.org/node/10168959440"
+          ],
+          "reason": "No parsed, dated, independently confirmed interval; raw tag retained",
+          "raw": null
+        },
+        "outdoor_anchor": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [],
+          "reason": "No verified outdoor approach/entrance evidence; center is not an anchor"
+        },
+        "accessibility": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [],
+          "reason": "OSM wheelchair tag alone is not a verified accessible walking approach"
+        }
+      },
+      "names": {},
+      "raw_tags": {
+        "fee": "yes",
+        "name": "Ailand",
+        "tourism": "aquarium"
+      },
+      "field_verified": false
+    },
+    {
+      "id": "osm:node/13340040665",
+      "osm_type": "node",
+      "osm_id": 13340040665,
+      "source_url": "https://www.openstreetmap.org/node/13340040665",
+      "source_fetched_at": "2026-10-19T21:52:31.3613250Z",
+      "source_sha256": "e3db0146acb00e261bbbe2c02ec36a330054d87a25b02af7783aa0e386e01c01",
+      "source_element_timestamp": null,
+      "license": "ODbL-1.0",
+      "license_url": "https://www.openstreetmap.org/copyright",
+      "fields": {
+        "name": {
+          "state": "known",
+          "value": "Жетігенші",
+          "source_refs": [
+            "https://www.openstreetmap.org/node/13340040665"
+          ],
+          "reason": null
+        },
+        "coordinates": {
+          "state": "known",
+          "value": [
+            71.4106104,
+            51.1346692
+          ],
+          "source_refs": [
+            "https://www.openstreetmap.org/node/13340040665"
+          ],
+          "reason": "OSM point"
+        },
+        "category": {
+          "state": "known",
+          "value": "tourism:artwork",
+          "source_refs": [
+            "https://www.openstreetmap.org/node/13340040665"
+          ],
+          "reason": null
+        },
+        "opening_hours": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [
+            "https://www.openstreetmap.org/node/13340040665"
+          ],
+          "reason": "No parsed, dated, independently confirmed interval; raw tag retained",
+          "raw": null
+        },
+        "outdoor_anchor": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [],
+          "reason": "No verified outdoor approach/entrance evidence; center is not an anchor"
+        },
+        "accessibility": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [],
+          "reason": "OSM wheelchair tag alone is not a verified accessible walking approach"
+        }
+      },
+      "names": {},
+      "raw_tags": {
+        "artist_name": "М.Мансурова;Т.Ермекова",
+        "artwork_type": "statue",
+        "name": "Жетігенші",
+        "tourism": "artwork"
+      },
+      "field_verified": false
+    },
+    {
+      "id": "osm:node/13340040666",
+      "osm_type": "node",
+      "osm_id": 13340040666,
+      "source_url": "https://www.openstreetmap.org/node/13340040666",
+      "source_fetched_at": "2026-10-19T21:52:31.3613250Z",
+      "source_sha256": "e3db0146acb00e261bbbe2c02ec36a330054d87a25b02af7783aa0e386e01c01",
+      "source_element_timestamp": null,
+      "license": "ODbL-1.0",
+      "license_url": "https://www.openstreetmap.org/copyright",
+      "fields": {
+        "name": {
+          "state": "known",
+          "value": "Қобызшы",
+          "source_refs": [
+            "https://www.openstreetmap.org/node/13340040666"
+          ],
+          "reason": null
+        },
+        "coordinates": {
+          "state": "known",
+          "value": [
+            71.4100755,
+            51.1347534
+          ],
+          "source_refs": [
+            "https://www.openstreetmap.org/node/13340040666"
+          ],
+          "reason": "OSM point"
+        },
+        "category": {
+          "state": "known",
+          "value": "tourism:artwork",
+          "source_refs": [
+            "https://www.openstreetmap.org/node/13340040666"
+          ],
+          "reason": null
+        },
+        "opening_hours": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [
+            "https://www.openstreetmap.org/node/13340040666"
+          ],
+          "reason": "No parsed, dated, independently confirmed interval; raw tag retained",
+          "raw": null
+        },
+        "outdoor_anchor": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [],
+          "reason": "No verified outdoor approach/entrance evidence; center is not an anchor"
+        },
+        "accessibility": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [],
+          "reason": "OSM wheelchair tag alone is not a verified accessible walking approach"
+        }
+      },
+      "names": {},
+      "raw_tags": {
+        "artwork_type": "statue",
+        "name": "Қобызшы",
+        "tourism": "artwork"
+      },
+      "field_verified": false
+    },
+    {
+      "id": "osm:node/13340050452",
+      "osm_type": "node",
+      "osm_id": 13340050452,
+      "source_url": "https://www.openstreetmap.org/node/13340050452",
+      "source_fetched_at": "2026-10-19T21:52:31.3613250Z",
+      "source_sha256": "e3db0146acb00e261bbbe2c02ec36a330054d87a25b02af7783aa0e386e01c01",
+      "source_element_timestamp": null,
+      "license": "ODbL-1.0",
+      "license_url": "https://www.openstreetmap.org/copyright",
+      "fields": {
+        "name": {
+          "state": "known",
+          "value": "Хатико",
+          "source_refs": [
+            "https://www.openstreetmap.org/node/13340050452"
+          ],
+          "reason": null
+        },
+        "coordinates": {
+          "state": "known",
+          "value": [
+            71.4027939,
+            51.1369933
+          ],
+          "source_refs": [
+            "https://www.openstreetmap.org/node/13340050452"
+          ],
+          "reason": "OSM point"
+        },
+        "category": {
+          "state": "known",
+          "value": "tourism:artwork",
+          "source_refs": [
+            "https://www.openstreetmap.org/node/13340050452"
+          ],
+          "reason": null
+        },
+        "opening_hours": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [
+            "https://www.openstreetmap.org/node/13340050452"
+          ],
+          "reason": "No parsed, dated, independently confirmed interval; raw tag retained",
+          "raw": null
+        },
+        "outdoor_anchor": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [],
+          "reason": "No verified outdoor approach/entrance evidence; center is not an anchor"
+        },
+        "accessibility": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [],
+          "reason": "OSM wheelchair tag alone is not a verified accessible walking approach"
+        }
+      },
+      "names": {},
+      "raw_tags": {
+        "artwork_type": "sculpture",
+        "name": "Хатико",
+        "tourism": "artwork"
+      },
+      "field_verified": false
+    },
+    {
+      "id": "osm:node/14087643081",
+      "osm_type": "node",
+      "osm_id": 14087643081,
+      "source_url": "https://www.openstreetmap.org/node/14087643081",
+      "source_fetched_at": "2026-10-19T21:52:31.3613250Z",
+      "source_sha256": "e3db0146acb00e261bbbe2c02ec36a330054d87a25b02af7783aa0e386e01c01",
+      "source_element_timestamp": null,
+      "license": "ODbL-1.0",
+      "license_url": "https://www.openstreetmap.org/copyright",
+      "fields": {
+        "name": {
+          "state": "known",
+          "value": "Жылқылар үйірі",
+          "source_refs": [
+            "https://www.openstreetmap.org/node/14087643081"
+          ],
+          "reason": null
+        },
+        "coordinates": {
+          "state": "known",
+          "value": [
+            71.4146358,
+            51.1318367
+          ],
+          "source_refs": [
+            "https://www.openstreetmap.org/node/14087643081"
+          ],
+          "reason": "OSM point"
+        },
+        "category": {
+          "state": "known",
+          "value": "tourism:attraction",
+          "source_refs": [
+            "https://www.openstreetmap.org/node/14087643081"
+          ],
+          "reason": null
+        },
+        "opening_hours": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [
+            "https://www.openstreetmap.org/node/14087643081"
+          ],
+          "reason": "No parsed, dated, independently confirmed interval; raw tag retained",
+          "raw": null
+        },
+        "outdoor_anchor": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [],
+          "reason": "No verified outdoor approach/entrance evidence; center is not an anchor"
+        },
+        "accessibility": {
+          "state": "unknown",
+          "value": null,
+          "source_refs": [],
+          "reason": "OSM wheelchair tag alone is not a verified accessible walking approach"
+        }
+      },
+      "names": {
+        "ru": "Табун Лошадей"
+      },
+      "raw_tags": {
+        "name": "Жылқылар үйірі",
+        "name:ru": "Табун Лошадей",
+        "tourism": "attraction"
+      },
+      "field_verified": false
+    }
+  ],
+  "selection": {
+    "kind": "frozen_research_sample",
+    "requested": 20,
+    "selected_cards": 20,
+    "rule": "historic, visitor attractions, park, other; stable OSM type and ID order",
+    "coverage_describes": "complete imported bbox catalog before sampling"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "version": "0.3.1",
+  "versionCode": 6,
+  "checked_at_utc": "2026-10-20T11:21:48.9644975Z",
+  "strict_mobile_typescript": "PASS",
+  "targeted_node_tests": {
+    "passed": 8,
+    "tests": [
+      "cityPreferences",
+      "cityCatalog",
+      "priorityStop"
+    ]
+  },
+  "independent_delta_review": "review-delta.md",
+  "independent_synthetic_geometry_tests": 5,
+  "producer_replay": "Exact metadata and guide bytes reproduced independently; full geometry unchanged",
+  "district_label_anchors_inside_correct_polygons": 6,
+  "source_files": [
+    {
+      "path": "apps/mobile/src/features/city/CityIntro.tsx",
+      "sha256": "8c18fb815908c619b65ea847040365be070d687c30018aa3ca6d8fa4716344ed"
+    },
+    {
+      "path": "apps/mobile/src/city/guide.json",
+      "sha256": "d8730689f64b2b873997bfa4a355ada0e17e5bf628431fc06bf27a96f7a72694"
+    },
+    {
+      "path": "data/city-intro/metadata.json",
+      "sha256": "2efe0d03cab5e9ea3cbdf490ab25bf39ee00248a89ff50322c3da0788817aba2"
+    },
+    {
+      "path": "data/city-intro/districts.geojson",
+      "sha256": "75bd63ec2e553cb399158bfd47e7c4ccb648d20ea2ce8591492aeb43ff98507a"
+    },
+    {
+      "path": "data/city-intro/river.geojson",
+      "sha256": "a35ae9d4fe99c5bea417720bcd6035d25a7a65c0a5eb85e4babfe703048de7a1"
+    }
+  ],
+  "device_acceptance": "Recorded separately; no source test proves native gestures or map usability",
+  "paid_api_calls": 0,
+  "purchases": 0
+}

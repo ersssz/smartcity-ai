@@ -1,0 +1,59 @@
+{
+  "checked_at_utc": "2026-10-20T08:13:59.0132806Z",
+  "artifact": "AstanaAI-T01-native-location-arm64.apk",
+  "bytes": 42020664,
+  "sha256": "f1a7bf073e4a21266f0dbaf75932136556adec55095c1014eb4c1b37a90edf90",
+  "build_result": "BUILD SUCCESSFUL in 2m 37s",
+  "task_result": "605 actionable tasks: 30 executed, 575 up-to-date",
+  "embedded_javascript": {
+    "entry": "assets/index.android.bundle",
+    "bytes": 1483816,
+    "sha256": "a6b85e08660e6f4f833ac0e0376c12ab59e2eb6be377ac104fc8908b58320d90"
+  },
+  "dex_files": 4,
+  "native_libraries": [
+    "lib/arm64-v8a/libappmodules.so",
+    "lib/arm64-v8a/libc++_shared.so",
+    "lib/arm64-v8a/libexpo-modules-core.so",
+    "lib/arm64-v8a/libexpo-modules-jsi.so",
+    "lib/arm64-v8a/libexpo-modules-v2.so",
+    "lib/arm64-v8a/libexpo-sqlite.so",
+    "lib/arm64-v8a/libfbjni.so",
+    "lib/arm64-v8a/libgifimage.so",
+    "lib/arm64-v8a/libhermestooling.so",
+    "lib/arm64-v8a/libhermesvm.so",
+    "lib/arm64-v8a/libimagepipeline.so",
+    "lib/arm64-v8a/libjsi.so",
+    "lib/arm64-v8a/libmaplibre.so",
+    "lib/arm64-v8a/libnative-filters.so",
+    "lib/arm64-v8a/libnative-imagetranscoder.so",
+    "lib/arm64-v8a/libreactnative.so",
+    "lib/arm64-v8a/libstatic-webp.so",
+    "lib/arm64-v8a/libzstd-kmp.so"
+  ],
+  "signature_result": [
+    "Verifies",
+    "Verified using v1 scheme (JAR signing): false",
+    "Verified using v2 scheme (APK Signature Scheme v2): true",
+    "Verified using v3 scheme (APK Signature Scheme v3): false",
+    "Verified using v3.1 scheme (APK Signature Scheme v3.1): false",
+    "Verified using v3.2 scheme (APK Signature Scheme v3.2): false",
+    "Verified using v4 scheme (APK Signature Scheme v4): false",
+    "V2 Signer: certificate SHA-256 digest: fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c"
+  ],
+  "android_metadata": [
+    "package: name='kz.astanaai.diagnostics' versionCode='2' versionName='0.1.1' platformBuildVersionName='17' platformBuildVersionCode='37' compileSdkVersion='37' compileSdkVersionCodename='17'",
+    "minSdkVersion:'24'",
+    "targetSdkVersion:'36'",
+    "native-code: 'arm64-v8a'"
+  ],
+  "signing_identity": "Public Android debug identity; not production signing",
+  "metro_required": false,
+  "device_install_or_launch_verified": false,
+  "full_t01_accepted": false,
+  "limitations": [
+    "Physical Android 12 connected; runtime tests recorded separately",
+    "Android 14+, legacy upgrade, JS-stall, battery and field gates pending",
+    "No route, offline map pack, prepared audio or RAG acceptance"
+  ]
+}

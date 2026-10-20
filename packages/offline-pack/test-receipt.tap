@@ -1,0 +1,96 @@
+TAP version 13
+# (node:35632) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: prepare verifies durable bytes, activation survives storage restart with exact identity
+ok 1 - prepare verifies durable bytes, activation survives storage restart with exact identity
+  ---
+  duration_ms: 780.9527
+  type: 'test'
+  ...
+# Subtest: an interrupted revision preserves current, retries reuse hashes, and session pin prevents eviction
+ok 2 - an interrupted revision preserves current, retries reuse hashes, and session pin prevents eviction
+  ---
+  duration_ms: 1955.1227
+  type: 'test'
+  ...
+# Subtest: downloads overlap only within four slots and every source receives identifying headers
+ok 3 - downloads overlap only within four slots and every source receives identifying headers
+  ---
+  duration_ms: 498.889
+  type: 'test'
+  ...
+# Subtest: actual streamed bytes enforce transfer and storage bounds before writing the excessive chunk
+ok 4 - actual streamed bytes enforce transfer and storage bounds before writing the excessive chunk
+  ---
+  duration_ms: 173.7623
+  type: 'test'
+  ...
+# Subtest: tile-provider map and whole-pack budgets fail before a source is opened
+ok 5 - tile-provider map and whole-pack budgets fail before a source is opened
+  ---
+  duration_ms: 214.4935
+  type: 'test'
+  ...
+# Subtest: an unsupported bundle is preserved outside active state without parsing or fetching its paths
+ok 6 - an unsupported bundle is preserved outside active state without parsing or fetching its paths
+  ---
+  duration_ms: 680.0242
+  type: 'test'
+  ...
+# Subtest: cancelling a stalled source returns partial promptly and discards only its temporary writer
+ok 7 - cancelling a stalled source returns partial promptly and discards only its temporary writer
+  ---
+  duration_ms: 122.0847
+  type: 'test'
+  ...
+# Subtest: snapshot rechecks actual current bytes and a repaired retry restores the same identity
+ok 8 - snapshot rechecks actual current bytes and a repaired retry restores the same identity
+  ---
+  duration_ms: 769.6904
+  type: 'test'
+  ...
+# Subtest: filesystem adapter refuses traversal and a substituted object-directory junction before deletion
+ok 9 - filesystem adapter refuses traversal and a substituted object-directory junction before deletion
+  ---
+  duration_ms: 277.8047
+  type: 'test'
+  ...
+# Subtest: a killed writer leaves current and session pin intact; reopening reclaims only its dead temporary file
+ok 10 - a killed writer leaves current and session pin intact; reopening reclaims only its dead temporary file
+  ---
+  duration_ms: 617.907
+  type: 'test'
+  ...
+# Subtest: a simulated storage-open failure reports a partial revision while the real previous pack stays ready
+ok 11 - a simulated storage-open failure reports a partial revision while the real previous pack stays ready
+  ---
+  duration_ms: 791.3848
+  type: 'test'
+  ...
+# Subtest: the actual storage byte quota rejects a chunk before persistence without evicting anything
+ok 12 - the actual storage byte quota rejects a chunk before persistence without evicting anything
+  ---
+  duration_ms: 97.9617
+  type: 'test'
+  ...
+# Subtest: unsafe bundled path normalization and a non-owned root fail closed
+ok 13 - unsafe bundled path normalization and a non-owned root fail closed
+  ---
+  duration_ms: 91.2676
+  type: 'test'
+  ...
+# Subtest: configuration cannot raise hard provider or concurrency caps
+ok 14 - configuration cannot raise hard provider or concurrency caps
+  ---
+  duration_ms: 21.3558
+  type: 'test'
+  ...
+1..14
+# tests 14
+# suites 0
+# pass 14
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 7689.9695

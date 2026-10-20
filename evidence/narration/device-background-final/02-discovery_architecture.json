@@ -1,0 +1,346 @@
+{
+  "step": 2,
+  "action": "discovery_architecture",
+  "package": "kz.astanaai.diagnostics",
+  "visible_labels": [
+    {
+      "depth": 7,
+      "text": "",
+      "description": "Отображает карту, созданную при помощи MapLibre. Пролистывайте двумя пальцами. Меняйте масштаб сведением пальцев.",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "",
+      "description": "Значок атрибутов. Активируйте, чтобы показать диалог.",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 7,
+      "text": "Открой Астану",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 7,
+      "text": "Места, ради которых стоит выйти",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 7,
+      "text": "",
+      "description": "О городе ↗",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "О городе ↗",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 9,
+      "text": "",
+      "description": "Все",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 10,
+      "text": "Все",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 9,
+      "text": "",
+      "description": "История",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 10,
+      "text": "История",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 9,
+      "text": "",
+      "description": "Архитектура",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 10,
+      "text": "Архитектура",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 9,
+      "text": "",
+      "description": "У реки",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 10,
+      "text": "У реки",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 7,
+      "text": "",
+      "description": "Погода и события: Сейчас в Астане: 3 °C · холодно",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "Сейчас в Астане: 3 °C · холодно",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "⌄",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 7,
+      "text": "",
+      "description": "⌖ Все места",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "⌖ Все места",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 7,
+      "text": "",
+      "description": "Weather data by Open-Meteo · CC BY 4.0 ↗",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "Weather data by Open-Meteo · CC BY 4.0 ↗",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 7,
+      "text": "",
+      "description": "Схема",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "Схема",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 7,
+      "text": "",
+      "description": "RU",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "RU",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 7,
+      "text": "",
+      "description": "KK",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "KK",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 7,
+      "text": "",
+      "description": "EN",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "EN",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "С чего начнём?",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "02",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 11,
+      "text": "",
+      "description": "Байтерек. Золотой шар над Нуржолом. Короткий осмотр снаружи. Вход внутрь и тёплое укрытие не подтверждены.",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 12,
+      "text": "",
+      "description": "Верхняя часть Байтерека и золотой шар",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 12,
+      "text": "Байтерек",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 12,
+      "text": "↗",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 12,
+      "text": "Золотой шар над Нуржолом",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 12,
+      "text": "Короткий осмотр снаружи. Вход внутрь и тёплое укрытие не подтверждены.",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 11,
+      "text": "",
+      "description": "Хан Шатыр. Шатёр, который стал зданием. Короткий осмотр снаружи. Вход внутрь и тёплое укрытие не подтверждены. В здании есть помещения, но возможность зайти ...",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 12,
+      "text": "",
+      "description": "Шатровый силуэт Хан Шатыра",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 12,
+      "text": "Хан Шатыр",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 12,
+      "text": "Шатёр, который стал зданием",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 12,
+      "text": "Короткий осмотр снаружи. Вход внутрь и тёплое укрытие не подтверждены. В здании есть помещения, но возможность зайти и часы работы нужно проверить.",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    }
+  ],
+  "visited_nodes": 108,
+  "screen_policy": "PUBLIC_DISCOVERY_COMPOSITE",
+  "screenshot": "\/storage\/emulated\/0\/Android\/data\/kz.astanaai.diagnostics\/files\/android-ui-tests\/run-1792518778313-21007\/02-discovery_architecture.png"
+}

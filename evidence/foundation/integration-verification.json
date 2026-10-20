@@ -1,0 +1,218 @@
+{
+  "kind": "source-local-integration-checkpoint",
+  "checkedAtUtc": "2026-10-20T14:20:58.724853+00:00",
+  "baseCommit": "2be738f1c815b746334dfb9125148d897cbfc85b",
+  "sourceState": "exact file hashes below; local worktree before checkpoint commit",
+  "nodeVersion": "v22.22.2",
+  "pythonVersion": "3.12.14",
+  "command": "scripts/verify-local.ps1 -PythonPath <existing Python> -NodePath <existing Node>",
+  "exitCode": 0,
+  "tests": {
+    "passed": 229,
+    "failed": 0,
+    "skipped": 0
+  },
+  "checks": [
+    {
+      "label": "Data and recorded OSM replay tests",
+      "tests": 25,
+      "result": "PASS"
+    },
+    {
+      "label": "No-charge policy tests",
+      "tests": 22,
+      "result": "PASS"
+    },
+    {
+      "label": "No-charge policy strict types",
+      "tests": 0,
+      "result": "PASS"
+    },
+    {
+      "label": "Canonical bundle and parent-aware revision regressions",
+      "tests": 49,
+      "result": "PASS"
+    },
+    {
+      "label": "Canonical contract strict types",
+      "tests": 0,
+      "result": "PASS"
+    },
+    {
+      "label": "Generated contract schema and fixtures",
+      "tests": 0,
+      "result": "PASS"
+    },
+    {
+      "label": "CityEvidence actual-catalog retrieval regressions",
+      "tests": 19,
+      "result": "PASS"
+    },
+    {
+      "label": "CityEvidence catalog reproducibility",
+      "tests": 0,
+      "result": "PASS"
+    },
+    {
+      "label": "Recorded-graph planner and revision regressions",
+      "tests": 13,
+      "result": "PASS"
+    },
+    {
+      "label": "Recorded planner catalog reproducibility",
+      "tests": 0,
+      "result": "PASS"
+    },
+    {
+      "label": "Offline pack real filesystem and SQLite boundaries",
+      "tests": 14,
+      "result": "PASS"
+    },
+    {
+      "label": "Public collection real SQLite and trusted catalog boundaries",
+      "tests": 23,
+      "result": "PASS"
+    },
+    {
+      "label": "Private Node workspace strict build",
+      "tests": 0,
+      "result": "PASS"
+    },
+    {
+      "label": "Normal Node package export integration",
+      "tests": 2,
+      "result": "PASS"
+    },
+    {
+      "label": "Prepared audio input/model integrity",
+      "tests": 18,
+      "result": "PASS"
+    },
+    {
+      "label": "Canonical narration export and prepared asset binding",
+      "tests": 3,
+      "result": "PASS"
+    },
+    {
+      "label": "Mobile strict types",
+      "tests": 0,
+      "result": "PASS"
+    },
+    {
+      "label": "Mobile lifecycle regression with simulated OS adapters",
+      "tests": 10,
+      "result": "PASS"
+    },
+    {
+      "label": "Editorial progression, actual SQLite persistence and priority Stop",
+      "tests": 23,
+      "result": "PASS"
+    },
+    {
+      "label": "Editorial catalog malformed-input checks (synthetic, in memory only)",
+      "tests": 0,
+      "result": "PASS"
+    },
+    {
+      "label": "City guide, actual SQLite preferences and progress priority",
+      "tests": 3,
+      "result": "PASS"
+    },
+    {
+      "label": "City geometry malformed-input checks (synthetic)",
+      "tests": 5,
+      "result": "PASS"
+    }
+  ],
+  "report": {
+    "path": "integration-checks.txt",
+    "sha256": "acc848bd7c98aa2a96f4b4ddb903b953ef14a8cb6326a9e4b7c71e9bcd83303a",
+    "bytes": 59975
+  },
+  "sourceHashes": {
+    ".gitattributes": "2cf6bfab6693ea117a4ef9363bfaab24602aa4f30d98fb66e8be0b1ab68c8cf3",
+    ".gitignore": "d3ae0e1593529ea4963a571f76d5fdd6689be70931c05464b43e48729f90d862",
+    "package-lock.json": "16724ebb93599ce16b966bb208836a75e6673c2c6a0ffd38fcc58e20c82274a5",
+    "package.json": "9e10713af19098c86d9d6b83ccb0b09b5fd15e6a22f4b1a757853341f23ada0f",
+    "packages/city-evidence/evidence/verification.json": "d0e1dadca5f92de983b8d62d1caca4acefacc837d3aca28954ec2a5191bd90b8",
+    "packages/city-evidence/fixtures/curation.json": "f59db5bddafc31702354bc01c5c8bfb3c31303b02818832a1c402147773aa3d6",
+    "packages/city-evidence/package.json": "d673997fcaa463700737c41845074bb9733333fb871a863065910e4742cc51bd",
+    "packages/city-evidence/README.md": "8e09c2a8e4e1a5d6c45c2843af8950b723f6d92308863771cf683ae148348962",
+    "packages/city-evidence/src/catalog.generated.ts": "50f160a1fc0e1e844750a58d7c6e418e966bb7d19fed1e7c0bdee8d43501ba1f",
+    "packages/city-evidence/src/index.ts": "3d9ab751c9ef4262edb983a693720d8e18fc6717edbeb8ed4e22ca04d40a2aac",
+    "packages/city-evidence/test/search.test.cjs": "99ee3fea39dfc440bf2f924a4c0a747fbd9b9159ee7243821cd0d6a6b3deedb9",
+    "packages/city-evidence/test/synthetic.cjs": "77c788b90acd62121984f2406238555006018ec49625402191b1d7e7d2315833",
+    "packages/city-evidence/tools/build_catalog.py": "3cdbd6753daad6ed45fd6269ae75864b53647f412921558d43ed9cc42ffc2c90",
+    "packages/contracts/fixtures/corrupt-payload.json": "35dc6ca172f73ce302b0facee2fbfa586f17822371b921c379b5d2135a4cb150",
+    "packages/contracts/fixtures/manifest.json": "46fb74aefb1a1887194e253e6f2370ce3e5842fb068e2c551202779d93182dac",
+    "packages/contracts/fixtures/synthetic-v1.json": "a069b3b8aee67c46fc2fea0ea02754bcfa3a779e7a8994dc61c044a77a2f308f",
+    "packages/contracts/fixtures/unsupported-major.json": "d0442b8539cad58de6b8f0bd6ff0d51a74f226610ebbd0665d7e325d0ab358fe",
+    "packages/contracts/package.json": "404e8b1b0fcba2244eecd8fff15c6d14a26c6acd6e5719f87a04c82494c2a6fe",
+    "packages/contracts/README.md": "83063861b97f52ab9db4365d105f08d55db971c75bad7d1be8cc6e6c9fe9edc2",
+    "packages/contracts/schema/WalkBundleV1.schema.json": "498bafb2d1fc41a6dd43e19008e65b8af3b5b727d937fc87ea872087487ffd8f",
+    "packages/contracts/scripts/generate-artifacts.cjs": "bac1a8590fe9512e4e1860cb51c4f5bf2a100cb572d51da1582afdc4f2489cf4",
+    "packages/contracts/src/assets.ts": "9d368660fa7b28cb0dd0c84b1afa9ee3dbc37267bca61c41e11be5b8255d49bb",
+    "packages/contracts/src/bundle.ts": "c1f1a5a4b80b9ddac3ace6a3e15901a5472742661a472d50bd383533be9a27f0",
+    "packages/contracts/src/index.ts": "1e6eef80e8e41c684be04de431dbd102979dbe2dc2f7883f0ed5d3c6a66a854c",
+    "packages/contracts/src/interfaces.ts": "e132db50b657004936f66805c929b98e0bfa138de5bf86df12774e7ace71a874",
+    "packages/contracts/src/model.ts": "d27988a1ff5088a8ff5bded75ddf69d74351a379188d58ca583fdcd486919bad",
+    "packages/contracts/src/revision.ts": "5a3ba5006500129dad6e8dc9225d2f4001be08ce1911c840aae58c54e32b812b",
+    "packages/contracts/test/bundle.test.cjs": "35c8e52adb1d9be995eee2224b977eb9be703656239dbd7cbce9019e50f76938",
+    "packages/contracts/test/fixture.cjs": "bbc6c286a8ce52243c378289938c3bbe2e4ec696333fd5b908ce8ca415c36cc5",
+    "packages/contracts/test/review-probes.test.cjs": "a28147f6909afa285634e014f4983265c8226ce863d9087811bd8879930c921c",
+    "packages/offline-pack/package.json": "536892f275d90fa34cc4f63b5a807985091fc874ad1eb919c2dbd7077dab7b81",
+    "packages/offline-pack/README.md": "7333dd4e18af8da7d334f4c7adf3c6079d0ea10eed4d5752edff44c46748b590",
+    "packages/offline-pack/src/index.d.mts": "76bed23a132c92e7f6c57b419a8b9c06b4940672477739d9d8b08d6741aa59fc",
+    "packages/offline-pack/src/index.mjs": "0937f77ccfa08533d63fc2adb5d1292e1de4447183a5fd046050e8215fb40b9b",
+    "packages/offline-pack/src/node-storage.d.mts": "43f938f7fc1b7a9c04f121444c804a7e39a4754c9cdb1c755e5e907d73f18983",
+    "packages/offline-pack/src/node-storage.mjs": "4ff18038a93350161ae8b4a47e5bdc18493c2db535dc637694a69cc1ba78646c",
+    "packages/offline-pack/test/helpers.cjs": "3b239d921b6c4123485571115a198125eb18d84ca2a2389a02b78d0e93165008",
+    "packages/offline-pack/test/pack.test.mjs": "4fd04face8cf5ab44a2e510487731c6c37944ef3569fce47de52430b8f111985",
+    "packages/offline-pack/test-receipt.tap": "d4be6fd4fa83e5c3b4453bc4dd85d5047dd3936377d6faf638789d66702b0978",
+    "packages/offline-pack/verification.json": "002ec3cc035f1ae75e8343c65004eba5017dda25ceccc8e604d829c7b9bcf7f4",
+    "packages/offline-pack/VERIFICATION.md": "0688c2011132ed883c7f416217a2c89ef0d2fd13936734df0c7557283943c354",
+    "packages/public-collection/evidence/local-tests.tap": "1f967c9f700ee3fbc7a7460623f06cc6ded3a326796940b5c5ba442e4983f8e2",
+    "packages/public-collection/evidence/local-verification.json": "d7d5307c60089acef1d04ece75d92f776389b6608e0108e527964dd7503dfe95",
+    "packages/public-collection/package.json": "5662eb126f714cd4c1862d41dc4410c2d108f3e8c152ddf251fe08da0a792fb4",
+    "packages/public-collection/README.md": "b3d82db74dbb4467c32c752166f4ac7390defae3e903ae39984bf985faf84866",
+    "packages/public-collection/src/authority.mjs": "3672f5b76ecb303736721d10b1167941f91b2a7a3102d94d1a1a67614524b206",
+    "packages/public-collection/src/collection.mjs": "796ecf48b61e53554c0df6b3efa6268e8cba35b3e1049c4206232cc8817bcffe",
+    "packages/public-collection/src/http.mjs": "71d6fc619f16230df7bef66aeef29c5ba0fad8a60dc3b4a6ade6824a4f65bf04",
+    "packages/public-collection/src/index.mjs": "76fb7597214b530d6c0d996f47fd89c6c643290ed5876ff64e1940d2df0b10be",
+    "packages/public-collection/src/model.mjs": "7899ed8b58ae7c60f288fedab0be1fde66e01f1172a780abf5ce72fa543b1f92",
+    "packages/public-collection/test/catalog.test.mjs": "9d6d6933437b2140013d1e694cc81c4e3a568ec59529fd7b902d75a7fb9825f0",
+    "packages/public-collection/test/public-collection.test.mjs": "7198e09244f9c72c0ea227bae5fff2db92a689280018566dbba073012e6fa848",
+    "packages/walk-planner/package.json": "77ee15f162c4a3f57ca281cad153100c87fafb42ad7517bf46b29a9ed96a5ba2",
+    "packages/walk-planner/README.md": "c0045c0cb43d803d2b16584b6914325028b148f3cf23c9bda73849a940870e75",
+    "packages/walk-planner/src/catalog.generated.ts": "22ec97653c6da1219aa610f85ddc4379757c4d3eb23f186b8268314bf8a30e45",
+    "packages/walk-planner/src/index.ts": "19974c455dbb547ff7cd5d0fe91d62da95e4543b8854f9ebfbcd392adb9df071",
+    "packages/walk-planner/test/planner.test.cjs": "be0b4772f53550bd353cf686cb2eadb6a7ee808bca24482d73922b9289798959",
+    "README.md": "e1f426806b89790dd25684522149d42d1d62ec960848634004e5f10380195dc0",
+    "scripts/build-node.cjs": "6d08e7766a3e3da01672ca5b9e0869c4f9e75339b8d0b3e2739ec762ed7db15d",
+    "scripts/verify-local.ps1": "e1bc8aea9ab0d318f9586e2c8071fefe1ce51efbc19daac86d300f23b971cdb9",
+    "tests/runtime/node-workspace.test.mjs": "7b341617da670b882566bd0eb04ff94e6be5e15c30ff7829d745363cb82f302e",
+    "tools/audio/build_narration_corpus.py": "0fce22ed9971ad7144d7a23620182fb1649eaa8dacbc594d0d56dc32bf03df9c",
+    "tools/audio/canonical_audio.cjs": "fe8b937ad81a487405dbc6b5a829177ecefc087ac24ba533c5dbbfb114d2404b",
+    "tools/audio/COPYING-GPL-3.0.txt": "230184f60bae2feaf244f10a8bac053c8ff33a183bcc365b4d8b876d2b7f4809",
+    "tools/audio/CORPUS-README.md": "906d56bb40d6519b5e597e392213fe1b7385402af6a46316cd2f76182b564233",
+    "tools/audio/CORPUS-VERIFICATION.json": "e82fa9134a617afcbeb2e0d7e1904fa3ff1f5052a6893e2b50aff63caa1f4a46",
+    "tools/audio/generate_prepared_audio.py": "470bbc509c3ff6db719fd14077ae6f5858156a987af8f6726a9ed522b170bb7c",
+    "tools/audio/generate_rhvoice_audio.py": "5c23940c8b4edfe8332b0b6aa1821434d9409f7de31f703c7adcdab740c0b466",
+    "tools/audio/README.md": "243ce6b2e41bd903857e46cd2e05795156e3029bbe241cd308d04fe1ae9f7cff",
+    "tools/audio/RHVOICE-NOTICE.md": "ca3e447aba7964a64884f5c55b1ba8f47d91d02046c796ebca6d5f93624de446",
+    "tools/audio/test_build_narration_corpus.py": "c29953064e47083883b475ef4207511df54ac6aa2f9885f41c2f51639ca8fc1b",
+    "tools/audio/test_canonical_audio.cjs": "c60a13780e43514861a6b7bd2fa3e6b755f2e26089239555a4417d1f6667a249",
+    "tools/audio/test_generate_prepared_audio.py": "a7b5c64f0c3417e67fcf7dfe55c7de0cf6e9b49bc8a379ad392d9e89d0738f60",
+    "tools/audio/test_generate_rhvoice_audio.py": "0bf4c934c968d4ff2ed6d36b967ec10fb97054749cb421a34b408019559409da",
+    "tools/planner/build_replay_catalog.py": "bd7a8ca8f1625c2f63bb6c76c8a3323e5861392c164f714d4a1c8074c59cfcb9"
+  },
+  "limits": [
+    "Node/Windows local checks; new modules are not in the installed Android 0.3.4 APK",
+    "Recorded real OSM/editorial chain, not live RAG, arbitrary-origin routing or field passage",
+    "Offline store synthetic-byte and actual-file integrity tests do not accept native rendering/playback",
+    "PublicCollection uses actual local SQLite; no hosting, HTTPS, operations or SecureStore acceptance",
+    "Separate isolated Metro import probe is recorded in NODE-WORKSPACE-REVIEW, not device execution",
+    "No paid API, provider requests, purchases, deployment, phone changes or friend result import by this runner",
+    "Full beta scope and device/provider/field/pilot gates remain open"
+  ]
+}

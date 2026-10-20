@@ -1,0 +1,228 @@
+{
+  "versionCode": 9,
+  "method": "Every encoded native video frame from 3.3 to 6.0s; river cyan pixels in fixed map ROI x0..720/y300..950; caption and card excluded",
+  "frames": 54,
+  "minimum_blue_river_pixels": 7934,
+  "first_seconds": 3.314078,
+  "last_seconds": 5.018022,
+  "blank_map_frames_detected": 0,
+  "display_frame_rate_acceptance": false,
+  "samples": [
+    {
+      "seconds": 3.314078,
+      "blue_river_pixels": 7934
+    },
+    {
+      "seconds": 3.347444,
+      "blue_river_pixels": 8602
+    },
+    {
+      "seconds": 3.379767,
+      "blue_river_pixels": 8731
+    },
+    {
+      "seconds": 3.412533,
+      "blue_river_pixels": 8777
+    },
+    {
+      "seconds": 3.445744,
+      "blue_river_pixels": 8857
+    },
+    {
+      "seconds": 3.478956,
+      "blue_river_pixels": 8978
+    },
+    {
+      "seconds": 3.512167,
+      "blue_river_pixels": 9028
+    },
+    {
+      "seconds": 3.545233,
+      "blue_river_pixels": 9032
+    },
+    {
+      "seconds": 3.578444,
+      "blue_river_pixels": 9160
+    },
+    {
+      "seconds": 3.6032,
+      "blue_river_pixels": 9170
+    },
+    {
+      "seconds": 3.6374,
+      "blue_river_pixels": 9207
+    },
+    {
+      "seconds": 3.669933,
+      "blue_river_pixels": 9239
+    },
+    {
+      "seconds": 3.702233,
+      "blue_river_pixels": 9340
+    },
+    {
+      "seconds": 3.736578,
+      "blue_river_pixels": 9373
+    },
+    {
+      "seconds": 3.768622,
+      "blue_river_pixels": 9419
+    },
+    {
+      "seconds": 3.800911,
+      "blue_river_pixels": 9446
+    },
+    {
+      "seconds": 3.834333,
+      "blue_river_pixels": 9425
+    },
+    {
+      "seconds": 3.867533,
+      "blue_river_pixels": 9475
+    },
+    {
+      "seconds": 3.901078,
+      "blue_river_pixels": 9536
+    },
+    {
+      "seconds": 3.925522,
+      "blue_river_pixels": 9513
+    },
+    {
+      "seconds": 3.958678,
+      "blue_river_pixels": 9542
+    },
+    {
+      "seconds": 3.991389,
+      "blue_river_pixels": 9553
+    },
+    {
+      "seconds": 4.024622,
+      "blue_river_pixels": 9598
+    },
+    {
+      "seconds": 4.056922,
+      "blue_river_pixels": 9641
+    },
+    {
+      "seconds": 4.0905,
+      "blue_river_pixels": 9651
+    },
+    {
+      "seconds": 4.124844,
+      "blue_river_pixels": 9639
+    },
+    {
+      "seconds": 4.155944,
+      "blue_river_pixels": 9644
+    },
+    {
+      "seconds": 4.181533,
+      "blue_river_pixels": 9630
+    },
+    {
+      "seconds": 4.222033,
+      "blue_river_pixels": 9620
+    },
+    {
+      "seconds": 4.246722,
+      "blue_river_pixels": 9609
+    },
+    {
+      "seconds": 4.280011,
+      "blue_river_pixels": 9609
+    },
+    {
+      "seconds": 4.315844,
+      "blue_river_pixels": 9611
+    },
+    {
+      "seconds": 4.348422,
+      "blue_river_pixels": 8846
+    },
+    {
+      "seconds": 4.380289,
+      "blue_river_pixels": 8846
+    },
+    {
+      "seconds": 4.413,
+      "blue_river_pixels": 8846
+    },
+    {
+      "seconds": 4.446444,
+      "blue_river_pixels": 8846
+    },
+    {
+      "seconds": 4.470633,
+      "blue_river_pixels": 8846
+    },
+    {
+      "seconds": 4.503789,
+      "blue_river_pixels": 8846
+    },
+    {
+      "seconds": 4.537178,
+      "blue_river_pixels": 8846
+    },
+    {
+      "seconds": 4.569567,
+      "blue_river_pixels": 8846
+    },
+    {
+      "seconds": 4.603211,
+      "blue_river_pixels": 8846
+    },
+    {
+      "seconds": 4.636089,
+      "blue_river_pixels": 8846
+    },
+    {
+      "seconds": 4.661,
+      "blue_river_pixels": 8846
+    },
+    {
+      "seconds": 4.696556,
+      "blue_river_pixels": 8846
+    },
+    {
+      "seconds": 4.7285,
+      "blue_river_pixels": 8839
+    },
+    {
+      "seconds": 4.744156,
+      "blue_river_pixels": 8860
+    },
+    {
+      "seconds": 4.7779,
+      "blue_river_pixels": 8864
+    },
+    {
+      "seconds": 4.7932,
+      "blue_river_pixels": 8843
+    },
+    {
+      "seconds": 4.828489,
+      "blue_river_pixels": 8852
+    },
+    {
+      "seconds": 4.867967,
+      "blue_river_pixels": 8850
+    },
+    {
+      "seconds": 4.900411,
+      "blue_river_pixels": 8845
+    },
+    {
+      "seconds": 4.925167,
+      "blue_river_pixels": 8847
+    },
+    {
+      "seconds": 4.949322,
+      "blue_river_pixels": 8848
+    },
+    {
+      "seconds": 5.018022,
+      "blue_river_pixels": 8848
+    }
+  ]
+}

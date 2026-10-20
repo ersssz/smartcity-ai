@@ -1,0 +1,24 @@
+{
+  "checkedAtUtc": "2026-10-20T10:52:41.3655178Z",
+  "version": "0.3.0",
+  "versionCode": 5,
+  "automatedTests": 89,
+  "catalogRefusalScenarios": 8,
+  "strictTypes": "PASS",
+  "cityCatalogAndSqliteTests": 4,
+  "syntheticGeometryTests": 5,
+  "rootRawGeometryEdgeChecks": 2542,
+  "districtCount": 6,
+  "contentSources": 15,
+  "sourceReview": "PASS with runtime gates separate",
+  "guideSha256": "e565c4d307adca5a1730152a4dbd7a81e126fd4fc3d941d14c41cc850a88fc9b",
+  "costs": {
+    "purchases": 0,
+    "paidApiCalls": 0
+  },
+  "limitations": [
+    "Code5 device check awaits Play Protect confirmation",
+    "Code4 rendered selection/KK but CTA overlapped navigation bar; not accepted as final UI",
+    "Human translations, field acceptance and full beta remain pending"
+  ]
+}

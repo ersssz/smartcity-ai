@@ -1,0 +1,346 @@
+{
+  "step": 1,
+  "action": "launch",
+  "package": "kz.astanaai.diagnostics",
+  "visible_labels": [
+    {
+      "depth": 7,
+      "text": "",
+      "description": "Отображает карту, созданную при помощи MapLibre. Пролистывайте двумя пальцами. Меняйте масштаб сведением пальцев.",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "",
+      "description": "Значок атрибутов. Активируйте, чтобы показать диалог.",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 7,
+      "text": "Астананы аш",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 7,
+      "text": "Көруге тұрарлық орындар",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 7,
+      "text": "",
+      "description": "Қала туралы ↗",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "Қала туралы ↗",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 9,
+      "text": "",
+      "description": "Бәрі",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 10,
+      "text": "Бәрі",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 9,
+      "text": "",
+      "description": "Тарих",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 10,
+      "text": "Тарих",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 9,
+      "text": "",
+      "description": "Сәулет",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 10,
+      "text": "Сәулет",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 9,
+      "text": "",
+      "description": "Өзен бойы",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 10,
+      "text": "Өзен бойы",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 7,
+      "text": "",
+      "description": "Ауа райы мен оқиғалар: Ауа райы әзірге белгісіз",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "Ауа райы әзірге белгісіз",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "⌄",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 7,
+      "text": "",
+      "description": "⌖ Барлық орын",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "⌖ Барлық орын",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 7,
+      "text": "",
+      "description": "Сызба",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "Сызба",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 7,
+      "text": "",
+      "description": "RU",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "RU",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 7,
+      "text": "",
+      "description": "KK",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "KK",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 7,
+      "text": "",
+      "description": "EN",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "EN",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "Неден бастаймыз?",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "05",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 11,
+      "text": "",
+      "description": "Сәкен Сейфуллин музейі. Ескі Ақмоланың ағаш үйі. Күнтізбедегі дата — осы орынның тарихын білуге себеп.",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 12,
+      "text": "",
+      "description": "Сәкен Сейфуллин музейінің ағаш қасбеті",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 12,
+      "text": "Сәкен Сейфуллин музейі",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 12,
+      "text": "↗",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 12,
+      "text": "Ескі Ақмоланың ағаш үйі",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 12,
+      "text": "Күнтізбедегі дата — осы орынның тарихын білуге себеп.",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 11,
+      "text": "",
+      "description": "Горький атындағы театр. Ескі орталықтағы театр. Күнтізбедегі дата — осы орынның тарихын білуге себеп.",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 12,
+      "text": "",
+      "description": "Горький атындағы театрдың көгілдір қасбеті",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 12,
+      "text": "Горький атындағы театр",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 12,
+      "text": "Ескі орталықтағы театр",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 12,
+      "text": "Күнтізбедегі дата — осы орынның тарихын білуге себеп.",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 7,
+      "text": "",
+      "description": "Бірден орындарға →",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "Бірден орындарға →",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    }
+  ],
+  "visited_nodes": 125,
+  "screen_policy": "PUBLIC_DISCOVERY_COMPOSITE",
+  "screenshot": "\/storage\/emulated\/0\/Android\/data\/kz.astanaai.diagnostics\/files\/android-ui-tests\/run-1792513937529-24635\/01-launch.png"
+}

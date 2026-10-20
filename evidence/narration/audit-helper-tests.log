@@ -1,0 +1,13 @@
+test_default_parser_keeps_all_four_legacy_class_definitions (test_audit_narration.NarrationDexTests.test_default_parser_keeps_all_four_legacy_class_definitions) ... ok
+test_descriptor_strings_wrong_namespace_and_no_body_cannot_prove_narration_methods (test_audit_narration.NarrationDexTests.test_descriptor_strings_wrong_namespace_and_no_body_cannot_prove_narration_methods) ... ok
+test_nonzero_offset_into_header_or_truncated_code_item_is_not_method_body (test_audit_narration.NarrationDexTests.test_nonzero_offset_into_header_or_truncated_code_item_is_not_method_body) ... ok
+test_opt_in_exact_subpackage_definitions_have_required_code_methods (test_audit_narration.NarrationDexTests.test_opt_in_exact_subpackage_definitions_have_required_code_methods) ... ok
+test_aapt2_tree_feeds_typed_merged_manifest_attributes (test_audit_narration.NarrationManifestTests.test_aapt2_tree_feeds_typed_merged_manifest_attributes) ... ok
+test_each_permission_is_required_as_exact_manifest_name (test_audit_narration.NarrationManifestTests.test_each_permission_is_required_as_exact_manifest_name) ... ok
+test_exact_merged_narration_service_receiver_and_permissions_pass (test_audit_narration.NarrationManifestTests.test_exact_merged_narration_service_receiver_and_permissions_pass) ... ok
+test_wrong_type_export_task_policy_duplicate_or_missing_component_fails (test_audit_narration.NarrationManifestTests.test_wrong_type_export_task_policy_duplicate_or_missing_component_fails) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.003s
+
+OK

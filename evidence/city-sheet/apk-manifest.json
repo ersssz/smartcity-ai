@@ -1,0 +1,22 @@
+{
+  "version": "0.3.1",
+  "versionCode": 6,
+  "manifest_gate": "PASS",
+  "permissions": [
+    "ACCESS_COARSE_LOCATION",
+    "ACCESS_FINE_LOCATION",
+    "ACCESS_NETWORK_STATE",
+    "ACCESS_WIFI_STATE",
+    "DUMP",
+    "FOREGROUND_SERVICE",
+    "FOREGROUND_SERVICE_LOCATION",
+    "INTERNET",
+    "POST_NOTIFICATIONS",
+    "VIBRATE"
+  ],
+  "backup_allowed": false,
+  "native_service_exported": false,
+  "native_stop_receiver_exported": false,
+  "service_stops_with_task": true,
+  "runtime_acceptance": false
+}

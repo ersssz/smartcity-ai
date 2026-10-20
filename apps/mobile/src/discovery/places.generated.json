@@ -1,0 +1,365 @@
+[
+  {
+    "id": "seifullin-museum",
+    "category": "history",
+    "title": {
+      "ru": "Музей Сакена Сейфуллина",
+      "kk": "Сәкен Сейфуллин музейі",
+      "en": "Saken Seifullin Museum"
+    },
+    "summary": {
+      "ru": "Деревянный дом старой Акмолы",
+      "kk": "Ескі Ақмоланың ағаш үйі",
+      "en": "A wooden house in old Akmola"
+    },
+    "why": {
+      "ru": "Деревянный дом в историческом центре хранит рукописи и личные вещи Сакена Сейфуллина. Начните с резных деталей фасада.",
+      "kk": "Тарихи орталықтағы ағаш үйде Сәкен Сейфуллиннің қолжазбалары мен жеке заттары сақталған. Танысуды қасбеттің ойма бөлшектерінен бастаңыз.",
+      "en": "A wooden house in the historic centre holds Saken Seifullin's manuscripts and personal belongings. Start with the carved details of its facade."
+    },
+    "coordinate": {
+      "state": "known",
+      "lat": 51.17144196277,
+      "lon": 71.423534284662,
+      "sourceIds": [
+        "visit-seifullin"
+      ],
+      "kind": "place_point",
+      "verifiedEntrance": false,
+      "fieldVerified": false,
+      "note": "Published place point; not a surveyed entrance."
+    },
+    "factsSources": [
+      {
+        "id": "visit-seifullin",
+        "label": "Visit Astana: Государственный музей имени С. Сейфуллина",
+        "url": "https://visitastana.kz/ru/about-city/what-to-see/gosudarstvennyy-muzey-imeni-s-seyfullina/",
+        "checkedAt": "2026-10-20T16:16:41.554004Z",
+        "localEvidence": "source-evidence/visit-seifullin.html",
+        "localEvidenceSha256": "b04ca643f117f2f3fc2008f9a4692a8f4c7181416e8cbf7c548360c6e80c9d92"
+      }
+    ],
+    "hours": {
+      "state": "unknown",
+      "value": null,
+      "reason": "No current dated operator confirmation. Do not infer open now or promise indoor entry from tourism-page hours."
+    },
+    "visitMode": "outside_only",
+    "copyReview": {
+      "ru": "source-checked-agent-draft",
+      "kk": "human-review-pending",
+      "en": "human-review-pending"
+    },
+    "photo": {
+      "id": "seifullin-museum",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Seifullin_Museum_Nur-Sultan.jpg",
+      "licenseId": "CC-BY-SA-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "attribution": "Фото: Yakov Fedorov · CC BY-SA 4.0",
+      "alt": {
+        "ru": "Деревянный фасад музея Сакена Сейфуллина",
+        "kk": "Сәкен Сейфуллин музейінің ағаш қасбеті",
+        "en": "The wooden facade of the Saken Seifullin Museum"
+      },
+      "changes": "Resized and recompressed; full frame retained.",
+      "derivativeSha256": "7ab1416c3dcf1507b2751e56952138719322009721d69b7f242984d103632233"
+    },
+    "hasIndoorOption": true
+  },
+  {
+    "id": "gorky-theatre",
+    "category": "history",
+    "title": {
+      "ru": "Театр имени Горького",
+      "kk": "Горький атындағы театр",
+      "en": "Gorky Drama Theatre"
+    },
+    "summary": {
+      "ru": "Театр в старом центре",
+      "kk": "Ескі орталықтағы театр",
+      "en": "Theatre in the old centre"
+    },
+    "why": {
+      "ru": "Постоянная труппа театра была создана в 1899 году. Его фасад — остановка для знакомства с культурной историей старого города.",
+      "kk": "Театрдың тұрақты труппасы 1899 жылы құрылған. Қасбетіне қарап, қаланың ескі орталығының мәдени тарихымен танысуды бастауға болады.",
+      "en": "The theatre's permanent troupe was formed in 1899. Its facade is a starting point for discovering the old city's cultural history."
+    },
+    "coordinate": {
+      "state": "known",
+      "lat": 51.165083,
+      "lon": 71.416397,
+      "sourceIds": [
+        "visit-gorky"
+      ],
+      "kind": "place_point",
+      "verifiedEntrance": false,
+      "fieldVerified": false,
+      "note": "Published place point; not a surveyed entrance."
+    },
+    "factsSources": [
+      {
+        "id": "gorky-operator",
+        "label": "Театр имени Горького: официальный сайт, основан в 1899 году",
+        "url": "https://gorkytheatre.kz/about",
+        "checkedAt": "2026-10-20T16:16:41.554004Z",
+        "localEvidence": "source-evidence/gorky-operator-about.html",
+        "localEvidenceSha256": "0781fe92576466393825c4038a7b89220c1e04586432284c2596bd76e2143544"
+      },
+      {
+        "id": "visit-gorky",
+        "label": "Visit Astana: театр драмы имени М. Горького",
+        "url": "https://www.visitastana.kz/ru/about-city/what-to-see/gosudarstvennyy-akademicheskiy-russkiy-teatr-dramy-imeni-m-gorkogo/",
+        "checkedAt": "2026-10-20T16:16:41.554004Z",
+        "localEvidence": "source-evidence/visit-gorky.html",
+        "localEvidenceSha256": "c36d1c5ec567bedb4030d6fe5fb33cde387ff01f0d585b33ef0a0e9013290064"
+      }
+    ],
+    "hours": {
+      "state": "unknown",
+      "value": null,
+      "reason": "No current dated operator confirmation. Do not infer open now or promise indoor entry from tourism-page hours."
+    },
+    "visitMode": "outside_only",
+    "copyReview": {
+      "ru": "source-checked-agent-draft",
+      "kk": "human-review-pending",
+      "en": "human-review-pending"
+    },
+    "photo": {
+      "id": "gorky-theatre",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gorky_Drama_Theatre_Nur-Sultan.jpg",
+      "licenseId": "CC-BY-SA-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "attribution": "Фото: Yakov Fedorov · CC BY-SA 4.0",
+      "alt": {
+        "ru": "Голубой фасад театра имени Горького",
+        "kk": "Горький атындағы театрдың көгілдір қасбеті",
+        "en": "The blue facade of the Gorky Drama Theatre"
+      },
+      "changes": "Resized and recompressed; full frame retained.",
+      "derivativeSha256": "c74611766ae9565b2df0ab610d77b3157b7108d7a90d4a20a0ce58621be42599"
+    },
+    "hasIndoorOption": true
+  },
+  {
+    "id": "bayterek",
+    "category": "architecture",
+    "title": {
+      "ru": "Байтерек",
+      "kk": "Бәйтерек",
+      "en": "Baiterek"
+    },
+    "summary": {
+      "ru": "Золотой шар над Нуржолом",
+      "kk": "Нұржол үстіндегі алтын шар",
+      "en": "The golden sphere above Nurzhol"
+    },
+    "why": {
+      "ru": "Монумент связан с образом Древа жизни. Рассмотрите снаружи его «ветви» и золотой шар — знакомство можно начать без подъёма на смотровую площадку.",
+      "kk": "Монумент Өмір ағашы бейнесімен байланысты. Алдымен сыртынан оның «бұтақтары» мен алтын шарын бақылау алаңына көтерілмей тамашалаңыз.",
+      "en": "The monument is linked to the Tree of Life. Begin outside with its branching structure and golden sphere, without going up to the observation deck."
+    },
+    "coordinate": {
+      "state": "known",
+      "lat": 51.12828825,
+      "lon": 71.4304546,
+      "sourceIds": [
+        "catalog-bayterek"
+      ],
+      "kind": "place_point",
+      "verifiedEntrance": false,
+      "fieldVerified": false,
+      "note": "Existing T02 OSM bounding-box centre, explicitly not an entrance."
+    },
+    "factsSources": [
+      {
+        "id": "visit-map",
+        "label": "Visit Astana: интерактивная карта и Байтерек",
+        "url": "https://www.visitastana.kz/ru/map/",
+        "checkedAt": "2026-10-20T16:16:41.554004Z",
+        "localEvidence": "source-evidence/visit-map.html",
+        "localEvidenceSha256": "f1c1902eed73ebb663db174996aedce45232346b0f75dd9101e36a4aa7ca3112"
+      },
+      {
+        "id": "catalog-bayterek",
+        "label": "OpenStreetMap: Байтерек, существующий T02 каталог",
+        "url": "https://www.openstreetmap.org/way/230401645",
+        "checkedAt": "2026-10-19T21:52:31.3613250Z",
+        "localEvidence": "../../outputs/AstanaAI/data/curated/poi-bayterek.json",
+        "license": "ODbL-1.0",
+        "attribution": "© OpenStreetMap contributors",
+        "localEvidenceSha256": "8526ee65b745d9eb007ee7cb594af004dc80dd1c0008d7732de372b34d56d033",
+        "locallyReviewedAt": "2026-10-20T16:16:41.554004Z"
+      }
+    ],
+    "hours": {
+      "state": "unknown",
+      "value": null,
+      "reason": "No current dated operator confirmation. Do not infer open now or promise indoor entry from tourism-page hours."
+    },
+    "visitMode": "outside_only",
+    "copyReview": {
+      "ru": "source-checked-agent-draft",
+      "kk": "human-review-pending",
+      "en": "human-review-pending"
+    },
+    "photo": {
+      "id": "bayterek",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Baiterek_August.jpg",
+      "licenseId": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "attribution": "Фото: Quarot · CC0",
+      "alt": {
+        "ru": "Верхняя часть Байтерека и золотой шар",
+        "kk": "Бәйтеректің жоғарғы бөлігі мен алтын шары",
+        "en": "Upper part of Baiterek and its golden sphere"
+      },
+      "changes": "Cropped to the upper tower and sphere; resized and recompressed.",
+      "derivativeSha256": "dc04688689b145a0610789da5e7af904984a08d72d9f79e7c95e1d9e1d745f0d"
+    },
+    "hasIndoorOption": false
+  },
+  {
+    "id": "khan-shatyr",
+    "category": "architecture",
+    "title": {
+      "ru": "Хан Шатыр",
+      "kk": "Хан Шатыр",
+      "en": "Khan Shatyr"
+    },
+    "summary": {
+      "ru": "Шатёр, который стал зданием",
+      "kk": "Ғимаратқа айналған шатыр",
+      "en": "A tent on the city skyline"
+    },
+    "why": {
+      "ru": "Торгово-развлекательный центр спроектирован Норманом Фостером. Его силуэт переосмысляет форму шатра; начните знакомство с внешнего облика.",
+      "kk": "Сауда және ойын-сауық орталығын Норман Фостер жобалаған. Оның сұлбасында шатыр пішіні жаңаша көрінеді; танысуды сыртқы көрінісінен бастаңыз.",
+      "en": "Designed by Norman Foster, the shopping and entertainment centre reinterprets the shape of a tent. Begin with the silhouette outside."
+    },
+    "coordinate": {
+      "state": "known",
+      "lat": 51.132671064951,
+      "lon": 71.403666537062,
+      "sourceIds": [
+        "visit-khan-shatyr"
+      ],
+      "kind": "place_point",
+      "verifiedEntrance": false,
+      "fieldVerified": false,
+      "note": "Published place point; not a surveyed entrance."
+    },
+    "factsSources": [
+      {
+        "id": "visit-khan-shatyr",
+        "label": "Visit Astana: ТРЦ «Хан Шатыр»",
+        "url": "https://visitastana.kz/ru/about-city/what-to-see/trts-khan-shatyr/",
+        "checkedAt": "2026-10-20T16:16:41.554004Z",
+        "localEvidence": "source-evidence/visit-khan-shatyr.html",
+        "localEvidenceSha256": "3f97e60ea12f485cde6b86f601898afbe4a9e0c98deaec8d9bd015fc4b73cc41"
+      }
+    ],
+    "hours": {
+      "state": "unknown",
+      "value": null,
+      "reason": "No current dated operator confirmation. Do not infer open now or promise indoor entry from tourism-page hours."
+    },
+    "visitMode": "outside_only",
+    "copyReview": {
+      "ru": "source-checked-agent-draft",
+      "kk": "human-review-pending",
+      "en": "human-review-pending"
+    },
+    "photo": {
+      "id": "khan-shatyr",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Khan_Shatyr.jpg",
+      "licenseId": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "attribution": "Фото: Quarot · CC0",
+      "alt": {
+        "ru": "Шатровый силуэт Хан Шатыра",
+        "kk": "Хан Шатырдың шатыр пішінді сыртқы көрінісі",
+        "en": "Khan Shatyr's tent-shaped exterior"
+      },
+      "changes": "Resized and recompressed; full frame retained.",
+      "derivativeSha256": "a59b22b5e294cd6ed8e062a97c4ef07a131ffe79a432859a09bb6323e599345e"
+    },
+    "hasIndoorOption": true
+  },
+  {
+    "id": "yesil-embankment",
+    "category": "river",
+    "title": {
+      "ru": "Набережная Есиля",
+      "kk": "Есіл жағалауы",
+      "en": "Yesil waterfront"
+    },
+    "summary": {
+      "ru": "Город с двух берегов",
+      "kk": "Екі жағалаудағы қала",
+      "en": "The city from the river"
+    },
+    "why": {
+      "ru": "На набережной Есиля встречаются река, мосты и городская панорама. Это повод рассмотреть Астану неспешно, во время прогулки снаружи.",
+      "kk": "Есіл жағалауынан өзен, көпірлер мен қала көрінісі ашылады. Бұл — Астанамен асықпай, жаяу танысуға себеп.",
+      "en": "The Yesil waterfront brings the river, bridges and skyline into one view. Discover Astana at walking pace, outdoors."
+    },
+    "coordinate": {
+      "state": "known",
+      "lat": 51.161151,
+      "lon": 71.420874,
+      "sourceIds": [
+        "commons-public-viewpoint"
+      ],
+      "kind": "published_viewpoint",
+      "verifiedEntrance": false,
+      "fieldVerified": false,
+      "note": "Photographer-published viewpoint by the Seruen bridge. Representative waterfront location only, not an official embankment entrance. This card photo is illustrative, not guaranteed to be taken at this point."
+    },
+    "factsSources": [
+      {
+        "id": "visit-waterfront",
+        "label": "Visit Astana: 24 и 48 часов в столице, набережная Астаны",
+        "url": "https://visitastana.kz/ru/about-city/24-and-48-hours-in-the-capital/",
+        "checkedAt": "2026-10-20T16:16:41.554004Z",
+        "localEvidence": "source-evidence/visit-24-hours.html",
+        "localEvidenceSha256": "8cdb7659b8d4f475003502766de29556abfb1cebccce686eb262921786797588"
+      },
+      {
+        "id": "commons-public-viewpoint",
+        "label": "Matti Blume: опубликованная точка съёмки моста Серуен на Есиле",
+        "url": "https://commons.wikimedia.org/wiki/File:Footbridge,_Astana_(P1190764).jpg",
+        "checkedAt": "2026-10-20T16:16:41.554004Z",
+        "localEvidence": "source-evidence/commons-viewpoint-metadata.json",
+        "note": "Published camera/viewpoint coordinate only; this source file was NOT downloaded as a photo. Not a surveyed entrance or routing anchor.",
+        "localEvidenceSha256": "2fc61931417de5e58ccce6be82b29ffa0ef08b73ec9372b329abda74ec791911"
+      }
+    ],
+    "hours": {
+      "state": "unknown",
+      "value": null,
+      "reason": "No current dated operator confirmation. Do not infer open now or promise indoor entry from tourism-page hours."
+    },
+    "visitMode": "outside_only",
+    "copyReview": {
+      "ru": "source-checked-agent-draft",
+      "kk": "human-review-pending",
+      "en": "human-review-pending"
+    },
+    "photo": {
+      "id": "yesil-river",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ishim_River,_Astana.jpg",
+      "licenseId": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "attribution": "Фото: Nikolamikovic82 · CC0",
+      "alt": {
+        "ru": "Есиль, мост и городская панорама",
+        "kk": "Есіл өзені, көпір және қала көрінісі",
+        "en": "The Yesil River, a bridge and the city skyline"
+      },
+      "changes": "Resized and recompressed; full frame retained.",
+      "derivativeSha256": "8e4478dc5b77cde07a0336dfc9575873bd34c3623f510b4432df52a0eb7dfc41"
+    },
+    "hasIndoorOption": false
+  }
+]

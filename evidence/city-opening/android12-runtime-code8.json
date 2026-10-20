@@ -1,0 +1,14 @@
+{
+  "version": "0.3.3",
+  "versionCode": 8,
+  "installed_sha256": "132e7e23d0559508c3bc51ce914236c5698d7de52b7b6c5e6834a3be702f62c9",
+  "install": "Success after human Play Protect",
+  "installed_apk_hash_matches": true,
+  "replay_motion_accepted": false,
+  "note": "User clarified automatic opening on entry during recording; code9 implements and tests cold launch",
+  "recording": {
+    "file": "android12-code8-opening-20261020T120013Z.mp4",
+    "sha256": "34fe408f0b8ea49cee10384d6b85fe7af28ad2ab5298a2da6b1ddd6ec4124797",
+    "opening_replay_not_evidenced": true
+  }
+}

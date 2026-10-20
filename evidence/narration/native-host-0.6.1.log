@@ -1,0 +1,45 @@
+PASS HOST snapshot never consults visibility or starts Android work
+PASS HOST hidden or forged client cannot issue a permit
+PASS HOST visible at gesture but background before consume never autoplays
+PASS HOST expired native permit stops an unadmitted Service without runtime
+PASS HOST null restart and malformed action have no runtime
+PASS HOST single-use duplicate or null intent cannot replace or stop a legitimate live owner
+PASS HOST warm admitted Play immediately invalidates two old captures
+PASS HOST Stop rejects fresh reentrant listener and permits a later explicit gesture
+PASS HOST Stop during runtime factory cancels before any sound effects
+PASS HOST Service destruction uses new opaque runtime lifetime even in same process
+PASS HOST old bridge destruction cannot cancel new client pending or current audio
+PASS HOST pending owner destruction cancels before Service and no restart is invented
+PASS HOST same-process old service cannot steal newer pending permit
+PASS HOST Stop is unconditional while old scoped pause and resume are refused
+PASS HOST pause retains selected chapter in RAM and bridge destruction releases it
+PASS HOST asynchronous completion closes Service instead of starting another chapter
+PASS HOST start failure clears permit with no fallback or retry
+PASS HOST foreground bootstrap failure revokes pending Start before cleanup without creating a runtime or retry
+PASS HOST foreign bootstrap failure cannot revoke a legitimate live owner or its scoped playback
+PASS HOST bootstrap failure publishes revoked authority before reentrant observers and survives destruction as a fixed error
+PASS HOST cleanup failure is visible and prevents unsafe new admission
+PASS HOST host publication rejects recursive Play without infinite no-op publication
+PASS HOST a rejected warm handover preserves the actual old owner
+PASS HOST reentrant Service destruction during Stop cannot leave a permanent closing owner
+PASS HOST cancelled runtime factory still reports a failed independent cleanup
+PASS HOST bridge Play uses the captured gesture scope and never refreshes after Stop
+PASS HOST capture on a non-MAIN reader touches no lifecycle and cannot start service
+PASS HOST strict bridge rejects unknown DTO fields paths and mismatched content hash
+PASS HOST serialized scopes reject NaN infinity fraction unsafe integers and arbitrary Number types
+PASS HOST another Stop never relabels uncertain cleanup as successful stopped
+PASS HOST an admitted Play revokes the old capture before the Android start boundary
+34 PUBLIC HOST TESTS PASS; recording Android boundary only
+PASS FACADE active identity survives pause without conflating shared asset IDs
+PASS FACADE Stop never refreshes an old capture or quietly retries Play
+PASS FACADE old bridge close neither controls nor observes another current owner
+PASS FACADE MAIN observation captures actual player position but sync scope capture does not
+PASS FACADE Service destruction publishes revoked STOPPING before cleanup and final ABSENT only after release
+PASS FACADE cleanup errors remain error DTOs and a repeated Stop cannot conceal them
+PASS FACADE capture is JS-thread safe while commands enforce the MAIN adapter
+8 PUBLIC FACADE TESTS PASS; no Expo/native renderer
+PASS MEDIA_SCOPE a queued old Stop cannot stop the paused chapter's newer epoch
+PASS MEDIA_SCOPE fresh paused controls can resume but become stale immediately after Resume
+PASS MEDIA_SCOPE old Service callbacks cannot control a new runtime with the same local epoch
+PASS MEDIA_SCOPE only a current live same-session callback may perform audio-only Stop
+4 MEDIA SESSION CAPTURED-SCOPE REGRESSIONS PASS; no Android execution

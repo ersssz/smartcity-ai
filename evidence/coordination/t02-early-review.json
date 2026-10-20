@@ -1,0 +1,13 @@
+{
+  "date_local": "2026-10-20",
+  "baseline": "cbea535fb7b655e5830ad9a3c46aabfd6d88753f",
+  "reviewed_commit": "61b68c75d0cf1632f0627f83932ff3e6cfd27b29",
+  "bundle_sha256": "f5dcb0263fcf9107e3025ec9a9c12c8ea3607392de386801a3ba4155fc76586b",
+  "bundle_verified": true,
+  "scope_verified": {"changed_files": 16, "allowed_prefixes": ["tools/data/", "data/curated/", "evidence/t02/", "tests/data/"], "all_file_modes": "100644"},
+  "root_tests": {"command": "python -B -m unittest discover -s tests/data -v", "passed": 21, "failed": 0, "exit_code": 0, "network_used": false},
+  "standards_review": {"agent": "delegation_design", "findings": 0},
+  "spec_review": {"agent": "spend_standards_review", "scope": "walking topology, barriers, probe and tests", "findings": 0, "additional_negative_cases_passed": 4},
+  "accepted_complete_T02": false,
+  "limitations": ["Early bundle, curated sample and real public pairs not yet delivered", "Research graph is not a deployed provider", "No real GPS, connector, offline-pack, account, RAG or field acceptance"]
+}

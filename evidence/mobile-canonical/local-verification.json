@@ -1,0 +1,53 @@
+{
+  "recordedAt": "2026-10-20T15:24:47.707519+00:00",
+  "sourceCommit": "18378ffe71e36aea4e932e63fa9c9f4670c7f62c",
+  "scope": "source-local integration; no Android/GPS/playback/field acceptance",
+  "command": "scripts/verify-local.ps1 -PythonPath <bundled Python>",
+  "testCount": 250,
+  "failed": 0,
+  "skipped": 0,
+  "nodeSections": [
+    22,
+    49,
+    19,
+    13,
+    14,
+    23,
+    2,
+    3,
+    10,
+    23,
+    21,
+    3
+  ],
+  "pythonSections": [
+    25,
+    18,
+    5
+  ],
+  "strictTypeScript": "PASS",
+  "schemaFixturesCatalogs": "PASS",
+  "preparedAudioPackaging": {
+    "entries": 54,
+    "bytes": 9793210,
+    "registrySha256": "959e466442bbe090a8523f0d88607454706ce67d2e7e763e6b4798587ab71925"
+  },
+  "log": {
+    "path": "evidence/mobile-canonical/local-checks.log",
+    "sha256": "49a3f5a6a7985db8bb24d9c74694a2f7d225a0389a16c87e8172ec556e5b20da"
+  },
+  "sourceCheckpoint": {
+    "changedFilesComparedByteForByteWithIndex": 89,
+    "differencesBeforeCommit": 0
+  },
+  "runtimes": {
+    "python": "3.12.14",
+    "node": "v22.22.2"
+  },
+  "limits": [
+    "One prepared canonical route; manual proof only",
+    "Pack remains partial: MAP_UNAVAILABLE",
+    "Foreground-only audio pending device checks",
+    "No live model/provider/RAG/field acceptance"
+  ]
+}

@@ -1,0 +1,155 @@
+{
+  "schemaVersion": 1,
+  "createdUtc": "2026-10-20T17:09:02.2276892Z",
+  "status": "SOURCE_FROZEN_INTEGRATION_PENDING",
+  "package": "kz.astanaai.activewalk.narration",
+  "sourceBasis": {
+    "hostReceiptSha256": "5963a23dce49a88c8b8cee9e25292e4bd31bcc35f4076f4303e1619d5bde9044",
+    "sourcePinsChecked": 14,
+    "stageChanged": false,
+    "mechanicalChanges": [
+      "package/class names",
+      "media action/scheme/channel labels"
+    ],
+    "newSeams": [
+      "NarrationBridgeFacade exact DTO/ref",
+      "NarrationCoordinator.observe MAIN actual position",
+      "NarrationHost.createBridge and stopIfInstalled"
+    ]
+  },
+  "checks": {
+    "host": 31,
+    "facade": 7,
+    "mediaScope": 4,
+    "machine": 28,
+    "runtimeCore": 8,
+    "total": 78,
+    "skipped": 0,
+    "androidCompileExit": 0,
+    "compiler": "Kotlin2.2.10",
+    "jdk": "Temurin17.0.20.1+1",
+    "androidStub": 37,
+    "targetRuntimeAcceptance": false,
+    "maxHeapMiB": 384
+  },
+  "sources": [
+    {
+      "path": "AndroidNarrationEffects.kt",
+      "sha256": "63926f45857a13e1055ef43c0365b48a6a656d9a1a9b317175a88f22844f6f8d",
+      "bytes": 17408
+    },
+    {
+      "path": "AudioRuntimeCore.kt",
+      "sha256": "c53f10955782f856f2482efa5e89b9d38af6bf21a35b2e208496130d24cc5edb",
+      "bytes": 5834
+    },
+    {
+      "path": "BackgroundAudioMachine.kt",
+      "sha256": "872f278171320e3a4f95fb0c310ca2616b894ce8ad39cecabf75967371bf3d30",
+      "bytes": 11266
+    },
+    {
+      "path": "NarrationBridgeFacade.kt",
+      "sha256": "bed2c2a5cebdaa64ddb5e9069528d301d2994d763aa16ca41b2c9d7e7cd2a0f7",
+      "bytes": 3768
+    },
+    {
+      "path": "NarrationBridgeHelper.kt",
+      "sha256": "cdae52ea60374e4469022abd2e2ca0c4241b0dc5f60ab01bba1f618fd2ba81d5",
+      "bytes": 5272
+    },
+    {
+      "path": "NarrationCoordinator.kt",
+      "sha256": "3497e2487122cf71726bd56e775c96550b38d737cf52196ac065873fb9e424e8",
+      "bytes": 15464
+    },
+    {
+      "path": "NarrationMediaCommands.kt",
+      "sha256": "bc2c24f7102817eca3ea20766fad4c720e3076dd8ac1e6bdf0f53ddf2d258f90",
+      "bytes": 3253
+    },
+    {
+      "path": "NarrationPlaybackService.kt",
+      "sha256": "f34ca3c657f0306d13c48b25aae7d83a05d75eca69ee29180cd83c8b408143b1",
+      "bytes": 6217
+    },
+    {
+      "path": "NarrationRuntime.kt",
+      "sha256": "fab46dff7942a8ce6fa574e3484721ac596845fdd9acc61a14b493c586e48406",
+      "bytes": 2346
+    }
+  ],
+  "tests": [
+    {
+      "path": "AudioRuntimeCoreTest.kt",
+      "sha256": "e2728c54e5fd5ce99225a75d809f8def963fbb2d092303e5f8e17c7aa718e878",
+      "bytes": 4847
+    },
+    {
+      "path": "BackgroundAudioMachineTest.kt",
+      "sha256": "ec1267ebbb52764117b42e749837418250861f1a694e715a3f67ab3d078a01f0",
+      "bytes": 13987
+    },
+    {
+      "path": "compile-android.ps1",
+      "sha256": "a87605c3761adf110e1384523366eba8688c57b2f9dd2b9112857c4c0e85af88",
+      "bytes": 2344
+    },
+    {
+      "path": "MediaSessionScopeRegressionTest.kt",
+      "sha256": "54712b710ccf3e17d78c70e5643fb80778dcbb4ca26916c4fb18d858c2619958",
+      "bytes": 3001
+    },
+    {
+      "path": "NarrationCoordinatorTest.kt",
+      "sha256": "21b5d6c091543757cc32ddaec688d33945238f63121b6f47ae0ebda286176a39",
+      "bytes": 23967
+    },
+    {
+      "path": "test-host.ps1",
+      "sha256": "3fb9f7d1b1faa3336b5d1600c3cf0177adcee0d1160c5416f303e21483157923",
+      "bytes": 2322
+    },
+    {
+      "path": "test-machine.ps1",
+      "sha256": "3ad9fb91263ed15a66085375d990a0dee7caf11145340c98a622d19325b7e419",
+      "bytes": 2072
+    }
+  ],
+  "documentation": {
+    "path": "README.md",
+    "sha256": "54d0084d59f487a728ccd0f82de0cda22879227f917993d78aa7ae2630b573cd"
+  },
+  "androidCompileLog": {
+    "path": "work/narration-production-build/android-compile.log",
+    "sha256": "38b6532a13291e8e8ee8e0eb35b16d9d25d61e805df721168bc561a43d53103b"
+  },
+  "boundaries": {
+    "existingNativeFilesEdited": false,
+    "manifestEdited": false,
+    "jsEdited": false,
+    "dependenciesEdited": false,
+    "phoneActions": 0,
+    "paidApiCalls": 0,
+    "purchases": 0,
+    "gpsOrSqlCalls": 0
+  },
+  "pending": [
+    "Root Expo/main lifecycle/JS/Manifest/globalStop adoption",
+    "APK build/static audit",
+    "Actual API31 screen-off/notification/noisy/focus/media resume/stop",
+    "Actual API34+/target36 FGS and process death checks",
+    "Audible/offline RU/KK/EN acceptance"
+  ],
+  "independentReview": {
+    "path": "work/narration-production-independent-review.md",
+    "sha256": "d775136e4ec3aa10f8af2c39539f9294d976c6989544561b70a68a02bda7d6e9",
+    "checkedProductionSources": 9,
+    "baselinePinsMatch": 14,
+    "finalHostFacadeMediaPass": 42,
+    "skipped": 0,
+    "exitCode": 0,
+    "demonstratedBlockingFindings": 0,
+    "scope": "Read-only source/lifetime/Stop/cleanup review, not Root adoption or Android/device acceptance"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "version": "0.3.4",
+  "versionCode": 9,
+  "strict_typescript": "PASS final source",
+  "targeted_tests": {
+    "passed": 7,
+    "report": "targeted-tests-code9.txt",
+    "obsolete_once_only_test_removed": true
+  },
+  "reviews": [
+    "review-code9-spec.md",
+    "review-code9-standards.md"
+  ],
+  "source_files": [
+    {
+      "path": "apps/mobile/App.tsx",
+      "sha256": "2efbcc99cbdbb52a1aee5f460f9289bdf0a5f53413d0659dd09d1f4b3f5e47c3"
+    },
+    {
+      "path": "apps/mobile/WalkApp.tsx",
+      "sha256": "b2a2fc9fcd8b6469150e72256c63978f4e564a70e63bee603dc1d03800ebec4e"
+    },
+    {
+      "path": "apps/mobile/src/features/city/CityIntro.tsx",
+      "sha256": "4bfd60d3eee64c0b616cf576be3b147caf1dffd2f18170c62d4e3f0460c47d85"
+    },
+    {
+      "path": "apps/mobile/src/features/city/CityOpening.tsx",
+      "sha256": "627d7b92062f1976f25709fd89b4f01edf64e4708e0d81cbaf46920b4f047ce2"
+    }
+  ],
+  "startup": "Automatic once per App lifetime after confirmed native Stop/audio/storage; marker not consulted; background and diagnostics return do not claim again",
+  "corrupt_recovery": "Shared entry helper after confirmed successful restart",
+  "progress_reset": false,
+  "paid_api_calls": 0,
+  "purchases": 0,
+  "native_cold_launch_accepted": false
+}

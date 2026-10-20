@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">AstGeo — Открой Астану по-своему</title>
+  <desc id="desc">Места, истории и прогулки. Выбери место, узнай историю, пройди маршрут.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#173f3b"/>
+      <stop offset="1" stop-color="#0e2d2b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="360" rx="24" fill="url(#bg)"/>
+  <path d="M660 -25 C620 70 730 100 710 172 S700 282 870 400" fill="none" stroke="#345c55" stroke-width="58"/>
+  <path d="M660 -25 C620 70 730 100 710 172 S700 282 870 400" fill="none" stroke="#62897b" stroke-opacity=".25" stroke-width="2"/>
+  <text x="52" y="65" fill="#d0dfcc" font-family="Segoe UI,Arial,sans-serif" font-size="25" letter-spacing="2">AstGeo</text>
+  <text x="50" y="144" fill="#f7f6ee" font-family="Georgia,serif" font-size="55">Открой Астану</text>
+  <text x="50" y="207" fill="#f7f6ee" font-family="Georgia,serif" font-size="55">по-своему</text>
+  <path d="M52 238 H148" stroke="#bd9a58" stroke-width="3"/>
+  <text x="52" y="281" fill="#c7d8ca" font-family="Segoe UI,Arial,sans-serif" font-size="23">Места. Истории. Прогулки.</text>
+  <text x="52" y="318" fill="#94b3a3" font-family="Segoe UI,Arial,sans-serif" font-size="17">Астана · Android · RU / KK / EN</text>
+  <path d="M834 91 C1050 72 1080 200 938 212 S804 234 842 287" fill="none" stroke="#bd9a58" stroke-width="3" stroke-dasharray="7 8"/>
+  <g font-family="Segoe UI,Arial,sans-serif">
+    <circle cx="834" cy="91" r="21" fill="#f7f6ee"/>
+    <text x="834" y="98" text-anchor="middle" font-size="21" font-weight="bold" fill="#173f3b">1</text>
+    <text x="871" y="64" font-size="23" fill="#f7f6ee">Выбери место</text>
+    <circle cx="991" cy="190" r="21" fill="#f7f6ee"/>
+    <text x="991" y="197" text-anchor="middle" font-size="21" font-weight="bold" fill="#173f3b">2</text>
+    <text x="1142" y="241" text-anchor="end" font-size="23" fill="#f7f6ee">Узнай историю</text>
+    <circle cx="842" cy="287" r="21" fill="#bd9a58"/>
+    <text x="842" y="294" text-anchor="middle" font-size="21" font-weight="bold" fill="#173f3b">3</text>
+    <text x="878" y="295" font-size="23" fill="#f7f6ee">Пройди маршрут</text>
+  </g>
+</svg>

@@ -1,0 +1,22 @@
+{
+  "checked_at_utc": "2026-10-20T06:55:48.3792404Z",
+  "ninja_version": "1.13.2",
+  "ninja_sha256": "e52a7ad9538d9618c67a0bd777964e2eec8a30f68b810a2f6adce1f2daf847b8",
+  "configure_result": "BUILD SUCCESSFUL in 48s",
+  "modules": [
+    {
+      "module": "app",
+      "cmake_cache": "PASS",
+      "configure_argument": "PASS",
+      "agp_build_command": "PASS",
+      "agp_clean_command": "PASS"
+    },
+    {
+      "module": "expo-modules-core",
+      "cmake_cache": "PASS",
+      "configure_argument": "PASS",
+      "agp_build_command": "PASS",
+      "agp_clean_command": "PASS"
+    }
+  ]
+}

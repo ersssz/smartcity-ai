@@ -1,0 +1,48 @@
+{
+  "kind": "synthetic-in-memory-refusal-checks",
+  "passed": true,
+  "checks": [
+    {
+      "name": "synthetic valid-shape mapping keeps date precision and quest answer",
+      "passed": true,
+      "productionCatalogWritten": false
+    },
+    {
+      "name": "missing graph provenance refused",
+      "passed": true,
+      "rejection": "route.source.graphSha256 must be a non-placeholder lower-case SHA256"
+    },
+    {
+      "name": "unbacked geometry point refused",
+      "passed": true,
+      "rejection": "Every geometry point must have its corresponding OSM node ID"
+    },
+    {
+      "name": "invented return connector refused",
+      "passed": true,
+      "rejection": "Leg endpoint differs from public stop anchor; no synthetic connector is permitted"
+    },
+    {
+      "name": "false declared distance refused",
+      "passed": true,
+      "rejection": "Declared leg distance differs from geometry (169.977 vs 69.977 metres)"
+    },
+    {
+      "name": "missing source way proof refused",
+      "passed": true,
+      "rejection": "Each leg requires sourceWayIds"
+    },
+    {
+      "name": "overbudget walk refused without dropping content",
+      "passed": true,
+      "rejection": "Walk does not fit budget: 28.209 > 15 minutes; refusing to truncate content or forge the return"
+    },
+    {
+      "name": "start must be first public anchor",
+      "passed": true,
+      "rejection": "Explicit start anchor must exactly equal the first stop, including OSM node proof"
+    }
+  ],
+  "productionCatalogWritten": false,
+  "limitation": "Invented node IDs and hashes are test fixtures; these checks do not verify any real OSM edge, live route, field condition or device."
+}

@@ -1,0 +1,6 @@
+{
+  "platforms": ["android"],
+  "android": {
+    "modules": ["kz.astanaai.activewalk.ActiveWalkModule"]
+  }
+}

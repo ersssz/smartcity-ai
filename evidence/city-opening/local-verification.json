@@ -1,0 +1,30 @@
+{
+  "version": "0.3.2",
+  "versionCode": 7,
+  "checked_at_utc": "2026-10-20T11:43:06.8531274Z",
+  "strict_typescript": "PASS",
+  "targeted_tests": {
+    "report": "targeted-tests.txt",
+    "runtime": "Node22 SQLite experimental",
+    "passed": 8
+  },
+  "standards": "PASS final source",
+  "spec": "PASS P1 annotation issue resolved",
+  "source_files": [
+    {
+      "path": "apps/mobile/src/features/city/CityIntro.tsx",
+      "sha256": "9fad8b48cdbcb05aca0391a58de1d99012830e375cc03845c6b4ca24ce825b43"
+    },
+    {
+      "path": "apps/mobile/src/features/city/CityOpening.tsx",
+      "sha256": "627d7b92062f1976f25709fd89b4f01edf64e4708e0d81cbaf46920b4f047ce2"
+    }
+  ],
+  "dependencies_added": 0,
+  "native_permissions_changed": false,
+  "walk_persistence_changed": false,
+  "city_geometry_changed": false,
+  "device_motion_accepted": false,
+  "paid_api_calls": 0,
+  "purchases": 0
+}

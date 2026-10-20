@@ -1,0 +1,24 @@
+{
+  "version": "0.3.1",
+  "versionCode": 6,
+  "installed_sha256": "d0c1e6710a484f97dc5f0a86a211bf26839e22d86fdb1fc83e3a41c86a4f28ef",
+  "install": "Success after human Play Protect confirmation",
+  "installed_apk_hash_matches": true,
+  "own_service_absent_at_captures": true,
+  "overview_screenshot": {
+    "sha256": "ffcae0c7db9a94d6c94b9713259895dfb45604eff31a8954ab2c3bd2067caaa2",
+    "cta_above_system_navigation": true,
+    "six_labels_readable": true,
+    "city_fills_view": true,
+    "file": "android12-code6-city-overview.png"
+  },
+  "nura_screenshot": {
+    "sha256": "6ae28ce4706f752a08aa015fba4f138ff37ed8260af16f564cf33c431a41032e",
+    "state": "Compact selected Nura, not expanded despite capture time after human test",
+    "file": "android12-code6-nura-after-human-check.png"
+  },
+  "human_report": "Nura opens from map; card expands and text scrolls",
+  "gestures_independently_instrumented": false,
+  "animation_smoothness_verified": false,
+  "device": "Xiaomi 22101316G Android12"
+}

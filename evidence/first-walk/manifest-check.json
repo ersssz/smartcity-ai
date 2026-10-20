@@ -1,0 +1,15 @@
+{
+  "checkedAt": "2026-10-20T09:38:46.6293411Z",
+  "forbiddenPermissionsPresent": [],
+  "allowBackup": false,
+  "nativeService": {
+    "exported": false,
+    "foregroundType": "location",
+    "stopWithTask": true
+  },
+  "nativeStopReceiverExported": false,
+  "legacyClassGate": "PASS",
+  "legacyClasses": 0,
+  "requiredNativeClassesMissing": 0,
+  "limitation": "Artifact inspection, not a runtime or legacy payload cleanup test"
+}
