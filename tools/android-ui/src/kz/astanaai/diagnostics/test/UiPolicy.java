@@ -14,7 +14,7 @@ public final class UiPolicy {
   public static final String ACTIVITY = TARGET + ".MainActivity";
   private static final Pattern LOCATION = Pattern.compile("(?i)(?:[-+]?\\d{1,3}[.,]\\d{4,}|latitude|longitude|широта|долгота|\\blat\\s*[:=]|\\blon(?:g)?\\s*[:=])");
   private static final Map<String, List<String>> LABELS;
-  private static final List<String> INTERNAL = Collections.unmodifiableList(Arrays.asList("inspect", "capture", "scroll_forward", "scroll_backward", "scroll_top", "wait_short", "wait_audio"));
+  private static final List<String> INTERNAL = Collections.unmodifiableList(Arrays.asList("inspect", "capture", "scroll_forward", "scroll_backward", "scroll_top", "wait_short", "wait_audio", "background_audio_20s"));
   static {
     Map<String, List<String>> labels = new LinkedHashMap<>();
     add(labels, "city_exit", "К первой прогулке →", "Вернуться к прогулке →", "Алғашқы серуенге →", "Серуенге оралу →", "To your first walk →", "Return to your walk →");
@@ -107,6 +107,12 @@ public final class UiPolicy {
     if (!TARGET.equals(activePackage)) throw new Refusal("FOREIGN_FOREGROUND", true);
     if (focusedPackages == null || focusedPackages.isEmpty()) throw new Refusal("WINDOW_STATUS_UNAVAILABLE", true);
     for (String pkg : focusedPackages) if (!TARGET.equals(pkg)) throw new Refusal("FOREIGN_WINDOW", true);
+  }
+  /** The single approved Home/wait probe; no arbitrary global-action ID or wait duration. */
+  public static long backgroundAudioWaitMillis(String action, boolean ownEnabledPauseVisible) {
+    if (!"background_audio_20s".equals(action)) throw new Refusal("INVALID_BACKGROUND_AUDIO_ACTION", false);
+    if (!ownEnabledPauseVisible) throw new Refusal("AUDIO_PLAYBACK_NOT_VISIBLE", false);
+    return 20_000L;
   }
   /** Read-only startup waiting only; never authorizes a click/tree/screenshot in a foreign window. */
   public static boolean awaitOwnLaunch(String pkg, int type, boolean active, boolean focused) {

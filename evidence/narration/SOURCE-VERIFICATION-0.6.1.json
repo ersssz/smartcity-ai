@@ -1,0 +1,93 @@
+{
+  "applicationCodeCommit": "c5b45ff1f422e9b461957356847d826db730d635",
+  "version": "0.6.1",
+  "versionCode": 14,
+  "apkSha256": "ac550e02efa855c5c8b2c9209b110d511495ca5818ba5101f791e7c9722b0712",
+  "bytes": 54046595,
+  "matchingApkCopies": [
+    "C:\\Users\\era\\Documents\\Codex\\2026-10-20\\x20\\outputs\\AstanaAI\\apps\\mobile\\android\\app\\build\\outputs\\apk\\release\\app-release.apk",
+    "C:\\Users\\era\\Documents\\Codex\\2026-10-20\\x20\\outputs\\AstanaAI-0.6.1.apk",
+    "C:\\Users\\era\\Downloads\\AstanaAI-0.6.1.apk",
+    "C:\\Users\\era\\Documents\\Codex\\2026-10-20\\x20\\work\\installed-astanaai-0.6.1.apk"
+  ],
+  "sourceLocal": {
+    "baselineChecks": 282,
+    "additionalTsxChecks": 18,
+    "additionalAuditorChecks": 8,
+    "total": 308,
+    "bridge8IncludedInBaseline": true,
+    "types": "PASS; no TypeScript delta in 0.6.1"
+  },
+  "nativeJvm": {
+    "host": 34,
+    "facade": 8,
+    "mediaScope": 4,
+    "reducer": 28,
+    "runtime": 8,
+    "total": 82,
+    "scope": "Actual reducer/runtime/coordinator/Facade with recording Android boundary"
+  },
+  "staticApkChecks": 94,
+  "qaHelperPolicyChecks": 104,
+  "debugProbeTagAbsentFromDex": true,
+  "device": {
+    "platform": "Xiaomi Android12/API31",
+    "ownUid": 10251,
+    "guidedSteps": 16,
+    "languageSteps": 22,
+    "backgroundFinalSteps": 18,
+    "homeFocusConfirmed": true,
+    "playingStateDuringHome": 3,
+    "pausedActualPositionMs": 24633,
+    "ownServicesAfterStop": "none",
+    "savedProgress": "paused; 1/3 stories read",
+    "notificationTransport": "not accepted; shell media-key dispatch declined",
+    "lockedScreen": "not tested in this new version",
+    "humanAudioQuality": "not accepted"
+  },
+  "photos": {
+    "bayterek.jpg": {
+      "sha256": "dc04688689b145a0610789da5e7af904984a08d72d9f79e7c95e1d9e1d745f0d",
+      "apkEntry": "res/xa.jpg"
+    },
+    "gorky-theatre.jpg": {
+      "sha256": "c74611766ae9565b2df0ab610d77b3157b7108d7a90d4a20a0ce58621be42599",
+      "apkEntry": "res/Ef.jpg"
+    },
+    "khan-shatyr.jpg": {
+      "sha256": "a59b22b5e294cd6ed8e062a97c4ef07a131ffe79a432859a09bb6323e599345e",
+      "apkEntry": "res/kH.jpg"
+    },
+    "seifullin-museum.jpg": {
+      "sha256": "7ab1416c3dcf1507b2751e56952138719322009721d69b7f242984d103632233",
+      "apkEntry": "res/IN.jpg"
+    },
+    "yesil-river.jpg": {
+      "sha256": "8e4478dc5b77cde07a0336dfc9575873bd34c3623f510b4432df52a0eb7dfc41",
+      "apkEntry": "res/-s.jpg"
+    }
+  },
+  "sourcePins": {
+    "apps/mobile/src/canonical/CanonicalApp.tsx": "711b40cd2132b333db2fe274a56d5c0f70341536b39ba739114370cb7caeb01a",
+    "apps/mobile/modules/astana-active-walk/src/narration.ts": "ef8bdf70f8a801c8984b4d2060f61d37d3a9066b53c436f86ec25e2cd8b000ce",
+    "apps/mobile/modules/astana-active-walk/android/src/main/java/kz/astanaai/activewalk/narration/AndroidNarrationEffects.kt": "aef4754b795175f33e318c630d8c499d6cb42974636d17fcfebb25454db57cd5",
+    "apps/mobile/modules/astana-active-walk/android/src/main/java/kz/astanaai/activewalk/narration/AudioRuntimeCore.kt": "c53f10955782f856f2482efa5e89b9d38af6bf21a35b2e208496130d24cc5edb",
+    "apps/mobile/modules/astana-active-walk/android/src/main/java/kz/astanaai/activewalk/narration/BackgroundAudioMachine.kt": "872f278171320e3a4f95fb0c310ca2616b894ce8ad39cecabf75967371bf3d30",
+    "apps/mobile/modules/astana-active-walk/android/src/main/java/kz/astanaai/activewalk/narration/NarrationBridgeFacade.kt": "bed2c2a5cebdaa64ddb5e9069528d301d2994d763aa16ca41b2c9d7e7cd2a0f7",
+    "apps/mobile/modules/astana-active-walk/android/src/main/java/kz/astanaai/activewalk/narration/NarrationBridgeHelper.kt": "7d711b6e1e1461026423221cfb86eeeb0839f303ba450b7d1574a56140a86117",
+    "apps/mobile/modules/astana-active-walk/android/src/main/java/kz/astanaai/activewalk/narration/NarrationCoordinator.kt": "43932ba1ad957694aaa7f4fa83d3152e6872b30d7267327a0db33478ea7af80c",
+    "apps/mobile/modules/astana-active-walk/android/src/main/java/kz/astanaai/activewalk/narration/NarrationMediaCommands.kt": "bc2c24f7102817eca3ea20766fad4c720e3076dd8ac1e6bdf0f53ddf2d258f90",
+    "apps/mobile/modules/astana-active-walk/android/src/main/java/kz/astanaai/activewalk/narration/NarrationPlaybackService.kt": "fb6e369ca272fb12bdaf0e3c1e084760a920b9da7051aed82267f805e39e7251",
+    "apps/mobile/modules/astana-active-walk/android/src/main/java/kz/astanaai/activewalk/narration/NarrationRuntime.kt": "c6ec1fe5e3fda5811b897529c9bc49973ee21ccc3cbe0e11dd60775be21c8fdb"
+  },
+  "spending": "No purchases or paid APIs",
+  "limitations": [
+    "Field/entrance/hours",
+    "Android14+ and long battery",
+    "Locked screen and real notification/Bluetooth controls",
+    "Focus/noisy hardware cases",
+    "Airplane-mode language run and human language/audio acceptance",
+    "Public rights for modern architecture photos",
+    "Historical source plan remains a deferred backlog"
+  ]
+}

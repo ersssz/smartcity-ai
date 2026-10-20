@@ -1,0 +1,31 @@
+--------- beginning of crash
+E/AndroidRuntime(32739): FATAL EXCEPTION: main
+E/AndroidRuntime(32739): Process: kz.astanaai.diagnostics, PID: 32739
+E/AndroidRuntime(32739): android.app.ForegroundServiceDidNotStartInTimeException: Context.startForegroundService() did not then call Service.startForeground(): ServiceRecord{f6885c6 u0 kz.astanaai.diagnostics/kz.astanaai.activewalk.narration.NarrationPlaybackService}
+E/AndroidRuntime(32739): 	at android.app.ActivityThread.throwRemoteServiceException(ActivityThread.java:2059)
+E/AndroidRuntime(32739): 	at android.app.ActivityThread.access$2900(ActivityThread.java:275)
+E/AndroidRuntime(32739): 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2284)
+E/AndroidRuntime(32739): 	at android.os.Handler.dispatchMessage(Handler.java:106)
+E/AndroidRuntime(32739): 	at android.os.Looper.loopOnce(Looper.java:211)
+E/AndroidRuntime(32739): 	at android.os.Looper.loop(Looper.java:300)
+E/AndroidRuntime(32739): 	at android.app.ActivityThread.main(ActivityThread.java:8305)
+E/AndroidRuntime(32739): 	at java.lang.reflect.Method.invoke(Native Method)
+E/AndroidRuntime(32739): 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:577)
+E/AndroidRuntime(32739): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1074)
+--------- beginning of main
+I/AstanaNarrationProbe( 7781): [DEBUG-narration-start] created admitted=true
+I/AstanaNarrationProbe( 7781): [DEBUG-narration-start] promote stage=session class=NullPointerException
+I/AstanaNarrationProbe( 7781): [DEBUG-narration-start] consume parsed=true admitted=true rejected=null phase=RUNNING audio=LOADING
+E/AndroidRuntime( 7781): FATAL EXCEPTION: main
+E/AndroidRuntime( 7781): Process: kz.astanaai.diagnostics, PID: 7781
+E/AndroidRuntime( 7781): android.app.ForegroundServiceDidNotStartInTimeException: Context.startForegroundService() did not then call Service.startForeground(): ServiceRecord{720891b u0 kz.astanaai.diagnostics/kz.astanaai.activewalk.narration.NarrationPlaybackService}
+E/AndroidRuntime( 7781): 	at android.app.ActivityThread.throwRemoteServiceException(ActivityThread.java:2059)
+E/AndroidRuntime( 7781): 	at android.app.ActivityThread.access$2900(ActivityThread.java:275)
+E/AndroidRuntime( 7781): 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2284)
+E/AndroidRuntime( 7781): 	at android.os.Handler.dispatchMessage(Handler.java:106)
+E/AndroidRuntime( 7781): 	at android.os.Looper.loopOnce(Looper.java:211)
+E/AndroidRuntime( 7781): 	at android.os.Looper.loop(Looper.java:300)
+E/AndroidRuntime( 7781): 	at android.app.ActivityThread.main(ActivityThread.java:8305)
+E/AndroidRuntime( 7781): 	at java.lang.reflect.Method.invoke(Native Method)
+E/AndroidRuntime( 7781): 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:577)
+E/AndroidRuntime( 7781): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1074)

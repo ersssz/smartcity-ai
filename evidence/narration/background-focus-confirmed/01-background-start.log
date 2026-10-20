@@ -1,0 +1,6 @@
+    AstanaNarration kz.astanaai.diagnostics/AstanaNarration (userId=0)
+      ownerPid=21007, ownerUid=10251, userId=0
+      package=kz.astanaai.diagnostics
+      active=true
+      flags=0
+      state=PlaybackState {state=3, position=0, buffered position=0, speed=1.0, updated=36737207, actions=3, custom actions=[], active item id=-1, error=null}

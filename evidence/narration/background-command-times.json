@@ -1,0 +1,22 @@
+[
+  {
+    "elapsedMs": 3528,
+    "command": "pause"
+  },
+  {
+    "elapsedMs": 5524,
+    "command": "play"
+  },
+  {
+    "elapsedMs": 10548,
+    "command": "pause"
+  },
+  {
+    "elapsedMs": 11506,
+    "command": "play"
+  },
+  {
+    "elapsedMs": 15233,
+    "command": "return_own_activity"
+  }
+]

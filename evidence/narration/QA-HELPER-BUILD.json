@@ -1,0 +1,28 @@
+{
+  "apk": "C:\\Users\\era\\Documents\\Codex\\2026-10-20\\x20\\work\\android-ui-build\\astanaai-own-ui-test.apk",
+  "sha256": "dc53d7843d8402057e2b8c4e9c3587e39dd1dbc023e31f155e6049b01fc69f3c",
+  "bytes": 29079,
+  "build": "C:\\Users\\era\\Documents\\Codex\\2026-10-20\\x20\\work\\android-ui-build\\build-20261020-224601-351",
+  "targetPackage": "kz.astanaai.diagnostics",
+  "instrumentation": "kz.astanaai.diagnostics.test/kz.astanaai.diagnostics.test.OwnUiInstrumentation",
+  "permissions": [],
+  "phoneRun": false,
+  "sources": [
+    {
+      "path": "C:\\Users\\era\\Documents\\Codex\\2026-10-20\\x20\\outputs\\AstanaAI\\tools\\android-ui\\AndroidManifest.xml",
+      "sha256": "00dd93b5d197db0ba88274127b5e48a80a1b84eae496b899a36c90b44ecf2e9e"
+    },
+    {
+      "path": "C:\\Users\\era\\Documents\\Codex\\2026-10-20\\x20\\outputs\\AstanaAI\\tools\\android-ui\\src\\kz\\astanaai\\diagnostics\\test\\AndroidPolicyProbe.java",
+      "sha256": "0cdff966c89a77cb5f26ef7e49a873a3f95703cc9eb78f6194624b67613b9bca"
+    },
+    {
+      "path": "C:\\Users\\era\\Documents\\Codex\\2026-10-20\\x20\\outputs\\AstanaAI\\tools\\android-ui\\src\\kz\\astanaai\\diagnostics\\test\\OwnUiInstrumentation.java",
+      "sha256": "ca33d6f78cdd6f3e95a109e06b2ece19f40d846b56cf5438ca0af228b8f76b7e"
+    },
+    {
+      "path": "C:\\Users\\era\\Documents\\Codex\\2026-10-20\\x20\\outputs\\AstanaAI\\tools\\android-ui\\src\\kz\\astanaai\\diagnostics\\test\\UiPolicy.java",
+      "sha256": "7a8ff95a05b923ac726e646d840b3f5ff2a80abd0e1a0664e69a698a6aa31676"
+    }
+  ]
+}

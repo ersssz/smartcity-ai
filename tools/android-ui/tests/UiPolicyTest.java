@@ -21,6 +21,17 @@ public final class UiPolicyTest {
     expect(UiPolicy.plan("windows", "").isEmpty());
     expect(UiPolicy.plan("sequence", "canonical_entry,choose_walk,pause_audio").size() == 3);
     expect(UiPolicy.plan("sequence", "scroll_top").get(0).equals("scroll_top"));
+    expect(UiPolicy.plan("sequence", "background_audio_20s").equals(Collections.singletonList("background_audio_20s")));
+    rejects("INVALID_ACTION", () -> UiPolicy.plan("sequence", "home"));
+    rejects("INVALID_ACTION", () -> UiPolicy.plan("sequence", "GLOBAL_ACTION_HOME"));
+    rejects("INVALID_ACTION", () -> UiPolicy.plan("sequence", "background_audio_10s"));
+    rejects("INVALID_ACTION", () -> UiPolicy.plan("sequence", "background_audio_20s:2"));
+    expect(!UiPolicy.matches("background_audio_20s", "Ⅱ Приостановить звук"));
+    expect(UiPolicy.backgroundAudioWaitMillis("background_audio_20s", true) == 20_000L);
+    rejects("AUDIO_PLAYBACK_NOT_VISIBLE", () -> UiPolicy.backgroundAudioWaitMillis("background_audio_20s", false));
+    rejects("INVALID_BACKGROUND_AUDIO_ACTION", () -> UiPolicy.backgroundAudioWaitMillis("GLOBAL_ACTION_HOME", true));
+    rejects("INVALID_BACKGROUND_AUDIO_ACTION", () -> UiPolicy.backgroundAudioWaitMillis("background_audio_10s", true));
+    rejects("INVALID_BACKGROUND_AUDIO_ACTION", () -> UiPolicy.backgroundAudioWaitMillis(null, true));
     expect(UiPolicy.plan("sequence", "discovery_history,discovery_weather,weather_sun,weather_rain,weather_cold,weather_windy,place_saken,discovery_back,place_bayterek,place_detail,guided_walk,read_story").size() == 12);
     expect(UiPolicy.matches("discovery_history", "История"));
     expect(UiPolicy.matches("discovery_weather", "Погода и события: Погода пока неизвестна"));

@@ -21,4 +21,6 @@ Stories, narration and durable reading progress form the main walk. Quests can b
 
 Check strict types, meaningful persistence/context regressions, photograph identity and attribution, an actual APK build and installed version/hash. Inspect the real phone screen where accessible. Record unperformed playback, field, entrance, accessibility and platform checks separately. A built APK is not proof of an audible narration or a walk completed outside.
 
-Deferred: public sharing/accounts, collection and achievement UI, GPS rewards, revision negotiation, full download packs, background-audio host adoption and full-beta acceptance. Staged implementations remain available for later review.
+The continuation adopts the native background narration host in0.6.1. Actual API31 Home/background and own-app controls are checked; locked-screen, notification transport, newer Android and field gates remain separate. See `docs/delivery/NARRATION-0.6.1.md` for the exact installed artifact and evidence.
+
+Deferred: public sharing/accounts, collection and achievement UI, GPS rewards, revision negotiation, full download packs and full-beta acceptance. Staged implementations remain available for later review.

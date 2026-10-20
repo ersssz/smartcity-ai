@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Instrumentation;
 import android.app.KeyguardManager;
 import android.app.UiAutomation;
+import android.accessibilityservice.AccessibilityService;
 import android.accessibilityservice.AccessibilityServiceInfo;
 import android.content.ComponentName;
 import android.content.Context;
@@ -24,7 +25,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-/** Public Android test APIs only. No input injection, global actions, grants or hidden hooks. */
+/** Public Android test APIs only. One fixed Home/background audio probe; no input injection, grants or hidden hooks. */
 public final class OwnUiInstrumentation extends Instrumentation {
   private static final int MAX_NODES = 2400, MAX_DEPTH = 60, MAX_LABELS = 60;
   private static final long TOTAL_LIMIT_MS = 180_000, STEP_LIMIT_MS = 20_000;
@@ -129,6 +130,7 @@ public final class OwnUiInstrumentation extends Instrumentation {
           case "scroll_top": scrollTop(); break;
           case "wait_short": guardedWait(400); break;
           case "wait_audio": guardedWait(4000); break;
+          case "background_audio_20s": backgroundAudio20s(); break;
           default: click(action); break;
         }
         record(action, action.equals("capture"));
@@ -136,7 +138,7 @@ public final class OwnUiInstrumentation extends Instrumentation {
       result.putString("status", "EXECUTED");
       result.putString("evidence_dir", folder.getAbsolutePath());
       result.putString("steps", Integer.toString(step));
-      result.putString("scope", "Own UI actions only; playback/business/field assertions require independent evidence");
+      result.putString("scope", "Own UI and fixed Home/background audio probe only; playback/business/field assertions require independent evidence");
       finish(Activity.RESULT_OK, result);
     } catch (UiPolicy.Refusal refusal) {
       result.putString("status", refusal.userAction ? "USER_ACTION_REQUIRED" : "SCENARIO_FAILED");
@@ -314,6 +316,36 @@ public final class OwnUiInstrumentation extends Instrumentation {
       AccessibilityNodeInfo root = ownRoot(); root.recycle();
       SystemClock.sleep(Math.min(100, Math.max(1, until - SystemClock.elapsedRealtime())));
     } while (SystemClock.elapsedRealtime() < until);
+  }
+  private void backgroundAudio20s() throws org.json.JSONException {
+    Scan state = scan("pause_audio"); // Normal ownRoot/unlocked/window guards, before leaving the app.
+    final long waitMs;
+    try {
+      boolean enabled = false;
+      if (state.targets.size() == 1) {
+        AccessibilityNodeInfo pause = state.targets.get(0);
+        enabled = pause.refresh() && UiPolicy.TARGET.contentEquals(pause.getPackageName() == null ? "" : pause.getPackageName())
+          && pause.isVisibleToUser() && pause.isEnabled() && pause.isClickable()
+          && pause.getActionList().contains(AccessibilityNodeInfo.AccessibilityAction.ACTION_CLICK);
+      }
+      waitMs = UiPolicy.backgroundAudioWaitMillis("background_audio_20s", enabled);
+      AccessibilityNodeInfo guard = ownRoot(); guard.recycle();
+    } finally { state.close(); }
+    checkDeadline();
+    if (deadline - SystemClock.elapsedRealtime() < waitMs) throw new UiPolicy.Refusal("SCENARIO_TIME_LIMIT", false);
+    // Literal HOME only. No shell/key injection, arbitrary global action, or foreign UI observation.
+    if (!automation.performGlobalAction(AccessibilityService.GLOBAL_ACTION_HOME))
+      throw new UiPolicy.Refusal("GLOBAL_ACTION_HOME_DECLINED", true);
+    final long until = SystemClock.elapsedRealtime() + waitMs;
+    checkpoint("OWN_AUDIO_BACKGROUND_WAIT");
+    while (SystemClock.elapsedRealtime() < until) {
+      checkDeadline();
+      SystemClock.sleep(Math.min(100, Math.max(1, until - SystemClock.elapsedRealtime())));
+    }
+    // The host returns only our explicit MainActivity. Do not inspect anything until this wait ends.
+    checkDeadline(); checkpoint("OWN_AUDIO_BACKGROUND_READMIT");
+    AccessibilityNodeInfo guard = ownRoot(); guard.recycle();
+    // The caller's unchanged record() runs only after normal own-window admission succeeds.
   }
 
   private static final class Scan {
