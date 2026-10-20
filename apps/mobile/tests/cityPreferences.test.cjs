@@ -14,7 +14,7 @@ loaded.paths = Module._nodeModulePaths(path.dirname(filename));
 loaded._compile(ts.transpileModule(readFileSync(filename, 'utf8'), {
   compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.CommonJS },
 }).outputText, filename);
-const { createCityPreferences, shouldIntroduceCity } = loaded.exports;
+const { createCityPreferences } = loaded.exports;
 function adapter(sqlite) {
   return {
     async execAsync(sql) { sqlite.exec(sql); },
@@ -22,7 +22,7 @@ function adapter(sqlite) {
     async runAsync(sql, ...params) { return sqlite.prepare(sql).run(...params); },
   };
 }
-test('a finished city introduction stays dismissed after reopening the local store', async () => {
+test('the city viewing marker persists after reopening the local store', async () => {
   const location = path.join(mkdtempSync(path.join(tmpdir(), 'astana-city-')), 'preferences.db');
   let db = new DatabaseSync(location);
   const preferences = createCityPreferences(adapter(db));
@@ -32,12 +32,6 @@ test('a finished city introduction stays dismissed after reopening the local sto
   db = new DatabaseSync(location);
   try { assert.equal(await createCityPreferences(adapter(db)).hasSeen(), true); }
   finally { db.close(); }
-});
-
-test('an introduction never interrupts an active, restored or completed walk', () => {
-  assert.equal(shouldIntroduceCity(false, 'ready'), true);
-  assert.equal(shouldIntroduceCity(true, 'ready'), false);
-  for (const phase of ['active', 'paused', 'completed']) assert.equal(shouldIntroduceCity(false, phase), false);
 });
 
 test('a failed finish remains unseen and can be retried without losing the preference store', async () => {

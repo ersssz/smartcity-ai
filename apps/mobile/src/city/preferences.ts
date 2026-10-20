@@ -23,8 +23,3 @@ export function createCityPreferences(db: CityDatabase) {
     },
   };
 }
-
-/** Existing progress always takes priority over a new introduction. Replay is explicit. */
-export function shouldIntroduceCity(seen: boolean, phase: 'ready' | 'active' | 'paused' | 'completed'): boolean {
-  return !seen && phase === 'ready';
-}

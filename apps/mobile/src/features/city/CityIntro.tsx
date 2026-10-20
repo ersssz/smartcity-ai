@@ -12,6 +12,7 @@ export type CityIntroProps = {
   busy?: boolean;
   error?: string | null;
   replay?: boolean;
+  playOpening?: boolean;
 };
 
 const C = { paper: '#F8F6EF', ink: '#173F3B', forest: '#174D43', muted: '#5A6F66', line: '#DDE4D8', white: '#FFFFFF', water: '#5FBDD6', waterDark: '#2586A4', soft: '#E8EEE2', warning: '#8A4B29' };
@@ -84,15 +85,15 @@ function Action({ label, onPress, quiet = false, disabled = false, selected = fa
 }
 
 /** Browsing only: this module neither requests location nor changes any walk progress. */
-export function CityIntro({ guide, locale, onLocaleChange, onFinish, busy = false, error, replay = false }: CityIntroProps) {
+export function CityIntro({ guide, locale, onLocaleChange, onFinish, busy = false, error, replay = false, playOpening = !replay }: CityIntroProps) {
   const t = COPY[locale];
   const { height, width, fontScale } = useWindowDimensions();
   const [viewportHeight, setViewportHeight] = useState(height);
-  const [stage, setStage] = useState<'river' | 'districts'>(replay ? 'districts' : 'river');
+  const [stage, setStage] = useState<'river' | 'districts'>(playOpening ? 'river' : 'districts');
   const [fullOverview, setFullOverview] = useState(false);
   const [selectedId, setSelectedId] = useState<DistrictId | null>(null);
-  const [welcoming, setWelcoming] = useState(!replay);
-  const [openingLabelsVisible, setOpeningLabelsVisible] = useState(replay);
+  const [welcoming, setWelcoming] = useState(playOpening);
+  const [openingLabelsVisible, setOpeningLabelsVisible] = useState(!playOpening);
   const [reduceMotion, setReduceMotion] = useState(true);
   const [motionKnown, setMotionKnown] = useState(false);
   const [screenReader, setScreenReader] = useState(false);
@@ -110,8 +111,8 @@ export function CityIntro({ guide, locale, onLocaleChange, onFinish, busy = fals
   const camera = useRef<CameraRef>(null);
   const scroll = useRef<ScrollViewInstance>(null);
   const mounted = useRef(true);
-  const introUi = useRef(new Animated.Value(replay ? 1 : 0)).current;
-  const captionReveal = useRef(new Animated.Value(replay ? 1 : 0)).current;
+  const introUi = useRef(new Animated.Value(playOpening ? 0 : 1)).current;
+  const captionReveal = useRef(new Animated.Value(playOpening ? 0 : 1)).current;
   const introMapRevealed = useRef(false);
   const snapNextFit = useRef(false);
   const cardOpacity = useRef(new Animated.Value(1)).current;
@@ -140,7 +141,7 @@ export function CityIntro({ guide, locale, onLocaleChange, onFinish, busy = fals
       Math.max(bounds[2], ...anchors.map(point => point[0])), Math.max(bounds[3], ...anchors.map(point => point[1]))];
   }, [fullOverview, guide.bankLabelPoints, guide.bounds, guide.overviewBounds, guide.riverBounds, guide.riverLabelPoint, stage]);
   const mapPadding = useMemo(() => ({ top: Math.max(topInset + 140, chromeHeight + 24), left: 16, right: 16, bottom: targetHeight + captionHeight + 12 }), [captionHeight, chromeHeight, targetHeight, topInset]);
-  const initialView = useRef({ bounds: replay ? overviewBounds : openingBounds(overviewBounds), padding: mapPadding });
+  const initialView = useRef({ bounds: playOpening ? openingBounds(overviewBounds) : overviewBounds, padding: mapPadding });
   const districts = useMemo<GeoJSON.FeatureCollection<GeoJSON.Polygon | GeoJSON.MultiPolygon>>(() => ({
     ...guide.boundaries,
     features: guide.boundaries.features.map(feature => ({ ...feature, properties: { ...feature.properties,

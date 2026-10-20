@@ -12,12 +12,11 @@ import { runPriorityStop } from './src/walk/priorityStop';
 import CityIntro from './src/features/city/CityIntro';
 import { getCityGuide } from './src/city/catalog';
 import { getCityPreferences } from './src/city/mobilePreferences';
-import { shouldIntroduceCity } from './src/city/preferences';
 
 const COPY = {
-  ru: { loading: 'Открываем вашу прогулку…', retry: 'Повторить', diagnostics: 'Техническая проверка', error: 'Не удалось сохранить изменение. Предыдущее сохранение осталось на телефоне. Повторите действие.', loadError: 'Не удалось открыть сохранённую прогулку. Данные не удалены.', corrupt: 'Сохранённая прогулка не прошла проверку. Можно начать новую: прежняя запись останется в локальном архиве.', restart: 'Начать заново?', restartBody: 'Текущая прогулка останется в локальном архиве. Открытия сохранятся. Новый проход начнётся с первой главы.', reset: 'Новый проход', cancel: 'Отмена', gpsOff: 'GPS-сопровождение выключено', gpsWaiting: 'GPS включён · ждём свежую позицию', gpsPermission: 'Нет разрешения на геолокацию', gpsProvider: 'Геолокация устройства выключена', gpsLive: 'Живая позиция · точность около', meters: 'м', gpsHelp: 'Показать себя на карте?', gpsBody: 'Геолокация включится только после вашего разрешения. Позиция не сохраняется; остановки и задания вы отмечаете вручную. Остановить GPS можно здесь или в уведомлении.', enable: 'Включить', trackingError: 'Не удалось включить GPS. Проверьте геолокацию и разрешения приложения.', voice: 'Голос системы · может требовать интернет; офлайн не проверен', noVoice: 'Для этого языка нет доступного голоса на устройстве. Текст главы доступен полностью.', speechError: 'Системный голос не смог прочитать главу. Можно продолжить чтение.', fieldNote: 'Рассчитано по пешеходному графу OpenStreetMap. Проходимость на месте ещё не проверена. Учитывайте ограждения, погоду и переходы; время оценено для темпа 3,6 км/ч. Вход в здания не требуется.', eyebrow: 'ТРИ ФОРМЫ · ОДНА ИСТОРИЯ' },
-  kk: { loading: 'Серуен ашылуда…', retry: 'Қайталау', diagnostics: 'Техникалық тексеру', error: 'Өзгеріс сақталмады. Алдыңғы жазба телефонда қалды. Әрекетті қайталаңыз.', loadError: 'Сақталған серуен ашылмады. Деректер жойылған жоқ.', corrupt: 'Сақталған серуен тексеруден өтпеді. Жаңа серуенді бастауға болады: бұрынғы жазба жергілікті мұрағатта қалады.', restart: 'Қайта бастау керек пе?', restartBody: 'Қазіргі серуен жергілікті мұрағатта қалады. Жаңалықтар сақталады. Жаңа серуен бірінші тараудан басталады.', reset: 'Қайта бастау', cancel: 'Бас тарту', gpsOff: 'GPS сүйемелдеуі өшірулі', gpsWaiting: 'GPS қосылды · жаңа орынды күтеміз', gpsPermission: 'Геолокацияға рұқсат жоқ', gpsProvider: 'Құрылғы геолокациясы өшірулі', gpsLive: 'Ағымдағы орын · дәлдігі шамамен', meters: 'м', gpsHelp: 'Орныңызды картада көрсету керек пе?', gpsBody: 'Геолокация тек рұқсатыңыздан кейін қосылады. Орын сақталмайды; аялдамалар мен тапсырмалар қолмен белгіленеді. GPS-ті осы жерден немесе хабарландырудан тоқтатуға болады.', enable: 'Қосу', trackingError: 'GPS қосылмады. Геолокация мен қолданба рұқсаттарын тексеріңіз.', voice: 'Жүйелік дауыс · интернет қажет болуы мүмкін; офлайн тексерілмеген', noVoice: 'Құрылғыда бұл тілге қолжетімді дауыс жоқ. Тараудың толық мәтінін оқуға болады.', speechError: 'Жүйелік дауыс тарауды оқи алмады. Мәтінді оқуды жалғастырыңыз.', fieldNote: 'OpenStreetMap жаяу жүргінші графымен есептелген. Жергілікті жерде әлі тексерілмеген. Қоршауларды, ауа райын және өткелдерді ескеріңіз; уақыт 3,6 км/сағ қарқынмен бағаланған. Ғимараттарға кіру қажет емес.', eyebrow: 'ҮШ ПІШІН · БІР ХИКАЯ' },
-  en: { loading: 'Opening your walk…', retry: 'Retry', diagnostics: 'Technical diagnostics', error: 'The change could not be saved. Your previous save remains on this phone. Please retry.', loadError: 'The saved walk could not be opened. No data was deleted.', corrupt: 'The saved walk failed validation. You can start a new one; the previous record will stay in a local archive.', restart: 'Start again?', restartBody: 'This walk will remain in the local archive. Discoveries are kept. The new walk starts at the first chapter.', reset: 'New walk', cancel: 'Cancel', gpsOff: 'GPS guidance is off', gpsWaiting: 'GPS is on · waiting for a fresh position', gpsPermission: 'Location permission is missing', gpsProvider: 'Device location is switched off', gpsLive: 'Live position · accuracy about', meters: 'm', gpsHelp: 'Show your position on the map?', gpsBody: 'Location starts only after your permission. Your position is not saved; stops and quests are marked manually. Stop GPS here or in the notification.', enable: 'Enable', trackingError: 'GPS could not start. Check device location and app permissions.', voice: 'System voice · may require internet; offline operation is unverified', noVoice: 'No voice for this language is available on this device. The full chapter is available as text.', speechError: 'The system voice could not read this chapter. You can continue reading.', fieldNote: 'Calculated using the OpenStreetMap walking graph. Not checked on site yet. Observe barriers, weather and crossings; time assumes a walking pace of 3.6 km/h. No building entry is required.', eyebrow: 'THREE FORMS · ONE STORY' },
+  ru: { loading: 'Открываем Астану…', retry: 'Повторить', diagnostics: 'Техническая проверка', error: 'Не удалось сохранить изменение. Предыдущее сохранение осталось на телефоне. Повторите действие.', loadError: 'Не удалось открыть сохранённую прогулку. Данные не удалены.', corrupt: 'Сохранённая прогулка не прошла проверку. Можно начать новую: прежняя запись останется в локальном архиве.', restart: 'Начать заново?', restartBody: 'Текущая прогулка останется в локальном архиве. Открытия сохранятся. Новый проход начнётся с первой главы.', reset: 'Новый проход', cancel: 'Отмена', gpsOff: 'GPS-сопровождение выключено', gpsWaiting: 'GPS включён · ждём свежую позицию', gpsPermission: 'Нет разрешения на геолокацию', gpsProvider: 'Геолокация устройства выключена', gpsLive: 'Живая позиция · точность около', meters: 'м', gpsHelp: 'Показать себя на карте?', gpsBody: 'Геолокация включится только после вашего разрешения. Позиция не сохраняется; остановки и задания вы отмечаете вручную. Остановить GPS можно здесь или в уведомлении.', enable: 'Включить', trackingError: 'Не удалось включить GPS. Проверьте геолокацию и разрешения приложения.', voice: 'Голос системы · может требовать интернет; офлайн не проверен', noVoice: 'Для этого языка нет доступного голоса на устройстве. Текст главы доступен полностью.', speechError: 'Системный голос не смог прочитать главу. Можно продолжить чтение.', fieldNote: 'Рассчитано по пешеходному графу OpenStreetMap. Проходимость на месте ещё не проверена. Учитывайте ограждения, погоду и переходы; время оценено для темпа 3,6 км/ч. Вход в здания не требуется.', eyebrow: 'ТРИ ФОРМЫ · ОДНА ИСТОРИЯ' },
+  kk: { loading: 'Астана ашылуда…', retry: 'Қайталау', diagnostics: 'Техникалық тексеру', error: 'Өзгеріс сақталмады. Алдыңғы жазба телефонда қалды. Әрекетті қайталаңыз.', loadError: 'Сақталған серуен ашылмады. Деректер жойылған жоқ.', corrupt: 'Сақталған серуен тексеруден өтпеді. Жаңа серуенді бастауға болады: бұрынғы жазба жергілікті мұрағатта қалады.', restart: 'Қайта бастау керек пе?', restartBody: 'Қазіргі серуен жергілікті мұрағатта қалады. Жаңалықтар сақталады. Жаңа серуен бірінші тараудан басталады.', reset: 'Қайта бастау', cancel: 'Бас тарту', gpsOff: 'GPS сүйемелдеуі өшірулі', gpsWaiting: 'GPS қосылды · жаңа орынды күтеміз', gpsPermission: 'Геолокацияға рұқсат жоқ', gpsProvider: 'Құрылғы геолокациясы өшірулі', gpsLive: 'Ағымдағы орын · дәлдігі шамамен', meters: 'м', gpsHelp: 'Орныңызды картада көрсету керек пе?', gpsBody: 'Геолокация тек рұқсатыңыздан кейін қосылады. Орын сақталмайды; аялдамалар мен тапсырмалар қолмен белгіленеді. GPS-ті осы жерден немесе хабарландырудан тоқтатуға болады.', enable: 'Қосу', trackingError: 'GPS қосылмады. Геолокация мен қолданба рұқсаттарын тексеріңіз.', voice: 'Жүйелік дауыс · интернет қажет болуы мүмкін; офлайн тексерілмеген', noVoice: 'Құрылғыда бұл тілге қолжетімді дауыс жоқ. Тараудың толық мәтінін оқуға болады.', speechError: 'Жүйелік дауыс тарауды оқи алмады. Мәтінді оқуды жалғастырыңыз.', fieldNote: 'OpenStreetMap жаяу жүргінші графымен есептелген. Жергілікті жерде әлі тексерілмеген. Қоршауларды, ауа райын және өткелдерді ескеріңіз; уақыт 3,6 км/сағ қарқынмен бағаланған. Ғимараттарға кіру қажет емес.', eyebrow: 'ҮШ ПІШІН · БІР ХИКАЯ' },
+  en: { loading: 'Opening Astana…', retry: 'Retry', diagnostics: 'Technical diagnostics', error: 'The change could not be saved. Your previous save remains on this phone. Please retry.', loadError: 'The saved walk could not be opened. No data was deleted.', corrupt: 'The saved walk failed validation. You can start a new one; the previous record will stay in a local archive.', restart: 'Start again?', restartBody: 'This walk will remain in the local archive. Discoveries are kept. The new walk starts at the first chapter.', reset: 'New walk', cancel: 'Cancel', gpsOff: 'GPS guidance is off', gpsWaiting: 'GPS is on · waiting for a fresh position', gpsPermission: 'Location permission is missing', gpsProvider: 'Device location is switched off', gpsLive: 'Live position · accuracy about', meters: 'm', gpsHelp: 'Show your position on the map?', gpsBody: 'Location starts only after your permission. Your position is not saved; stops and quests are marked manually. Stop GPS here or in the notification.', enable: 'Enable', trackingError: 'GPS could not start. Check device location and app permissions.', voice: 'System voice · may require internet; offline operation is unverified', noVoice: 'No voice for this language is available on this device. The full chapter is available as text.', speechError: 'The system voice could not read this chapter. You can continue reading.', fieldNote: 'Calculated using the OpenStreetMap walking graph. Not checked on site yet. Observe barriers, weather and crossings; time assumes a walking pace of 3.6 km/h. No building entry is required.', eyebrow: 'THREE FORMS · ONE STORY' },
 } as const;
 type Repository = Awaited<ReturnType<typeof getWalkRepository>>;
 type LivePosition = { coordinate: [number, number]; accuracyMeters: number | null; timestampMs: number };
@@ -27,7 +26,7 @@ const CLEANUP_ERROR = { ru: 'Не удалось подтвердить полн
 const hasAcquisition = (state: NativeWalkState | undefined) => !!state &&
   (state.foreground || state.subscribed || state.status === 'starting' || state.status === 'running');
 
-export default function WalkApp({ onOpenDiagnostics }: { onOpenDiagnostics: () => void }) {
+export default function WalkApp({ onOpenDiagnostics, claimCityLaunch }: { onOpenDiagnostics: () => void; claimCityLaunch: () => boolean }) {
   const [snapshot, setSnapshot] = useState<Snapshot>();
   const snapshotRef = useRef<Snapshot | undefined>(undefined);
   const repository = useRef<Repository | undefined>(undefined);
@@ -46,8 +45,9 @@ export default function WalkApp({ onOpenDiagnostics }: { onOpenDiagnostics: () =
   const [playing, setPlaying] = useState(false);
   const [showCity, setShowCity] = useState(false);
   const [cityReplay, setCityReplay] = useState(false);
+  const [cityOpening, setCityOpening] = useState(false);
   const [cityNotice, setCityNotice] = useState<string | null>(null);
-  const introChecked = useRef(false);
+  const launchOpeningStarted = useRef(false);
   const speechGeneration = useRef(0);
   const t = COPY[locale];
   const cityGuide = useMemo(() => getCityGuide(locale), [locale]);
@@ -67,6 +67,14 @@ export default function WalkApp({ onOpenDiagnostics }: { onOpenDiagnostics: () =
     nativeRef.current = stopped;
     if (mounted.current) setNativeState(stopped);
   }, []);
+  const chooseCityEntry = useCallback((phase: Snapshot['session']['phase']) => {
+    if (!launchOpeningStarted.current && claimCityLaunch()) {
+      launchOpeningStarted.current = true;
+      setCityReplay(phase !== 'ready');
+      setCityOpening(true);
+      setShowCity(true);
+    }
+  }, [claimCityLaunch]);
   const load = useCallback(async () => {
     if (operating.current) return;
     operating.current = true; setBusy(true); setError(null);
@@ -74,18 +82,17 @@ export default function WalkApp({ onOpenDiagnostics }: { onOpenDiagnostics: () =
       await stopTracking(); await stopAudio();
       const repo = await getWalkRepository(); repository.current = repo;
       const nextLocale = await repo.getLocale(); const next = await repo.load(getPreparedWalk());
-      if (!introChecked.current) {
-        introChecked.current = true;
-        // A preference failure must never prevent access to an existing walk.
-        const seen = await getCityPreferences().then(preferences => preferences.hasSeen()).catch(() => true);
-        if (mounted.current && shouldIntroduceCity(seen, next.session.phase)) setShowCity(true);
+      if (mounted.current) {
+        // Every fresh launch opens the city after native Stop and saved progress
+        // are confirmed. Ordinary AppState returns never repeat this load gate.
+        chooseCityEntry(next.session.phase);
+        // Publish only after choosing the city entry: no route-map flash.
+        setLocale(nextLocale); setCorrupt(false); publish(next);
       }
-      // Publish the first walk only after the introduction decision: no route-map flash.
-      if (mounted.current) { setLocale(nextLocale); setCorrupt(false); publish(next); }
     } catch (issue) {
       if (mounted.current) { setCorrupt(issue instanceof WalkStorageError && issue.code === 'CORRUPT_PROGRESS'); setError(issue instanceof StopError ? STOP_ERROR.ru : COPY.ru.loadError); }
     } finally { operating.current = false; if (mounted.current) setBusy(false); }
-  }, [stopAudio, stopTracking]);
+  }, [chooseCityEntry, stopAudio, stopTracking]);
   useEffect(() => {
     mounted.current = true; void load();
     void Speech.getAvailableVoicesAsync().then(next => { if (mounted.current) setVoices(next); }).catch(() => {});
@@ -147,7 +154,8 @@ export default function WalkApp({ onOpenDiagnostics }: { onOpenDiagnostics: () =
     { text: t.reset, onPress: () => void operate(async () => {
       await stopTracking(); await stopAudio();
       const repo = repository.current ?? await getWalkRepository(); repository.current = repo;
-      publish(await repo.restart(getPreparedWalk())); await repo.setLocale(locale); setCorrupt(false);
+      const next = await repo.restart(getPreparedWalk()); await repo.setLocale(locale);
+      if (mounted.current) { chooseCityEntry(next.session.phase); publish(next); setCorrupt(false); }
     }) },
   ]);
   const openDiagnostics = () => void operate(async () => {
@@ -159,13 +167,13 @@ export default function WalkApp({ onOpenDiagnostics }: { onOpenDiagnostics: () =
     // Keep the walk controls visible until native acquisition is confirmed stopped.
     await stopTracking(); await stopAudio();
     if (snapshotRef.current?.session.phase === 'active' && repository.current) publish(await repository.current.act({ type: 'pause' }));
-    if (mounted.current) { setCityReplay(true); setShowCity(true); }
+    if (mounted.current) { setCityReplay(true); setCityOpening(false); setShowCity(true); }
   });
   const finishCity = () => {
     setShowCity(false);
     // Leaving an introduction is always possible, even if its preference cannot be saved.
     void getCityPreferences().then(preferences => preferences.finish()).catch(() => {
-      if (mounted.current) setCityNotice({ ru: 'Знакомство закрыто. Не удалось сохранить этот выбор; при следующем запуске оно может появиться снова.', kk: 'Танысу жабылды. Таңдау сақталмады; келесі іске қосуда ол қайта көрінуі мүмкін.', en: 'The introduction is closed. This choice could not be saved; it may appear again next time.' }[locale]);
+      if (mounted.current) setCityNotice({ ru: 'Не удалось сохранить отметку о просмотре знакомства. Можно продолжить прогулку.', kk: 'Танысуды көргеніңіз туралы белгі сақталмады. Серуенді жалғастыруға болады.', en: 'The introduction viewing marker could not be saved. You can continue your walk.' }[locale]);
     });
   };
   const toggleTracking = () => {
@@ -217,7 +225,7 @@ export default function WalkApp({ onOpenDiagnostics }: { onOpenDiagnostics: () =
   </View></SafeAreaView>;
   const tracking = hasAcquisition(nativeState);
   const locationStatus = nativeState?.status === 'error' && tracking ? STOP_ERROR[locale] : !tracking ? t.gpsOff : nativeState?.precision === 'denied' ? t.gpsPermission : !nativeState?.providerEnabled ? t.gpsProvider : livePosition?.accuracyMeters != null ? `${t.gpsLive} ${Math.round(livePosition.accuracyMeters)} ${t.meters}` : t.gpsWaiting;
-  if (showCity) return <CityIntro guide={cityGuide} locale={locale} replay={cityReplay} busy={busy}
+  if (showCity) return <CityIntro guide={cityGuide} locale={locale} replay={cityReplay} playOpening={cityOpening} busy={busy}
     onLocaleChange={next => void operate(async () => { await stopAudio(); await repository.current?.setLocale(next); setLocale(next); })}
     error={error} onFinish={finishCity} />;
   return <WalkExperience locale={locale} walk={uiWalk} session={uiSession} busy={busy} error={error ?? cityNotice} locationStatus={locationStatus}

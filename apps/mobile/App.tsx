@@ -1,11 +1,17 @@
-import { useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import { Alert, Pressable, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import DiagnosticApp from './DiagnosticApp';
 import WalkApp from './WalkApp';
 import { suspendDiagnostic } from './src/walkDiagnostic';
 export default function App() {
   const [diagnostics, setDiagnostics] = useState(false);
-  if (!diagnostics) return <WalkApp onOpenDiagnostics={() => setDiagnostics(true)} />;
+  const cityLaunchClaimed = useRef(false);
+  const claimCityLaunch = useCallback(() => {
+    if (cityLaunchClaimed.current) return false;
+    cityLaunchClaimed.current = true;
+    return true;
+  }, []);
+  if (!diagnostics) return <WalkApp claimCityLaunch={claimCityLaunch} onOpenDiagnostics={() => setDiagnostics(true)} />;
   return <View style={styles.page}><SafeAreaView><Pressable style={styles.back} onPress={() => {
     void suspendDiagnostic('paused').then(() => setDiagnostics(false)).catch(() => Alert.alert('GPS', 'Не удалось подтвердить остановку. Нажмите «Остановить» в уведомлении.'));
   }}><Text style={styles.text}>← AstanaAI · к прогулке</Text></Pressable></SafeAreaView><DiagnosticApp /></View>;
