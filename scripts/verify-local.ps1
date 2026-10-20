@@ -30,4 +30,6 @@ Invoke-LocalCheck 'No-charge policy tests' (Join-Path $repoRoot 'packages/spend-
 Invoke-LocalCheck 'No-charge policy strict types' (Join-Path $repoRoot 'packages/spend-policy') $nodeCommand.Source @($tscPath, '--noEmit', '--strict', '--target', 'es2022', '--module', 'nodenext', '--moduleResolution', 'nodenext', 'src/index.ts')
 Invoke-LocalCheck 'Mobile strict types' (Join-Path $repoRoot 'apps/mobile') $nodeCommand.Source @($tscPath, '--noEmit')
 Invoke-LocalCheck 'Mobile lifecycle regression with simulated OS adapters' (Join-Path $repoRoot 'apps/mobile') $nodeCommand.Source @('--test', 'tests/walkDiagnostic.test.cjs')
+Invoke-LocalCheck 'Editorial progression, actual SQLite persistence and priority Stop' (Join-Path $repoRoot 'apps/mobile') $nodeCommand.Source @('--experimental-sqlite', '--test', 'tests/walkEngine.test.cjs', 'tests/walkRepository.test.cjs', 'tests/priorityStop.test.cjs', 'tests/preparedWalk.test.cjs')
+Invoke-LocalCheck 'Editorial catalog malformed-input checks (synthetic, in memory only)' $repoRoot $pythonCommand.Source @('-B', 'tools/first_walk/build_catalog.py', '--self-test')
 Write-Host 'Available local checks passed. This does not accept Android runtime, GPS, offline assets, live RAG or field gates.'

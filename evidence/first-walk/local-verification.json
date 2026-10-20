@@ -1,0 +1,40 @@
+{
+  "checkedAt": "2026-10-20T09:30:04.5616582Z",
+  "baseCommit": "7487404e9d774280110ae3f840f81cdb670383af",
+  "friendRouteCommit": "59e50d9a4e857cf14af0fe2b4a90bed2f3f2f022",
+  "localRunner": {
+    "dataReplayTests": 25,
+    "actualSqliteRepositoryTests": 6,
+    "spendPolicyTests": 22,
+    "priorityStopTests": 4,
+    "actualCatalogTests": 2,
+    "nativeJsLifecycleTests": 10,
+    "strictTypeChecks": 2,
+    "automatedTestsTotal": 80,
+    "editorialEngineTests": 11,
+    "result": "PASS",
+    "command": "./scripts/verify-local.ps1 -PythonPath <existing Python>"
+  },
+  "catalogBuilder": {
+    "result": "PASS",
+    "scenarios": 8,
+    "kind": "synthetic inputs in memory; no synthetic production route"
+  },
+  "nativeJvm": {
+    "result": "PASS",
+    "tests": 7,
+    "kind": "process-local Kotlin controller, simulated monotonic time; not Android runtime"
+  },
+  "sourceEdges": {
+    "fullOriginalSnapshotAvailableOnMain": false,
+    "result": "PASS within hash-pinned witness",
+    "traversals": 216
+  },
+  "phoneNewWalkAcceptance": false,
+  "fieldAcceptance": false,
+  "paidApisEnabled": false,
+  "spending": 0,
+  "note": "Final full-map UI mobile strict types PASS after source freeze. Frozen source SHA256 in both independent review reports. Automated tests do not establish on-device layout, gestures, GPS or field passage.",
+  "frozenUiSha256": "ecef646c0b57147b896b58a88dd3fcbb8542d5e257038d930fbceab94af9508e",
+  "frozenAppSha256": "c868ea8688b742c1972e04aa02cd4628c5340188cc35989f32f32e1862ecd7fc"
+}

@@ -4,3 +4,9 @@ docs/plan/** -text
 *.jpg binary
 *.mp3 binary
 *.zip binary
+# Preserve exact reviewed build inputs and hash-pinned editorial artifacts on Windows.
+apps/mobile/App.tsx -text diff whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+apps/mobile/src/walk/preparedWalk.json -text diff whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+content/first-walk/*.json -text diff whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+data/first-walk/*.json -text diff whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+evidence/first-walk/*.json -text diff whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

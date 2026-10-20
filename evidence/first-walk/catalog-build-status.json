@@ -1,0 +1,34 @@
+{
+  "tool": "tools/first_walk/build_catalog.py",
+  "status": "BUILT_PENDING_INDEPENDENT_GRAPH_AND_SCHEMA_REVIEW",
+  "productionCatalogWritten": true,
+  "output": "C:\\Users\\era\\Documents\\Codex\\2026-10-20\\x20\\outputs\\AstanaAI\\apps\\mobile\\src\\walk\\preparedWalk.json",
+  "outputSha256": "4c361722fd6eefc31488431ca84e8bf9fe17fa09b83d193256381512ba86422b",
+  "inputs": {
+    "contentSha256": "dcced72c42451710f2d0fbd1ffd3e1fb51835076160887d6efb545c3c49fe1b4",
+    "routeSha256": "ecd9d71522f19de8e9a9fcd002a43cce2b922fc30f44971faa214b1b64eb6e26"
+  },
+  "byteChecks": {
+    "snapshot": {
+      "status": "supplied-hash-not-byte-verified"
+    },
+    "graph": {
+      "status": "sha256-byte-match",
+      "sha256": "7c71e91aa760e046c7a706ebd68fca4954d71fd457fa7d8c1d7a744fb9e5799b"
+    }
+  },
+  "timing": {
+    "budgetMinutes": 80,
+    "walkMinutes": 53.718407,
+    "visitMinutes": 18,
+    "reserveMinutes": 8,
+    "totalMinutes": 79.718407,
+    "distanceMeters": 3223.10444,
+    "assumedMetersPerMinute": 60.0
+  },
+  "limitations": [
+    "This tool does not prove graph-edge membership from IDs alone.",
+    "Zod/public-contract parsing and independent source-edge checks belong to root.",
+    "Not field verified; base map online; prepared audio unavailable; human translation review pending."
+  ]
+}

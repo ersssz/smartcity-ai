@@ -1,0 +1,450 @@
+{
+  "provenance": {
+    "snapshotSha256": "e3db0146acb00e261bbbe2c02ec36a330054d87a25b02af7783aa0e386e01c01",
+    "sourcePbfSha256": "9ad8e895d4703248b97a5d17e883e49dc58549305aa4ba6bd6661d247cb98bdb",
+    "fetchedAt": "2026-10-19T21:52:31.3613250Z",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors"
+  },
+  "locatorSources": [
+    "https://www.gov.kz/org/astana/press/news/details/901398?lang=ru",
+    "https://visitastana.kz/ru/exkursion/peshaya-ekskursiya-po-bulvaru-nurzhol-ob-astane-s-interesom-i-lyubovyu/",
+    "https://old.adilet.zan.kz/rus/docs/V12A0000724"
+  ],
+  "interpretation": "Geographic correspondence: unnamed circular footway/layer -1, Kabanbay Batyr road bridge/layer 1 and neighboring venue records. No invented OSM name, entrance or physical-level claim.",
+  "notRoutingEdges": [
+    255969480
+  ],
+  "fieldVerified": false,
+  "elements": [
+    {
+      "type": "node",
+      "id": 4874140222,
+      "lat": 51.1303781,
+      "lon": 71.415265,
+      "tags": {
+        "amenity": "restaurant",
+        "check_date": "2025-05-20",
+        "contact:email": "daredzhani.rest@gmail.com",
+        "contact:instagram": "https://www.instagram.com/daredzhani/",
+        "contact:phone": "+7 771 722 8290",
+        "contact:website": "https://abr.kz/restaurant/daredzhani",
+        "cuisine": "georgian",
+        "name": "Дареджани",
+        "name:en": "Daredzhani",
+        "name:ru": "Дереджани",
+        "opening_hours": "Fr-Sa 10:00-01:00; Mo-Th,Su 10:00-24:00",
+        "operator": "Дареджани"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5787558957,
+      "lat": 51.1311245,
+      "lon": 71.4153171,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "Сәтті",
+        "name:en": "Sәtti",
+        "name:kk": "Сәтті"
+      }
+    },
+    {
+      "type": "way",
+      "id": 255969480,
+      "nodes": [
+        2616721183,
+        2616721119
+      ],
+      "tags": {
+        "addr:city": "Астана",
+        "addr:country": "KZ",
+        "bridge": "yes",
+        "foot": "no",
+        "highway": "secondary",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "lanes:backward": "2",
+        "lanes:forward": "2",
+        "layer": "1",
+        "lit": "yes",
+        "maxspeed": "60",
+        "name": "Қабанбай Батыр даңғылы",
+        "name:en": "Kabanbay Batyr Avenue",
+        "name:kk": "Қабанбай Батыр даңғылы",
+        "name:ru": "проспект Кабанбай Батыра",
+        "source:maxspeed": "sign",
+        "surface": "asphalt"
+      },
+      "center": {
+        "lat": 51.13087065,
+        "lon": 71.41401400000001
+      }
+    },
+    {
+      "type": "way",
+      "id": 384147232,
+      "nodes": [
+        14087642617,
+        14087642936,
+        14087642618,
+        14087642619,
+        14087642620,
+        14087642929,
+        14087642621,
+        14087642622,
+        14087642623,
+        14087642924,
+        14087642624,
+        14087642625,
+        14087642626,
+        14087642925,
+        14087642627,
+        14087642628,
+        14087642927,
+        14087642629,
+        14087642630,
+        3874361286,
+        3874361289,
+        14087642603,
+        14087642604,
+        14087642922,
+        14087642605,
+        14087642898,
+        14087642606,
+        14087642607,
+        14087642608,
+        14087642609,
+        14087642933,
+        14087642610,
+        14087642611,
+        14087642931,
+        14087642612,
+        14087642613,
+        14087642614,
+        14087642615,
+        14087642616,
+        14087642657,
+        3874361291,
+        3874361292,
+        14087642617
+      ],
+      "tags": {
+        "highway": "footway",
+        "layer": "-1"
+      },
+      "center": {
+        "lat": 51.13079,
+        "lon": 71.414504
+      }
+    },
+    {
+      "type": "node",
+      "id": 2616721119,
+      "lat": 51.1292323,
+      "lon": 71.4137327,
+      "tags": {}
+    },
+    {
+      "type": "node",
+      "id": 2616721183,
+      "lat": 51.132509,
+      "lon": 71.4142953,
+      "tags": {}
+    },
+    {
+      "type": "node",
+      "id": 3874361286,
+      "lat": 51.1307184,
+      "lon": 71.4149354,
+      "tags": {}
+    },
+    {
+      "type": "node",
+      "id": 3874361289,
+      "lat": 51.1307735,
+      "lon": 71.4149495,
+      "tags": {}
+    },
+    {
+      "type": "node",
+      "id": 3874361291,
+      "lat": 51.1308481,
+      "lon": 71.4140682,
+      "tags": {}
+    },
+    {
+      "type": "node",
+      "id": 3874361292,
+      "lat": 51.1307945,
+      "lon": 71.4140585,
+      "tags": {}
+    },
+    {
+      "type": "node",
+      "id": 14087642603,
+      "lat": 51.1308291,
+      "lon": 71.4149459,
+      "tags": {}
+    },
+    {
+      "type": "node",
+      "id": 14087642604,
+      "lat": 51.1308832,
+      "lon": 71.4149247,
+      "tags": {}
+    },
+    {
+      "type": "node",
+      "id": 14087642605,
+      "lat": 51.1309337,
+      "lon": 71.414887,
+      "tags": {}
+    },
+    {
+      "type": "node",
+      "id": 14087642606,
+      "lat": 51.1309784,
+      "lon": 71.414834,
+      "tags": {}
+    },
+    {
+      "type": "node",
+      "id": 14087642607,
+      "lat": 51.1310156,
+      "lon": 71.414768,
+      "tags": {}
+    },
+    {
+      "type": "node",
+      "id": 14087642608,
+      "lat": 51.1310439,
+      "lon": 71.4146916,
+      "tags": {}
+    },
+    {
+      "type": "node",
+      "id": 14087642609,
+      "lat": 51.1310622,
+      "lon": 71.4146077,
+      "tags": {}
+    },
+    {
+      "type": "node",
+      "id": 14087642610,
+      "lat": 51.1310696,
+      "lon": 71.4145197,
+      "tags": {}
+    },
+    {
+      "type": "node",
+      "id": 14087642611,
+      "lat": 51.131066,
+      "lon": 71.4144311,
+      "tags": {}
+    },
+    {
+      "type": "node",
+      "id": 14087642612,
+      "lat": 51.1310514,
+      "lon": 71.4143454,
+      "tags": {}
+    },
+    {
+      "type": "node",
+      "id": 14087642613,
+      "lat": 51.1310265,
+      "lon": 71.414266,
+      "tags": {}
+    },
+    {
+      "type": "node",
+      "id": 14087642614,
+      "lat": 51.1309922,
+      "lon": 71.4141961,
+      "tags": {}
+    },
+    {
+      "type": "node",
+      "id": 14087642615,
+      "lat": 51.1309498,
+      "lon": 71.4141384,
+      "tags": {}
+    },
+    {
+      "type": "node",
+      "id": 14087642616,
+      "lat": 51.1309012,
+      "lon": 71.4140952,
+      "tags": {}
+    },
+    {
+      "type": "node",
+      "id": 14087642617,
+      "lat": 51.1307406,
+      "lon": 71.4140654,
+      "tags": {}
+    },
+    {
+      "type": "node",
+      "id": 14087642618,
+      "lat": 51.1306887,
+      "lon": 71.4140887,
+      "tags": {}
+    },
+    {
+      "type": "node",
+      "id": 14087642619,
+      "lat": 51.1306404,
+      "lon": 71.4141275,
+      "tags": {}
+    },
+    {
+      "type": "node",
+      "id": 14087642620,
+      "lat": 51.1305978,
+      "lon": 71.4141803,
+      "tags": {}
+    },
+    {
+      "type": "node",
+      "id": 14087642621,
+      "lat": 51.1305623,
+      "lon": 71.4142451,
+      "tags": {}
+    },
+    {
+      "type": "node",
+      "id": 14087642622,
+      "lat": 51.1305353,
+      "lon": 71.4143196,
+      "tags": {}
+    },
+    {
+      "type": "node",
+      "id": 14087642623,
+      "lat": 51.1305178,
+      "lon": 71.414401,
+      "tags": {}
+    },
+    {
+      "type": "node",
+      "id": 14087642624,
+      "lat": 51.1305104,
+      "lon": 71.4144862,
+      "tags": {}
+    },
+    {
+      "type": "node",
+      "id": 14087642625,
+      "lat": 51.1305134,
+      "lon": 71.4145721,
+      "tags": {}
+    },
+    {
+      "type": "node",
+      "id": 14087642626,
+      "lat": 51.1305267,
+      "lon": 71.4146555,
+      "tags": {}
+    },
+    {
+      "type": "node",
+      "id": 14087642627,
+      "lat": 51.1305499,
+      "lon": 71.4147333,
+      "tags": {}
+    },
+    {
+      "type": "node",
+      "id": 14087642628,
+      "lat": 51.1305819,
+      "lon": 71.4148025,
+      "tags": {}
+    },
+    {
+      "type": "node",
+      "id": 14087642629,
+      "lat": 51.1306217,
+      "lon": 71.4148606,
+      "tags": {}
+    },
+    {
+      "type": "node",
+      "id": 14087642630,
+      "lat": 51.1306678,
+      "lon": 71.4149055,
+      "tags": {}
+    },
+    {
+      "type": "node",
+      "id": 14087642657,
+      "lat": 51.1308588,
+      "lon": 71.4140736,
+      "tags": {}
+    },
+    {
+      "type": "node",
+      "id": 14087642898,
+      "lat": 51.1309483,
+      "lon": 71.4148697,
+      "tags": {}
+    },
+    {
+      "type": "node",
+      "id": 14087642922,
+      "lat": 51.130923,
+      "lon": 71.4148949,
+      "tags": {}
+    },
+    {
+      "type": "node",
+      "id": 14087642924,
+      "lat": 51.1305135,
+      "lon": 71.4144505,
+      "tags": {}
+    },
+    {
+      "type": "node",
+      "id": 14087642925,
+      "lat": 51.130541,
+      "lon": 71.4147033,
+      "tags": {}
+    },
+    {
+      "type": "node",
+      "id": 14087642927,
+      "lat": 51.1306054,
+      "lon": 71.4148367,
+      "tags": {}
+    },
+    {
+      "type": "node",
+      "id": 14087642929,
+      "lat": 51.1305831,
+      "lon": 71.4142072,
+      "tags": {}
+    },
+    {
+      "type": "node",
+      "id": 14087642931,
+      "lat": 51.1310572,
+      "lon": 71.4143796,
+      "tags": {}
+    },
+    {
+      "type": "node",
+      "id": 14087642933,
+      "lat": 51.1310666,
+      "lon": 71.4145557,
+      "tags": {}
+    },
+    {
+      "type": "node",
+      "id": 14087642936,
+      "lat": 51.1307074,
+      "lon": 71.4140803,
+      "tags": {}
+    }
+  ]
+}

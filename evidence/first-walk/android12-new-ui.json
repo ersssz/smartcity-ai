@@ -1,0 +1,44 @@
+{
+  "checkedAt": "2026-10-20T09:42:02.3917192Z",
+  "device": "Xiaomi Android 12 / API31",
+  "version": "0.2.0",
+  "versionCode": 3,
+  "apkSha256": "bd7691b1aebd6e8332adeb398c9f1e9116e2b28cdc58e2dcf9c701447e0463db",
+  "install": {
+    "result": "Success",
+    "installedHashMatches": true,
+    "method": "adb install -r; human confirmed actual Play Protect prompt",
+    "appDataClearCommandUsed": false
+  },
+  "launch": {
+    "result": "Status ok",
+    "metroRequired": false,
+    "component": "kz.astanaai.diagnostics/.MainActivity"
+  },
+  "firstFrame": {
+    "ownAppFocusVerified": true,
+    "permissionPromptOrAutoGps": false,
+    "fullScreenMap": true,
+    "bottomNavigationVisible": true,
+    "screenshot": "android12-map-home.png",
+    "summary": "80min / 3.2km / 3stops",
+    "routeLineAndThreePinsVisible": true,
+    "ownActiveServiceAbsentBeforeCapture": true
+  },
+  "controls": "User pressed preview; Root independently captured and inspected expanded card. ADB input still denied; precise scrcpy control, search/language/journal/drag tests remain unverified.",
+  "newWalkFieldOrLifecycleAcceptance": false,
+  "limitations": [
+    "No actual walk, GPS arrival, new-session process death or battery test",
+    "New UI controls and durability after actual interaction recorded separately",
+    "Prior 0.1.1 device results remain separate"
+  ],
+  "expandedCard": {
+    "ownActiveServiceAbsent": true,
+    "readableStopDescription": true,
+    "activation": "human press Рассмотреть прогулку",
+    "screenshot": "android12-map-expanded.png",
+    "bottomNavigationVisible": true,
+    "mapRemainsVisible": true,
+    "independentlyObserved": true
+  }
+}

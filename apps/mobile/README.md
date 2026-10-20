@@ -1,4 +1,6 @@
-# AstanaAI T01 · native diagnostic
+# AstanaAI Android · editorial walk and native diagnostic
+
+The default screen is now the prepared first editorial walk: real public-anchor OSM geometry, three multilingual chapters/quests, SQLite progression and a local manual collection. See [the current scope](../../docs/FIRST-EDITORIAL-WALK.md). GPS is optional and separately enabled; it never automatically solves a quest. The technical diagnostic remains reachable through its own button. The historical 0.1.1 device results below apply only to that earlier binary; new-walk evidence is kept separately in evidence/first-walk.
 
 This is the Android capability diagnostic for T01, not an accepted product beta or completed T01 gate. The current source replaces the legacy Expo location/task-manager collection path with the local Kotlin module [`astana-active-walk`](modules/astana-active-walk/README.md). Standalone APK 0.1.1 passed package/signature/class inspection, was manually installed on Xiaomi Android 12/API 31 and its installed hash rechecked. Bounded physical checks passed for online map, explicit Start/provider delivery, foreground-service presence through 81 seconds of Dozing, notification Stop, and manual counter durability after relaunch of an already-stopped session. Full background delivery, active-session process death, field accuracy/battery, Android 14+ and legacy upgrade remain open. Exact results: [`T01-EVIDENCE.md`](T01-EVIDENCE.md) and [`IMPLEMENTATION-STATUS.md`](../../docs/IMPLEMENTATION-STATUS.md).
 
