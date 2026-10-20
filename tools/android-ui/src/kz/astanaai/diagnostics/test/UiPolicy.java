@@ -52,6 +52,7 @@ public final class UiPolicy {
     add(labels, "confirm_end", "Я у старта · завершить", "Бастауға жеттім · аяқтау", "At the start · finish",
       "Завершить у последней остановки", "Соңғы аялдамада аяқтау", "Finish at the last stop",
       "Я у финиша · завершить", "Мәреге жеттім · аяқтау", "At the finish · complete");
+    add(labels, "walk_again", "Пройти ещё раз", "Тағы бір рет өту", "Walk again");
     LABELS = Collections.unmodifiableMap(labels);
   }
   private static void add(Map<String, List<String>> map, String id, String... values) {
