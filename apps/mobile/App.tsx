@@ -14,6 +14,6 @@ export default function App() {
   if (!diagnostics) return <WalkApp claimCityLaunch={claimCityLaunch} onOpenDiagnostics={() => setDiagnostics(true)} />;
   return <View style={styles.page}><SafeAreaView><Pressable style={styles.back} onPress={() => {
     void suspendDiagnostic('paused').then(() => setDiagnostics(false)).catch(() => Alert.alert('GPS', 'Не удалось подтвердить остановку. Нажмите «Остановить» в уведомлении.'));
-  }}><Text style={styles.text}>← AstanaAI · к прогулке</Text></Pressable></SafeAreaView><DiagnosticApp /></View>;
+  }}><Text style={styles.text}>← AstGeo · к прогулке</Text></Pressable></SafeAreaView><DiagnosticApp /></View>;
 }
 const styles = StyleSheet.create({ page: { flex: 1, backgroundColor: '#111A21' }, back: { padding: 16 }, text: { color: '#D8F0D4', fontSize: 16, fontWeight: '600' } });

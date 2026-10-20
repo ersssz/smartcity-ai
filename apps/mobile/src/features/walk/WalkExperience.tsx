@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { ActivityIndicator, Animated, BackHandler, Keyboard, Linking, PanResponder, Platform, Pressable, ScrollView, StatusBar, StyleSheet, Text, TextInput, View, useWindowDimensions, type ScrollViewInstance } from 'react-native';
 import { Camera, GeoJSONSource, Layer, Map, ViewAnnotation } from '@maplibre/maplibre-react-native';
+import { storyProgressAction } from './storyProgressAction';
 
 export type WalkLocale = 'ru' | 'kk' | 'en';
 export type UiWalkStop = {
@@ -274,7 +275,7 @@ export default function WalkExperience(props: WalkExperienceProps) {
   const returning = inSession && session.currentStopIndex === walk.stops.length;
   const showReturn = returning && selectedIndex >= walk.stops.length;
   const stop = walk.stops[selectedIndex] ?? walk.stops[session.currentStopIndex] ?? walk.stops[0];
-  const finishedIds = new Set(storyOnly ? [...(session.readStopIds ?? []), ...session.completedStopIds] : session.completedStopIds);
+  const finishedIds = new Set(storyOnly ? session.readStopIds ?? [] : session.completedStopIds);
   const doneCount = storyOnly ? walk.stops.filter(item => finishedIds.has(item.id)).length : session.completedStopIds.length;
   const fullCompletion = !storyOnly && isComplete && !session.abandoned && doneCount === walk.stops.length;
   const hasSavedDiscoveries = !!props.discoveries?.length;
@@ -282,14 +283,17 @@ export default function WalkExperience(props: WalkExperienceProps) {
   const marked = stop ? session.manualStopIds.includes(stop.id) : false;
   const skipped = stop ? session.skippedStopIds.includes(stop.id) : false;
   const stopDone = stop ? finishedIds.has(stop.id) : false;
+  const storyReadDone = stop ? session.readStopIds?.includes(stop.id) === true : false;
   const currentStop = stop?.id === walk.stops[session.currentStopIndex]?.id;
   const canAct = !busy && session.phase === 'active' && currentStop;
+  const storyAction = storyProgressAction({ storyOnly, phase: session.phase, canProgress: !busy,
+    currentStopIndex: session.currentStopIndex, stopIds: walk.stops.map(item => item.id), selectedStopIndex: selectedIndex });
   const journalShown = !storyOnly && tab === 'journal';
   const { height: viewportHeight } = useWindowDimensions();
   const bottomInset = Math.max(20, props.bottomInset ?? (Platform.OS === 'ios' ? 28 : 48));
   const navigationHeight = 56 + bottomInset;
-  const storyReadFooter = storyOnly && inSession && !returning;
-  const footerHeight = navigationHeight + (inSession ? storyReadFooter ? 120 : 64 : 0);
+  const storyProgressFooter = storyOnly && inSession;
+  const footerHeight = navigationHeight + (inSession ? storyProgressFooter ? 120 : 64 : 0);
   const collapsedHeight = 204;
   const sheetHeight = Math.max(260, viewportHeight - footerHeight - Math.max(154, viewportHeight * 0.2));
   const collapsedOffset = Math.max(0, sheetHeight - collapsedHeight);
@@ -369,7 +373,7 @@ export default function WalkExperience(props: WalkExperienceProps) {
         <View style={s.searchNumber}><Text style={s.searchNumberText}>{index + 1}</Text></View><View style={s.flex}><Text style={s.searchResultTitle}>{item.title}</Text><Text style={s.meta}>{item.kicker}</Text></View>
       </Pressable>) : <Text style={s.searchEmpty}>{t.noSearchResults}</Text>}
     </ScrollView></View>}
-    {!searchFocused && <View style={s.mapBrandRow}><View pointerEvents="none" style={s.mapBrand}><Text style={s.mapBrandText}>astana<Text style={s.wordmarkDot}>.</Text></Text><Text style={s.mapBrandCaption}>{t.route}</Text></View>
+    {!searchFocused && <View style={s.mapBrandRow}><View pointerEvents="none" style={s.mapBrand}><Text style={s.mapBrandText}>AstGeo</Text><Text style={s.mapBrandCaption}>{t.route}</Text></View>
       {props.onOpenCity && <Pressable accessibilityRole="button" disabled={busy} accessibilityState={{ disabled: busy }} onPress={props.onOpenCity} style={s.cityButton}><Text style={s.cityButtonText}>{({ ru: 'О городе ↗', kk: 'Қала туралы ↗', en: 'City guide ↗' })[locale]}</Text></Pressable>}
     </View>}
     {!searchFocused && props.onOpenCanonical && <Pressable accessibilityRole="button" disabled={busy} accessibilityState={{ disabled: busy }} onPress={props.onOpenCanonical} style={s.freshWalkButton}><Text style={s.freshWalkText}>✦  {t.freshWalk}  →</Text></Pressable>}
@@ -473,7 +477,7 @@ export default function WalkExperience(props: WalkExperienceProps) {
           {showReturn ? <View style={s.returnCard}>
             <Eyebrow>{ending.label}</Eyebrow><Text accessibilityRole="header" style={s.storyTitle}>{ending.title}</Text>
             <Text style={s.body}>{ending.body}</Text><View style={s.endpointCard}><Eyebrow>{t.startLabel}</Eyebrow><Text style={s.endpointTitle}>{walk.startLabel}</Text></View>
-            {!storyOnly && <Text style={s.noteBody}>{t.manualHelp}</Text>}<Button label={ending.confirmLabel} onPress={props.onConfirmReturn} disabled={busy || session.phase !== 'active'} />
+            {!storyOnly && <><Text style={s.noteBody}>{t.manualHelp}</Text><Button label={ending.confirmLabel} onPress={props.onConfirmReturn} disabled={busy || session.phase !== 'active'} /></>}
           </View> : <>
           <View style={s.chapterHeader}><Eyebrow>{`${t.chapter} ${String(selectedIndex + 1).padStart(2, '0')} · ${stop.minutes} ${t.minutes}`}</Eyebrow><Text accessibilityRole="header" style={s.storyTitle}>{stop.storyTitle}</Text><Text style={s.storyPlace}>{stop.title}</Text></View>
           {storyOnly && !currentStop && !stopDone && !skipped && <Text style={s.audioNote}>{t.storyPreview}</Text>}
@@ -520,11 +524,13 @@ export default function WalkExperience(props: WalkExperienceProps) {
       </View> : null}
 
       <View style={s.attributionFooter}><Text style={s.attribution}>{walk.attribution}</Text><Text style={s.attribution}>{walk.materialsNote ?? (storyOnly ? t.storyMapOnline : t.mapOnline)}</Text></View>
-      <View style={s.footer}><Text style={s.footerBrand}>astana<Text style={s.wordmarkDot}>.</Text></Text><Button tone="quiet" compact label={t.diagnostics} onPress={props.onOpenDiagnostics} /></View>
+      <View style={s.footer}><Text style={s.footerBrand}>AstGeo</Text><Button tone="quiet" compact label={t.diagnostics} onPress={props.onOpenDiagnostics} /></View>
     </ScrollView>
     </Animated.View>
-    {inSession && <View style={[s.persistentActions, storyReadFooter && s.persistentStoryActions, { bottom: navigationHeight }]}>
-      {storyReadFooter && <Button compact label={stopDone ? t.storyReadDone : t.storyRead} onPress={() => { if (stop) props.onFinishStory?.(stop.id); }} disabled={!canAct || stopDone || skipped || !props.onFinishStory} />}
+    {inSession && <View style={[s.persistentActions, storyProgressFooter && s.persistentStoryActions, { bottom: navigationHeight }]}>
+      {storyProgressFooter && (returning
+        ? <Button compact label={ending.confirmLabel} onPress={() => { if (storyAction.kind === 'confirm_end') props.onConfirmReturn(); }} disabled={storyAction.kind !== 'confirm_end'} />
+        : <Button compact label={storyReadDone ? t.storyReadDone : t.storyRead} onPress={() => { if (storyAction.kind === 'read_story') props.onFinishStory?.(storyAction.stopId); }} disabled={storyAction.kind !== 'read_story' || storyReadDone || skipped || !props.onFinishStory} />)}
       <View style={s.sessionActionRow}><View style={s.flex}><Button compact tone="secondary" label={session.phase === 'active' ? t.pause : t.resume} onPress={session.phase === 'active' ? props.onPause : props.onResume} disabled={busy} /></View><View style={s.flex}><Button compact tone="danger" label={t.stop} onPress={props.onStop} /></View></View>
     </View>}
     <View style={[s.bottomBar, { height: navigationHeight, paddingBottom: bottomInset }]}>

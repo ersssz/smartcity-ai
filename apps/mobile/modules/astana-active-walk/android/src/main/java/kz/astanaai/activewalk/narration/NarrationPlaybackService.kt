@@ -137,13 +137,13 @@ class NarrationPlaybackService : Service() {
   private fun acknowledgeForeground() {
     val notifications = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
     if (Build.VERSION.SDK_INT >= 26) notifications.createNotificationChannel(NotificationChannel(
-      AndroidNarrationEffects.CHANNEL_ID, "AstanaAI narration", NotificationManager.IMPORTANCE_LOW))
+      AndroidNarrationEffects.CHANNEL_ID, "AstGeo narration", NotificationManager.IMPORTANCE_LOW))
     val builder = if (Build.VERSION.SDK_INT >= 26) Notification.Builder(this, AndroidNarrationEffects.CHANNEL_ID)
       else Notification.Builder(this)
     val preparing = when (resources.configuration.locales.get(0)?.language) {
       "kk" -> "Дыбыстау дайындалуда…"; "en" -> "Preparing narration…"; else -> "Подготовка озвучки…"
     }
-    val notification = builder.setSmallIcon(android.R.drawable.ic_media_play).setContentTitle("AstanaAI")
+    val notification = builder.setSmallIcon(android.R.drawable.ic_media_play).setContentTitle("AstGeo")
       .setContentText(preparing).setCategory(Notification.CATEGORY_SERVICE)
       .setOnlyAlertOnce(true).setOngoing(true).setVisibility(Notification.VISIBILITY_PRIVATE).build()
     if (Build.VERSION.SDK_INT >= 29) startForeground(AndroidNarrationEffects.NOTIFICATION_ID, notification,

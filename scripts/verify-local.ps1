@@ -49,6 +49,7 @@ Invoke-LocalCheck 'Editorial progression, actual SQLite persistence and priority
 Invoke-LocalCheck 'Canonical mobile session, presentation and prepared audio wrapper' (Join-Path $repoRoot 'apps/mobile') $nodeCommand.Source @('--experimental-sqlite', '--test', 'src/canonical/session.test.cjs', 'tests/canonicalPresentation.test.cjs', 'modules/astana-active-walk/src/preparedAudio.test.cjs')
 Invoke-LocalCheck 'Native narration command scope bridge' (Join-Path $repoRoot 'apps/mobile') $nodeCommand.Source @('--test', 'modules/astana-active-walk/src/narration.test.cjs')
 Invoke-LocalCheck 'Canonical narration actual React callsite lifecycle' (Join-Path $repoRoot 'apps/mobile') $nodeCommand.Source @('--test', 'tests/canonicalNarrationLifecycle.test.cjs')
+Invoke-LocalCheck 'Story progression and persistent finish controls' (Join-Path $repoRoot 'apps/mobile') $nodeCommand.Source @('--test', 'tests/storyProgressAction.test.cjs', 'tests/walkFinishFooter.test.cjs')
 Invoke-LocalCheck 'Prepared APK narration packaging identity' $repoRoot $nodeCommand.Source @('tools/audio/package_mobile_audio.cjs', '--check')
 Invoke-LocalCheck 'Editorial catalog malformed-input checks (synthetic, in memory only)' $repoRoot $pythonCommand.Source @('-B', 'tools/first_walk/build_catalog.py', '--self-test')
 Invoke-LocalCheck 'City guide, actual SQLite preferences and progress priority' (Join-Path $repoRoot 'apps/mobile') $nodeCommand.Source @('--experimental-sqlite', '--test', 'tests/cityPreferences.test.cjs', 'tests/cityCatalog.test.cjs')

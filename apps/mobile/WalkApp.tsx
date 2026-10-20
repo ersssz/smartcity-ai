@@ -223,7 +223,7 @@ export default function WalkApp({ onOpenDiagnostics, claimCityLaunch }: { onOpen
     })) };
   }, [snapshot, locale]);
   if (!uiWalk || !uiSession) return <SafeAreaView style={styles.page}><View style={styles.card}>
-    <Text style={styles.brand}>AstanaAI</Text>{busy ? <ActivityIndicator color="#173F3B" /> : null}<Text style={styles.body}>{corrupt ? t.corrupt : error ?? t.loading}</Text>
+    <Text style={styles.brand}>AstGeo</Text>{busy ? <ActivityIndicator color="#173F3B" /> : null}<Text style={styles.body}>{corrupt ? t.corrupt : error ?? t.loading}</Text>
     {!busy && <><Pressable onPress={() => void load()} style={styles.button}><Text style={styles.buttonText}>{t.retry}</Text></Pressable>
       {corrupt && <Pressable onPress={restart} style={styles.button}><Text style={styles.buttonText}>{t.reset}</Text></Pressable>}
       <Pressable onPress={openDiagnostics}><Text style={styles.link}>{t.diagnostics}</Text></Pressable></>}

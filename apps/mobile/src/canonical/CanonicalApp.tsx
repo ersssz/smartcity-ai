@@ -148,7 +148,7 @@ export default function CanonicalApp({ initialLocale, onBack, onOpenCity, onOpen
   const uiSession = useMemo(() => snapshot && toCanonicalUiSession(snapshot.bundle, snapshot.session, locale), [snapshot, locale]);
   if (proposal) return <CanonicalPreview bundle={proposal.bundle} locale={locale} busy={busy} error={error} verification={proposal.verification} storyOnly
     onChoose={choose} onCancel={() => void urgentStop(onBack)} onLocaleChange={changeLocale} />;
-  if (!snapshot || !uiWalk || !uiSession) return <SafeAreaView style={s.page}><View style={s.loading}><Text style={s.title}>AstanaAI</Text>
+  if (!snapshot || !uiWalk || !uiSession) return <SafeAreaView style={s.page}><View style={s.loading}><Text style={s.title}>AstGeo</Text>
     {busy && <ActivityIndicator color="#173F3B" />}<Text style={s.text}>{error ?? t.loading}</Text>
     {!busy && <Pressable onPress={() => void load()} style={s.button}><Text style={s.buttonText}>{t.retry}</Text></Pressable>}
     <Pressable onPress={() => void urgentStop(onBack)}><Text style={s.link}>{t.back}</Text></Pressable>

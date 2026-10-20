@@ -136,7 +136,7 @@ class AndroidNarrationEffects(
     try {
       check(smallIcon != 0) { "A media notification needs a real application icon" }
       if (Build.VERSION.SDK_INT >= 26) notifications.createNotificationChannel(
-        NotificationChannel(CHANNEL_ID, "AstanaAI narration", NotificationManager.IMPORTANCE_LOW))
+        NotificationChannel(CHANNEL_ID, "AstGeo narration", NotificationManager.IMPORTANCE_LOW))
       createSession(effect.scope, effect.ref)
       val notification = notification(current())
       if (Build.VERSION.SDK_INT >= 29) service.startForeground(NOTIFICATION_ID, notification, ServiceInfo.FOREGROUND_SERVICE_TYPE_MEDIA_PLAYBACK)
@@ -273,7 +273,7 @@ class AndroidNarrationEffects(
     }
     selected.setPlaybackState(PlaybackState.Builder().setState(status, state.positionMs.toLong(),
       if (state.status == AudioStatus.PLAYING) 1f else 0f, SystemClock.elapsedRealtime()).setActions(actions).build())
-    selected.setMetadata(MediaMetadata.Builder().putString(MediaMetadata.METADATA_KEY_TITLE, "AstanaAI")
+    selected.setMetadata(MediaMetadata.Builder().putString(MediaMetadata.METADATA_KEY_TITLE, "AstGeo")
       .putString(MediaMetadata.METADATA_KEY_ARTIST, when (state.ref?.locale) { "ru" -> "Озвучка прогулки"; "kk" -> "Серуен дыбыстауы"; else -> "Walk narration" })
       .putLong(MediaMetadata.METADATA_KEY_DURATION, state.durationMs.toLong()).build())
     notifications.notify(NOTIFICATION_ID, notification(state))
@@ -281,7 +281,7 @@ class AndroidNarrationEffects(
 
   private fun notification(state: AudioSnapshot): Notification {
     val builder = if (Build.VERSION.SDK_INT >= 26) Notification.Builder(service, CHANNEL_ID) else Notification.Builder(service)
-    builder.setSmallIcon(smallIcon).setContentTitle("AstanaAI").setContentText(when (state.ref?.locale) {
+    builder.setSmallIcon(smallIcon).setContentTitle("AstGeo").setContentText(when (state.ref?.locale) {
       "ru" -> "Озвучка прогулки"; "kk" -> "Серуен дыбыстауы"; else -> "Walk narration"
     }).setOnlyAlertOnce(true).setVisibility(Notification.VISIBILITY_PRIVATE)
       .setOngoing(state.status == AudioStatus.LOADING || state.status == AudioStatus.PLAYING)

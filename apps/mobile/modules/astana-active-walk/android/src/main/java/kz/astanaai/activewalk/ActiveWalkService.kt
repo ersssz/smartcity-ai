@@ -110,7 +110,7 @@ class ActiveWalkService : Service() {
     val builder = if (Build.VERSION.SDK_INT >= 26) Notification.Builder(this, ActiveWalkController.CHANNEL_ID)
       else Notification.Builder(this)
     builder.setSmallIcon(R.drawable.ic_walk)
-      .setContentTitle("AstanaAI · прогулка активна")
+      .setContentTitle("AstGeo · прогулка активна")
       .setContentText("Геолокация включена. Остановить можно здесь.")
       .setDeleteIntent(stop)
       .setOngoing(true)
