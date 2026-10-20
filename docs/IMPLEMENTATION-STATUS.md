@@ -8,7 +8,7 @@
 
 Strict TypeScript, 8 целевых проверок каталога/SQLite/приоритетного Stop и независимый Standards/Spec delta review пройдены. Reviewer также повторил 5 синтетических geometry-проверок и воспроизвёл оба producer в памяти с точным совпадением bytes. [Отчёт](../evidence/city-sheet/review-delta.md). Сборка и device acceptance новой версии фиксируются в `evidence/city-sheet`; результаты 0.3.0 не переносятся на неё автоматически.
 
-Standalone Release APK 0.3.1/code6 собран, подпись прежней локальной debug identity подтверждена. Embedded JS и ARM64 MapLibre присутствуют; DEX/manifest gates пройдены. [Артефакт](../evidence/city-sheet/apk.json). На момент фиксации исходников обновление ожидает физического подтверждения Play Protect на Android12; новая установка и новый экран ещё не приняты.
+Standalone Release APK 0.3.1/code6 собран, подпись прежней локальной debug identity подтверждена. Embedded JS и ARM64 MapLibre присутствуют; DEX/manifest gates пройдены. [Артефакт](../evidence/city-sheet/apk.json). После физического подтверждения Play Protect установка завершилась Success; хеш установленного APK совпал. Новые снимки подтверждают крупный городской обзор, 6 читаемых подписей без наложений, компактную карточку и кнопку над системной панелью. [Независимый visual review](../evidence/city-sheet/android12-visual-review.md). Пользователь подтвердил выбор Нуры прямо на карте, раскрытие карточки и прокрутку. Снимок после этих действий показывает уже компактную Нуру; сам по себе он не доказывает раскрытие, жест или плавность. [Runtime record](../evidence/city-sheet/android12-runtime.json).
 
 ## Знакомство с городом · 0.3.0
 
