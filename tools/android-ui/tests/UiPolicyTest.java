@@ -42,6 +42,26 @@ public final class UiPolicyTest {
     expect(!UiPolicy.matches("place_detail", "Подробнее: com.android.settings"));
     expect(UiPolicy.matches("guided_walk", "Прогулка с историями · 80 мин"));
     expect(UiPolicy.matches("read_story", "Историю прочитал · дальше →"));
+    expect(UiPolicy.plan("sequence", "read_story,confirm_end,inspect").size() == 3);
+    expect(UiPolicy.matches("confirm_end", "Я у старта · завершить"));
+    // Golden visible labels from CanonicalPresentation, not an arbitrary confirmation matcher.
+    for (String label : Arrays.asList("Бастауға жеттім · аяқтау", "At the start · finish",
+        "Завершить у последней остановки", "Соңғы аялдамада аяқтау", "Finish at the last stop",
+        "Я у финиша · завершить", "Мәреге жеттім · аяқтау", "At the finish · complete")) {
+      expect(UiPolicy.matches("confirm_end", label));
+    }
+    expect(UiPolicy.matches("confirm_end", "\u00a0Я у старта\u202f· завершить\n"));
+    expect(!UiPolicy.matches("confirm_end", "Подтверждаю Я у старта · завершить"));
+    expect(!UiPolicy.matches("confirm_end", "Я у старта · завершить чужую прогулку"));
+    expect(!UiPolicy.matches("confirm_end", "\u200bЯ у старта · завершить"));
+    expect(!UiPolicy.matches("confirm_end", "At the start · Finish"));
+    expect(!UiPolicy.matches("confirm_end", "Я вернулся к старту · ручное подтверждение"));
+    expect(!UiPolicy.matches("confirm_end", "GPS confirmed arrival"));
+    expect(!UiPolicy.matches("confirm_end", null));
+    expect(!UiPolicy.matches("confirm_end", ""));
+    expect(!UiPolicy.matches("confirm_return", "Я у старта · завершить"));
+    rejects("INVALID_ACTION", () -> UiPolicy.plan("sequence", "confirm_return"));
+    rejects("INVALID_ACTION", () -> UiPolicy.plan("sequence", "confirm_end:At the start · finish"));
     expect(UiPolicy.plan("sequence", "resume_walk_footer").size() == 1);
     expect(UiPolicy.matches("resume_walk_footer", "Продолжить"));
     expect(UiPolicy.matches("resume_walk_footer", "Жалғастыру"));

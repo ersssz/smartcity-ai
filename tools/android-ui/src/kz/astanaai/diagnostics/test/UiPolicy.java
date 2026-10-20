@@ -49,6 +49,9 @@ public final class UiPolicy {
     add(labels, "discovery_back", "Назад к местам", "Орындарға оралу", "Back to places");
     add(labels, "guided_walk", "Прогулка с историями · 80 мин", "Хикаялы серуен · 80 мин", "A walk with stories · 80 min", "Прогулка с историями", "Хикаялары бар серуен", "Walk with stories");
     add(labels, "read_story", "Историю прочитал · дальше →", "Хикаяны оқыдым · әрі қарай →", "I read the story · next →");
+    add(labels, "confirm_end", "Я у старта · завершить", "Бастауға жеттім · аяқтау", "At the start · finish",
+      "Завершить у последней остановки", "Соңғы аялдамада аяқтау", "Finish at the last stop",
+      "Я у финиша · завершить", "Мәреге жеттім · аяқтау", "At the finish · complete");
     LABELS = Collections.unmodifiableMap(labels);
   }
   private static void add(Map<String, List<String>> map, String id, String... values) {
