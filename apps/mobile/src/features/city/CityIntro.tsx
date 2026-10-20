@@ -289,7 +289,8 @@ export function CityIntro({ guide, locale, onLocaleChange, onFinish, busy = fals
     if (measured > 0) setViewportHeight(previous => Math.abs(previous - measured) > .5 ? measured : previous);
   }}>
     <StatusBar barStyle="dark-content" />
-    <View style={s.mapContainer} pointerEvents={welcoming ? 'none' : 'auto'} accessibilityElementsHidden={welcoming} importantForAccessibility={welcoming ? 'no-hide-descendants' : 'auto'}>
+    {/* Keep the SurfaceView's native parent stable when the modal input/a11y gates lift. */}
+    <View collapsable={false} style={s.mapContainer} pointerEvents={welcoming ? 'none' : 'auto'} accessibilityElementsHidden={welcoming} importantForAccessibility={welcoming ? 'no-hide-descendants' : 'auto'}>
       <Map style={s.map} mapStyle={streetMode ? STREET_STYLE : SCHEMATIC_STYLE} attribution={streetMode} logo={false} compass={false}
         attributionPosition={{ top: topInset + 112, right: 12 }} touchRotate={false} touchPitch={false}
         onDidFailLoadingMap={() => { if (streetMode) failStreets(); }}
