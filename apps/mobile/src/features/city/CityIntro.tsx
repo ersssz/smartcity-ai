@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { AccessibilityInfo, Animated, BackHandler, Easing, Linking, PanResponder, Platform, Pressable, ScrollView, StatusBar, StyleSheet, Text, View, useWindowDimensions, type ScrollViewInstance } from 'react-native';
 import { Camera, GeoJSONSource, Layer, Map, ViewAnnotation, type CameraRef, type StyleSpecification } from '@maplibre/maplibre-react-native';
 import type { CityBounds, CityGuide, CityLocale, DistrictId } from '../../city/model';
+import { CityOpening } from './CityOpening';
 
 export type CityIntroProps = {
   guide: CityGuide;
@@ -21,8 +22,7 @@ const SCHEMATIC_STYLE: StyleSpecification = {
 };
 const COPY = {
   ru: {
-    welcome: 'Добро пожаловать в Астану!', welcomeBody: 'Начнём с реки. Затем откроем характер каждого района.',
-    welcomeEyebrow: 'ГОРОД, КОТОРЫЙ ОТКРЫВАЕТСЯ', skip: 'Сразу к карте →', city: 'АСТАНА', subtitle: 'Знакомство с городом',
+    city: 'АСТАНА', subtitle: 'Знакомство с городом',
     riverEyebrow: '01 / РЕКА И ДВА БЕРЕГА', districtEyebrow: '02 / ХАРАКТЕР РАЙОНОВ', districtsTitle: 'У каждого района — свой характер',
     districtsBody: 'Коснитесь цветной области на карте или выберите название. Начните с того, что привлекло ваше внимание.',
     discover: 'Познакомиться с районами →', whole: 'Обзор города', river: 'Река и берега', districtCount: 'районов · выберите любой',
@@ -34,11 +34,10 @@ const COPY = {
     selected: 'Выбран район', selectDistrict: 'Открыть район', wholeHint: 'Вернуться к обзору города', sourceError: 'Не удалось открыть источник. Попробуйте позже.',
     labels: 'Названия районов', geometry: 'Карта для знакомства с городом', openSourcesHint: 'Источники откроются во внешнем браузере.', leftBank: 'ЛЕВЫЙ БЕРЕГ', rightBank: 'ПРАВЫЙ БЕРЕГ', riverName: 'Есиль (Ишим)',
     expand: 'Развернуть карточку', collapse: 'Свернуть к карте', sheetHint: 'Текст внутри карточки можно прокручивать.',
-    allBounds: 'Все границы районов',
+    allBounds: 'Все границы районов', replayOpening: 'Повторить открытие города',
   },
   kk: {
-    welcome: 'Астанаға қош келдіңіз!', welcomeBody: 'Алдымен өзенмен танысайық. Содан соң әр ауданның ерекшелігін ашамыз.',
-    welcomeEyebrow: 'ӨЗІН ЖАҢАША АШАТЫН ҚАЛА', skip: 'Бірден картаға →', city: 'АСТАНА', subtitle: 'Қаламен танысу',
+    city: 'АСТАНА', subtitle: 'Қаламен танысу',
     riverEyebrow: '01 / ӨЗЕН ЖӘНЕ ЕКІ ЖАҒАЛАУ', districtEyebrow: '02 / АУДАНДАРДЫҢ ЕРЕКШЕЛІГІ', districtsTitle: 'Әр ауданның өз ерекшелігі бар',
     districtsBody: 'Картадағы түсті аймақты түртіңіз немесе атауын таңдаңыз. Назарыңызды аударған ауданнан бастаңыз.',
     discover: 'Аудандармен танысу →', whole: 'Қалаға шолу', river: 'Өзен және жағалаулар', districtCount: 'аудан · кез келгенін таңдаңыз',
@@ -50,11 +49,10 @@ const COPY = {
     selected: 'Таңдалған аудан', selectDistrict: 'Ауданды ашу', wholeHint: 'Қала шолуына оралу', sourceError: 'Дереккөз ашылмады. Кейінірек қайталап көріңіз.',
     labels: 'Аудан атаулары', geometry: 'Қаламен танысу картасы', openSourcesHint: 'Дереккөздер сыртқы браузерде ашылады.', leftBank: 'СОЛ ЖАҒАЛАУ', rightBank: 'ОҢ ЖАҒАЛАУ', riverName: 'Есіл (Ишим)',
     expand: 'Карточканы ашу', collapse: 'Картаға жинау', sheetHint: 'Карточка ішіндегі мәтінді айналдыруға болады.',
-    allBounds: 'Аудандардың барлық шекаралары',
+    allBounds: 'Аудандардың барлық шекаралары', replayOpening: 'Қаланың ашылуын қайта көру',
   },
   en: {
-    welcome: 'Welcome to Astana!', welcomeBody: 'Begin with the river. Then discover the character of each district.',
-    welcomeEyebrow: 'A CITY WAITING TO BE DISCOVERED', skip: 'Straight to the map →', city: 'ASTANA', subtitle: 'Get to know the city',
+    city: 'ASTANA', subtitle: 'Get to know the city',
     riverEyebrow: '01 / A RIVER AND TWO BANKS', districtEyebrow: '02 / SIX DIFFERENT CHARACTERS', districtsTitle: 'Every district has its own character',
     districtsBody: 'Tap a coloured area on the map or choose its name. Begin with the one that catches your eye.',
     discover: 'Meet the districts →', whole: 'City overview', river: 'River and banks', districtCount: 'districts · choose any one',
@@ -66,9 +64,15 @@ const COPY = {
     selected: 'Selected district', selectDistrict: 'Explore district', wholeHint: 'Return to the city overview', sourceError: 'Could not open this source. Please try again later.',
     labels: 'District names', geometry: 'A first look at the city', openSourcesHint: 'Sources open in your external browser.', leftBank: 'LEFT BANK', rightBank: 'RIGHT BANK', riverName: 'Esil (Ishim)',
     expand: 'Expand card', collapse: 'Collapse to map', sheetHint: 'Scroll inside the card to read more.',
-    allBounds: 'All district boundaries',
+    allBounds: 'All district boundaries', replayOpening: 'Replay the city opening',
   },
 } as const;
+
+function openingBounds(bounds: CityBounds): CityBounds {
+  const horizontal = (bounds[2] - bounds[0]) * .08;
+  const vertical = (bounds[3] - bounds[1]) * .08;
+  return [bounds[0] - horizontal, bounds[1] - vertical, bounds[2] + horizontal, bounds[3] + vertical];
+}
 
 function Action({ label, onPress, quiet = false, disabled = false, selected = false, accessibilityLabel }: {
   label: string; onPress: () => void; quiet?: boolean; disabled?: boolean; selected?: boolean; accessibilityLabel?: string;
@@ -88,6 +92,7 @@ export function CityIntro({ guide, locale, onLocaleChange, onFinish, busy = fals
   const [fullOverview, setFullOverview] = useState(false);
   const [selectedId, setSelectedId] = useState<DistrictId | null>(null);
   const [welcoming, setWelcoming] = useState(!replay);
+  const [openingLabelsVisible, setOpeningLabelsVisible] = useState(replay);
   const [reduceMotion, setReduceMotion] = useState(true);
   const [motionKnown, setMotionKnown] = useState(false);
   const [screenReader, setScreenReader] = useState(false);
@@ -97,6 +102,7 @@ export function CityIntro({ guide, locale, onLocaleChange, onFinish, busy = fals
   const [streetLoaded, setStreetLoaded] = useState(false);
   const [streetFailed, setStreetFailed] = useState(false);
   const [mapRevision, setMapRevision] = useState(0);
+  const [mapReady, setMapReady] = useState(false);
   const [sheetExpanded, setSheetExpanded] = useState(false);
   const [captionHeight, setCaptionHeight] = useState(44);
   const [footerHeight, setFooterHeight] = useState(124);
@@ -104,9 +110,10 @@ export function CityIntro({ guide, locale, onLocaleChange, onFinish, busy = fals
   const camera = useRef<CameraRef>(null);
   const scroll = useRef<ScrollViewInstance>(null);
   const mounted = useRef(true);
-  const welcomeOpacity = useRef(new Animated.Value(replay ? 0 : 1)).current;
-  const textOpacity = useRef(new Animated.Value(0)).current;
-  const textRise = useRef(new Animated.Value(14)).current;
+  const introUi = useRef(new Animated.Value(replay ? 1 : 0)).current;
+  const captionReveal = useRef(new Animated.Value(replay ? 1 : 0)).current;
+  const introMapRevealed = useRef(false);
+  const snapNextFit = useRef(false);
   const cardOpacity = useRef(new Animated.Value(1)).current;
   const sheetHeight = useRef(new Animated.Value(height * .35)).current;
   const dragOrigin = useRef(0);
@@ -133,7 +140,7 @@ export function CityIntro({ guide, locale, onLocaleChange, onFinish, busy = fals
       Math.max(bounds[2], ...anchors.map(point => point[0])), Math.max(bounds[3], ...anchors.map(point => point[1]))];
   }, [fullOverview, guide.bankLabelPoints, guide.bounds, guide.overviewBounds, guide.riverBounds, guide.riverLabelPoint, stage]);
   const mapPadding = useMemo(() => ({ top: Math.max(topInset + 140, chromeHeight + 24), left: 16, right: 16, bottom: targetHeight + captionHeight + 12 }), [captionHeight, chromeHeight, targetHeight, topInset]);
-  const initialView = useRef({ bounds: overviewBounds, padding: mapPadding });
+  const initialView = useRef({ bounds: replay ? overviewBounds : openingBounds(overviewBounds), padding: mapPadding });
   const districts = useMemo<GeoJSON.FeatureCollection<GeoJSON.Polygon | GeoJSON.MultiPolygon>>(() => ({
     ...guide.boundaries,
     features: guide.boundaries.features.map(feature => ({ ...feature, properties: { ...feature.properties,
@@ -144,36 +151,19 @@ export function CityIntro({ guide, locale, onLocaleChange, onFinish, busy = fals
   useEffect(() => {
     mounted.current = true;
     let active = true;
-    AccessibilityInfo.isReduceMotionEnabled().then(value => { if (active) { setReduceMotion(value); setMotionKnown(true); } }).catch(() => { if (active) setMotionKnown(true); });
-    AccessibilityInfo.isScreenReaderEnabled().then(value => { if (active) setScreenReader(value); }).catch(() => {});
-    const subscription = AccessibilityInfo.addEventListener('reduceMotionChanged', value => { setReduceMotion(value); setMotionKnown(true); });
+    // Both probes must finish before an automatic opening can begin.
+    void Promise.all([
+      AccessibilityInfo.isReduceMotionEnabled().catch(() => true),
+      AccessibilityInfo.isScreenReaderEnabled().catch(() => true),
+    ]).then(([motion, reader]) => {
+      if (active) { setReduceMotion(motion); setScreenReader(reader); setMotionKnown(true); }
+    });
+    const subscription = AccessibilityInfo.addEventListener('reduceMotionChanged', setReduceMotion);
     const readerSubscription = AccessibilityInfo.addEventListener('screenReaderChanged', setScreenReader);
     return () => { active = false; mounted.current = false; subscription.remove(); readerSubscription.remove(); };
   }, []);
 
-  const revealMap = useCallback(() => {
-    welcomeOpacity.stopAnimation();
-    textOpacity.stopAnimation();
-    textRise.stopAnimation();
-    if (reduceMotion) { welcomeOpacity.setValue(0); setWelcoming(false); return; }
-    Animated.timing(welcomeOpacity, { toValue: 0, duration: 700, easing: Easing.inOut(Easing.quad), useNativeDriver: true }).start(({ finished }) => {
-      if (finished && mounted.current) setWelcoming(false);
-    });
-  }, [reduceMotion, textOpacity, textRise, welcomeOpacity]);
-
-  useEffect(() => {
-    if (!motionKnown || !welcoming) return;
-    const entrance = Animated.parallel([
-      Animated.timing(textOpacity, { toValue: 1, duration: reduceMotion ? 0 : 720, easing: Easing.out(Easing.cubic), useNativeDriver: true }),
-      Animated.timing(textRise, { toValue: 0, duration: reduceMotion ? 0 : 900, easing: Easing.out(Easing.cubic), useNativeDriver: true }),
-    ]);
-    entrance.start();
-    // A screen reader must have time to finish; the same visible skip button opens the map.
-    const timer = screenReader ? null : setTimeout(revealMap, reduceMotion ? 1700 : 2100);
-    return () => { if (timer) clearTimeout(timer); entrance.stop(); };
-  }, [motionKnown, reduceMotion, revealMap, screenReader, textOpacity, textRise, welcoming]);
-
-  useEffect(() => () => { welcomeOpacity.stopAnimation(); textOpacity.stopAnimation(); textRise.stopAnimation(); cardOpacity.stopAnimation(); sheetHeight.stopAnimation(); }, [cardOpacity, sheetHeight, textOpacity, textRise, welcomeOpacity]);
+  useEffect(() => () => { introUi.stopAnimation(); captionReveal.stopAnimation(); cardOpacity.stopAnimation(); sheetHeight.stopAnimation(); }, [captionReveal, cardOpacity, introUi, sheetHeight]);
 
   const animateSheet = useCallback((toValue: number) => {
     sheetHeight.stopAnimation();
@@ -200,8 +190,51 @@ export function CityIntro({ guide, locale, onLocaleChange, onFinish, busy = fals
     onPanResponderTerminate: () => settleSheet(sheetExpanded),
   }), [collapsedHeight, expandedHeight, reduceMotion, settleSheet, sheetExpanded, sheetHeight]);
 
-  const fit = useCallback((bounds: CityBounds) => camera.current?.fitBounds(bounds, { padding: mapPadding, duration: reduceMotion ? 0 : 850, easing: 'ease' }), [mapPadding, reduceMotion]);
-  useEffect(() => { fit(selected?.bounds ?? overviewBounds); }, [fit, overviewBounds, selected?.bounds, mapRevision]);
+  const fit = useCallback((bounds: CityBounds, duration = 850) => {
+    if (mapReady) camera.current?.fitBounds(bounds, { padding: mapPadding, duration: reduceMotion ? 0 : duration, easing: 'ease' });
+  }, [mapPadding, mapReady, reduceMotion]);
+  useEffect(() => {
+    if (!mapReady) return;
+    if (welcoming) {
+      if (!introMapRevealed.current) fit(openingBounds(overviewBounds), 0);
+      return;
+    }
+    fit(selected?.bounds ?? overviewBounds, snapNextFit.current ? 0 : 850);
+    snapNextFit.current = false;
+  }, [fit, mapReady, overviewBounds, selected?.bounds, mapRevision, welcoming]);
+  const finishOpening = useCallback(() => {
+    introUi.stopAnimation(); captionReveal.stopAnimation();
+    introUi.setValue(1); captionReveal.setValue(1);
+    setOpeningLabelsVisible(true);
+    snapNextFit.current = true;
+    setWelcoming(false);
+  }, [captionReveal, introUi]);
+  const revealMap = useCallback(() => {
+    // Skip/Back/Reduce Motion settles the same final state without a late camera fly.
+    snapNextFit.current = true;
+    fit(overviewBounds, 0);
+    finishOpening();
+  }, [finishOpening, fit, overviewBounds]);
+  const revealOpeningMap = useCallback(() => {
+    introMapRevealed.current = true;
+    fit(overviewBounds, 1100);
+    Animated.timing(captionReveal, { toValue: 1, duration: reduceMotion ? 0 : 250, useNativeDriver: true }).start();
+  }, [captionReveal, fit, overviewBounds, reduceMotion]);
+  const revealOpeningUi = useCallback(() => {
+    // Android annotations are bitmap snapshots: mount final, static children.
+    // Native-driver opacity on their child would leave an invisible cached bitmap.
+    setOpeningLabelsVisible(true);
+    Animated.timing(introUi, { toValue: 1, duration: reduceMotion ? 0 : 550, easing: Easing.out(Easing.cubic), useNativeDriver: true }).start();
+  }, [introUi, reduceMotion]);
+  const beginOpening = useCallback(() => {
+    introUi.stopAnimation(); captionReveal.stopAnimation();
+    introUi.setValue(0); captionReveal.setValue(0);
+    introMapRevealed.current = false; snapNextFit.current = false;
+    setOpeningLabelsVisible(false);
+    setSelectedId(null); setFullOverview(false); setStage('river'); setShowSources(false);
+    if (streetMode) setMapReady(false);
+    setStreetMode(false); setStreetFailed(false); settleSheet(false); setWelcoming(true);
+  }, [captionReveal, introUi, settleSheet, streetMode]);
   useEffect(() => {
     cardOpacity.stopAnimation();
     cardOpacity.setValue(reduceMotion ? 1 : .55);
@@ -219,10 +252,10 @@ export function CityIntro({ guide, locale, onLocaleChange, onFinish, busy = fals
   const selectDistrict = useCallback((id: string | undefined) => {
     const district = guide.districts.find(item => item.id === id);
     if (!district) return;
-    if (welcoming) { welcomeOpacity.stopAnimation(); welcomeOpacity.setValue(0); setWelcoming(false); }
+    if (welcoming) revealMap();
     setStage('districts'); setFullOverview(false); setSelectedId(district.id); settleSheet(false);
     fit(district.bounds);
-  }, [fit, guide.districts, settleSheet, welcomeOpacity, welcoming]);
+  }, [fit, guide.districts, revealMap, settleSheet, welcoming]);
   const onBack = useCallback(() => {
     if (welcoming) revealMap();
     else if (sheetExpanded) settleSheet(false);
@@ -256,11 +289,12 @@ export function CityIntro({ guide, locale, onLocaleChange, onFinish, busy = fals
     if (measured > 0) setViewportHeight(previous => Math.abs(previous - measured) > .5 ? measured : previous);
   }}>
     <StatusBar barStyle="dark-content" />
-    <View style={s.mapContainer} accessibilityElementsHidden={welcoming} importantForAccessibility={welcoming ? 'no-hide-descendants' : 'auto'}>
+    <View style={s.mapContainer} pointerEvents={welcoming ? 'none' : 'auto'} accessibilityElementsHidden={welcoming} importantForAccessibility={welcoming ? 'no-hide-descendants' : 'auto'}>
       <Map style={s.map} mapStyle={streetMode ? STREET_STYLE : SCHEMATIC_STYLE} attribution={streetMode} logo={false} compass={false}
         attributionPosition={{ top: topInset + 112, right: 12 }} touchRotate={false} touchPitch={false}
         onDidFailLoadingMap={() => { if (streetMode) failStreets(); }}
         onDidFinishLoadingMap={() => { if (streetMode) setStreetLoaded(true); }}
+        onDidFinishRenderingMapFully={() => setMapReady(true)}
         onDidFinishLoadingStyle={() => setMapRevision(value => value + 1)}>
         <Camera ref={camera} initialViewState={initialView.current} />
         <GeoJSONSource id="city-districts" data={districts} onPress={event => {
@@ -283,7 +317,7 @@ export function CityIntro({ guide, locale, onLocaleChange, onFinish, busy = fals
           <Layer id="city-esil-halo" type="line" layout={{ 'line-cap': 'round', 'line-join': 'round' }} paint={{ 'line-color': '#F8FFFF', 'line-width': ['interpolate', ['linear'], ['zoom'], 8, 5, 12, 13, 16, 20], 'line-opacity': .95 }} />
           <Layer id="city-esil-water" type="line" layout={{ 'line-cap': 'round', 'line-join': 'round' }} paint={{ 'line-color': C.water, 'line-width': ['interpolate', ['linear'], ['zoom'], 8, 2.5, 12, 8, 16, 14], 'line-opacity': 1 }} />
         </GeoJSONSource>
-        {stage === 'river' && guide.bankLabelPoints && <>
+        {stage === 'river' && openingLabelsVisible && guide.bankLabelPoints && <>
           <ViewAnnotation key={`left-${locale}`} id={`city-left-bank-${locale}`} lngLat={guide.bankLabelPoints.left}>
             <View collapsable={false} style={s.bankLabel}><Text style={s.bankLabelText}>{t.leftBank}</Text></View>
           </ViewAnnotation>
@@ -291,7 +325,7 @@ export function CityIntro({ guide, locale, onLocaleChange, onFinish, busy = fals
             <View collapsable={false} style={s.bankLabel}><Text style={s.bankLabelText}>{t.rightBank}</Text></View>
           </ViewAnnotation>
         </>}
-        {stage === 'river' && guide.riverLabelPoint && <ViewAnnotation key={`river-${locale}`} id={`city-river-name-${locale}`} lngLat={guide.riverLabelPoint}>
+        {stage === 'river' && openingLabelsVisible && guide.riverLabelPoint && <ViewAnnotation key={`river-${locale}`} id={`city-river-name-${locale}`} lngLat={guide.riverLabelPoint}>
           <View collapsable={false} style={s.riverMapLabel}><Text style={s.riverMapLabelText}>{t.riverName}</Text></View>
         </ViewAnnotation>}
         {stage === 'districts' && guide.districts.map(district => <ViewAnnotation key={`${district.id}-${locale}-${selectedId === district.id}`} id={`city-label-${district.id}-${locale}-${selectedId === district.id}`} lngLat={district.center} onPress={() => selectDistrict(district.id)}>
@@ -302,7 +336,7 @@ export function CityIntro({ guide, locale, onLocaleChange, onFinish, busy = fals
       </Map>
     </View>
 
-    <View pointerEvents={welcoming ? 'none' : 'box-none'} style={[s.chrome, { paddingTop: topInset + 8 }]} onLayout={event => setChromeHeight(event.nativeEvent.layout.height)} accessibilityElementsHidden={welcoming} importantForAccessibility={welcoming ? 'no-hide-descendants' : 'auto'}>
+    <Animated.View pointerEvents={welcoming ? 'none' : 'box-none'} style={[s.chrome, { paddingTop: topInset + 8, opacity: introUi, transform: [{ translateY: introUi.interpolate({ inputRange: [0, 1], outputRange: [12, 0] }) }] }]} onLayout={event => setChromeHeight(event.nativeEvent.layout.height)} accessibilityElementsHidden={welcoming} importantForAccessibility={welcoming ? 'no-hide-descendants' : 'auto'}>
       <View style={s.header}>
         <View style={s.headerTitle}>
           <Text style={s.city} maxFontSizeMultiplier={1.2}>{t.city}</Text><Text style={s.subtitle} maxFontSizeMultiplier={1.3}>{t.subtitle}</Text>
@@ -318,16 +352,20 @@ export function CityIntro({ guide, locale, onLocaleChange, onFinish, busy = fals
         <Pressable accessibilityRole="button" accessibilityLabel={t.wholeHint} onPress={wholeCity} style={({ pressed }) => [s.tool, pressed && s.pressed]}>
           <Text style={s.toolIcon}>⌖</Text><Text style={s.toolText}>{t.whole}</Text>
         </Pressable>
+        <Pressable accessibilityRole="button" accessibilityLabel={t.replayOpening} onPress={beginOpening} style={({ pressed }) => [s.tool, pressed && s.pressed]}>
+          <Text style={s.toolIcon}>↻</Text>
+        </Pressable>
         <Pressable accessibilityRole="button" accessibilityState={{ selected: streetMode }} onPress={toggleStreets} style={({ pressed }) => [s.tool, streetMode && s.toolSelected, pressed && s.pressed]}>
           <Text style={[s.toolText, streetMode && s.toolTextSelected]}>{streetMode ? t.scheme : t.streets}</Text>
         </Pressable>
       </View>
-    </View>
+    </Animated.View>
 
     <View pointerEvents={welcoming ? 'none' : 'box-none'} style={s.bottom} accessibilityElementsHidden={welcoming} importantForAccessibility={welcoming ? 'no-hide-descendants' : 'auto'}>
-      <View style={s.mapCaption} onLayout={event => setCaptionHeight(event.nativeEvent.layout.height)}><View style={s.waterDot} /><Text style={s.mapCaptionText}>{streetMode ? (streetLoaded ? t.onlineHint : t.streetLoading) : (streetFailed ? t.offline : t.schemeHint)}</Text>
+      <Animated.View style={[s.mapCaption, { opacity: captionReveal }]} onLayout={event => setCaptionHeight(event.nativeEvent.layout.height)}><View style={s.waterDot} /><Text style={s.mapCaptionText}>{streetMode ? (streetLoaded ? t.onlineHint : t.streetLoading) : (streetFailed ? t.offline : t.schemeHint)}</Text>
         <Pressable accessibilityRole="link" onPress={() => { void openSource('https://www.openstreetmap.org/copyright'); }} style={s.mapCredit}><Text style={s.mapCreditText}>© OpenStreetMap</Text></Pressable>
-      </View>
+      </Animated.View>
+      <Animated.View style={{ opacity: introUi, transform: [{ translateY: introUi.interpolate({ inputRange: [0, 1], outputRange: [36, 0] }) }] }}>
       <Animated.View style={[s.card, { height: sheetHeight }]}>
         <View {...handlePan.panHandlers}>
           <Pressable accessibilityRole="button" accessibilityLabel={sheetExpanded ? t.collapse : t.expand} accessibilityHint={t.sheetHint}
@@ -385,20 +423,12 @@ export function CityIntro({ guide, locale, onLocaleChange, onFinish, busy = fals
           <Action label={busy ? t.saving : replay ? t.returnWalk : t.firstWalk} onPress={onFinish} disabled={busy} />
         </View>
       </Animated.View>
+      </Animated.View>
     </View>
 
-    {welcoming && <Animated.View style={[s.welcome, { opacity: welcomeOpacity, paddingTop: topInset + 12, paddingBottom: 28 + bottomInset }]} accessibilityViewIsModal>
-      <View style={s.welcomeTop}><Text style={s.welcomeBrand}>ASTANA / AI</Text><Action label={t.skip} quiet onPress={revealMap} /></View>
-      <ScrollView style={s.welcomeScroll} contentContainerStyle={s.welcomeScrollContent} showsVerticalScrollIndicator={false}>
-      <Animated.View style={[s.welcomeContent, { opacity: textOpacity, transform: [{ translateY: textRise }] }]}>
-        <View style={s.welcomeSeal}><View style={s.sealOrbit} /><Text style={s.sealGlyph}>А</Text><View style={s.sealDot} /></View>
-        <Text style={s.welcomeEyebrow}>{t.welcomeEyebrow}</Text>
-        <Text accessibilityRole="header" style={[s.welcomeTitle, compact && s.welcomeTitleCompact]}>{t.welcome}</Text>
-        <View style={s.welcomeRule} /><Text style={s.welcomeBody}>{t.welcomeBody}</Text>
-      </Animated.View>
-      </ScrollView>
-      <Text style={s.welcomeFoot}>{t.city} · 51° N</Text>
-    </Animated.View>}
+    {welcoming && <CityOpening locale={locale} topInset={topInset} bottomInset={bottomInset} compact={compact}
+      reduceMotion={reduceMotion} screenReader={screenReader} accessibilityReady={motionKnown} mapReady={mapReady}
+      onMapReveal={revealOpeningMap} onUiReveal={revealOpeningUi} onFinish={finishOpening} onSkip={revealMap} />}
   </View>;
 }
 
@@ -421,9 +451,6 @@ const s = StyleSheet.create({
   footer: { flexShrink: 0, paddingHorizontal: 24, paddingTop: 10, paddingBottom: 18, borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: C.line }, action: { minHeight: 48, paddingHorizontal: 16, paddingVertical: 12, alignItems: 'center', justifyContent: 'center', borderRadius: 16 }, primaryAction: { backgroundColor: C.ink }, quietAction: { backgroundColor: 'transparent' }, actionText: { fontSize: 13, lineHeight: 20, fontWeight: '700', textAlign: 'center' }, primaryActionText: { color: C.white }, quietActionText: { color: C.ink }, pressed: { opacity: .65 }, disabled: { opacity: .5 }, error: { fontSize: 12, lineHeight: 18, color: C.warning, marginBottom: 8 },
   mapLabel: { minHeight: 44, minWidth: 44, justifyContent: 'center', paddingHorizontal: 9, paddingVertical: 6, borderRadius: 12, backgroundColor: '#F8F6EFDB', borderWidth: 1, borderColor: '#FFFFFFE8' }, selectedMapLabel: { backgroundColor: C.ink, borderColor: C.ink }, mapLabelText: { color: C.ink, fontSize: 11, fontWeight: '700', textAlign: 'center' }, selectedMapLabelText: { color: C.white },
   bankLabel: { paddingHorizontal: 9, paddingVertical: 6, borderRadius: 9, backgroundColor: '#F8F6EFC7' }, bankLabelText: { color: C.muted, fontSize: 10, fontWeight: '700', letterSpacing: 1.5, textAlign: 'center' }, riverMapLabel: { paddingHorizontal: 8, paddingVertical: 4, borderRadius: 9, backgroundColor: '#EDFCFFD9' }, riverMapLabelText: { color: C.waterDark, fontSize: 11, fontStyle: 'italic', fontFamily: Platform.OS === 'android' ? 'serif' : 'Georgia' },
-  welcome: { position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: C.paper, paddingHorizontal: 24, paddingBottom: 28, justifyContent: 'space-between' }, welcomeTop: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap' }, welcomeBrand: { color: C.ink, fontSize: 12, fontWeight: '700', letterSpacing: 2.4 }, welcomeScroll: { flex: 1 }, welcomeScrollContent: { flexGrow: 1, justifyContent: 'center', paddingVertical: 18 }, welcomeContent: { paddingHorizontal: 9, alignItems: 'center', flexShrink: 1 },
-  welcomeSeal: { width: 104, height: 104, borderRadius: 52, borderWidth: 1, borderColor: '#C8D6C4', alignItems: 'center', justifyContent: 'center', marginBottom: 35 }, sealOrbit: { position: 'absolute', width: 78, height: 78, borderWidth: 1, borderRadius: 39, borderColor: '#DDE4D8' }, sealGlyph: { color: C.ink, fontSize: 43, fontFamily: Platform.OS === 'android' ? 'serif' : 'Georgia' }, sealDot: { position: 'absolute', top: 16, right: 7, width: 10, height: 10, borderRadius: 5, backgroundColor: C.water, borderWidth: 2, borderColor: C.paper },
-  welcomeEyebrow: { fontSize: 9, fontWeight: '700', color: C.muted, letterSpacing: 2, textAlign: 'center', marginBottom: 18 }, welcomeTitle: { color: C.ink, fontSize: 39, lineHeight: 47, textAlign: 'center', fontFamily: Platform.OS === 'android' ? 'serif' : 'Georgia', fontWeight: '700' }, welcomeTitleCompact: { fontSize: 32, lineHeight: 39 }, welcomeRule: { width: 36, height: 1, backgroundColor: '#B69E6B', marginVertical: 23 }, welcomeBody: { color: C.muted, fontSize: 14, lineHeight: 23, maxWidth: 270, textAlign: 'center' }, welcomeFoot: { color: C.muted, fontSize: 10, letterSpacing: 2, textAlign: 'center' },
 });
 
 export default CityIntro;

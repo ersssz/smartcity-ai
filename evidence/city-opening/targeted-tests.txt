@@ -1,0 +1,60 @@
+TAP version 13
+# Subtest: the app opens the actual six-district guide with linked evidence in all three languages
+ok 1 - the app opens the actual six-district guide with linked evidence in all three languages
+  ---
+  duration_ms: 2.0179
+  type: 'test'
+  ...
+# (node:28188) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: a finished city introduction stays dismissed after reopening the local store
+ok 2 - a finished city introduction stays dismissed after reopening the local store
+  ---
+  duration_ms: 12.9547
+  type: 'test'
+  ...
+# Subtest: an introduction never interrupts an active, restored or completed walk
+ok 3 - an introduction never interrupts an active, restored or completed walk
+  ---
+  duration_ms: 0.3192
+  type: 'test'
+  ...
+# Subtest: a failed finish remains unseen and can be retried without losing the preference store
+ok 4 - a failed finish remains unseen and can be retried without losing the preference store
+  ---
+  duration_ms: 1.3708
+  type: 'test'
+  ...
+# Subtest: Stop immediately cancels native and audio while a permission/save operation is still pending, then durably pauses
+ok 5 - Stop immediately cancels native and audio while a permission/save operation is still pending, then durably pauses
+  ---
+  duration_ms: 3.0596
+  type: 'test'
+  ...
+# Subtest: cleanup failure cannot suppress the other cleanup or durable pause after the pending operation
+ok 6 - cleanup failure cannot suppress the other cleanup or durable pause after the pending operation
+  ---
+  duration_ms: 0.7046
+  type: 'test'
+  ...
+# Subtest: a rejected pending operation still pauses after both cleanup promises settle
+ok 7 - a rejected pending operation still pauses after both cleanup promises settle
+  ---
+  duration_ms: 0.5055
+  type: 'test'
+  ...
+# Subtest: durable pause failure rejects Stop instead of reporting successful cleanup as saved progress
+ok 8 - durable pause failure rejects Stop instead of reporting successful cleanup as saved progress
+  ---
+  duration_ms: 1.2145
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 814.6579
