@@ -6,7 +6,9 @@
 
 TypeScript, 7 целевых проверок каталога/SQLite/приоритетного Stop и независимые Standards/Spec review финальных исходников PASS. Удалён один тест отменённой политики once-only; проверки SQLite-маркера сохранены. Это не native acceptance автоматического запуска: новая APK и запись холодного старта фиксируются отдельно в `evidence/city-opening`.
 
-Standalone Release APK 0.3.4/code9 собран; подпись, embedded JS, ARM64 MapLibre и DEX/manifest gates PASS. [Артефакт](../evidence/city-opening/apk-code9.json). На момент фиксации исходников установка ждёт Play Protect; автоматический запуск и отсутствие flash ещё требуют новой записи.
+Standalone Release APK 0.3.4/code9 установлен после подтверждения Play Protect; хеш установленного baseAPK совпал. Подпись, embedded JS, ARM64 MapLibre и DEX/manifest gates PASS. [Артефакт](../evidence/city-opening/apk-code9.json). Root принудительно закрыл только собственное приложение при отсутствующем GPS-сервисе и запустил MainActivity: вступление началось автоматически, без нажатия ↻. Запись показывает приветствие, расходящиеся слои, приближение карты, берега и компактный интерфейс. В 54 encoded frames завершения карта сохраняется; прежний flash в этой записи не воспроизвёлся. [Проверка кадров](../evidence/city-opening/android12-code9-frame-check.json), [независимый visual review](../evidence/city-opening/android12-code9-visual-review.md).
+
+Отдельно выполнен HOME → возврат в тот же процесс: карта сохранилась, вступление повторно не появилось. Экран HOME не записывался. [Фактическая серия и ограничения](../evidence/city-opening/android12-runtime-code9.json). Это один Xiaomi Android12 и проверка записанных кадров, не измерение display FPS. TalkBack/Reduce Motion, Android14+, восстановление активной прогулки, возврат из диагностики и corrupt-recovery на устройстве остаются отдельными проверками.
 
 ## Плавное открытие города · 0.3.2 → 0.3.3
 
@@ -14,7 +16,7 @@ Standalone Release APK 0.3.4/code9 собран; подпись, embedded JS, AR
 
 Strict TypeScript и 8 целевых проверок каталога/SQLite/приоритетного Stop пройдены; Standards/Spec review финальной дельты PASS. Найденный риск прозрачных Android annotation bitmaps устранён статичными children и отложенным mount подписей. Release APK 0.3.2/code7 установлен после Play Protect, хеш совпал. [Артефакт](../evidence/city-opening/apk.json). Пользователь увидел открытие; итоговый снимок и независимый visual review подтверждают реку, обе береговые подписи и CTA. Однако полная native-запись обнаружила краткое исчезновение карты на завершении: motion code7 не принят.
 
-В 0.3.3/code8 изолированно закреплён native parent карты через `collapsable={false}`: снятие модальных pointer/a11y ограничений больше не должно схлопывать и переподключать SurfaceView. Камера и хореография не изменены. [Диагноз](../evidence/city-opening/blank-frame-diagnosis.md), [независимый delta review](../evidence/city-opening/review-code8.md). TypeScript повторно пройден; новая Release APK собрана и прошла подпись/embedded JS/DEX/manifest gates. [Артефакт](../evidence/city-opening/apk-code8.json). На момент фиксации исходников установка ждёт физического подтверждения Play Protect; реальное устранение flash пока не принято.
+В 0.3.3/code8 изолированно закреплён native parent карты через `collapsable={false}`: снятие модальных pointer/a11y ограничений больше не должно схлопывать и переподключать SurfaceView. Камера и хореография не изменены. [Диагноз](../evidence/city-opening/blank-frame-diagnosis.md), [независимый delta review](../evidence/city-opening/review-code8.md). TypeScript, подпись/embedded JS/DEX/manifest gates пройдены, APK установлен. [Артефакт](../evidence/city-opening/apk-code8.json). В ходе проверки пользователь уточнил необходимость автоматического входа; полная проверка motion перенесена в code9 выше, где прежний flash не воспроизвёлся.
 
 ## Баланс карты и карточки · 0.3.1
 

@@ -1,0 +1,53 @@
+{
+  "version": "0.3.4",
+  "versionCode": 9,
+  "device": "Xiaomi 22101316G Android12/API31",
+  "checked_at_utc": "2026-10-20T12:43:13.3304970Z",
+  "install": "Success after human Play Protect confirmation",
+  "installed_apk_sha256": "1fa126ddd15913b4fa37edd87c2d2d7c43fd600dd5b7097472cb2738ec1f651f",
+  "installed_apk_hash_matches": true,
+  "procedure": "Confirmed no own service; force-stop own package; am start own MainActivity; record only focused app; no replay touch events requested or sent",
+  "cold_launch": {
+    "sequence": "Loading at 0–1s; greeting around2s; curtains3s; map3.5–4s; UI/bank labels4.5s onward",
+    "automatic_opening_observed": true,
+    "blank_after_reveal_observed": false,
+    "requested_recording_seconds": 20,
+    "minimum_river_pixels": 7934,
+    "sha256": "552320af9ff121c993f637cfc050af9fde3d4c4d403560fb20e129a825d36086",
+    "encoded_timeline_seconds": 12.272433,
+    "final_transition_encoded_frames": 54,
+    "file": "android12-code9-cold-launch-20261020T123800Z.mp4"
+  },
+  "background_return": {
+    "procedure": "Launch HOME for1.2s, return to own existing activity, record afterward",
+    "home_screen_recorded": false,
+    "sha256": "d593fed9c9e0ac9df83716fe9d4068a4dc1bb90ad4c411b9a072a519074d4ed5",
+    "pid_before": 26415,
+    "file": "android12-code9-background-return-20261020T124038Z.mp4",
+    "pid_after": 26415,
+    "opening_repeated": false,
+    "sampled_map_frames_visible": true
+  },
+  "settled_screenshot": {
+    "cta_above_system_navigation": true,
+    "sha256": "0f72802e3329f07e08b66f25d812c1234ca1c2f10613a75378107f59727fade6",
+    "river_and_both_bank_labels_visible": true,
+    "file": "android12-code9-resumed-map.png"
+  },
+  "preview": {
+    "sha256": "e21336a3e77872fa3a09b6f5721d2fd4bdbacfe8e9a7a9b7b238bcf50f5ada1b",
+    "seconds": 8,
+    "reencoded_from_original": true,
+    "file": "AstanaAI-0.3.4-launch-preview.mp4"
+  },
+  "own_service_absent_during_recordings": true,
+  "independent_visual_review": "android12-code9-visual-review.md",
+  "limits": [
+    "One Android12 phone; observed recordings and source checks, not display frame-rate measurement",
+    "TalkBack/ReduceMotion device tests and Android14+ pending",
+    "Active-walk restore/diagnostic-return and corrupt-recovery branch not exercised on this phone",
+    "Code9 expansion/scroll not repeated; human verified these in code6"
+  ],
+  "purchases": 0,
+  "paid_api_calls": 0
+}
