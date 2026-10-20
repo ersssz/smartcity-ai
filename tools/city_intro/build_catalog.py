@@ -68,7 +68,12 @@ def main():
         'content': content,
         'boundaries': boundaries,
         'river': river,
-        'metadata': {**{key: metadata[key] for key in ('bounds', 'districts', 'bankLabelPoints')}, 'riverBounds': metadata['river']['bounds']},
+        'metadata': {
+            **{key: metadata[key] for key in ('bounds', 'bankLabelPoints')},
+            'districts': [{**district, 'labelCenter': metadata['overview']['labelPoints'][district['id']]} for district in metadata['districts']],
+            'riverBounds': metadata['river']['bounds'],
+            'overviewBounds': metadata['overview']['bounds'],
+        },
         'riverLabelPoint': river_label,
         'provenance': {
             'contentSha256': digest(content_path),

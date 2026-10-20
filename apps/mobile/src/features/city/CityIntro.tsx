@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { AccessibilityInfo, Animated, BackHandler, Easing, Linking, Platform, Pressable, ScrollView, StatusBar, StyleSheet, Text, View, useWindowDimensions, type ScrollViewInstance } from 'react-native';
+import { AccessibilityInfo, Animated, BackHandler, Easing, Linking, PanResponder, Platform, Pressable, ScrollView, StatusBar, StyleSheet, Text, View, useWindowDimensions, type ScrollViewInstance } from 'react-native';
 import { Camera, GeoJSONSource, Layer, Map, ViewAnnotation, type CameraRef, type StyleSpecification } from '@maplibre/maplibre-react-native';
 import type { CityBounds, CityGuide, CityLocale, DistrictId } from '../../city/model';
 
@@ -25,42 +25,48 @@ const COPY = {
     welcomeEyebrow: 'ГОРОД, КОТОРЫЙ ОТКРЫВАЕТСЯ', skip: 'Сразу к карте →', city: 'АСТАНА', subtitle: 'Знакомство с городом',
     riverEyebrow: '01 / РЕКА И ДВА БЕРЕГА', districtEyebrow: '02 / ХАРАКТЕР РАЙОНОВ', districtsTitle: 'У каждого района — свой характер',
     districtsBody: 'Коснитесь цветной области на карте или выберите название. Начните с того, что привлекло ваше внимание.',
-    discover: 'Познакомиться с районами →', whole: 'Весь город', river: 'Река и берега', districtCount: 'районов · выберите любой',
+    discover: 'Познакомиться с районами →', whole: 'Обзор города', river: 'Река и берега', districtCount: 'районов · выберите любой',
     experience: 'КАК ЗНАКОМИТЬСЯ', sources: 'О карте и источниках', hideSources: 'Скрыть источники', sourceDate: 'Проверено',
     firstWalk: 'К первой прогулке →', returnWalk: 'Вернуться к прогулке →', saving: 'Сохраняем…',
     streets: 'Улицы', scheme: 'Схема', streetLoading: 'Загружаем улицы… Схема остаётся доступной.',
     offline: 'Улицы не загрузились. Районы и река доступны на сохранённой схеме.',
     schemeHint: 'Сохранённая схема · улицы можно включить', onlineHint: 'Уличная подложка · интернет',
-    selected: 'Выбран район', selectDistrict: 'Открыть район', wholeHint: 'Показать все районы', sourceError: 'Не удалось открыть источник. Попробуйте позже.',
+    selected: 'Выбран район', selectDistrict: 'Открыть район', wholeHint: 'Вернуться к обзору города', sourceError: 'Не удалось открыть источник. Попробуйте позже.',
     labels: 'Названия районов', geometry: 'Карта для знакомства с городом', openSourcesHint: 'Источники откроются во внешнем браузере.', leftBank: 'ЛЕВЫЙ БЕРЕГ', rightBank: 'ПРАВЫЙ БЕРЕГ', riverName: 'Есиль (Ишим)',
+    expand: 'Развернуть карточку', collapse: 'Свернуть к карте', sheetHint: 'Текст внутри карточки можно прокручивать.',
+    allBounds: 'Все границы районов',
   },
   kk: {
     welcome: 'Астанаға қош келдіңіз!', welcomeBody: 'Алдымен өзенмен танысайық. Содан соң әр ауданның ерекшелігін ашамыз.',
     welcomeEyebrow: 'ӨЗІН ЖАҢАША АШАТЫН ҚАЛА', skip: 'Бірден картаға →', city: 'АСТАНА', subtitle: 'Қаламен танысу',
     riverEyebrow: '01 / ӨЗЕН ЖӘНЕ ЕКІ ЖАҒАЛАУ', districtEyebrow: '02 / АУДАНДАРДЫҢ ЕРЕКШЕЛІГІ', districtsTitle: 'Әр ауданның өз ерекшелігі бар',
     districtsBody: 'Картадағы түсті аймақты түртіңіз немесе атауын таңдаңыз. Назарыңызды аударған ауданнан бастаңыз.',
-    discover: 'Аудандармен танысу →', whole: 'Бүкіл қала', river: 'Өзен және жағалаулар', districtCount: 'аудан · кез келгенін таңдаңыз',
+    discover: 'Аудандармен танысу →', whole: 'Қалаға шолу', river: 'Өзен және жағалаулар', districtCount: 'аудан · кез келгенін таңдаңыз',
     experience: 'ҚАЛАЙ ТАНЫСУҒА БОЛАДЫ', sources: 'Карта және дереккөздер', hideSources: 'Дереккөздерді жасыру', sourceDate: 'Тексерілді',
     firstWalk: 'Алғашқы серуенге →', returnWalk: 'Серуенге оралу →', saving: 'Сақталуда…',
     streets: 'Көшелер', scheme: 'Сызба', streetLoading: 'Көшелер жүктелуде… Сызба қолжетімді.',
     offline: 'Көшелер жүктелмеді. Аудандар мен өзен сақталған сызбада қолжетімді.',
     schemeHint: 'Сақталған сызба · көшелерді қосуға болады', onlineHint: 'Көше картасы · интернет',
-    selected: 'Таңдалған аудан', selectDistrict: 'Ауданды ашу', wholeHint: 'Барлық ауданды көрсету', sourceError: 'Дереккөз ашылмады. Кейінірек қайталап көріңіз.',
+    selected: 'Таңдалған аудан', selectDistrict: 'Ауданды ашу', wholeHint: 'Қала шолуына оралу', sourceError: 'Дереккөз ашылмады. Кейінірек қайталап көріңіз.',
     labels: 'Аудан атаулары', geometry: 'Қаламен танысу картасы', openSourcesHint: 'Дереккөздер сыртқы браузерде ашылады.', leftBank: 'СОЛ ЖАҒАЛАУ', rightBank: 'ОҢ ЖАҒАЛАУ', riverName: 'Есіл (Ишим)',
+    expand: 'Карточканы ашу', collapse: 'Картаға жинау', sheetHint: 'Карточка ішіндегі мәтінді айналдыруға болады.',
+    allBounds: 'Аудандардың барлық шекаралары',
   },
   en: {
     welcome: 'Welcome to Astana!', welcomeBody: 'Begin with the river. Then discover the character of each district.',
     welcomeEyebrow: 'A CITY WAITING TO BE DISCOVERED', skip: 'Straight to the map →', city: 'ASTANA', subtitle: 'Get to know the city',
     riverEyebrow: '01 / A RIVER AND TWO BANKS', districtEyebrow: '02 / SIX DIFFERENT CHARACTERS', districtsTitle: 'Every district has its own character',
     districtsBody: 'Tap a coloured area on the map or choose its name. Begin with the one that catches your eye.',
-    discover: 'Meet the districts →', whole: 'Whole city', river: 'River and banks', districtCount: 'districts · choose any one',
+    discover: 'Meet the districts →', whole: 'City overview', river: 'River and banks', districtCount: 'districts · choose any one',
     experience: 'A WAY TO EXPLORE', sources: 'About this map and sources', hideSources: 'Hide sources', sourceDate: 'Checked',
     firstWalk: 'To your first walk →', returnWalk: 'Return to your walk →', saving: 'Saving…',
     streets: 'Streets', scheme: 'Outline', streetLoading: 'Loading streets… The saved outline remains available.',
     offline: 'Streets did not load. Districts and the river are available in the saved outline.',
     schemeHint: 'Saved outline · add streets if you like', onlineHint: 'Street base map · internet',
-    selected: 'Selected district', selectDistrict: 'Explore district', wholeHint: 'Show all districts', sourceError: 'Could not open this source. Please try again later.',
+    selected: 'Selected district', selectDistrict: 'Explore district', wholeHint: 'Return to the city overview', sourceError: 'Could not open this source. Please try again later.',
     labels: 'District names', geometry: 'A first look at the city', openSourcesHint: 'Sources open in your external browser.', leftBank: 'LEFT BANK', rightBank: 'RIGHT BANK', riverName: 'Esil (Ishim)',
+    expand: 'Expand card', collapse: 'Collapse to map', sheetHint: 'Scroll inside the card to read more.',
+    allBounds: 'All district boundaries',
   },
 } as const;
 
@@ -79,6 +85,7 @@ export function CityIntro({ guide, locale, onLocaleChange, onFinish, busy = fals
   const { height, width, fontScale } = useWindowDimensions();
   const [viewportHeight, setViewportHeight] = useState(height);
   const [stage, setStage] = useState<'river' | 'districts'>(replay ? 'districts' : 'river');
+  const [fullOverview, setFullOverview] = useState(false);
   const [selectedId, setSelectedId] = useState<DistrictId | null>(null);
   const [welcoming, setWelcoming] = useState(!replay);
   const [reduceMotion, setReduceMotion] = useState(true);
@@ -90,7 +97,10 @@ export function CityIntro({ guide, locale, onLocaleChange, onFinish, busy = fals
   const [streetLoaded, setStreetLoaded] = useState(false);
   const [streetFailed, setStreetFailed] = useState(false);
   const [mapRevision, setMapRevision] = useState(0);
-  const [cardHeight, setCardHeight] = useState(Math.min(height * .48, 410));
+  const [sheetExpanded, setSheetExpanded] = useState(false);
+  const [captionHeight, setCaptionHeight] = useState(44);
+  const [footerHeight, setFooterHeight] = useState(124);
+  const [chromeHeight, setChromeHeight] = useState(0);
   const camera = useRef<CameraRef>(null);
   const scroll = useRef<ScrollViewInstance>(null);
   const mounted = useRef(true);
@@ -98,6 +108,8 @@ export function CityIntro({ guide, locale, onLocaleChange, onFinish, busy = fals
   const textOpacity = useRef(new Animated.Value(0)).current;
   const textRise = useRef(new Animated.Value(14)).current;
   const cardOpacity = useRef(new Animated.Value(1)).current;
+  const sheetHeight = useRef(new Animated.Value(height * .35)).current;
+  const dragOrigin = useRef(0);
   const topInset = Platform.OS === 'android' ? (StatusBar.currentHeight ?? 24) : 44;
   // Edge-to-edge Android can lay this root underneath the system bars while
   // WindowDimensions excludes them. Measure the actual root, then reserve its
@@ -105,10 +117,22 @@ export function CityIntro({ guide, locale, onLocaleChange, onFinish, busy = fals
   // explicit conservative fallback for the verified three-button navigation UI.
   const bottomInset = Platform.OS === 'android' ? Math.max(48, viewportHeight - height - topInset) : 20;
   const compact = viewportHeight < 690 || width < 350;
-  const maxCardHeight = Math.max(180 + bottomInset, Math.min(viewportHeight * (fontScale > 1.25 ? .60 : .55), viewportHeight - topInset - 365));
+  // Keep a compact reading viewport above the fixed CTA. Short screens and
+  // larger text get a little more room, without making the default a half-sheet.
+  const collapsedHeight = Math.min(viewportHeight * .45, Math.max(viewportHeight * .35, footerHeight + 44 + 96 * Math.min(fontScale, 1.5)));
+  const expandedHeight = Math.max(collapsedHeight, Math.min(viewportHeight * .60, viewportHeight - topInset - 148));
+  const targetHeight = sheetExpanded ? expandedHeight : collapsedHeight;
   const selected = guide.districts.find(district => district.id === selectedId) ?? null;
-  const overviewBounds = stage === 'river' ? (guide.riverBounds ?? guide.bounds) : guide.bounds;
-  const mapPadding = useMemo(() => ({ top: topInset + (compact ? 112 : 128), left: 28, right: 28, bottom: cardHeight + 22 }), [cardHeight, compact, topInset]);
+  const overviewBounds = useMemo<CityBounds>(() => {
+    if (stage !== 'river') return fullOverview ? guide.bounds : (guide.overviewBounds ?? guide.bounds);
+    const bounds = guide.riverBounds ?? guide.bounds;
+    // Bank names are editorial annotation anchors outside the river's own
+    // bounds. Include them in the camera only; source coordinates stay intact.
+    const anchors = [...Object.values(guide.bankLabelPoints ?? {}), ...(guide.riverLabelPoint ? [guide.riverLabelPoint] : [])];
+    return [Math.min(bounds[0], ...anchors.map(point => point[0])), Math.min(bounds[1], ...anchors.map(point => point[1])),
+      Math.max(bounds[2], ...anchors.map(point => point[0])), Math.max(bounds[3], ...anchors.map(point => point[1]))];
+  }, [fullOverview, guide.bankLabelPoints, guide.bounds, guide.overviewBounds, guide.riverBounds, guide.riverLabelPoint, stage]);
+  const mapPadding = useMemo(() => ({ top: Math.max(topInset + 140, chromeHeight + 24), left: 16, right: 16, bottom: targetHeight + captionHeight + 12 }), [captionHeight, chromeHeight, targetHeight, topInset]);
   const initialView = useRef({ bounds: overviewBounds, padding: mapPadding });
   const districts = useMemo<GeoJSON.FeatureCollection<GeoJSON.Polygon | GeoJSON.MultiPolygon>>(() => ({
     ...guide.boundaries,
@@ -149,7 +173,32 @@ export function CityIntro({ guide, locale, onLocaleChange, onFinish, busy = fals
     return () => { if (timer) clearTimeout(timer); entrance.stop(); };
   }, [motionKnown, reduceMotion, revealMap, screenReader, textOpacity, textRise, welcoming]);
 
-  useEffect(() => () => { welcomeOpacity.stopAnimation(); textOpacity.stopAnimation(); textRise.stopAnimation(); cardOpacity.stopAnimation(); }, [cardOpacity, textOpacity, textRise, welcomeOpacity]);
+  useEffect(() => () => { welcomeOpacity.stopAnimation(); textOpacity.stopAnimation(); textRise.stopAnimation(); cardOpacity.stopAnimation(); sheetHeight.stopAnimation(); }, [cardOpacity, sheetHeight, textOpacity, textRise, welcomeOpacity]);
+
+  const animateSheet = useCallback((toValue: number) => {
+    sheetHeight.stopAnimation();
+    if (reduceMotion) { sheetHeight.setValue(toValue); return; }
+    Animated.timing(sheetHeight, { toValue, duration: 260, easing: Easing.out(Easing.cubic), useNativeDriver: false }).start();
+  }, [reduceMotion, sheetHeight]);
+  useEffect(() => { animateSheet(targetHeight); }, [animateSheet, targetHeight]);
+  const settleSheet = useCallback((expanded: boolean) => {
+    setSheetExpanded(expanded);
+    // A drag may settle in its existing state, so the state effect alone is
+    // insufficient to snap its temporary height back to the exact target.
+    animateSheet(expanded ? expandedHeight : collapsedHeight);
+  }, [animateSheet, collapsedHeight, expandedHeight]);
+  const handlePan = useMemo(() => PanResponder.create({
+    onMoveShouldSetPanResponder: (_event, gesture) => Math.abs(gesture.dy) > 8 && Math.abs(gesture.dy) > Math.abs(gesture.dx),
+    onPanResponderGrant: () => { sheetHeight.stopAnimation(value => { dragOrigin.current = value; }); },
+    onPanResponderMove: (_event, gesture) => {
+      if (!reduceMotion) sheetHeight.setValue(Math.max(collapsedHeight, Math.min(expandedHeight, dragOrigin.current - gesture.dy)));
+    },
+    onPanResponderRelease: (_event, gesture) => {
+      const expanded = Math.abs(gesture.dy) > 24 || Math.abs(gesture.vy) > .25 ? gesture.dy < 0 : dragOrigin.current - gesture.dy > (collapsedHeight + expandedHeight) / 2;
+      settleSheet(expanded);
+    },
+    onPanResponderTerminate: () => settleSheet(sheetExpanded),
+  }), [collapsedHeight, expandedHeight, reduceMotion, settleSheet, sheetExpanded, sheetHeight]);
 
   const fit = useCallback((bounds: CityBounds) => camera.current?.fitBounds(bounds, { padding: mapPadding, duration: reduceMotion ? 0 : 850, easing: 'ease' }), [mapPadding, reduceMotion]);
   useEffect(() => { fit(selected?.bounds ?? overviewBounds); }, [fit, overviewBounds, selected?.bounds, mapRevision]);
@@ -163,22 +212,27 @@ export function CityIntro({ guide, locale, onLocaleChange, onFinish, busy = fals
     return () => transition.stop();
   }, [cardOpacity, reduceMotion, selectedId, stage]);
 
-  const wholeCity = useCallback(() => { setStage('districts'); setSelectedId(null); fit(guide.bounds); }, [fit, guide.bounds]);
+  const wholeCity = useCallback(() => { setStage('districts'); setFullOverview(false); setSelectedId(null); settleSheet(false); fit(guide.overviewBounds ?? guide.bounds); }, [fit, guide.bounds, guide.overviewBounds, settleSheet]);
+  const allBoundaries = useCallback(() => {
+    setStage('districts'); setFullOverview(true); setSelectedId(null); settleSheet(false); fit(guide.bounds);
+  }, [fit, guide.bounds, settleSheet]);
   const selectDistrict = useCallback((id: string | undefined) => {
     const district = guide.districts.find(item => item.id === id);
     if (!district) return;
     if (welcoming) { welcomeOpacity.stopAnimation(); welcomeOpacity.setValue(0); setWelcoming(false); }
-    setStage('districts'); setSelectedId(district.id);
+    setStage('districts'); setFullOverview(false); setSelectedId(district.id); settleSheet(false);
     fit(district.bounds);
-  }, [fit, guide.districts, welcomeOpacity, welcoming]);
+  }, [fit, guide.districts, settleSheet, welcomeOpacity, welcoming]);
   const onBack = useCallback(() => {
     if (welcoming) revealMap();
+    else if (sheetExpanded) settleSheet(false);
     else if (showSources) setShowSources(false);
+    else if (fullOverview) wholeCity();
     else if (selectedId) wholeCity();
     else if (stage === 'districts' && !replay) setStage('river');
     else if (!busy) onFinish();
     return true;
-  }, [busy, onFinish, replay, revealMap, selectedId, showSources, stage, welcoming, wholeCity]);
+  }, [busy, fullOverview, onFinish, replay, revealMap, selectedId, settleSheet, sheetExpanded, showSources, stage, welcoming, wholeCity]);
   useEffect(() => { const subscription = BackHandler.addEventListener('hardwareBackPress', onBack); return () => subscription.remove(); }, [onBack]);
 
   const failStreets = useCallback(() => { setStreetMode(false); setStreetLoaded(false); setStreetFailed(true); }, []);
@@ -248,7 +302,7 @@ export function CityIntro({ guide, locale, onLocaleChange, onFinish, busy = fals
       </Map>
     </View>
 
-    <View pointerEvents={welcoming ? 'none' : 'box-none'} style={[s.chrome, { paddingTop: topInset + 8 }]} accessibilityElementsHidden={welcoming} importantForAccessibility={welcoming ? 'no-hide-descendants' : 'auto'}>
+    <View pointerEvents={welcoming ? 'none' : 'box-none'} style={[s.chrome, { paddingTop: topInset + 8 }]} onLayout={event => setChromeHeight(event.nativeEvent.layout.height)} accessibilityElementsHidden={welcoming} importantForAccessibility={welcoming ? 'no-hide-descendants' : 'auto'}>
       <View style={s.header}>
         <View style={s.headerTitle}>
           <Text style={s.city} maxFontSizeMultiplier={1.2}>{t.city}</Text><Text style={s.subtitle} maxFontSizeMultiplier={1.3}>{t.subtitle}</Text>
@@ -271,11 +325,16 @@ export function CityIntro({ guide, locale, onLocaleChange, onFinish, busy = fals
     </View>
 
     <View pointerEvents={welcoming ? 'none' : 'box-none'} style={s.bottom} accessibilityElementsHidden={welcoming} importantForAccessibility={welcoming ? 'no-hide-descendants' : 'auto'}>
-      <View style={s.mapCaption}><View style={s.waterDot} /><Text style={s.mapCaptionText}>{streetMode ? (streetLoaded ? t.onlineHint : t.streetLoading) : (streetFailed ? t.offline : t.schemeHint)}</Text>
+      <View style={s.mapCaption} onLayout={event => setCaptionHeight(event.nativeEvent.layout.height)}><View style={s.waterDot} /><Text style={s.mapCaptionText}>{streetMode ? (streetLoaded ? t.onlineHint : t.streetLoading) : (streetFailed ? t.offline : t.schemeHint)}</Text>
         <Pressable accessibilityRole="link" onPress={() => { void openSource('https://www.openstreetmap.org/copyright'); }} style={s.mapCredit}><Text style={s.mapCreditText}>© OpenStreetMap</Text></Pressable>
       </View>
-      <View style={[s.card, { maxHeight: maxCardHeight }]} onLayout={event => setCardHeight(event.nativeEvent.layout.height + 72)}>
-        <View style={s.handle} />
+      <Animated.View style={[s.card, { height: sheetHeight }]}>
+        <View {...handlePan.panHandlers}>
+          <Pressable accessibilityRole="button" accessibilityLabel={sheetExpanded ? t.collapse : t.expand} accessibilityHint={t.sheetHint}
+            accessibilityState={{ expanded: sheetExpanded }} onPress={() => settleSheet(!sheetExpanded)} style={({ pressed }) => [s.handleButton, pressed && s.pressed]}>
+            <View style={s.handle} /><Text style={s.handleText}>{sheetExpanded ? '⌄ ' : '⌃ '}{sheetExpanded ? t.collapse : t.expand}</Text>
+          </Pressable>
+        </View>
         <ScrollView ref={scroll} style={s.cardScroll} contentContainerStyle={s.cardContent} showsVerticalScrollIndicator keyboardShouldPersistTaps="handled">
           <Animated.View style={{ opacity: cardOpacity }}>
             <View style={s.eyebrowRow}><View style={[s.chapterDot, selected && { backgroundColor: selected.color }]} /><Text style={s.eyebrow}>{stage === 'river' ? t.riverEyebrow : t.districtEyebrow}</Text></View>
@@ -283,7 +342,7 @@ export function CityIntro({ guide, locale, onLocaleChange, onFinish, busy = fals
               <Text accessibilityRole="header" style={[s.title, compact && s.titleCompact]}>{guide.riverTitle}</Text>
               <Text style={s.body}>{guide.riverDescription}</Text>
               <View style={s.riverLegend}><View style={s.riverLine} /><Text style={s.riverLegendText}>{t.riverName}</Text></View>
-              <Action label={t.discover} onPress={() => { setStage('districts'); setSelectedId(null); }} />
+              <Action label={t.discover} onPress={wholeCity} />
             </> : <>
               <Text accessibilityRole="header" style={[s.title, compact && s.titleCompact]}>{selected ? selected.name : t.districtsTitle}</Text>
               {selected ? <Text style={s.tagline}>{selected.tagline}</Text> : <Text style={s.body}>{t.districtsBody}</Text>}
@@ -301,7 +360,7 @@ export function CityIntro({ guide, locale, onLocaleChange, onFinish, busy = fals
               </>}
               <View style={s.browseActions}>
                 {selected && <Action label={t.whole} quiet onPress={wholeCity} />}
-                <Action label={t.river} quiet onPress={() => { setSelectedId(null); setStage('river'); }} />
+                <Action label={t.river} quiet onPress={() => { setSelectedId(null); setFullOverview(false); setStage('river'); settleSheet(false); }} />
               </View>
             </>}
             <Pressable accessibilityRole="button" accessibilityState={{ expanded: showSources }} onPress={() => setShowSources(value => !value)} style={s.sourceToggle}>
@@ -309,6 +368,7 @@ export function CityIntro({ guide, locale, onLocaleChange, onFinish, busy = fals
             </Pressable>
             {showSources && <View style={s.sourcePanel}>
               <Text style={s.sourceHeading}>{t.geometry}</Text><Text style={s.note}>{guide.geometryNote}</Text>
+              <Action label={t.allBounds} quiet onPress={allBoundaries} />
               <Text style={s.note}>{guide.attribution}</Text>
               <Pressable accessibilityRole="link" onPress={() => { void openSource('https://www.openstreetmap.org/copyright'); }} style={s.sourceLink}><Text style={s.sourceLinkText}>© OpenStreetMap contributors · ODbL</Text></Pressable>
               {streetMode && <Pressable accessibilityRole="link" onPress={() => { void openSource('https://openfreemap.org/'); }} style={s.sourceLink}><Text style={s.sourceLinkText}>OpenFreeMap · OpenMapTiles</Text></Pressable>}
@@ -320,11 +380,11 @@ export function CityIntro({ guide, locale, onLocaleChange, onFinish, busy = fals
             </View>}
           </Animated.View>
         </ScrollView>
-        <View style={[s.footer, { paddingBottom: 18 + bottomInset }]}>
+        <View style={[s.footer, { paddingBottom: 18 + bottomInset }]} onLayout={event => setFooterHeight(event.nativeEvent.layout.height)}>
           {error && <Text accessibilityRole="alert" style={s.error}>{error}</Text>}
           <Action label={busy ? t.saving : replay ? t.returnWalk : t.firstWalk} onPress={onFinish} disabled={busy} />
         </View>
-      </View>
+      </Animated.View>
     </View>
 
     {welcoming && <Animated.View style={[s.welcome, { opacity: welcomeOpacity, paddingTop: topInset + 12, paddingBottom: 28 + bottomInset }]} accessibilityViewIsModal>
@@ -350,8 +410,8 @@ const s = StyleSheet.create({
   headerTitle: { flex: 1 }, city: { color: C.ink, fontSize: 23, fontFamily: Platform.OS === 'android' ? 'serif' : 'Georgia', letterSpacing: 2.4, fontWeight: '700' }, subtitle: { color: C.muted, fontSize: 11, marginTop: 2 },
   languages: { flexDirection: 'row', backgroundColor: C.soft, borderRadius: 15, padding: 2 }, language: { minWidth: 44, minHeight: 44, paddingHorizontal: 5, alignItems: 'center', justifyContent: 'center', borderRadius: 13 }, languageSelected: { backgroundColor: C.ink }, languageText: { color: C.ink, fontSize: 10, fontWeight: '700' }, languageTextSelected: { color: C.white },
   tools: { flexDirection: 'row', justifyContent: 'space-between', gap: 10 }, tool: { minHeight: 44, paddingVertical: 9, paddingHorizontal: 14, borderRadius: 16, flexDirection: 'row', gap: 8, alignItems: 'center', backgroundColor: '#F8F6EFF5', elevation: 2 }, toolSelected: { backgroundColor: C.ink }, toolIcon: { fontSize: 22, color: C.ink }, toolText: { fontSize: 12, fontWeight: '700', color: C.ink }, toolTextSelected: { color: C.white },
-  bottom: { position: 'absolute', left: 0, right: 0, bottom: 0 }, mapCaption: { flexDirection: 'row', alignItems: 'center', alignSelf: 'flex-start', marginLeft: 18, marginRight: 18, marginBottom: 10, paddingHorizontal: 11, paddingVertical: 6, borderRadius: 12, backgroundColor: '#F8F6EFF0', maxWidth: '90%' }, waterDot: { width: 7, height: 7, borderRadius: 4, backgroundColor: C.waterDark, marginRight: 7 }, mapCaptionText: { flexShrink: 1, fontSize: 10, color: C.muted, lineHeight: 14 },
-  card: { backgroundColor: C.paper, borderTopLeftRadius: 30, borderTopRightRadius: 30, paddingTop: 10, elevation: 12, shadowColor: C.ink, shadowOffset: { width: 0, height: -3 }, shadowOpacity: .12, shadowRadius: 18 }, handle: { width: 34, height: 4, borderRadius: 3, backgroundColor: '#CDD6C9', alignSelf: 'center', marginBottom: 14 }, cardScroll: { flexShrink: 1 }, cardContent: { paddingHorizontal: 24, paddingBottom: 4 },
+  bottom: { position: 'absolute', left: 0, right: 0, bottom: 0 }, mapCaption: { flexDirection: 'row', alignItems: 'center', alignSelf: 'flex-start', marginLeft: 16, marginRight: 16, marginBottom: 4, paddingHorizontal: 10, borderRadius: 12, backgroundColor: '#F8F6EFF0', maxWidth: '92%' }, waterDot: { width: 7, height: 7, borderRadius: 4, backgroundColor: C.waterDark, marginRight: 7 }, mapCaptionText: { flexShrink: 1, fontSize: 10, color: C.muted, lineHeight: 14 },
+  card: { backgroundColor: C.paper, borderTopLeftRadius: 30, borderTopRightRadius: 30, overflow: 'hidden', elevation: 12, shadowColor: C.ink, shadowOffset: { width: 0, height: -3 }, shadowOpacity: .12, shadowRadius: 18 }, handleButton: { minHeight: 44, paddingVertical: 6, alignItems: 'center', justifyContent: 'center', gap: 4 }, handle: { width: 34, height: 4, borderRadius: 3, backgroundColor: '#CDD6C9' }, handleText: { fontSize: 10, color: C.muted }, cardScroll: { flex: 1, minHeight: 0 }, cardContent: { paddingHorizontal: 24, paddingBottom: 16 },
   eyebrowRow: { flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 10 }, chapterDot: { width: 9, height: 9, borderRadius: 5, backgroundColor: C.water }, eyebrow: { color: C.muted, fontSize: 10, letterSpacing: 1.4, fontWeight: '700', flexShrink: 1 },
   title: { color: C.ink, fontSize: 29, lineHeight: 34, fontFamily: Platform.OS === 'android' ? 'serif' : 'Georgia', fontWeight: '700', marginBottom: 9 }, titleCompact: { fontSize: 25, lineHeight: 30 }, body: { color: C.muted, fontSize: 14, lineHeight: 21, marginBottom: 14 }, tagline: { color: C.ink, fontSize: 16, lineHeight: 23, marginBottom: 12 },
   riverLegend: { flexDirection: 'row', alignItems: 'center', gap: 9, marginBottom: 14 }, riverLine: { width: 25, height: 4, borderRadius: 3, backgroundColor: C.water }, riverLegendText: { fontSize: 11, color: C.waterDark, fontWeight: '700' },

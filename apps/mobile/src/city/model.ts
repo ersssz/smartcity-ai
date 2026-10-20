@@ -23,6 +23,7 @@ export type CityGuide = {
   bounds: CityBounds;
   bankLabelPoints?: { left: [number, number]; right: [number, number] };
   riverBounds?: CityBounds;
+  overviewBounds?: CityBounds;
   riverLabelPoint?: [number, number];
   riverTitle: string;
   riverDescription: string;

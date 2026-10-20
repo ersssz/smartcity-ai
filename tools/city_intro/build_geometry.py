@@ -232,6 +232,16 @@ def main():
         "artifacts": {name: {"sha256": sha(OUT / name), "bytes": (OUT / name).stat().st_size} for name in ["districts.geojson", "river.geojson"]},
     }
     by_id = {f["properties"]["id"]: f for f in features}
+    # An editorial viewing frame for the built-up city, not a replacement boundary.
+    # Administrative territories and their outlying fragments remain unchanged.
+    overview_labels = {"almaty": [71.505, 51.165], "baikonyr": [71.465, 51.200], "esil": [71.435, 51.105], "nura": [71.370, 51.130], "saryarka": [71.375, 51.190], "sarayshyq": [71.525, 51.115]}
+    result["overview"] = {"bounds": [71.305, 51.077, 71.585, 51.225], "labelPoints": overview_labels,
+                          "scope": "Editorial urban viewing frame and text anchors, not city limits or POI locations. Full administrative polygons remain available."}
+    for district_id, point in overview_labels.items():
+        geometry = by_id[district_id]["geometry"]
+        polygons = geometry["coordinates"] if geometry["type"] == "MultiPolygon" else [geometry["coordinates"]]
+        if not any(in_polygon(polygon, point) for polygon in polygons):
+            raise ValueError("Urban district label is not inside its source polygon: " + district_id)
     for bank, district_id, wanted_sign in [("left", "nura", 1), ("right", "saryarka", -1)]:
         point = result["bankLabelPoints"][bank]
         geom = by_id[district_id]["geometry"]

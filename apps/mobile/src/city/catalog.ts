@@ -24,7 +24,7 @@ const data = z.object({
   }),
   boundaries: z.object({ type: z.literal('FeatureCollection'), features: z.object({ type: z.literal('Feature'), properties: z.object({ id, nameRu: z.string(), sourceRelationId: z.number().int() }), geometry }).array().length(6) }),
   river: z.object({ type: z.literal('FeatureCollection'), features: z.object({ type: z.literal('Feature'), properties: z.record(z.unknown()).nullable(), geometry: riverGeometry }).array().min(1) }),
-  metadata: z.object({ bounds, riverBounds: bounds, districts: z.object({ id, center: point, bounds }).array().length(6), bankLabelPoints: z.object({ left: point, right: point }) }),
+  metadata: z.object({ bounds, riverBounds: bounds, overviewBounds: bounds, districts: z.object({ id, center: point, labelCenter: point, bounds }).array().length(6), bankLabelPoints: z.object({ left: point, right: point }) }),
   riverLabelPoint: point,
 }).parse(bundled);
 const COLORS = { almaty: '#F3BD85', baikonyr: '#B8D9AB', esil: '#C4B6DC', nura: '#ECAFC3', saryarka: '#F1D77C', sarayshyq: '#D7AFCF' };
@@ -44,6 +44,7 @@ export function getCityGuide(locale: CityLocale): CityGuide {
   return {
     bounds: data.metadata.bounds, boundaries: data.boundaries, river: data.river,
     riverBounds: data.metadata.riverBounds,
+    overviewBounds: data.metadata.overviewBounds,
     bankLabelPoints: data.metadata.bankLabelPoints, riverLabelPoint: data.riverLabelPoint,
     riverTitle: COPY[locale].river, riverDescription: data.content.river.description[locale],
     riverSources: sources(data.content.river.sourceIds), geometryNote: COPY[locale].note,
@@ -52,7 +53,7 @@ export function getCityGuide(locale: CityLocale): CityGuide {
       const area = data.metadata.districts.find(item => item.id === district.id);
       if (!area) throw new Error('Missing city district geometry');
       return { id: district.id, name: district.name[locale], tagline: district.tagline[locale], description: district.description[locale], experience: district.experience[locale],
-        color: COLORS[district.id], center: area.center, bounds: area.bounds, sources: sources(district.sourceIds) };
+        color: COLORS[district.id], center: area.labelCenter, bounds: area.bounds, sources: sources(district.sourceIds) };
     }),
   };
 }
