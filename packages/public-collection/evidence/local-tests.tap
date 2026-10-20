@@ -1,0 +1,152 @@
+TAP version 13
+# (node:17544) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: publication is disabled without a valid explicit trusted catalog and standalone previews cannot omit it
+ok 1 - publication is disabled without a valid explicit trusted catalog and standalone previews cannot omit it
+  ---
+  duration_ms: 39.8266
+  type: 'test'
+  ...
+# Subtest: all locales publish the exact trusted titles and proof shown in the bound HTTP preview
+ok 2 - all locales publish the exact trusted titles and proof shown in the bound HTTP preview
+  ---
+  duration_ms: 229.0601
+  type: 'test'
+  ...
+# Subtest: unknown IDs, substituted localized titles and disallowed proofs fail preview, publish and update even with a matching attacker hash
+ok 3 - unknown IDs, substituted localized titles and disallowed proofs fail preview, publish and update even with a matching attacker hash
+  ---
+  duration_ms: 108.2197
+  type: 'test'
+  ...
+# Subtest: constructor snapshots nested catalog titles, IDs and proof permissions rather than retaining caller-mutable trust
+ok 4 - constructor snapshots nested catalog titles, IDs and proof permissions rather than retaining caller-mutable trust
+  ---
+  duration_ms: 56.425
+  type: 'test'
+  ...
+# Subtest: reads and HTML fail closed after trusted content changes; they never silently rename a previously confirmed persisted snapshot
+ok 5 - reads and HTML fail closed after trusted content changes; they never silently rename a previously confirmed persisted snapshot
+  ---
+  duration_ms: 98.0705
+  type: 'test'
+  ...
+# (node:15400) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: an exact preview is private until confirmed publish, then reads only the selected public snapshot for thirty days
+ok 6 - an exact preview is private until confirmed publish, then reads only the selected public snapshot for thirty days
+  ---
+  duration_ms: 79.8441
+  type: 'test'
+  ...
+# Subtest: an interrupted publish is retried idempotently and explicit reviewed updates alone renew the same link
+ok 7 - an interrupted publish is retried idempotently and explicit reviewed updates alone renew the same link
+  ---
+  duration_ms: 77.6302
+  type: 'test'
+  ...
+# Subtest: rotation and revocation immediately retire old URLs without renewing expiry or permitting a public reader to manage them
+ok 8 - rotation and revocation immediately retire old URLs without renewing expiry or permitting a public reader to manage them
+  ---
+  duration_ms: 114.9856
+  type: 'test'
+  ...
+# Subtest: maintenance removes expired payloads and old receipts while an explicit new preview can renew the same expired URL
+ok 9 - maintenance removes expired payloads and old receipts while an explicit new preview can renew the same expired URL
+  ---
+  duration_ms: 77.7386
+  type: 'test'
+  ...
+# Subtest: restoring an old profile database cannot resurrect a revoked URL or grant an old revision control
+ok 10 - restoring an old profile database cannot resurrect a revoked URL or grant an old revision control
+  ---
+  duration_ms: 84.9067
+  type: 'test'
+  ...
+# Subtest: the HTTP interface publishes the reviewed selection and renders uncached JSON/HTML without exposing management secrets or executing names
+ok 11 - the HTTP interface publishes the reviewed selection and renders uncached JSON/HTML without exposing management secrets or executing names
+  ---
+  duration_ms: 110.2702
+  type: 'test'
+  ...
+# Subtest: an unavailable independent authority fails closed, and a new restore epoch requires an explicit publication with a new URL
+ok 12 - an unavailable independent authority fails closed, and a new restore epoch requires an explicit publication with a new URL
+  ---
+  duration_ms: 96.8569
+  type: 'test'
+  ...
+# Subtest: private coordinates, dates, device IDs and extra nested fields are rejected instead of being copied or silently published
+ok 13 - private coordinates, dates, device IDs and extra nested fields are rejected instead of being copied or silently published
+  ---
+  duration_ms: 65.0018
+  type: 'test'
+  ...
+# Subtest: the profile database cannot alias the independent authority file through a different hard-link path
+ok 14 - the profile database cannot alias the independent authority file through a different hard-link path
+  ---
+  duration_ms: 28.6238
+  type: 'test'
+  ...
+# Subtest: the HTTP owner path updates language, replaces the link, revokes both representations and rejects oversized or malformed requests
+ok 15 - the HTTP owner path updates language, replaces the link, revokes both representations and rejects oversized or malformed requests
+  ---
+  duration_ms: 130.4878
+  type: 'test'
+  ...
+# Subtest: a rotated URL is never revived by restoring an older profile snapshot or republishing its read token
+ok 16 - a rotated URL is never revived by restoring an older profile snapshot or republishing its read token
+  ---
+  duration_ms: 90.5784
+  type: 'test'
+  ...
+# Subtest: server clock rollback and ordinary reads cannot revive or silently extend an expired publication
+ok 17 - server clock rollback and ordinary reads cannot revive or silently extend an expired publication
+  ---
+  duration_ms: 82.4598
+  type: 'test'
+  ...
+# Subtest: concurrent HTTP updates cannot overwrite a winning revision and a later stale request cannot undo revoke
+ok 18 - concurrent HTTP updates cannot overwrite a winning revision and a later stale request cannot undo revoke
+  ---
+  duration_ms: 90.2157
+  type: 'test'
+  ...
+# Subtest: an invalid server clock or closed authority produces a bounded unavailable response without disclosing underlying errors
+ok 19 - an invalid server clock or closed authority produces a bounded unavailable response without disclosing underlying errors
+  ---
+  duration_ms: 53.9261
+  type: 'test'
+  ...
+# Subtest: atomic installation budgets enforce one mutation per second and reserve the tenth daily action for revoke
+ok 20 - atomic installation budgets enforce one mutation per second and reserve the tenth daily action for revoke
+  ---
+  duration_ms: 200.1738
+  type: 'test'
+  ...
+# Subtest: the persistent global mutation budget cannot be bypassed by creating fresh capabilities
+ok 21 - the persistent global mutation budget cannot be bypassed by creating fresh capabilities
+  ---
+  duration_ms: 73.2767
+  type: 'test'
+  ...
+# Subtest: aggregate persistent read and HTTP budgets bound traffic without IP identifiers and send Retry-After
+ok 22 - aggregate persistent read and HTTP budgets bound traffic without IP identifiers and send Retry-After
+  ---
+  duration_ms: 100.0787
+  type: 'test'
+  ...
+# Subtest: a finite storage ceiling closes publication fail closed and lets maintenance remove inaccessible payloads
+ok 23 - a finite storage ceiling closes publication fail closed and lets maintenance remove inaccessible payloads
+  ---
+  duration_ms: 67.3861
+  type: 'test'
+  ...
+1..23
+# tests 23
+# suites 0
+# pass 23
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1753.3353

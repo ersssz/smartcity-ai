@@ -1,0 +1,73 @@
+{
+  "checkedAtUtc": "2026-10-20T13:58:16.3836987Z",
+  "nodeVersion": "v22.22.2",
+  "environment": "Windows, actual node:sqlite databases, real crypto, controlled server clock",
+  "command": "node --experimental-sqlite --test test/*.test.mjs",
+  "exitCode": 0,
+  "passed": 23,
+  "failed": 0,
+  "result": "PASS",
+  "testReport": "local-tests.tap",
+  "sourceHashes": [
+    {
+      "path": "src/model.mjs",
+      "sha256": "7899ed8b58ae7c60f288fedab0be1fde66e01f1172a780abf5ce72fa543b1f92"
+    },
+    {
+      "path": "src/authority.mjs",
+      "sha256": "3672f5b76ecb303736721d10b1167941f91b2a7a3102d94d1a1a67614524b206"
+    },
+    {
+      "path": "src/collection.mjs",
+      "sha256": "796ecf48b61e53554c0df6b3efa6268e8cba35b3e1049c4206232cc8817bcffe"
+    },
+    {
+      "path": "src/http.mjs",
+      "sha256": "71d6fc619f16230df7bef66aeef29c5ba0fad8a60dc3b4a6ade6824a4f65bf04"
+    },
+    {
+      "path": "src/index.mjs",
+      "sha256": "76fb7597214b530d6c0d996f47fd89c6c643290ed5876ff64e1940d2df0b10be"
+    },
+    {
+      "path": "test/public-collection.test.mjs",
+      "sha256": "7198e09244f9c72c0ea227bae5fff2db92a689280018566dbba073012e6fa848"
+    },
+    {
+      "path": "test/catalog.test.mjs",
+      "sha256": "9d6d6933437b2140013d1e694cc81c4e3a568ec59529fd7b902d75a7fb9825f0"
+    },
+    {
+      "path": "README.md",
+      "sha256": "b3d82db74dbb4467c32c752166f4ac7390defae3e903ae39984bf985faf84866"
+    },
+    {
+      "path": "package.json",
+      "sha256": "5662eb126f714cd4c1862d41dc4410c2d108f3e8c152ddf251fe08da0a792fb4"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "eb774f231977d230f378b727395965cc8be48f4b3deb42a9a4288afa0c3ee29d"
+    }
+  ],
+  "scope": [
+    "Public core and standard HTTP Request/Response",
+    "Strict nested DTO allowlist and HTML escaping",
+    "Explicit preview/confirmation, independent hash-only capabilities",
+    "30-day expiry, explicit renewal, immediate accepted rotate/revoke",
+    "Actual old-profile-file restore against separate current authority",
+    "Installation/global mutation, read/request and finite storage limits",
+    "No new external dependencies, provider calls, deployment or purchases",
+    "Mandatory bound trusted catalog; per-ID localized titles/allowed proofs; reject unknown IDs/free title/foreign hash/caller mutation; read-time revalidation"
+  ],
+  "pending": [
+    "Mobile selection/SecureStore integration",
+    "Hosted SQL/HTTPS and proven independent authority storage",
+    "Scheduled maintenance<=24h and hosted quota/edge enforcement",
+    "Pending operation older than24h requires documented global epoch barrier; no targeted automatic recovery or real crash exercise claimed",
+    "Competent language/accessibility and final independent release review",
+    "Deployment-owned editorial catalog with validated rights/translations and deliberate content-update policy"
+  ],
+  "paidApiCalls": 0,
+  "purchases": 0
+}

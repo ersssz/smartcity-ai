@@ -13,3 +13,13 @@ evidence/first-walk/*.json -text diff whitespace=blank-at-eol,blank-at-eof,space
 content/city-intro/*.json -text diff whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 data/city-intro/** -text diff whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 apps/mobile/src/city/guide.json -text diff whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Preserve the exact bytes referenced by integration/audio verification receipts.
+README.md -text diff whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/delivery/** -text diff whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+evidence/foundation/** -text diff whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+evidence/audio-corpus/** -text diff whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+packages/offline-pack/test-receipt.tap -text diff whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+packages/offline-pack/verification.json -text diff whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+packages/public-collection/evidence/** -text diff whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+tools/audio/COPYING-GPL-3.0.txt -text diff whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+tools/audio/CORPUS-VERIFICATION.json -text diff whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

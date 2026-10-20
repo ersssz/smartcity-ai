@@ -5,6 +5,7 @@ android/.gradle/
 android/local.properties
 **/build/
 dist/
+.runtime/
 coverage/
 .env
 .env.*

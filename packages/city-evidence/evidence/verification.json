@@ -1,0 +1,42 @@
+{
+  "verifiedOn": "2026-10-20",
+  "level": "source-local",
+  "baseCommit": "2be738f1c815b746334dfb9125148d897cbfc85b",
+  "node": "v22.22.2",
+  "runtimeFactory": "createCityEvidence(catalog?: unknown): CityEvidence",
+  "catalog": {
+    "revision": "city-evidence-4637d0b01e26bf6c",
+    "selectedOsmCards": 20,
+    "upstreamBboxCardsBeforeSampling": 247,
+    "additionalCuratedPlaces": 2,
+    "places": 22,
+    "anchors": 3,
+    "facts": 24,
+    "sources": 24,
+    "fieldVerifiedAnchors": 0,
+    "currentStructuredSchedules": 0,
+    "currentIndoorAccess": 0,
+    "currentCoffeeService": 0
+  },
+  "checks": {
+    "searchTests": { "command": "node --test packages/city-evidence/test/search.test.cjs", "passed": 19, "failed": 0, "skipped": 0 },
+    "strictTypes": { "command": "node apps/mobile/node_modules/typescript/bin/tsc --noEmit --strict --noUncheckedIndexedAccess --target es2022 --module nodenext --moduleResolution nodenext packages/city-evidence/src/index.ts", "exitCode": 0 },
+    "deterministicReplay": { "command": "python -B packages/city-evidence/tools/build_catalog.py --check", "repeatedProcessRuns": 2, "sameOutputBytes": true, "sourceHashesChecked": 3 }
+  },
+  "sha256": {
+    "src/index.ts": "3d9ab751c9ef4262edb983a693720d8e18fc6717edbeb8ed4e22ca04d40a2aac",
+    "src/catalog.generated.ts": "50f160a1fc0e1e844750a58d7c6e418e966bb7d19fed1e7c0bdee8d43501ba1f",
+    "tools/build_catalog.py": "3cdbd6753daad6ed45fd6269ae75864b53647f412921558d43ed9cc42ffc2c90",
+    "fixtures/curation.json": "f59db5bddafc31702354bc01c5c8bfb3c31303b02818832a1c402147773aa3d6",
+    "test/search.test.cjs": "99ee3fea39dfc440bf2f924a4c0a747fbd9b9159ee7243821cd0d6a6b3deedb9",
+    "test/synthetic.cjs": "77c788b90acd62121984f2406238555006018ec49625402191b1d7e7d2315833"
+  },
+  "limits": [
+    "Real source sample and curated observation-area associations, not complete city coverage",
+    "No current entrance, indoor opening, coffee or step-free route promise",
+    "No network, API, paid provider, dependency installation, device operation or external publication",
+    "Synthetic cases prove state/filter behavior only",
+    "Search tests one instant; WalkPlanner must validate whole visits, dated overrides, paths/connectors and the chosen end",
+    "No hosted backend, runtime RAG or field acceptance"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "kind": "root-independent-canonical-audio-binding",
+  "checkedAtUtc": "2026-10-20T14:18:36.679Z",
+  "entries": 54,
+  "bundleHash": "4d968a31d1cf0115ad60ee2ec609e3711b2cde5b90a005205e5af73d66fb8ce9",
+  "verification": {
+    "state": "partial",
+    "identity": {
+      "bundleHash": "4d968a31d1cf0115ad60ee2ec609e3711b2cde5b90a005205e5af73d66fb8ce9",
+      "revision": 1,
+      "manifestHash": "d1d2291f59f5a58f55f387db6bd361b5b65559694c7cf7aa4d7a7e0a8f0645cd"
+    },
+    "missing": [
+      {
+        "id": "map",
+        "reason": "MAP_UNAVAILABLE"
+      }
+    ]
+  },
+  "limits": [
+    "Current exact text and actual durable MP3 bytes checked; no native playback or field acceptance",
+    "Map remains missing; offline ready is not accepted"
+  ]
+}

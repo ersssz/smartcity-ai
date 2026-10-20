@@ -1,0 +1,23 @@
+{
+  "formatVersion": 1,
+  "license": "CC0-1.0",
+  "evidenceMode": "test_fixture",
+  "description": "Owned synthetic contract data; no actual route, venue, audio, map or field acceptance.",
+  "files": [
+    {
+      "file": "fixtures/synthetic-v1.json",
+      "bytes": 20960,
+      "sha256": "a069b3b8aee67c46fc2fea0ea02754bcfa3a779e7a8994dc61c044a77a2f308f"
+    },
+    {
+      "file": "fixtures/unsupported-major.json",
+      "bytes": 20960,
+      "sha256": "d0442b8539cad58de6b8f0bd6ff0d51a74f226610ebbd0665d7e325d0ab358fe"
+    },
+    {
+      "file": "fixtures/corrupt-payload.json",
+      "bytes": 20973,
+      "sha256": "35dc6ca172f73ce302b0facee2fbfa586f17822371b921c379b5d2135a4cb150"
+    }
+  ]
+}

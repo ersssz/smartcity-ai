@@ -1,0 +1,2124 @@
+{
+  "$ref": "#/definitions/WalkBundleV1",
+  "definitions": {
+    "WalkBundleV1": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "kind": {
+          "type": "string",
+          "const": "walk_bundle"
+        },
+        "bundleId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "revision": {
+          "type": "integer",
+          "exclusiveMinimum": 0
+        },
+        "parentRevision": {
+          "type": "integer",
+          "exclusiveMinimum": 0
+        },
+        "parentHash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "generatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "contentRevision": {
+          "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+        },
+        "evidenceRevision": {
+          "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+        },
+        "plannerVersion": {
+          "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+        },
+        "evidenceMode": {
+          "type": "string",
+          "enum": [
+            "test_fixture",
+            "real_catalog_replay",
+            "live_catalog"
+          ]
+        },
+        "timeZone": {
+          "type": "string",
+          "const": "Asia/Almaty"
+        },
+        "request": {
+          "type": "object",
+          "properties": {
+            "requestId": {
+              "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+            },
+            "locale": {
+              "type": "string",
+              "enum": [
+                "ru",
+                "kk",
+                "en"
+              ]
+            },
+            "origin": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "type": "string",
+                      "const": "public_anchor"
+                    },
+                    "anchorId": {
+                      "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+                    },
+                    "explicitlyChosen": {
+                      "type": "boolean",
+                      "const": true
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "anchorId",
+                    "explicitlyChosen"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "type": "string",
+                      "const": "point"
+                    },
+                    "coordinate": {
+                      "type": "array",
+                      "minItems": 2,
+                      "maxItems": 2,
+                      "items": [
+                        {
+                          "type": "number",
+                          "minimum": -180,
+                          "maximum": 180
+                        },
+                        {
+                          "type": "number",
+                          "minimum": -90,
+                          "maximum": 90
+                        }
+                      ]
+                    },
+                    "source": {
+                      "type": "string",
+                      "const": "manual"
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "coordinate",
+                    "source"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "type": "string",
+                      "const": "point"
+                    },
+                    "coordinate": {
+                      "$ref": "#/definitions/WalkBundleV1/properties/request/properties/origin/anyOf/1/properties/coordinate"
+                    },
+                    "source": {
+                      "type": "string",
+                      "const": "gps"
+                    },
+                    "accuracyM": {
+                      "type": "number",
+                      "exclusiveMinimum": 0
+                    },
+                    "capturedAt": {
+                      "$ref": "#/definitions/WalkBundleV1/properties/generatedAt"
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "coordinate",
+                    "source",
+                    "accuracyM",
+                    "capturedAt"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            },
+            "startAt": {
+              "$ref": "#/definitions/WalkBundleV1/properties/generatedAt"
+            },
+            "budgetMinutes": {
+              "type": "integer",
+              "minimum": 15,
+              "maximum": 240
+            },
+            "endRule": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "type": "string",
+                      "const": "return_to_start"
+                    }
+                  },
+                  "required": [
+                    "kind"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "type": "string",
+                      "const": "last_stop"
+                    }
+                  },
+                  "required": [
+                    "kind"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "type": "string",
+                      "const": "point"
+                    },
+                    "endpoint": {
+                      "$ref": "#/definitions/WalkBundleV1/properties/request/properties/origin"
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "endpoint"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            },
+            "interests": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "architecture",
+                  "history",
+                  "art",
+                  "parks",
+                  "coffee",
+                  "unusual"
+                ]
+              },
+              "maxItems": 6
+            },
+            "constraints": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "type": "string",
+                        "const": "indoor_required"
+                      }
+                    },
+                    "required": [
+                      "kind"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "type": "string",
+                        "const": "coffee_required"
+                      }
+                    },
+                    "required": [
+                      "kind"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "type": "string",
+                        "const": "step_free_required"
+                      }
+                    },
+                    "required": [
+                      "kind"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "type": "string",
+                        "const": "max_distance_m"
+                      },
+                      "value": {
+                        "$ref": "#/definitions/WalkBundleV1/properties/request/properties/origin/anyOf/2/properties/accuracyM"
+                      }
+                    },
+                    "required": [
+                      "kind",
+                      "value"
+                    ],
+                    "additionalProperties": false
+                  }
+                ]
+              },
+              "maxItems": 4
+            },
+            "contextFlags": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "cold",
+                  "wind",
+                  "rain",
+                  "tired"
+                ]
+              },
+              "maxItems": 4
+            }
+          },
+          "required": [
+            "requestId",
+            "locale",
+            "origin",
+            "startAt",
+            "budgetMinutes",
+            "endRule",
+            "interests",
+            "constraints",
+            "contextFlags"
+          ],
+          "additionalProperties": false
+        },
+        "originalOrigin": {
+          "type": "object",
+          "properties": {
+            "requested": {
+              "$ref": "#/definitions/WalkBundleV1/properties/request/properties/origin"
+            },
+            "coordinate": {
+              "$ref": "#/definitions/WalkBundleV1/properties/request/properties/origin/anyOf/1/properties/coordinate"
+            },
+            "graphPoint": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+                },
+                "coordinate": {
+                  "$ref": "#/definitions/WalkBundleV1/properties/request/properties/origin/anyOf/1/properties/coordinate"
+                }
+              },
+              "required": [
+                "id",
+                "coordinate"
+              ],
+              "additionalProperties": false
+            },
+            "snapDistanceM": {
+              "type": "number",
+              "minimum": 0
+            },
+            "connector": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "type": "string",
+                      "const": "exact"
+                    }
+                  },
+                  "required": [
+                    "kind"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "type": "string",
+                      "const": "verified"
+                    },
+                    "geometry": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "const": "LineString"
+                        },
+                        "coordinates": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/definitions/WalkBundleV1/properties/request/properties/origin/anyOf/1/properties/coordinate"
+                          },
+                          "minItems": 2
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "coordinates"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "distanceMeters": {
+                      "$ref": "#/definitions/WalkBundleV1/properties/request/properties/origin/anyOf/2/properties/accuracyM"
+                    },
+                    "walkMinutes": {
+                      "$ref": "#/definitions/WalkBundleV1/properties/request/properties/origin/anyOf/2/properties/accuracyM"
+                    },
+                    "sourceIds": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+                      },
+                      "minItems": 1
+                    },
+                    "checkedAt": {
+                      "$ref": "#/definitions/WalkBundleV1/properties/generatedAt"
+                    },
+                    "stepFree": {
+                      "anyOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "state": {
+                              "type": "string",
+                              "const": "known"
+                            },
+                            "value": {
+                              "type": "boolean"
+                            },
+                            "sourceIds": {
+                              "type": "array",
+                              "items": {
+                                "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+                              },
+                              "minItems": 1
+                            },
+                            "observedAt": {
+                              "$ref": "#/definitions/WalkBundleV1/properties/generatedAt"
+                            },
+                            "validUntil": {
+                              "$ref": "#/definitions/WalkBundleV1/properties/generatedAt"
+                            }
+                          },
+                          "required": [
+                            "state",
+                            "value",
+                            "sourceIds",
+                            "observedAt",
+                            "validUntil"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "state": {
+                              "type": "string",
+                              "enum": [
+                                "unknown",
+                                "stale",
+                                "conflicting"
+                              ]
+                            },
+                            "reason": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "sourceIds": {
+                              "type": "array",
+                              "items": {
+                                "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+                              }
+                            }
+                          },
+                          "required": [
+                            "state",
+                            "reason",
+                            "sourceIds"
+                          ],
+                          "additionalProperties": false
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "geometry",
+                    "distanceMeters",
+                    "walkMinutes",
+                    "sourceIds",
+                    "checkedAt",
+                    "stepFree"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            }
+          },
+          "required": [
+            "requested",
+            "coordinate",
+            "graphPoint",
+            "snapDistanceM",
+            "connector"
+          ],
+          "additionalProperties": false
+        },
+        "continuation": {
+          "type": "object",
+          "properties": {
+            "origin": {
+              "$ref": "#/definitions/WalkBundleV1/properties/originalOrigin"
+            },
+            "startAt": {
+              "$ref": "#/definitions/WalkBundleV1/properties/generatedAt"
+            },
+            "budgetMinutes": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 240
+            },
+            "constraints": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/WalkBundleV1/properties/request/properties/constraints/items"
+              },
+              "maxItems": 4
+            },
+            "timeTerms": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "type": "string",
+                      "const": "current_deadline"
+                    },
+                    "deadlineAt": {
+                      "$ref": "#/definitions/WalkBundleV1/properties/generatedAt"
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "deadlineAt"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "type": "string",
+                      "const": "extension_proposal"
+                    },
+                    "previousDeadlineAt": {
+                      "$ref": "#/definitions/WalkBundleV1/properties/generatedAt"
+                    },
+                    "deadlineAt": {
+                      "$ref": "#/definitions/WalkBundleV1/properties/generatedAt"
+                    },
+                    "requestId": {
+                      "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "previousDeadlineAt",
+                    "deadlineAt",
+                    "requestId"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            }
+          },
+          "required": [
+            "origin",
+            "startAt",
+            "budgetMinutes",
+            "constraints",
+            "timeTerms"
+          ],
+          "additionalProperties": false
+        },
+        "resolvedEnd": {
+          "type": "object",
+          "properties": {
+            "endpoint": {
+              "$ref": "#/definitions/WalkBundleV1/properties/originalOrigin"
+            },
+            "stopId": {
+              "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+            }
+          },
+          "required": [
+            "endpoint"
+          ],
+          "additionalProperties": false
+        },
+        "theme": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+            },
+            "title": {
+              "type": "object",
+              "properties": {
+                "ru": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "kk": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "en": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "ru",
+                "kk",
+                "en"
+              ],
+              "additionalProperties": false
+            },
+            "explanation": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "$ref": "#/definitions/WalkBundleV1/properties/theme/properties/title"
+                },
+                "factRefs": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+                  },
+                  "minItems": 1
+                }
+              },
+              "required": [
+                "text",
+                "factRefs"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "id",
+            "title",
+            "explanation"
+          ],
+          "additionalProperties": false
+        },
+        "stops": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+              },
+              "poiId": {
+                "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+              },
+              "title": {
+                "$ref": "#/definitions/WalkBundleV1/properties/theme/properties/title"
+              },
+              "anchor": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+                  },
+                  "coordinate": {
+                    "$ref": "#/definitions/WalkBundleV1/properties/request/properties/origin/anyOf/1/properties/coordinate"
+                  },
+                  "graphNodeId": {
+                    "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+                    },
+                    "minItems": 1
+                  },
+                  "checkedAt": {
+                    "anyOf": [
+                      {
+                        "$ref": "#/definitions/WalkBundleV1/properties/generatedAt"
+                      },
+                      {
+                        "type": "string",
+                        "format": "date"
+                      }
+                    ]
+                  },
+                  "fieldVerified": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "id",
+                  "coordinate",
+                  "graphNodeId",
+                  "sourceIds",
+                  "checkedAt",
+                  "fieldVerified"
+                ],
+                "additionalProperties": false
+              },
+              "arrivalAt": {
+                "$ref": "#/definitions/WalkBundleV1/properties/generatedAt"
+              },
+              "departureAt": {
+                "$ref": "#/definitions/WalkBundleV1/properties/generatedAt"
+              },
+              "visitMinutes": {
+                "$ref": "#/definitions/WalkBundleV1/properties/request/properties/origin/anyOf/2/properties/accuracyM"
+              },
+              "intent": {
+                "type": "string",
+                "enum": [
+                  "outdoor_observation",
+                  "indoor_visit"
+                ]
+              },
+              "access": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "state": {
+                        "type": "string",
+                        "const": "known"
+                      },
+                      "value": {
+                        "type": "object",
+                        "properties": {
+                          "public": {
+                            "type": "boolean"
+                          },
+                          "stepFree": {
+                            "type": "string",
+                            "enum": [
+                              "verified",
+                              "unknown"
+                            ]
+                          },
+                          "indoor": {
+                            "type": "boolean"
+                          }
+                        },
+                        "required": [
+                          "public",
+                          "stepFree",
+                          "indoor"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "sourceIds": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+                        },
+                        "minItems": 1
+                      },
+                      "observedAt": {
+                        "$ref": "#/definitions/WalkBundleV1/properties/generatedAt"
+                      },
+                      "validUntil": {
+                        "$ref": "#/definitions/WalkBundleV1/properties/generatedAt"
+                      }
+                    },
+                    "required": [
+                      "state",
+                      "value",
+                      "sourceIds",
+                      "observedAt",
+                      "validUntil"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "state": {
+                        "type": "string",
+                        "enum": [
+                          "unknown",
+                          "stale",
+                          "conflicting"
+                        ]
+                      },
+                      "reason": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "sourceIds": {
+                        "$ref": "#/definitions/WalkBundleV1/properties/originalOrigin/properties/connector/anyOf/1/properties/stepFree/anyOf/1/properties/sourceIds"
+                      }
+                    },
+                    "required": [
+                      "state",
+                      "reason",
+                      "sourceIds"
+                    ],
+                    "additionalProperties": false
+                  }
+                ]
+              },
+              "opening": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "state": {
+                        "type": "string",
+                        "const": "known"
+                      },
+                      "value": {
+                        "type": "object",
+                        "properties": {
+                          "timeZone": {
+                            "type": "string",
+                            "const": "Asia/Almaty"
+                          },
+                          "openIntervals": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "from": {
+                                  "$ref": "#/definitions/WalkBundleV1/properties/generatedAt"
+                                },
+                                "until": {
+                                  "$ref": "#/definitions/WalkBundleV1/properties/generatedAt"
+                                }
+                              },
+                              "required": [
+                                "from",
+                                "until"
+                              ],
+                              "additionalProperties": false
+                            },
+                            "minItems": 1
+                          }
+                        },
+                        "required": [
+                          "timeZone",
+                          "openIntervals"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "sourceIds": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+                        },
+                        "minItems": 1
+                      },
+                      "observedAt": {
+                        "$ref": "#/definitions/WalkBundleV1/properties/generatedAt"
+                      },
+                      "validUntil": {
+                        "$ref": "#/definitions/WalkBundleV1/properties/generatedAt"
+                      }
+                    },
+                    "required": [
+                      "state",
+                      "value",
+                      "sourceIds",
+                      "observedAt",
+                      "validUntil"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "state": {
+                        "type": "string",
+                        "enum": [
+                          "unknown",
+                          "stale",
+                          "conflicting"
+                        ]
+                      },
+                      "reason": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "sourceIds": {
+                        "$ref": "#/definitions/WalkBundleV1/properties/originalOrigin/properties/connector/anyOf/1/properties/stepFree/anyOf/1/properties/sourceIds"
+                      }
+                    },
+                    "required": [
+                      "state",
+                      "reason",
+                      "sourceIds"
+                    ],
+                    "additionalProperties": false
+                  }
+                ]
+              },
+              "services": {
+                "type": "object",
+                "properties": {
+                  "coffee": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "state": {
+                            "type": "string",
+                            "const": "known"
+                          },
+                          "value": {
+                            "type": "boolean"
+                          },
+                          "sourceIds": {
+                            "type": "array",
+                            "items": {
+                              "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+                            },
+                            "minItems": 1
+                          },
+                          "observedAt": {
+                            "$ref": "#/definitions/WalkBundleV1/properties/generatedAt"
+                          },
+                          "validUntil": {
+                            "$ref": "#/definitions/WalkBundleV1/properties/generatedAt"
+                          }
+                        },
+                        "required": [
+                          "state",
+                          "value",
+                          "sourceIds",
+                          "observedAt",
+                          "validUntil"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "state": {
+                            "type": "string",
+                            "enum": [
+                              "unknown",
+                              "stale",
+                              "conflicting"
+                            ]
+                          },
+                          "reason": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "sourceIds": {
+                            "$ref": "#/definitions/WalkBundleV1/properties/originalOrigin/properties/connector/anyOf/1/properties/stepFree/anyOf/1/properties/sourceIds"
+                          }
+                        },
+                        "required": [
+                          "state",
+                          "reason",
+                          "sourceIds"
+                        ],
+                        "additionalProperties": false
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "coffee"
+                ],
+                "additionalProperties": false
+              },
+              "factRefs": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+                },
+                "minItems": 1
+              },
+              "chapterId": {
+                "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+              },
+              "questId": {
+                "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+              },
+              "collectionId": {
+                "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+              }
+            },
+            "required": [
+              "id",
+              "poiId",
+              "title",
+              "anchor",
+              "arrivalAt",
+              "departureAt",
+              "visitMinutes",
+              "intent",
+              "access",
+              "opening",
+              "services",
+              "factRefs",
+              "chapterId",
+              "questId",
+              "collectionId"
+            ],
+            "additionalProperties": false
+          },
+          "maxItems": 6
+        },
+        "legs": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+                  },
+                  "fromId": {
+                    "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+                  },
+                  "toId": {
+                    "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+                  },
+                  "from": {
+                    "$ref": "#/definitions/WalkBundleV1/properties/originalOrigin"
+                  },
+                  "to": {
+                    "$ref": "#/definitions/WalkBundleV1/properties/originalOrigin"
+                  },
+                  "kind": {
+                    "type": "string",
+                    "const": "already_at_endpoint"
+                  },
+                  "distanceMeters": {
+                    "type": "number",
+                    "const": 0
+                  },
+                  "walkMinutes": {
+                    "type": "number",
+                    "const": 0
+                  }
+                },
+                "required": [
+                  "id",
+                  "fromId",
+                  "toId",
+                  "from",
+                  "to",
+                  "kind",
+                  "distanceMeters",
+                  "walkMinutes"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+                  },
+                  "fromId": {
+                    "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+                  },
+                  "toId": {
+                    "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+                  },
+                  "from": {
+                    "$ref": "#/definitions/WalkBundleV1/properties/originalOrigin"
+                  },
+                  "to": {
+                    "$ref": "#/definitions/WalkBundleV1/properties/originalOrigin"
+                  },
+                  "kind": {
+                    "type": "string",
+                    "const": "walk"
+                  },
+                  "distanceMeters": {
+                    "$ref": "#/definitions/WalkBundleV1/properties/request/properties/origin/anyOf/2/properties/accuracyM"
+                  },
+                  "walkMinutes": {
+                    "$ref": "#/definitions/WalkBundleV1/properties/request/properties/origin/anyOf/2/properties/accuracyM"
+                  },
+                  "geometry": {
+                    "$ref": "#/definitions/WalkBundleV1/properties/originalOrigin/properties/connector/anyOf/1/properties/geometry"
+                  },
+                  "source": {
+                    "type": "object",
+                    "properties": {
+                      "sourceIds": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+                        },
+                        "minItems": 1
+                      },
+                      "datasetRevision": {
+                        "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+                      },
+                      "graphSha256": {
+                        "$ref": "#/definitions/WalkBundleV1/properties/parentHash"
+                      },
+                      "checkedAt": {
+                        "$ref": "#/definitions/WalkBundleV1/properties/generatedAt"
+                      },
+                      "license": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "attribution": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "fieldVerified": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "sourceIds",
+                      "datasetRevision",
+                      "graphSha256",
+                      "checkedAt",
+                      "license",
+                      "attribution",
+                      "fieldVerified"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "stepFree": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "state": {
+                            "type": "string",
+                            "const": "known"
+                          },
+                          "value": {
+                            "type": "boolean"
+                          },
+                          "sourceIds": {
+                            "type": "array",
+                            "items": {
+                              "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+                            },
+                            "minItems": 1
+                          },
+                          "observedAt": {
+                            "$ref": "#/definitions/WalkBundleV1/properties/generatedAt"
+                          },
+                          "validUntil": {
+                            "$ref": "#/definitions/WalkBundleV1/properties/generatedAt"
+                          }
+                        },
+                        "required": [
+                          "state",
+                          "value",
+                          "sourceIds",
+                          "observedAt",
+                          "validUntil"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "state": {
+                            "type": "string",
+                            "enum": [
+                              "unknown",
+                              "stale",
+                              "conflicting"
+                            ]
+                          },
+                          "reason": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "sourceIds": {
+                            "$ref": "#/definitions/WalkBundleV1/properties/originalOrigin/properties/connector/anyOf/1/properties/stepFree/anyOf/1/properties/sourceIds"
+                          }
+                        },
+                        "required": [
+                          "state",
+                          "reason",
+                          "sourceIds"
+                        ],
+                        "additionalProperties": false
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "fromId",
+                  "toId",
+                  "from",
+                  "to",
+                  "kind",
+                  "distanceMeters",
+                  "walkMinutes",
+                  "geometry",
+                  "source",
+                  "stepFree"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          },
+          "minItems": 1,
+          "maxItems": 7
+        },
+        "timing": {
+          "type": "object",
+          "properties": {
+            "walkMinutes": {
+              "$ref": "#/definitions/WalkBundleV1/properties/originalOrigin/properties/snapDistanceM"
+            },
+            "visitMinutes": {
+              "$ref": "#/definitions/WalkBundleV1/properties/originalOrigin/properties/snapDistanceM"
+            },
+            "reserveMinutes": {
+              "$ref": "#/definitions/WalkBundleV1/properties/request/properties/origin/anyOf/2/properties/accuracyM"
+            },
+            "totalMinutes": {
+              "$ref": "#/definitions/WalkBundleV1/properties/request/properties/origin/anyOf/2/properties/accuracyM"
+            },
+            "distanceMeters": {
+              "$ref": "#/definitions/WalkBundleV1/properties/originalOrigin/properties/snapDistanceM"
+            },
+            "endsAt": {
+              "$ref": "#/definitions/WalkBundleV1/properties/generatedAt"
+            }
+          },
+          "required": [
+            "walkMinutes",
+            "visitMinutes",
+            "reserveMinutes",
+            "totalMinutes",
+            "distanceMeters",
+            "endsAt"
+          ],
+          "additionalProperties": false
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1
+              },
+              "url": {
+                "type": "string",
+                "format": "uri",
+                "pattern": "^https\\:\\/\\/"
+              },
+              "checkedAt": {
+                "$ref": "#/definitions/WalkBundleV1/properties/stops/items/properties/anchor/properties/checkedAt"
+              },
+              "rights": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "id",
+              "title",
+              "url",
+              "checkedAt",
+              "rights"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        },
+        "facts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+              },
+              "statement": {
+                "$ref": "#/definitions/WalkBundleV1/properties/theme/properties/title"
+              },
+              "sourceIds": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+                },
+                "minItems": 1
+              },
+              "checkedAt": {
+                "$ref": "#/definitions/WalkBundleV1/properties/stops/items/properties/anchor/properties/checkedAt"
+              },
+              "validUntil": {
+                "$ref": "#/definitions/WalkBundleV1/properties/generatedAt"
+              }
+            },
+            "required": [
+              "id",
+              "statement",
+              "sourceIds",
+              "checkedAt"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        },
+        "content": {
+          "type": "object",
+          "properties": {
+            "origin": {
+              "type": "string",
+              "enum": [
+                "editorial",
+                "grounded_generation"
+              ]
+            },
+            "translationReview": {
+              "type": "string",
+              "enum": [
+                "pending",
+                "human_reviewed"
+              ]
+            },
+            "chapters": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+                  },
+                  "stopId": {
+                    "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+                  },
+                  "title": {
+                    "$ref": "#/definitions/WalkBundleV1/properties/theme/properties/title"
+                  },
+                  "blocks": {
+                    "type": "array",
+                    "items": {
+                      "anyOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "kind": {
+                              "type": "string",
+                              "const": "fact"
+                            },
+                            "text": {
+                              "$ref": "#/definitions/WalkBundleV1/properties/theme/properties/title"
+                            },
+                            "factRefs": {
+                              "type": "array",
+                              "items": {
+                                "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+                              },
+                              "minItems": 1
+                            }
+                          },
+                          "required": [
+                            "kind",
+                            "text",
+                            "factRefs"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "kind": {
+                              "type": "string",
+                              "enum": [
+                                "idea",
+                                "fiction"
+                              ]
+                            },
+                            "text": {
+                              "$ref": "#/definitions/WalkBundleV1/properties/theme/properties/title"
+                            }
+                          },
+                          "required": [
+                            "kind",
+                            "text"
+                          ],
+                          "additionalProperties": false
+                        }
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "audio": {
+                    "type": "object",
+                    "properties": {
+                      "ru": {
+                        "anyOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "state": {
+                                "type": "string",
+                                "const": "available"
+                              },
+                              "assetId": {
+                                "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+                              },
+                              "textSha256": {
+                                "$ref": "#/definitions/WalkBundleV1/properties/parentHash"
+                              },
+                              "durationSeconds": {
+                                "$ref": "#/definitions/WalkBundleV1/properties/request/properties/origin/anyOf/2/properties/accuracyM"
+                              }
+                            },
+                            "required": [
+                              "state",
+                              "assetId",
+                              "textSha256",
+                              "durationSeconds"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "state": {
+                                "type": "string",
+                                "const": "missing"
+                              },
+                              "reason": {
+                                "type": "string",
+                                "minLength": 1
+                              }
+                            },
+                            "required": [
+                              "state",
+                              "reason"
+                            ],
+                            "additionalProperties": false
+                          }
+                        ]
+                      },
+                      "kk": {
+                        "$ref": "#/definitions/WalkBundleV1/properties/content/properties/chapters/items/properties/audio/properties/ru"
+                      },
+                      "en": {
+                        "$ref": "#/definitions/WalkBundleV1/properties/content/properties/chapters/items/properties/audio/properties/ru"
+                      }
+                    },
+                    "required": [
+                      "ru",
+                      "kk",
+                      "en"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "id",
+                  "stopId",
+                  "title",
+                  "blocks",
+                  "audio"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "quests": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+                  },
+                  "stopId": {
+                    "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+                  },
+                  "question": {
+                    "$ref": "#/definitions/WalkBundleV1/properties/theme/properties/title"
+                  },
+                  "choices": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+                        },
+                        "label": {
+                          "$ref": "#/definitions/WalkBundleV1/properties/theme/properties/title"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "label"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "minItems": 2,
+                    "maxItems": 4
+                  },
+                  "correctChoiceId": {
+                    "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+                  },
+                  "hint": {
+                    "$ref": "#/definitions/WalkBundleV1/properties/theme/properties/title"
+                  },
+                  "explanation": {
+                    "$ref": "#/definitions/WalkBundleV1/properties/theme/properties/title"
+                  },
+                  "factRefs": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+                    },
+                    "minItems": 1
+                  },
+                  "proof": {
+                    "type": "string",
+                    "const": "answer"
+                  },
+                  "audio": {
+                    "type": "object",
+                    "properties": {
+                      "question": {
+                        "$ref": "#/definitions/WalkBundleV1/properties/content/properties/chapters/items/properties/audio"
+                      },
+                      "hint": {
+                        "$ref": "#/definitions/WalkBundleV1/properties/content/properties/chapters/items/properties/audio"
+                      },
+                      "explanation": {
+                        "$ref": "#/definitions/WalkBundleV1/properties/content/properties/chapters/items/properties/audio"
+                      }
+                    },
+                    "required": [
+                      "question",
+                      "hint",
+                      "explanation"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "id",
+                  "stopId",
+                  "question",
+                  "choices",
+                  "correctChoiceId",
+                  "hint",
+                  "explanation",
+                  "factRefs",
+                  "proof",
+                  "audio"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "collections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+                  },
+                  "title": {
+                    "$ref": "#/definitions/WalkBundleV1/properties/theme/properties/title"
+                  },
+                  "description": {
+                    "$ref": "#/definitions/WalkBundleV1/properties/theme/properties/title"
+                  },
+                  "proof": {
+                    "type": "string",
+                    "enum": [
+                      "manual",
+                      "nearby",
+                      "quest"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "title",
+                  "description",
+                  "proof"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "cues": {
+              "type": "object",
+              "properties": {
+                "start": {
+                  "type": "object",
+                  "properties": {
+                    "text": {
+                      "$ref": "#/definitions/WalkBundleV1/properties/theme/properties/title"
+                    },
+                    "audio": {
+                      "$ref": "#/definitions/WalkBundleV1/properties/content/properties/chapters/items/properties/audio"
+                    }
+                  },
+                  "required": [
+                    "text",
+                    "audio"
+                  ],
+                  "additionalProperties": false
+                },
+                "nearby": {
+                  "$ref": "#/definitions/WalkBundleV1/properties/content/properties/cues/properties/start"
+                },
+                "pause": {
+                  "$ref": "#/definitions/WalkBundleV1/properties/content/properties/cues/properties/start"
+                },
+                "resume": {
+                  "$ref": "#/definitions/WalkBundleV1/properties/content/properties/cues/properties/start"
+                },
+                "complete": {
+                  "$ref": "#/definitions/WalkBundleV1/properties/content/properties/cues/properties/start"
+                },
+                "abandon": {
+                  "$ref": "#/definitions/WalkBundleV1/properties/content/properties/cues/properties/start"
+                }
+              },
+              "required": [
+                "start",
+                "nearby",
+                "pause",
+                "resume",
+                "complete",
+                "abandon"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "origin",
+            "translationReview",
+            "chapters",
+            "quests",
+            "collections",
+            "cues"
+          ],
+          "additionalProperties": false
+        },
+        "assets": {
+          "type": "object",
+          "properties": {
+            "version": {
+              "type": "number",
+              "const": 1
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+                  },
+                  "role": {
+                    "type": "string",
+                    "enum": [
+                      "audio",
+                      "map",
+                      "style",
+                      "glyphs",
+                      "sprite",
+                      "attribution",
+                      "text"
+                    ]
+                  },
+                  "locale": {
+                    "$ref": "#/definitions/WalkBundleV1/properties/request/properties/locale"
+                  },
+                  "sha256": {
+                    "$ref": "#/definitions/WalkBundleV1/properties/parentHash"
+                  },
+                  "bytes": {
+                    "type": "integer",
+                    "exclusiveMinimum": 0,
+                    "maximum": 100000000
+                  },
+                  "required": {
+                    "type": "boolean"
+                  },
+                  "license": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "attribution": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "location": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "kind": {
+                            "type": "string",
+                            "const": "bundled"
+                          },
+                          "path": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 240,
+                            "pattern": "^[a-zA-Z0-9_./-]+$"
+                          }
+                        },
+                        "required": [
+                          "kind",
+                          "path"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "kind": {
+                            "type": "string",
+                            "const": "https"
+                          },
+                          "url": {
+                            "type": "string",
+                            "format": "uri",
+                            "pattern": "^https\\:\\/\\/"
+                          }
+                        },
+                        "required": [
+                          "kind",
+                          "url"
+                        ],
+                        "additionalProperties": false
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "role",
+                  "sha256",
+                  "bytes",
+                  "required",
+                  "license",
+                  "attribution",
+                  "location"
+                ],
+                "additionalProperties": false
+              },
+              "maxItems": 1000
+            },
+            "map": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "state": {
+                      "type": "string",
+                      "const": "missing"
+                    },
+                    "reason": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "state",
+                    "reason"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "state": {
+                      "type": "string",
+                      "const": "available"
+                    },
+                    "bounds": {
+                      "type": "array",
+                      "minItems": 4,
+                      "maxItems": 4,
+                      "items": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "number"
+                        }
+                      ]
+                    },
+                    "minZoom": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 22
+                    },
+                    "maxZoom": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 22
+                    },
+                    "assetIds": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+                      },
+                      "minItems": 1
+                    },
+                    "attribution": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "state",
+                    "bounds",
+                    "minZoom",
+                    "maxZoom",
+                    "assetIds",
+                    "attribution"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            }
+          },
+          "required": [
+            "version",
+            "items",
+            "map"
+          ],
+          "additionalProperties": false
+        },
+        "context": {
+          "type": "object",
+          "properties": {
+            "evaluatedAt": {
+              "$ref": "#/definitions/WalkBundleV1/properties/generatedAt"
+            },
+            "season": {
+              "type": "string",
+              "enum": [
+                "winter",
+                "spring",
+                "summer",
+                "autumn"
+              ]
+            },
+            "weather": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "state": {
+                      "type": "string",
+                      "const": "known"
+                    },
+                    "value": {
+                      "type": "object",
+                      "properties": {
+                        "model": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "updatedAt": {
+                          "$ref": "#/definitions/WalkBundleV1/properties/generatedAt"
+                        },
+                        "retrievedAt": {
+                          "$ref": "#/definitions/WalkBundleV1/properties/generatedAt"
+                        },
+                        "temperatureC": {
+                          "type": "number"
+                        },
+                        "windMetersPerSecond": {
+                          "$ref": "#/definitions/WalkBundleV1/properties/originalOrigin/properties/snapDistanceM"
+                        }
+                      },
+                      "required": [
+                        "model",
+                        "updatedAt",
+                        "retrievedAt",
+                        "temperatureC",
+                        "windMetersPerSecond"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "sourceIds": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+                      },
+                      "minItems": 1
+                    },
+                    "observedAt": {
+                      "$ref": "#/definitions/WalkBundleV1/properties/generatedAt"
+                    },
+                    "validUntil": {
+                      "$ref": "#/definitions/WalkBundleV1/properties/generatedAt"
+                    }
+                  },
+                  "required": [
+                    "state",
+                    "value",
+                    "sourceIds",
+                    "observedAt",
+                    "validUntil"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "state": {
+                      "type": "string",
+                      "enum": [
+                        "unknown",
+                        "stale",
+                        "conflicting"
+                      ]
+                    },
+                    "reason": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "sourceIds": {
+                      "$ref": "#/definitions/WalkBundleV1/properties/originalOrigin/properties/connector/anyOf/1/properties/stepFree/anyOf/1/properties/sourceIds"
+                    }
+                  },
+                  "required": [
+                    "state",
+                    "reason",
+                    "sourceIds"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            },
+            "calendar": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "state": {
+                      "type": "string",
+                      "const": "known"
+                    },
+                    "value": {
+                      "type": "object",
+                      "properties": {
+                        "timeZone": {
+                          "type": "string",
+                          "const": "Asia/Almaty"
+                        },
+                        "date": {
+                          "type": "string",
+                          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                        },
+                        "exceptions": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "poiId": {
+                                "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+                              },
+                              "from": {
+                                "$ref": "#/definitions/WalkBundleV1/properties/generatedAt"
+                              },
+                              "until": {
+                                "$ref": "#/definitions/WalkBundleV1/properties/generatedAt"
+                              },
+                              "open": {
+                                "type": "boolean"
+                              },
+                              "sourceIds": {
+                                "type": "array",
+                                "items": {
+                                  "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+                                },
+                                "minItems": 1
+                              }
+                            },
+                            "required": [
+                              "poiId",
+                              "from",
+                              "until",
+                              "open",
+                              "sourceIds"
+                            ],
+                            "additionalProperties": false
+                          }
+                        }
+                      },
+                      "required": [
+                        "timeZone",
+                        "date",
+                        "exceptions"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "sourceIds": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/definitions/WalkBundleV1/properties/bundleId"
+                      },
+                      "minItems": 1
+                    },
+                    "observedAt": {
+                      "$ref": "#/definitions/WalkBundleV1/properties/generatedAt"
+                    },
+                    "validUntil": {
+                      "$ref": "#/definitions/WalkBundleV1/properties/generatedAt"
+                    }
+                  },
+                  "required": [
+                    "state",
+                    "value",
+                    "sourceIds",
+                    "observedAt",
+                    "validUntil"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "state": {
+                      "type": "string",
+                      "enum": [
+                        "unknown",
+                        "stale",
+                        "conflicting"
+                      ]
+                    },
+                    "reason": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "sourceIds": {
+                      "$ref": "#/definitions/WalkBundleV1/properties/originalOrigin/properties/connector/anyOf/1/properties/stepFree/anyOf/1/properties/sourceIds"
+                    }
+                  },
+                  "required": [
+                    "state",
+                    "reason",
+                    "sourceIds"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            }
+          },
+          "required": [
+            "evaluatedAt",
+            "season",
+            "weather",
+            "calendar"
+          ],
+          "additionalProperties": false
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/WalkBundleV1/properties/theme/properties/title"
+          },
+          "maxItems": 30
+        },
+        "sha256": {
+          "$ref": "#/definitions/WalkBundleV1/properties/parentHash"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "kind",
+        "bundleId",
+        "revision",
+        "generatedAt",
+        "contentRevision",
+        "evidenceRevision",
+        "plannerVersion",
+        "evidenceMode",
+        "timeZone",
+        "request",
+        "originalOrigin",
+        "continuation",
+        "resolvedEnd",
+        "theme",
+        "stops",
+        "legs",
+        "timing",
+        "sources",
+        "facts",
+        "content",
+        "assets",
+        "context",
+        "limitations",
+        "sha256"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$comment": "Structural schema generated from the sole Zod authority. Acceptance also requires readBundle SHA-256 and semantic validation, and local asset verification; JSON Schema alone proves neither route feasibility nor offline readiness."
+}
