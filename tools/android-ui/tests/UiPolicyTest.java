@@ -11,6 +11,11 @@ public final class UiPolicyTest {
     try { call.run(); throw new AssertionError("Expected " + code); }
     catch (UiPolicy.Refusal failure) { expect(failure.code.equals(code)); }
   }
+  private static UiPolicy.DiscoveryScreenEvidence discovery(String... labels) {
+    UiPolicy.DiscoveryScreenEvidence evidence = new UiPolicy.DiscoveryScreenEvidence();
+    for (String label : labels) evidence.observe(label);
+    return evidence;
+  }
   public static void main(String[] args) {
     expect(UiPolicy.plan("policy", "").isEmpty());
     expect(UiPolicy.plan("windows", "").isEmpty());
@@ -41,6 +46,19 @@ public final class UiPolicyTest {
     expect(UiPolicy.startupRootClass("com.android.permissioncontroller").equals("UNKNOWN"));
     expect(UiPolicy.startupRootClass("private.unrelated.package").equals("UNKNOWN"));
     expect(UiPolicy.startupRootClass(null).equals("UNKNOWN"));
+    // Composite public discovery signatures, not a title or generic heading alone.
+    expect(discovery("Открой Астану", "Музей Сакена Сейфуллина").isSafe());
+    expect(discovery("Бәйтерек", "Неліктен көруге тұрарлық", "⌖ Картадан көру").isSafe());
+    expect(discovery("Discover Astana", "Gorky Drama Theatre").isSafe());
+    expect(discovery("Yesil waterfront", "Why see it", "⌖ Show on the map").isSafe());
+    expect(!discovery("Байтерек", "Мой журнал", "ЛОКАЛЬНАЯ КОЛЛЕКЦИЯ").isSafe());
+    expect(!discovery("Почему стоит увидеть", "Посмотреть на карте").isSafe());
+    expect(!discovery("Открой Астану", "Непроверенное место").isSafe());
+    expect(!discovery("Байтерек", "Почему стоит увидеть").isSafe());
+    expect(!discovery("Discover Astana", "Baiterek", "latitude: 51.123456").isSafe());
+    UiPolicy.DiscoveryScreenEvidence input = discovery("Discover Astana", "Baiterek"); input.inputVisible(); expect(!input.isSafe());
+    expect(!UiPolicy.safeCaptureLabel("Почему стоит увидеть"));
+    expect(!UiPolicy.safeCaptureLabel("Карта интересных мест Астаны"));
     rejects("INVALID_ACTION", () -> UiPolicy.plan("sequence", "android.settings.SETTINGS"));
     rejects("INVALID_SCENARIO", () -> UiPolicy.plan("shell", ""));
     rejects("TOO_MANY_ACTIONS", () -> UiPolicy.plan("sequence", String.join(",", Collections.nCopies(31, "inspect"))));

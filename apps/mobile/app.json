@@ -2,12 +2,12 @@
   "expo": {
     "name": "AstanaAI",
     "slug": "astanaai-native-diagnostics",
-    "version": "0.5.0",
+    "version": "0.5.1",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
     "android": {
       "package": "kz.astanaai.diagnostics",
-      "versionCode": 11,
+      "versionCode": 12,
       "permissions": [
         "ACCESS_COARSE_LOCATION",
         "ACCESS_FINE_LOCATION",

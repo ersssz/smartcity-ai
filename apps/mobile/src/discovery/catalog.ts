@@ -23,7 +23,7 @@ export const discoveryPlaces: readonly DiscoveryLocation[] = data.map(place => (
     attribution: `${place.photo.attribution} · ${place.photo.changes}`, licenseLabel: place.photo.licenseId,
     licenseUrl: place.photo.licenseUrl.replace(/^http:/, 'https:') },
   factsSources: place.factsSources, walkAvailable: place.id === 'bayterek',
-  walkActionLabel: place.id === 'bayterek' ? { ru: 'Прогулка с историями · 80 мин', kk: 'Хикаялы серуен · 80 мин', en: 'A walk with stories · 80 min' } : undefined,
+  walkActionLabel: place.id === 'bayterek' ? { ru: 'Прогулка с историями', kk: 'Хикаялары бар серуен', en: 'Walk with stories' } : undefined,
   walkNote: place.id === 'bayterek' ? { ru: 'Три остановки у Байтерека с записанными историями. Маршрут возвращается к старту; дорога до старта не включена.',
     kk: 'Бәйтерек маңындағы үш аялдама және дайын хикаялар. Бағыт бастапқы орынға оралады; оған дейінгі жол кірмейді.',
     en: 'Three stops around Baiterek with prepared narration. The walk returns to its start; travel to the start is not included.' } : note,

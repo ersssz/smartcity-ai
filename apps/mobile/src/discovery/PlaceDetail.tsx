@@ -48,9 +48,9 @@ export default function PlaceDetail({ locale, place, busy = false, onBack, onSho
         <View style={s.handle} />
         <Text accessibilityRole="header" style={s.title}>{place.title[locale]}</Text>
         <Text style={s.summary}>{place.summary[locale]}</Text>
-        {reason ? <View style={s.reason}><View style={s.reasonDot} /><View style={s.flex}><Text style={s.reasonKicker}>{t.now}</Text><Text style={s.reasonText}>{reason}</Text></View></View> : null}
         <Text accessibilityRole="header" style={s.sectionTitle}>{t.why}</Text>
         <Text style={s.body}>{place.why[locale]}</Text>
+        {reason ? <View style={s.reason}><View style={s.reasonDot} /><View style={s.flex}><Text style={s.reasonKicker}>{t.now}</Text><Text style={s.reasonText}>{reason}</Text></View></View> : null}
         {place.photo && <View style={s.photoCredit}>
           <Text style={s.credit}>{place.photo.attribution}</Text>
           <View style={s.creditLinks}>

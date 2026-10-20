@@ -318,6 +318,7 @@ public final class OwnUiInstrumentation extends Instrumentation {
 
   private static final class Scan {
     int nodes; boolean sensitive; boolean safe; boolean opening;
+    final UiPolicy.DiscoveryScreenEvidence discovery = new UiPolicy.DiscoveryScreenEvidence();
     final JSONArray labels = new JSONArray();
     final List<AccessibilityNodeInfo> targets = new ArrayList<>();
     final List<AccessibilityNodeInfo> scrolls = new ArrayList<>();
@@ -325,7 +326,7 @@ public final class OwnUiInstrumentation extends Instrumentation {
   }
   private Scan scan(String action) throws org.json.JSONException {
     AccessibilityNodeInfo root = ownRoot(); Scan scan = new Scan();
-    try { walk(root, action, scan, 0); return scan; }
+    try { walk(root, action, scan, 0); scan.safe |= scan.discovery.isSafe(); return scan; }
     catch (RuntimeException | org.json.JSONException failure) { scan.close(); throw failure; }
     finally { root.recycle(); }
   }
@@ -338,6 +339,8 @@ public final class OwnUiInstrumentation extends Instrumentation {
       String description = input || node.getContentDescription() == null ? "" : node.getContentDescription().toString();
       scan.sensitive |= UiPolicy.sensitive(text) || UiPolicy.sensitive(description);
       scan.safe |= UiPolicy.safeCaptureLabel(text) || UiPolicy.safeCaptureLabel(description);
+      scan.discovery.observe(text); scan.discovery.observe(description);
+      if (input) scan.discovery.inputVisible();
       scan.opening |= UiPolicy.openingLabel(text) || UiPolicy.openingLabel(description);
       if (scan.labels.length() < MAX_LABELS && (!text.isEmpty() || !description.isEmpty() || input)) {
         JSONObject label = new JSONObject();
@@ -451,6 +454,7 @@ public final class OwnUiInstrumentation extends Instrumentation {
       int index = ++step; String name = String.format(java.util.Locale.ROOT, "%02d-%s", index, action);
       record.put("step", index); record.put("action", action); record.put("package", UiPolicy.TARGET);
       record.put("visible_labels", scan.labels); record.put("visited_nodes", scan.nodes);
+      record.put("screen_policy", scan.discovery.isSafe() ? "PUBLIC_DISCOVERY_COMPOSITE" : scan.safe ? "LEGACY_FIXED_LABEL" : "NOT_PROVEN");
       if (scan.safe && !scan.sensitive) {
         AccessibilityNodeInfo guard = ownRoot(); guard.recycle();
         Bitmap screenshot = automation.takeScreenshot();

@@ -24,7 +24,7 @@ export default function DiscoveryMap({ places, guide, locale, selectedPlaceId, o
   const bounds = useMemo<[number, number, number, number]>(() => [Math.min(...places.map(p => p.coordinate[0])) - .004,
     Math.min(...places.map(p => p.coordinate[1])) - .004, Math.max(...places.map(p => p.coordinate[0])) + .004,
     Math.max(...places.map(p => p.coordinate[1])) + .004], [places]);
-  const padding = useMemo(() => ({ top: topInset + 205, bottom: bottomPadding + 10, left: 36, right: 36 }), [bottomPadding, topInset]);
+  const padding = useMemo(() => ({ top: topInset + 205, bottom: bottomPadding + 76, left: 36, right: 36 }), [bottomPadding, topInset]);
   const fitAll = () => camera.current?.fitBounds(bounds, { padding, duration: reduceMotion ? 0 : 850 });
   useEffect(() => {
     if (!streets) return;

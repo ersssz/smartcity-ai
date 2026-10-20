@@ -125,7 +125,37 @@ public final class UiPolicy {
   }
   public static boolean safeCaptureLabel(String label) {
     String value = normalize(label);
-    return Arrays.asList("Карта выбранной прогулки", "Таңдалған серуен картасы", "Map of the selected walk", "Карта для знакомства с городом", "Қаламен танысу картасы", "A first look at the city", "← К сохранённой прогулке", "← Сақталған серуенге", "← Back to the saved walk", "Ручное прохождение · отметки не означают GPS-посещение", "Қолмен өту · белгі GPS-сапарды білдірмейді", "Manual progression · marks do not prove a GPS visit", "Карта интересных мест Астаны", "Астананың қызықты орындарының картасы", "Map of interesting places in Astana", "Почему стоит увидеть", "Неліктен көруге тұрарлық", "Why see it").contains(value);
+    return Arrays.asList("Карта выбранной прогулки", "Таңдалған серуен картасы", "Map of the selected walk", "Карта для знакомства с городом", "Қаламен танысу картасы", "A first look at the city", "← К сохранённой прогулке", "← Сақталған серуенге", "← Back to the saved walk", "Ручное прохождение · отметки не означают GPS-посещение", "Қолмен өту · белгі GPS-сапарды білдірмейді", "Manual progression · marks do not prove a GPS visit").contains(value);
+  }
+  /** Bounded boolean evidence only: no collected UI text or caller-defined screen rules. */
+  public static final class DiscoveryScreenEvidence {
+    private final boolean[] home = new boolean[3], place = new boolean[3], why = new boolean[3], map = new boolean[3];
+    private boolean disallowed;
+    private static final String[] HOME = { "Открой Астану", "Астананы аш", "Discover Astana" };
+    private static final String[] WHY = { "Почему стоит увидеть", "Неліктен көруге тұрарлық", "Why see it" };
+    private static final String[] MAP = { "Посмотреть на карте", "Картадан көру", "Show on the map" };
+    private static final String[] MARKER = { "Показать место: ", "Орынды көрсету: ", "Show place: " };
+    private static final String[][] PLACES = {
+      { "Байтерек", "Хан Шатыр", "Набережная Есиля", "Музей Сакена Сейфуллина", "Театр имени Горького" },
+      { "Бәйтерек", "Хан Шатыр", "Есіл жағалауы", "Сәкен Сейфуллин музейі", "Горький атындағы театр" },
+      { "Baiterek", "Khan Shatyr", "Yesil waterfront", "Saken Seifullin Museum", "Gorky Drama Theatre" }
+    };
+    public void observe(String label) {
+      String value = normalize(label);
+      if (sensitive(value)) disallowed = true;
+      for (int locale = 0; locale < 3; locale++) {
+        home[locale] |= HOME[locale].equals(value);
+        why[locale] |= WHY[locale].equals(value);
+        map[locale] |= MAP[locale].equals(value) || ("⌖ " + MAP[locale]).equals(value);
+        for (String title : PLACES[locale]) place[locale] |= title.equals(value) || (MARKER[locale] + title).equals(value);
+      }
+    }
+    public void inputVisible() { disallowed = true; }
+    public boolean isSafe() {
+      if (disallowed) return false;
+      for (int locale = 0; locale < 3; locale++) if (place[locale] && (home[locale] || why[locale] && map[locale])) return true;
+      return false;
+    }
   }
   public static boolean openingLabel(String label) {
     return Arrays.asList("Добро пожаловать в Астану!", "Астанаға қош келдіңіз!", "Welcome to Astana!").contains(normalize(label));
