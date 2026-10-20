@@ -12,6 +12,13 @@ import expo.modules.kotlin.modules.ModuleDefinition
 class ActiveWalkModule : Module() {
   private val main = Handler(Looper.getMainLooper())
   @Volatile private var disposed = false
+  private var preparedPlayer: PreparedAudioPlayer? = null
+  private fun audio(): PreparedAudioPlayer {
+    check(!disposed) { "APP_CONTEXT_UNAVAILABLE" }
+    return preparedPlayer ?: PreparedAudioPlayer(requireNotNull(appContext.reactContext)) { state ->
+      if (!disposed) sendEvent("onPreparedAudioState", state)
+    }.also { preparedPlayer = it; PreparedAudioOwner.register(it); it.setForeground(resumed()) }
+  }
   private val observer = object : ActiveWalkController.Observer {
     override fun stateChanged(state: Map<String, Any?>) {
       if (!disposed) sendEvent("onStateChanged", state)
@@ -30,7 +37,7 @@ class ActiveWalkModule : Module() {
 
   override fun definition() = ModuleDefinition {
     Name("AstanaActiveWalk")
-    Events("onStateChanged", "onLocation")
+    Events("onStateChanged", "onLocation", "onPreparedAudioState")
 
     OnCreate {
       ActiveWalkController.onMain {
@@ -43,16 +50,17 @@ class ActiveWalkModule : Module() {
       disposed = true
       main.removeCallbacksAndMessages(null)
       ActiveWalkController.detach(this@ActiveWalkModule)
+      ActiveWalkController.onMain { PreparedAudioOwner.detach(preparedPlayer); preparedPlayer?.release(); preparedPlayer = null }
     }
     OnActivityEntersForeground {
       // Expo can dispatch inside Activity.onResume before AndroidX's post-resume transition.
-      main.post { if (!disposed) ActiveWalkController.setVisible(resumed()) }
+      main.post { if (!disposed) { ActiveWalkController.setVisible(resumed()); preparedPlayer?.setForeground(resumed()) } }
     }
     OnActivityEntersBackground {
-      ActiveWalkController.onMain { if (!disposed) ActiveWalkController.setVisible(false) }
+      ActiveWalkController.onMain { if (!disposed) { ActiveWalkController.setVisible(false); preparedPlayer?.setForeground(false) } }
     }
     OnActivityDestroys {
-      ActiveWalkController.onMain { if (!disposed) ActiveWalkController.setVisible(false) }
+      ActiveWalkController.onMain { if (!disposed) { ActiveWalkController.setVisible(false); preparedPlayer?.setForeground(false) } }
     }
 
     AsyncFunction("start") { promise: Promise ->
@@ -79,5 +87,17 @@ class ActiveWalkModule : Module() {
       // immutable observation published by Start/lifecycle hooks, never Activity/context APIs.
       if (disposed) null else ActiveWalkController.currentFix(generation)
     }
+
+    Function("hashUtf8") { text: String -> PreparedAssetVerifier.hashUtf8(text) }
+    AsyncFunction("verifyAudioAssets") { records: List<Map<String, Any?>> ->
+      val context = requireNotNull(appContext.reactContext) { "APP_CONTEXT_UNAVAILABLE" }
+      PreparedAssetVerifier.verify(context, records)
+    }
+    AsyncFunction("preparedAudioPlay") { assetPath: String, expectedSha256: String ->
+      val selected = audio(); PreparedAudioOwner.register(selected); selected.play(assetPath, expectedSha256)
+    }.runOnQueue(Queues.MAIN)
+    AsyncFunction("preparedAudioPause") { audio().pause() }.runOnQueue(Queues.MAIN)
+    AsyncFunction("preparedAudioStop") { audio().stop() }.runOnQueue(Queues.MAIN)
+    AsyncFunction("preparedAudioGetState") { audio().getState() }.runOnQueue(Queues.MAIN)
   }
 }

@@ -23,3 +23,4 @@ packages/offline-pack/verification.json -text diff whitespace=blank-at-eol,blank
 packages/public-collection/evidence/** -text diff whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 tools/audio/COPYING-GPL-3.0.txt -text diff whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 tools/audio/CORPUS-VERIFICATION.json -text diff whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+apps/mobile/android/app/src/main/assets/astana-audio/COPYING-GPL-3.0.txt -text diff whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

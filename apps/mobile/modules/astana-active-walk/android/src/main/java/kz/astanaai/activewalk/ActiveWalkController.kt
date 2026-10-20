@@ -244,11 +244,15 @@ internal object ActiveWalkController {
     checkMain()
     session.stop()
     clearFix()
-    val live = service
-    val cleaned = live?.shutdown() ?: true
-    service = if (cleaned) null else live
-    context.stopService(Intent(context, ActiveWalkService::class.java))
-    if (!cleaned) session.fail("STOP_CLEANUP_FAILED")
+    try {
+      val live = service
+      val cleaned = live?.shutdown() ?: true
+      service = if (cleaned) null else live
+      context.stopService(Intent(context, ActiveWalkService::class.java))
+      if (!cleaned) session.fail("STOP_CLEANUP_FAILED")
+    } finally {
+      if (!PreparedAudioOwner.stop()) session.fail("STOP_CLEANUP_FAILED")
+    }
     publish()
     completeStarts()
     return state(context)

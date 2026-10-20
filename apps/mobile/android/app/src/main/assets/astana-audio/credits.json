@@ -1,0 +1,17 @@
+[
+  {
+    "locale": "ru",
+    "license": "GPL-3.0",
+    "attribution": "RHVoice, Olga Yakovleva and contributors; Elena voice: Artem Plaksin, Sergey Parshakov, Zvonimir Stanecic, Dmitry Kaslin; speaker Elena Soboleva; narrator is synthetic"
+  },
+  {
+    "locale": "kk",
+    "license": "CC-BY-4.0",
+    "attribution": "Piper/Rhasspy; ISSAI, Nazarbayev University, KazakhTTS/KazakhTTS2, Mussakhojayeva et al."
+  },
+  {
+    "locale": "en",
+    "license": "Public domain LJ Speech",
+    "attribution": "Piper/Rhasspy; LJ Speech dataset by Keith Ito and Linda Johnson public-domain recordings; narrator synthetic"
+  }
+]

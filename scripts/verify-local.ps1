@@ -44,6 +44,8 @@ Invoke-LocalCheck 'Canonical narration export and prepared asset binding' $repoR
 Invoke-LocalCheck 'Mobile strict types' (Join-Path $repoRoot 'apps/mobile') $nodeCommand.Source @($tscPath, '--noEmit')
 Invoke-LocalCheck 'Mobile lifecycle regression with simulated OS adapters' (Join-Path $repoRoot 'apps/mobile') $nodeCommand.Source @('--test', 'tests/walkDiagnostic.test.cjs')
 Invoke-LocalCheck 'Editorial progression, actual SQLite persistence and priority Stop' (Join-Path $repoRoot 'apps/mobile') $nodeCommand.Source @('--experimental-sqlite', '--test', 'tests/walkEngine.test.cjs', 'tests/walkRepository.test.cjs', 'tests/priorityStop.test.cjs', 'tests/preparedWalk.test.cjs')
+Invoke-LocalCheck 'Canonical mobile session, presentation and prepared audio wrapper' (Join-Path $repoRoot 'apps/mobile') $nodeCommand.Source @('--experimental-sqlite', '--test', 'src/canonical/session.test.cjs', 'tests/canonicalPresentation.test.cjs', 'modules/astana-active-walk/src/preparedAudio.test.cjs')
+Invoke-LocalCheck 'Prepared APK narration packaging identity' $repoRoot $nodeCommand.Source @('tools/audio/package_mobile_audio.cjs', '--check')
 Invoke-LocalCheck 'Editorial catalog malformed-input checks (synthetic, in memory only)' $repoRoot $pythonCommand.Source @('-B', 'tools/first_walk/build_catalog.py', '--self-test')
 Invoke-LocalCheck 'City guide, actual SQLite preferences and progress priority' (Join-Path $repoRoot 'apps/mobile') $nodeCommand.Source @('--experimental-sqlite', '--test', 'tests/cityPreferences.test.cjs', 'tests/cityCatalog.test.cjs')
 Invoke-LocalCheck 'City geometry malformed-input checks (synthetic)' $repoRoot $pythonCommand.Source @('-B', '-m', 'unittest', 'discover', '-s', 'tools/city_intro', '-p', 'test_geometry.py', '-v')

@@ -13,7 +13,7 @@ export function chapterNarration(chapter: WalkBundleV1['content']['chapters'][nu
   return [chapter.title[locale], ...chapter.blocks.map(b => b.text[locale])].join('\n\n');
 }
 /** No answer is included in question audio; hints and explanation are separate actions. */
-export function narrationEntries(bundle: WalkBundleV1) {
+export function narrationEntries(bundle: Pick<WalkBundleV1, 'content'>) {
   const result: { id: string; locale: Locale; text: string; audio: WalkBundleV1['content']['chapters'][number]['audio'][Locale] }[] = [];
   for (const locale of ['ru', 'kk', 'en'] as const) {
     for (const c of bundle.content.chapters) result.push({ id: `${c.id}:${locale}`, locale, text: chapterNarration(c, locale), audio: c.audio[locale] });

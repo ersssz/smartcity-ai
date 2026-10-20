@@ -103,8 +103,8 @@ android {
         applicationId 'kz.astanaai.diagnostics'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 9
-        versionName "0.3.4"
+        versionCode 10
+        versionName "0.4.0"
 
         // Ninja 1.10 on Windows cannot create the unshortened nested object path.
         // Keep CMake's deterministic path hashing below the native MAX_PATH limit.
@@ -150,6 +150,7 @@ android {
         }
     }
     androidResources {
+        noCompress += ['mp3']
         ignoreAssetsPattern '!.svn:!.git:!.ds_store:!*.scc:!CVS:!thumbs.db:!picasa.ini:!*~'
     }
 }
