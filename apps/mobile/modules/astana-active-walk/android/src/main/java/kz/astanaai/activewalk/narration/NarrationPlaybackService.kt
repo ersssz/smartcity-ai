@@ -1,9 +1,13 @@
 package kz.astanaai.activewalk.narration
 
+import android.app.Notification
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.app.PendingIntent
 import android.app.Service
 import android.content.Context
 import android.content.Intent
+import android.content.pm.ServiceInfo
 import android.os.Build
 import android.os.IBinder
 import android.os.Looper
@@ -88,15 +92,26 @@ private class AndroidHostedRuntime(service: Service, runtimeId: String, visibleC
 class NarrationPlaybackService : Service() {
   companion object { const val NONCE = "nativeStartNonce" }
   private var owner: NarrationCoordinator? = null
+  private var ownerRegistered = false
+  private var bootstrapReady = false
   override fun onCreate() {
     super.onCreate()
+    // Android 12 can crash even an immediately stopped FGS-started service if it
+    // never acknowledged startForeground. This passive OS acknowledgment is not
+    // a Play permit: no runtime, MediaSession, actions, player, focus or wake lock.
+    bootstrapReady = runCatching { acknowledgeForeground() }.isSuccess
     owner = NarrationHost.existing()
-    if (owner?.onServiceCreated(this) != true) stopSelf()
+    ownerRegistered = owner?.onServiceCreated(this) == true
+    if (!bootstrapReady) {
+      if (ownerRegistered) owner?.onServiceBootstrapFailed(this) else stopSelf()
+      return
+    }
+    if (!ownerRegistered) stopSelf()
   }
   override fun onBind(intent: Intent?): IBinder? = null
   override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
     val existing = owner
-    if (existing == null) { stopSelf(startId); return START_NOT_STICKY }
+    if (!bootstrapReady || !ownerRegistered || existing == null) { stopSelf(startId); return START_NOT_STICKY }
     val parsed = runCatching {
       val extras = intent?.extras
       val valid = intent?.component?.className == javaClass.name && intent.action == NarrationCoordinator.START_ACTION &&
@@ -111,7 +126,28 @@ class NarrationPlaybackService : Service() {
     super.onTaskRemoved(rootIntent)
   }
   override fun onDestroy() {
-    try { owner?.onServiceDestroyed(this); owner = null }
-    finally { super.onDestroy() }
+    try { owner?.onServiceDestroyed(this) }
+    finally {
+      owner = null; ownerRegistered = false; bootstrapReady = false
+      // Scoped to this Service; never cancel a potentially shared notification ID.
+      try { stopForeground(STOP_FOREGROUND_REMOVE) }
+      finally { super.onDestroy() }
+    }
+  }
+  private fun acknowledgeForeground() {
+    val notifications = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+    if (Build.VERSION.SDK_INT >= 26) notifications.createNotificationChannel(NotificationChannel(
+      AndroidNarrationEffects.CHANNEL_ID, "AstanaAI narration", NotificationManager.IMPORTANCE_LOW))
+    val builder = if (Build.VERSION.SDK_INT >= 26) Notification.Builder(this, AndroidNarrationEffects.CHANNEL_ID)
+      else Notification.Builder(this)
+    val preparing = when (resources.configuration.locales.get(0)?.language) {
+      "kk" -> "Дыбыстау дайындалуда…"; "en" -> "Preparing narration…"; else -> "Подготовка озвучки…"
+    }
+    val notification = builder.setSmallIcon(android.R.drawable.ic_media_play).setContentTitle("AstanaAI")
+      .setContentText(preparing).setCategory(Notification.CATEGORY_SERVICE)
+      .setOnlyAlertOnce(true).setOngoing(true).setVisibility(Notification.VISIBILITY_PRIVATE).build()
+    if (Build.VERSION.SDK_INT >= 29) startForeground(AndroidNarrationEffects.NOTIFICATION_ID, notification,
+      ServiceInfo.FOREGROUND_SERVICE_TYPE_MEDIA_PLAYBACK)
+    else startForeground(AndroidNarrationEffects.NOTIFICATION_ID, notification)
   }
 }

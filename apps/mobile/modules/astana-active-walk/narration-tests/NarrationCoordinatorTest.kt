@@ -197,6 +197,39 @@ fun main() {
     check(x.play().rejected == "SERVICE_START_FAILED")
     check(x.host.snapshot().pendingRequestId == null && x.platform.runtimes.isEmpty() && x.platform.starts.size == 1)
   }
+  test("foreground bootstrap failure revokes pending Start before cleanup without creating a runtime or retry") {
+    val x = Scenario(); check(x.play().accepted); val service = Any(); val nonce = x.platform.starts.single()
+    check(x.host.onServiceCreated(service)); val before = x.host.snapshot().hostScope
+    x.platform.onStop = {
+      check(x.host.snapshot().pendingRequestId == null)
+      check(x.host.snapshot().hostScope != before)
+      check(x.host.snapshot().errorCode == "FOREGROUND_BOOTSTRAP_FAILED")
+    }
+    check(x.host.onServiceBootstrapFailed(service))
+    check(x.platform.runtimes.isEmpty() && x.platform.starts.size == 1 && x.platform.stopped.contains(service))
+    check(x.host.snapshot().phase == HostPhase.STOPPING && x.host.snapshot().audio == null)
+    check(x.host.consumeStart(service, 1, NarrationCoordinator.START_ACTION, nonce).rejected == "SERVICE_CLOSING")
+    check(x.platform.runtimes.isEmpty() && x.platform.starts.size == 1)
+    check(x.host.snapshot().errorCode == "FOREGROUND_BOOTSTRAP_FAILED")
+  }
+  test("foreign bootstrap failure cannot revoke a legitimate live owner or its scoped playback") {
+    val x = Scenario(); val service = x.start(); x.platform.runtimes.single().playing()
+    val before = x.host.snapshot(); val stranger = Any()
+    check(!x.host.onServiceBootstrapFailed(stranger))
+    check(x.host.snapshot() == before && !x.platform.stopped.contains(service))
+    check(x.platform.stopped.contains(stranger) && x.platform.runtimes.single().snapshot().status == AudioStatus.PLAYING)
+  }
+  test("bootstrap failure publishes revoked authority before reentrant observers and survives destruction as a fixed error") {
+    val x = Scenario(); check(x.play().accepted); val service = Any(); check(x.host.onServiceCreated(service))
+    var attempted = false
+    x.host.subscribe(x.client) { state -> if (state.errorCode == "FOREGROUND_BOOTSTRAP_FAILED") {
+      attempted = true; check(x.host.play(x.client, state.hostScope, null, REF).rejected == "SERVICE_CLOSING")
+    } }
+    check(x.host.onServiceBootstrapFailed(service)); check(attempted && x.platform.runtimes.isEmpty())
+    x.host.onServiceDestroyed(service)
+    check(x.host.snapshot().phase == HostPhase.ERROR && x.host.snapshot().errorCode == "FOREGROUND_BOOTSTRAP_FAILED")
+    check(x.host.snapshot().pendingRequestId == null && x.platform.starts.size == 1)
+  }
   test("cleanup failure is visible and prevents unsafe new admission") {
     val x = Scenario(); val service = x.start(); x.platform.runtimes.single().releaseFails = true
     check(!x.host.stopAudio().accepted)

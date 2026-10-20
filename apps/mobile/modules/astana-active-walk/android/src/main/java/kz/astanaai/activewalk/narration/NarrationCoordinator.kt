@@ -67,6 +67,17 @@ class NarrationCoordinator(
     }
     serviceIdentity = service; return true
   }
+  /** A failed OS foreground acknowledgment grants no runtime or playback authority. */
+  fun onServiceBootstrapFailed(service: Any): Boolean {
+    checkMain()
+    if (serviceIdentity !== service) {
+      // An old/foreign Service cannot revoke the current owner's permit or sound.
+      runCatching { platform.stopService(service, null) }; return false
+    }
+    if (closing) return false
+    closeCurrent(null, "FOREGROUND_BOOTSTRAP_FAILED")
+    return true
+  }
   fun consumeStart(service: Any, startId: Int, action: String?, nonce: String?): ServiceStartDecision {
     checkMain()
     val permit = pending
@@ -84,7 +95,10 @@ class NarrationCoordinator(
       // A duplicate/null intent is not an audio Stop capability for an admitted live owner.
       if (serviceIdentity === service && runtime != null && owner?.let { clients.containsKey(it) } == true &&
         published.phase == HostPhase.RUNNING) return ServiceStartDecision(false, published, code)
-      if (serviceIdentity === service && !closing) closeCurrent(startId, code)
+      // The Service normally bypasses consume after a failed bootstrap. A late
+      // delivery through this boundary must still retain that fixed failure.
+      if (serviceIdentity === service && !closing) closeCurrent(startId,
+        published.errorCode?.takeIf { it == "FOREGROUND_BOOTSTRAP_FAILED" } ?: code)
       else runCatching { platform.stopService(service, startId) }
       return ServiceStartDecision(false, published, code)
     }

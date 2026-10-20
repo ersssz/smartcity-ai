@@ -237,11 +237,11 @@ class AndroidNarrationEffects(
     session?.release()
     val selected = MediaSession(service, "AstanaNarration")
     session = selected
-    if (Build.VERSION.SDK_INT >= 31) selected.setMediaButtonBroadcastReceiver(null)
-    else {
-      @Suppress("DEPRECATION")
-      selected.setMediaButtonReceiver(null)
-    }
+    // Android 12's broadcast-receiver overload dereferences a null ComponentName in
+    // system_server despite its nullable annotation. The PendingIntent overload has
+    // an explicit null-clear path and keeps process-death playback restart disabled.
+    @Suppress("DEPRECATION")
+    selected.setMediaButtonReceiver(null)
     selected.setPlaybackToLocal(attributes)
     sessionActivity?.let(selected::setSessionActivity)
     selected.isActive = true

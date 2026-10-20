@@ -7,7 +7,7 @@ import android.os.SystemClock
 import java.util.UUID
 
 /**
- * STAGING ONLY: construct once in the real media Service onCreate, never in an Activity.
+ * Construct once for admitted playback in the real media Service, never in an Activity.
  * Core orchestration is the same Module exercised by public JVM tests.
  * Root supplies native lifecycle visibility, bootstrap/permits/Manifest/GlobalStop.
  * Neither this wrapper nor its core starts GPS or edits canonical SQL.

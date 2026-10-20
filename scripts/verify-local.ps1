@@ -40,6 +40,7 @@ Invoke-LocalCheck 'Public collection real SQLite and trusted catalog boundaries'
 Invoke-LocalCheck 'Private Node workspace strict build' $repoRoot $nodeCommand.Source @('scripts/build-node.cjs')
 Invoke-LocalCheck 'Normal Node package export integration' $repoRoot $nodeCommand.Source @('--experimental-sqlite', '--test', 'tests/runtime/*.test.mjs')
 Invoke-LocalCheck 'Prepared audio input/model integrity' $repoRoot $pythonCommand.Source @('-X', 'utf8', '-B', '-m', 'unittest', 'discover', '-s', 'tools/audio', '-p', 'test_*.py', '-v')
+Invoke-LocalCheck 'APK narration manifest and DEX audit boundaries' $repoRoot $pythonCommand.Source @('-X', 'utf8', '-B', '-m', 'unittest', 'discover', '-s', 'tools/apk', '-p', 'test_audit_narration.py', '-v')
 Invoke-LocalCheck 'Canonical narration export and prepared asset binding' $repoRoot $nodeCommand.Source @('--test', 'tools/audio/test_canonical_audio.cjs')
 Invoke-LocalCheck 'Mobile strict types' (Join-Path $repoRoot 'apps/mobile') $nodeCommand.Source @($tscPath, '--noEmit')
 Invoke-LocalCheck 'Discovery weather, holiday and hook boundaries' (Join-Path $repoRoot 'apps/mobile') $nodeCommand.Source @('--test', 'tests/discoveryContext.test.cjs', 'tests/discoveryContextHook.test.cjs')

@@ -29,6 +29,14 @@ NATIVE = {
     "PreparedAudioPlayer": {"play", "pause", "stop", "getState", "setForeground", "release"},
     "PreparedAudioOwner": {"register", "detach", "stop"},
 }
+NARRATION_NATIVE = {
+    "narration/NarrationPlaybackService": {"onCreate", "onStartCommand", "onTaskRemoved", "onDestroy", "onBind"},
+    "narration/NarrationMediaActionReceiver": {"onReceive"},
+    "narration/NarrationHost": {"existing", "createBridge", "stopIfInstalled", "install"},
+    "narration/NarrationBridgeFacade": {"captureScopeDto", "getState", "play", "pause", "resume", "stop", "close"},
+    "narration/NarrationCoordinator": {"play", "pause", "resume", "stopAudio", "consumeStart", "onServiceCreated", "onServiceDestroyed", "observe", "registerClient", "detachClient"},
+    "narration/AndroidNarrationEffects": {"apply", "positionMs", "release"},
+}
 
 
 def digest_file(path: Path) -> str:
@@ -95,8 +103,29 @@ def descendants(node: dict, name: str) -> list[dict]:
     return result
 
 
-def dex_classes(data: bytes) -> dict:
+def narration_manifest_checks(components: dict, permissions: list[str]) -> list[dict]:
+    """Check attributes from the actual aapt2 merged-manifest tree, not source XML."""
+    service = [c for c in components.get("service", []) if c.get("name") ==
+               "kz.astanaai.activewalk.narration.NarrationPlaybackService"]
+    receiver = [c for c in components.get("receiver", []) if c.get("name") ==
+                "kz.astanaai.activewalk.narration.NarrationMediaActionReceiver"]
+    checks = [
+        {"name": "narration-media-playback-service", "passed": len(service) == 1 and
+         service[0].get("exported") is False and service[0].get("stopWithTask") is True and
+         service[0].get("foregroundServiceType") == 2, "detail": service},
+        {"name": "narration-media-receiver-not-exported", "passed": len(receiver) == 1 and
+         receiver[0].get("exported") is False, "detail": receiver},
+    ]
+    for permission in ("android.permission.WAKE_LOCK", "android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK"):
+        checks.append({"name": f"narration-permission:{permission.rsplit('.', 1)[-1]}",
+                       "passed": permission in permissions, "detail": permission})
+    return checks
+
+
+def dex_classes(data: bytes, descriptors: dict[str, str] | None = None) -> dict:
     """Inspect DEX class_def/method definitions; strings alone are insufficient."""
+    if descriptors is None:
+        descriptors = {f"Lkz/astanaai/activewalk/{name};": name for name in NATIVE}
     if len(data) < 112 or not re.fullmatch(rb"dex\n0[0-9]{2}\x00", data[:8]):
         raise ValueError("unsupported DEX header")
     def u32(offset: int) -> int:
@@ -141,8 +170,8 @@ def dex_classes(data: bytes) -> dict:
     for index in range(classes):
         base = classoff + index * 32
         descriptor = typename(u32(base))
-        short = descriptor.removeprefix("Lkz/astanaai/activewalk/").removesuffix(";")
-        if descriptor != f"Lkz/astanaai/activewalk/{short};" or short not in NATIVE:
+        short = descriptors.get(descriptor)
+        if short is None:
             continue
         offset = u32(base + 24)
         definitions = []
@@ -161,6 +190,12 @@ def dex_classes(data: bytes) -> dict:
                     access, offset = uleb(offset); codeoff, offset = uleb(offset)
                     if method_index >= methods or codeoff >= len(data):
                         raise ValueError("DEX encoded method out of bounds")
+                    if codeoff:
+                        if codeoff < 112 or codeoff % 4 or codeoff + 16 > len(data):
+                            raise ValueError("DEX code item header/alignment out of bounds")
+                        instructions = u32(codeoff + 12)
+                        if not instructions or codeoff + 16 + instructions * 2 > len(data):
+                            raise ValueError("DEX code item instructions out of bounds")
                     declared_class = struct.unpack_from("<H", data, methodoff + method_index * 8)[0]
                     if typename(declared_class) != descriptor:
                         raise ValueError("DEX method/class mismatch")
@@ -200,6 +235,9 @@ def audit(args: argparse.Namespace) -> dict:
     registry_bytes = registry_path.read_bytes()
     registry = json.loads(registry_bytes)
     checks = []
+    require_narration = getattr(args, "require_narration", False)
+    native_required = {**NATIVE, **(NARRATION_NATIVE if require_narration else {})}
+    native_descriptors = {f"Lkz/astanaai/activewalk/{name};": name for name in native_required}
     def check(name: str, passed: bool, detail=None) -> None:
         checks.append({"name": name, "passed": bool(passed), "detail": detail})
     env = os.environ.copy(); env["JAVA_HOME"] = str(args.java_home.resolve(strict=True))
@@ -236,6 +274,8 @@ def audit(args: argparse.Namespace) -> dict:
     check("active-walk-service", len(service) == 1 and service[0].get("exported") is False and
           service[0].get("stopWithTask") is True and service[0].get("foregroundServiceType") == 8, service)
     check("stop-receiver-not-exported", len(receiver) == 1 and receiver[0].get("exported") is False, receiver)
+    if require_narration:
+        checks.extend(narration_manifest_checks(components, permissions))
     updates = [c for c in components["meta-data"] if c.get("name") == "expo.modules.updates.ENABLED"]
     check("expo-updates-disabled", len(updates) == 1 and updates[0].get("value") is False)
     check("signature-v2", "Verified using v2 scheme (APK Signature Scheme v2): true" in tools["signature"]["stdout"])
@@ -270,13 +310,13 @@ def audit(args: argparse.Namespace) -> dict:
         actual_paths = {n for n in names if n.startswith("assets/astana-audio/") and n.endswith(".mp3")}
         check("exact-audio-set", actual_paths == expected_paths)
         for name in sorted(n for n in names if re.fullmatch(r"classes(?:[2-9][0-9]*)?\.dex", n)):
-            result = dex_classes(member_bytes(z, name)); result["zipPath"] = name; dex.append(result)
+            result = dex_classes(member_bytes(z, name), native_descriptors); result["zipPath"] = name; dex.append(result)
             check(f"dex-integrity:{name}", result["headerSha1Valid"] and result["adler32Valid"])
             for short, definition in result["requiredClasses"].items():
                 if short in native:
                     raise ValueError("duplicate required native definition")
                 native[short] = {"zipPath": name, **definition}
-        for short, required in NATIVE.items():
+        for short, required in native_required.items():
             methods = {m["name"] for m in native.get(short, {}).get("methods", []) if m["hasCode"]}
             check(f"native:{short}", required <= methods, {"required": sorted(required), "foundCodeMethods": sorted(methods)})
         jsname = "assets/index.android.bundle"
@@ -309,7 +349,8 @@ def audit(args: argparse.Namespace) -> dict:
     check("registry-unchanged-during-audit", hashlib.sha256(registry_path.read_bytes()).hexdigest() == hashlib.sha256(registry_bytes).hexdigest())
     return {"schemaVersion": 1, "auditUtc": dt.datetime.now(dt.timezone.utc).isoformat(),
             "sourceCommit": args.source_commit,
-            "buildStage": args.build_stage, "status": "PASS_STATIC" if all(c["passed"] for c in checks) else "FAIL_STATIC",
+            "buildStage": args.build_stage, "requireNarration": bool(require_narration),
+            "status": "PASS_STATIC" if all(c["passed"] for c in checks) else "FAIL_STATIC",
             "apk": {"path": str(apk), "bytes": apk.stat().st_size, "sha256": before},
             "registry": {"path": str(registry_path), "sha256": hashlib.sha256(registry_bytes).hexdigest(),
                          "manifestSha256": registry["manifestSha256"], "contentRevision": registry["contentRevision"]},
@@ -334,6 +375,7 @@ def markdown(result: dict, json_path: Path) -> str:
     lines = ["# Статический аудит APK AstanaAI", "", f"Проверено: {result['auditUtc']}. Статус: **{result['status']}**.", "",
              f"Этап сборки: `{result['buildStage']}`. Это аудит конкретного APK; после финальной пересборки его нужно повторить.", "",
              f"Исходный commit, назначенный владельцем сборки: `{result['sourceCommit']}`. Статический аудит не доказывает воспроизводимость сборки из исходников.", "",
+             f"Обязательный статический контроль background narration: **{'включён' if result.get('requireNarration') else 'выключен (legacy mode)'}**. При включении проверены merged mediaPlayback service/receiver/permissions и определения шести narration-классов с кодом. Работа на Android этим не подтверждается.", "",
              f"APK: `{apk['path']}`", f"Размер: **{apk['bytes']:,} байт**. SHA-256: `{apk['sha256']}`.", "",
              f"Пакет `{identity['package']}`, версия **{identity['versionName']} / {identity['versionCode']}**, min SDK {identity['minSdkVersion']}, target SDK {identity['targetSdkVersion']}.", "",
              f"Встроенные native ABI: `{', '.join(result['nativeAbis'])}`; совместимость других архитектур не заявляется.", "",
@@ -376,6 +418,8 @@ def main() -> int:
     parser.add_argument("--build-stage", required=True)
     parser.add_argument("--source-commit", required=True)
     parser.add_argument("--overwrite", action="store_true")
+    parser.add_argument("--require-narration", action="store_true",
+                        help="Also require merged mediaPlayback components/permissions and actual narration DEX definitions (static evidence only).")
     args = parser.parse_args()
     if not re.fullmatch(r"[0-9a-f]{40}", args.source_commit):
         parser.error("source commit must be an explicit lowercase 40-hex Git commit")

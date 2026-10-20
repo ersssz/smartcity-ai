@@ -6,7 +6,7 @@ import kz.astanaai.activewalk.narration.*
 data class CapturedNarrationScope(val host: HostScope, val audio: AudioScope?)
 
 /**
- * Native helper for Root's eventual Expo bindings; no Expo dependency, no lifecycle reads on JS thread.
+ * Native helper for the Expo bindings; no Expo dependency, no lifecycle reads on JS thread.
  * Commands must be scheduled on MAIN. capture()/snapshot() only read an immutable volatile publication.
  * Visibility closure MUST come from trusted native lifecycle, never from a serialized bridge boolean.
  */
