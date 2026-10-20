@@ -1,0 +1,755 @@
+{
+  "checkedOn": "2026-10-20",
+  "revision": 2,
+  "kind": "editorial-composition-validation-not-field-or-language-acceptance",
+  "draftSha256": "dcced72c42451710f2d0fbd1ffd3e1fb51835076160887d6efb545c3c49fe1b4",
+  "passed": true,
+  "checksPassed": 176,
+  "localizedFields": 62,
+  "wordCounts": [
+    {
+      "stopCandidateKey": "baiterek",
+      "storyWords": {
+        "ru": 205,
+        "kk": 184,
+        "en": 283
+      }
+    },
+    {
+      "stopCandidateKey": "nurzhol",
+      "storyWords": {
+        "ru": 202,
+        "kk": 189,
+        "en": 253
+      }
+    },
+    {
+      "stopCandidateKey": "round-square",
+      "storyWords": {
+        "ru": 215,
+        "kk": 181,
+        "en": 263
+      }
+    },
+    {
+      "stopCandidateKey": "khan-shatyr",
+      "storyWords": {
+        "ru": 220,
+        "kk": 199,
+        "en": 263
+      }
+    }
+  ],
+  "checks": [
+    {
+      "name": "json-parses",
+      "passed": true
+    },
+    {
+      "name": "unique-source-ids",
+      "passed": true
+    },
+    {
+      "name": "unique-fact-ids",
+      "passed": true
+    },
+    {
+      "name": "all-fact-sources-resolve",
+      "passed": true
+    },
+    {
+      "name": "source-urls-https",
+      "passed": true
+    },
+    {
+      "name": "unique-stop-ids",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.title",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.title",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.subtitle",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.subtitle",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.narrativeLabel",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.narrativeLabel",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.languageReview",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.languageReview",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.audio",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[0].title",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[0].title",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[0].subtitle",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[0].subtitle",
+      "passed": true
+    },
+    {
+      "name": "fact-refs-resolve:root.stops[0].storyParagraphs[0]",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[0].storyParagraphs[0].text",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[0].storyParagraphs[0].text",
+      "passed": true
+    },
+    {
+      "name": "fact-refs-resolve:root.stops[0].storyParagraphs[1]",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[0].storyParagraphs[1].text",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[0].storyParagraphs[1].text",
+      "passed": true
+    },
+    {
+      "name": "fact-refs-resolve:root.stops[0].storyParagraphs[2]",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[0].storyParagraphs[2].text",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[0].storyParagraphs[2].text",
+      "passed": true
+    },
+    {
+      "name": "fact-refs-resolve:root.stops[0].storyParagraphs[3]",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[0].storyParagraphs[3].text",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[0].storyParagraphs[3].text",
+      "passed": true
+    },
+    {
+      "name": "fact-refs-resolve:root.stops[0].quest",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[0].quest.prompt",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[0].quest.prompt",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[0].quest.choices[0].label",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[0].quest.choices[0].label",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[0].quest.choices[1].label",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[0].quest.choices[1].label",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[0].quest.choices[2].label",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[0].quest.choices[2].label",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[0].quest.hint",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[0].quest.hint",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[0].quest.explanation",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[0].quest.explanation",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[0].quest.optionalObservation",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[0].quest.optionalObservation",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[1].title",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[1].title",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[1].subtitle",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[1].subtitle",
+      "passed": true
+    },
+    {
+      "name": "fact-refs-resolve:root.stops[1].storyParagraphs[0]",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[1].storyParagraphs[0].text",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[1].storyParagraphs[0].text",
+      "passed": true
+    },
+    {
+      "name": "fact-refs-resolve:root.stops[1].storyParagraphs[1]",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[1].storyParagraphs[1].text",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[1].storyParagraphs[1].text",
+      "passed": true
+    },
+    {
+      "name": "fact-refs-resolve:root.stops[1].storyParagraphs[2]",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[1].storyParagraphs[2].text",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[1].storyParagraphs[2].text",
+      "passed": true
+    },
+    {
+      "name": "fact-refs-resolve:root.stops[1].storyParagraphs[3]",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[1].storyParagraphs[3].text",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[1].storyParagraphs[3].text",
+      "passed": true
+    },
+    {
+      "name": "fact-refs-resolve:root.stops[1].quest",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[1].quest.prompt",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[1].quest.prompt",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[1].quest.choices[0].label",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[1].quest.choices[0].label",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[1].quest.choices[1].label",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[1].quest.choices[1].label",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[1].quest.choices[2].label",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[1].quest.choices[2].label",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[1].quest.hint",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[1].quest.hint",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[1].quest.explanation",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[1].quest.explanation",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[1].quest.optionalObservation",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[1].quest.optionalObservation",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[2].title",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[2].title",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[2].subtitle",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[2].subtitle",
+      "passed": true
+    },
+    {
+      "name": "fact-refs-resolve:root.stops[2].storyParagraphs[0]",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[2].storyParagraphs[0].text",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[2].storyParagraphs[0].text",
+      "passed": true
+    },
+    {
+      "name": "fact-refs-resolve:root.stops[2].storyParagraphs[1]",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[2].storyParagraphs[1].text",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[2].storyParagraphs[1].text",
+      "passed": true
+    },
+    {
+      "name": "fact-refs-resolve:root.stops[2].storyParagraphs[2]",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[2].storyParagraphs[2].text",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[2].storyParagraphs[2].text",
+      "passed": true
+    },
+    {
+      "name": "fact-refs-resolve:root.stops[2].storyParagraphs[3]",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[2].storyParagraphs[3].text",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[2].storyParagraphs[3].text",
+      "passed": true
+    },
+    {
+      "name": "fact-refs-resolve:root.stops[2].quest",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[2].quest.prompt",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[2].quest.prompt",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[2].quest.choices[0].label",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[2].quest.choices[0].label",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[2].quest.choices[1].label",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[2].quest.choices[1].label",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[2].quest.choices[2].label",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[2].quest.choices[2].label",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[2].quest.hint",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[2].quest.hint",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[2].quest.explanation",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[2].quest.explanation",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[2].quest.optionalObservation",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[2].quest.optionalObservation",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[3].title",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[3].title",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[3].subtitle",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[3].subtitle",
+      "passed": true
+    },
+    {
+      "name": "fact-refs-resolve:root.stops[3].storyParagraphs[0]",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[3].storyParagraphs[0].text",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[3].storyParagraphs[0].text",
+      "passed": true
+    },
+    {
+      "name": "fact-refs-resolve:root.stops[3].storyParagraphs[1]",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[3].storyParagraphs[1].text",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[3].storyParagraphs[1].text",
+      "passed": true
+    },
+    {
+      "name": "fact-refs-resolve:root.stops[3].storyParagraphs[2]",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[3].storyParagraphs[2].text",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[3].storyParagraphs[2].text",
+      "passed": true
+    },
+    {
+      "name": "fact-refs-resolve:root.stops[3].storyParagraphs[3]",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[3].storyParagraphs[3].text",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[3].storyParagraphs[3].text",
+      "passed": true
+    },
+    {
+      "name": "fact-refs-resolve:root.stops[3].quest",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[3].quest.prompt",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[3].quest.prompt",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[3].quest.choices[0].label",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[3].quest.choices[0].label",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[3].quest.choices[1].label",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[3].quest.choices[1].label",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[3].quest.choices[2].label",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[3].quest.choices[2].label",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[3].quest.hint",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[3].quest.hint",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[3].quest.explanation",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[3].quest.explanation",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.stops[3].quest.optionalObservation",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.stops[3].quest.optionalObservation",
+      "passed": true
+    },
+    {
+      "name": "fact-refs-resolve:root.closings[0]",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.closings[0].text",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.closings[0].text",
+      "passed": true
+    },
+    {
+      "name": "fact-refs-resolve:root.closings[1]",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.closings[1].text",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.closings[1].text",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.baseCollectionDraft.title",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.baseCollectionDraft.title",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.baseCollectionDraft.description",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.baseCollectionDraft.description",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.extensionCollectionDraft.title",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.extensionCollectionDraft.title",
+      "passed": true
+    },
+    {
+      "name": "three-language-field:root.extensionCollectionDraft.description",
+      "passed": true
+    },
+    {
+      "name": "non-empty-localized:root.extensionCollectionDraft.description",
+      "passed": true
+    },
+    {
+      "name": "unique-choices:quest-tree",
+      "passed": true
+    },
+    {
+      "name": "answer-present-once:quest-tree",
+      "passed": true
+    },
+    {
+      "name": "quest-can-skip:quest-tree",
+      "passed": true
+    },
+    {
+      "name": "ru-180-300-words:baiterek",
+      "passed": true
+    },
+    {
+      "name": "fact-paragraphs-have-refs:baiterek",
+      "passed": true
+    },
+    {
+      "name": "unique-choices:quest-line",
+      "passed": true
+    },
+    {
+      "name": "answer-present-once:quest-line",
+      "passed": true
+    },
+    {
+      "name": "quest-can-skip:quest-line",
+      "passed": true
+    },
+    {
+      "name": "ru-180-300-words:nurzhol",
+      "passed": true
+    },
+    {
+      "name": "fact-paragraphs-have-refs:nurzhol",
+      "passed": true
+    },
+    {
+      "name": "unique-choices:quest-circle",
+      "passed": true
+    },
+    {
+      "name": "answer-present-once:quest-circle",
+      "passed": true
+    },
+    {
+      "name": "quest-can-skip:quest-circle",
+      "passed": true
+    },
+    {
+      "name": "ru-180-300-words:round-square",
+      "passed": true
+    },
+    {
+      "name": "fact-paragraphs-have-refs:round-square",
+      "passed": true
+    },
+    {
+      "name": "unique-choices:quest-shelter",
+      "passed": true
+    },
+    {
+      "name": "answer-present-once:quest-shelter",
+      "passed": true
+    },
+    {
+      "name": "quest-can-skip:quest-shelter",
+      "passed": true
+    },
+    {
+      "name": "ru-180-300-words:khan-shatyr",
+      "passed": true
+    },
+    {
+      "name": "fact-paragraphs-have-refs:khan-shatyr",
+      "passed": true
+    },
+    {
+      "name": "base-variant-excludes-extension",
+      "passed": true
+    },
+    {
+      "name": "base-content-allowance-18-minutes",
+      "passed": true
+    },
+    {
+      "name": "core-audio-explicitly-unavailable",
+      "passed": true
+    }
+  ],
+  "limitations": [
+    "Primary-source body passages reviewed separately; this is not automated factual validation.",
+    "Human KK/EN review pending.",
+    "Route and device integration not checked.",
+    "Audio unavailable."
+  ]
+}

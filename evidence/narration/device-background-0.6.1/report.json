@@ -1,0 +1,6018 @@
+[
+  {
+    "step": 1,
+    "action": "launch",
+    "package": "kz.astanaai.diagnostics",
+    "visible_labels": [
+      {
+        "depth": 7,
+        "text": "",
+        "description": "Отображает карту, созданную при помощи MapLibre. Пролистывайте двумя пальцами. Меняйте масштаб сведением пальцев.",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Значок атрибутов. Активируйте, чтобы показать диалог.",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "Открой Астану",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "Места, ради которых стоит выйти",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "",
+        "description": "О городе ↗",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "О городе ↗",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "Все",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "Все",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "История",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "История",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "Архитектура",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "Архитектура",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "У реки",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "У реки",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "",
+        "description": "Погода и события: Сейчас в Астане: 3 °C · холодно",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "Сейчас в Астане: 3 °C · холодно",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "⌄",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "",
+        "description": "⌖ Все места",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "⌖ Все места",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "",
+        "description": "Weather data by Open-Meteo · CC BY 4.0 ↗",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "Weather data by Open-Meteo · CC BY 4.0 ↗",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "",
+        "description": "Схема",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "Схема",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "",
+        "description": "RU",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "RU",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "",
+        "description": "KK",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "KK",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "",
+        "description": "EN",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "EN",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "С чего начнём?",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "05",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 11,
+        "text": "",
+        "description": "Музей Сакена Сейфуллина. Деревянный дом старой Акмолы. Короткий осмотр снаружи. Вход внутрь и тёплое укрытие не подтверждены. В здании есть помещения, но воз...",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 12,
+        "text": "",
+        "description": "Деревянный фасад музея Сакена Сейфуллина",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 12,
+        "text": "Музей Сакена Сейфуллина",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 12,
+        "text": "↗",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 12,
+        "text": "Деревянный дом старой Акмолы",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 12,
+        "text": "Короткий осмотр снаружи. Вход внутрь и тёплое укрытие не подтверждены. В здании есть помещения, но возможность зайти и часы работы нужно проверить. Календарн...",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 11,
+        "text": "",
+        "description": "Театр имени Горького. Театр в старом центре. Короткий осмотр снаружи. Вход внутрь и тёплое укрытие не подтверждены. В здании есть помещения, но возможность з...",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 12,
+        "text": "",
+        "description": "Голубой фасад театра имени Горького",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 12,
+        "text": "Театр имени Горького",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 12,
+        "text": "Театр в старом центре",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 12,
+        "text": "Короткий осмотр снаружи. Вход внутрь и тёплое укрытие не подтверждены. В здании есть помещения, но возможность зайти и часы работы нужно проверить. Календарн...",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "",
+        "description": "Сразу к местам →",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "Сразу к местам →",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      }
+    ],
+    "visited_nodes": 129,
+    "screen_policy": "PUBLIC_DISCOVERY_COMPOSITE",
+    "screenshot": "\/storage\/emulated\/0\/Android\/data\/kz.astanaai.diagnostics\/files\/android-ui-tests\/run-1792518514608-17401\/01-launch.png"
+  },
+  {
+    "step": 2,
+    "action": "discovery_architecture",
+    "package": "kz.astanaai.diagnostics",
+    "visible_labels": [
+      {
+        "depth": 6,
+        "text": "",
+        "description": "Отображает карту, созданную при помощи MapLibre. Пролистывайте двумя пальцами. Меняйте масштаб сведением пальцев.",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "",
+        "description": "Значок атрибутов. Активируйте, чтобы показать диалог.",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 6,
+        "text": "Открой Астану",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 6,
+        "text": "Места, ради которых стоит выйти",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 6,
+        "text": "",
+        "description": "О городе ↗",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "О городе ↗",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Все",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Все",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "История",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "История",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Архитектура",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Архитектура",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "У реки",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "У реки",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 6,
+        "text": "",
+        "description": "Погода и события: Сейчас в Астане: 3 °C · холодно",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "Сейчас в Астане: 3 °C · холодно",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "⌄",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 6,
+        "text": "",
+        "description": "⌖ Все места",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "⌖ Все места",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 6,
+        "text": "",
+        "description": "Weather data by Open-Meteo · CC BY 4.0 ↗",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "Weather data by Open-Meteo · CC BY 4.0 ↗",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 6,
+        "text": "",
+        "description": "Схема",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "Схема",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 6,
+        "text": "",
+        "description": "RU",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "RU",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 6,
+        "text": "",
+        "description": "KK",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "KK",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 6,
+        "text": "",
+        "description": "EN",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "EN",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "С чего начнём?",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "02",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "",
+        "description": "Байтерек. Золотой шар над Нуржолом. Короткий осмотр снаружи. Вход внутрь и тёплое укрытие не подтверждены.",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 11,
+        "text": "",
+        "description": "Верхняя часть Байтерека и золотой шар",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 11,
+        "text": "Байтерек",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 11,
+        "text": "↗",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 11,
+        "text": "Золотой шар над Нуржолом",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 11,
+        "text": "Короткий осмотр снаружи. Вход внутрь и тёплое укрытие не подтверждены.",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "",
+        "description": "Хан Шатыр. Шатёр, который стал зданием. Короткий осмотр снаружи. Вход внутрь и тёплое укрытие не подтверждены. В здании есть помещения, но возможность зайти ...",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 11,
+        "text": "",
+        "description": "Шатровый силуэт Хан Шатыра",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 11,
+        "text": "Хан Шатыр",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 11,
+        "text": "Шатёр, который стал зданием",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 11,
+        "text": "Короткий осмотр снаружи. Вход внутрь и тёплое укрытие не подтверждены. В здании есть помещения, но возможность зайти и часы работы нужно проверить.",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      }
+    ],
+    "visited_nodes": 86,
+    "screen_policy": "PUBLIC_DISCOVERY_COMPOSITE",
+    "screenshot": "\/storage\/emulated\/0\/Android\/data\/kz.astanaai.diagnostics\/files\/android-ui-tests\/run-1792518514608-17401\/02-discovery_architecture.png"
+  },
+  {
+    "step": 3,
+    "action": "place_bayterek",
+    "package": "kz.astanaai.diagnostics",
+    "visible_labels": [
+      {
+        "depth": 7,
+        "text": "",
+        "description": "Отображает карту, созданную при помощи MapLibre. Пролистывайте двумя пальцами. Меняйте масштаб сведением пальцев.",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Значок атрибутов. Активируйте, чтобы показать диалог.",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "Открой Астану",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "Места, ради которых стоит выйти",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "",
+        "description": "О городе ↗",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "О городе ↗",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "Все",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "Все",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "История",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "История",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "Архитектура",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "Архитектура",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "У реки",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "У реки",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "",
+        "description": "Погода и события: Сейчас в Астане: 3 °C · холодно",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "Сейчас в Астане: 3 °C · холодно",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "⌄",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "",
+        "description": "⌖ Все места",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "⌖ Все места",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "",
+        "description": "Weather data by Open-Meteo · CC BY 4.0 ↗",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "Weather data by Open-Meteo · CC BY 4.0 ↗",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "",
+        "description": "Схема",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "Схема",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "",
+        "description": "Прогулка с историями",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "Прогулка с историями",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "→",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "",
+        "description": "RU",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "RU",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "",
+        "description": "KK",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "KK",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "",
+        "description": "EN",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "EN",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "С чего начнём?",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "02",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 11,
+        "text": "",
+        "description": "Байтерек. Золотой шар над Нуржолом. Короткий осмотр снаружи. Вход внутрь и тёплое укрытие не подтверждены.",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 12,
+        "text": "",
+        "description": "Верхняя часть Байтерека и золотой шар",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 12,
+        "text": "Байтерек",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 12,
+        "text": "↗",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 12,
+        "text": "Золотой шар над Нуржолом",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 12,
+        "text": "Короткий осмотр снаружи. Вход внутрь и тёплое укрытие не подтверждены.",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 11,
+        "text": "",
+        "description": "Хан Шатыр. Шатёр, который стал зданием. Короткий осмотр снаружи. Вход внутрь и тёплое укрытие не подтверждены. В здании есть помещения, но возможность зайти ...",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 12,
+        "text": "",
+        "description": "Шатровый силуэт Хан Шатыра",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 12,
+        "text": "Хан Шатыр",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 12,
+        "text": "Шатёр, который стал зданием",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 12,
+        "text": "Короткий осмотр снаружи. Вход внутрь и тёплое укрытие не подтверждены. В здании есть помещения, но возможность зайти и часы работы нужно проверить.",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Верхняя часть Байтерека и золотой шар",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Назад к местам",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "←",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "Архитектура",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "Байтерек",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "Золотой шар над Нуржолом",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "Почему стоит увидеть",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "Монумент связан с образом Древа жизни. Рассмотрите снаружи его «ветви» и золотой шар — знакомство можно начать без подъёма на смотровую площадку.",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "Почему сейчас",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "Короткий осмотр снаружи. Вход внутрь и тёплое укрытие не подтверждены.",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 6,
+        "text": "Три остановки у Байтерека с записанными историями. Маршрут возвращается к старту; дорога до старта не включена.",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 6,
+        "text": "",
+        "description": "⌖ Посмотреть на карте",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "⌖ Посмотреть на карте",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 6,
+        "text": "",
+        "description": "Прогулка с историями →",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "Прогулка с историями →",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      }
+    ],
+    "visited_nodes": 129,
+    "screen_policy": "PUBLIC_DISCOVERY_COMPOSITE",
+    "screenshot": "\/storage\/emulated\/0\/Android\/data\/kz.astanaai.diagnostics\/files\/android-ui-tests\/run-1792518514608-17401\/03-place_bayterek.png"
+  },
+  {
+    "step": 4,
+    "action": "guided_walk",
+    "package": "kz.astanaai.diagnostics",
+    "visible_labels": [
+      {
+        "depth": 6,
+        "text": "AstanaAI",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 6,
+        "text": "Готовим вашу прогулку…",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 6,
+        "text": "",
+        "description": "К сохранённой прогулке",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "К сохранённой прогулке",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      }
+    ],
+    "visited_nodes": 14,
+    "screen_policy": "NOT_PROVEN",
+    "capture_skipped": "SAFE_SCREEN_NOT_PROVEN"
+  },
+  {
+    "step": 5,
+    "action": "expand_card",
+    "package": "kz.astanaai.diagnostics",
+    "visible_labels": [
+      {
+        "depth": 7,
+        "text": "",
+        "description": "МАРШРУТ ПРОГУЛКИ",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "",
+        "description": "Отображает карту, созданную при помощи MapLibre. Пролистывайте двумя пальцами. Меняйте масштаб сведением пальцев.",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Значок атрибутов. Активируйте, чтобы показать диалог.",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "Свернуть к карте",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "⌄",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "ПРОГУЛКА НА ПАУЗЕ",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "Город между небом и землёй",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "63 мин",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "·",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "2,2 км",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "·",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "1\/3 историй прочитано",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "ПРОГУЛКА НА ПАУЗЕ",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "Город между небом и землёй",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "Слушайте истории и сохраняйте прочитанные главы",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "ВАШ ПРОГРЕСС",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "1 \/ 3",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 12,
+        "text": "",
+        "description": "01, Байтерек",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 13,
+        "text": "01",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 13,
+        "text": "Байтерек",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 12,
+        "text": "",
+        "description": "02, Бульвар Нуржол",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 13,
+        "text": "02",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 13,
+        "text": "Бульвар Нуржол",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 12,
+        "text": "",
+        "description": "03, Круглая площадь",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 13,
+        "text": "03",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 13,
+        "text": "Круглая площадь",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "Прогулка приостановлена.",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "",
+        "description": "Продолжить",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 11,
+        "text": "Продолжить",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "",
+        "description": "Завершить досрочно",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 11,
+        "text": "Завершить досрочно",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "",
+        "description": "Открыть точку старта в картах",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "⌕",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "[INPUT_VALUE_OMITTED]",
+        "description": "",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "RU",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "RU",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "KK",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "KK",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "EN",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "EN",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "astana.",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "ВАША ПРОГУЛКА",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "О городе ↗",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "О городе ↗",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "← К местам",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "← К местам",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Историю прочитал · дальше →",
+        "clickable": true,
+        "enabled": false,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Историю прочитал · дальше →",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Продолжить",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Продолжить",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Остановить и сохранить",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Остановить и сохранить",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "⌁, Карта",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "⌁",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Карта",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "↗, К местам",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "↗",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "К местам",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      }
+    ],
+    "visited_nodes": 127,
+    "screen_policy": "NOT_PROVEN",
+    "capture_skipped": "SAFE_SCREEN_NOT_PROVEN"
+  },
+  {
+    "step": 6,
+    "action": "resume_walk_footer",
+    "package": "kz.astanaai.diagnostics",
+    "visible_labels": [
+      {
+        "depth": 7,
+        "text": "",
+        "description": "МАРШРУТ ПРОГУЛКИ",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "",
+        "description": "Отображает карту, созданную при помощи MapLibre. Пролистывайте двумя пальцами. Меняйте масштаб сведением пальцев.",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Значок атрибутов. Активируйте, чтобы показать диалог.",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "Свернуть к карте",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "⌄",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "Сейчас · Бульвар Нуржол",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "Город между небом и землёй",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "63 мин",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "·",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "2,2 км",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "·",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "1\/3 историй прочитано",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "ПРОГУЛКА НАЧАЛАСЬ",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "Город между небом и землёй",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "Слушайте истории и сохраняйте прочитанные главы",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "ВАШ ПРОГРЕСС",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "1 \/ 3",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 12,
+        "text": "",
+        "description": "01, Байтерек",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 13,
+        "text": "01",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 13,
+        "text": "Байтерек",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 12,
+        "text": "",
+        "description": "02, Бульвар Нуржол",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 13,
+        "text": "02",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 13,
+        "text": "Бульвар Нуржол",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 12,
+        "text": "",
+        "description": "03, Круглая площадь",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 13,
+        "text": "03",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 13,
+        "text": "Круглая площадь",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "",
+        "description": "Завершить досрочно",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 11,
+        "text": "Завершить досрочно",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "⌕",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "[INPUT_VALUE_OMITTED]",
+        "description": "",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "RU",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "RU",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "KK",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "KK",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "EN",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "EN",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "astana.",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "ВАША ПРОГУЛКА",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "О городе ↗",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "О городе ↗",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "← К местам",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "← К местам",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Историю прочитал · дальше →",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Историю прочитал · дальше →",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Пауза",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Пауза",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Остановить и сохранить",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Остановить и сохранить",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "⌁, Карта",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "⌁",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Карта",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "↗, К местам",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "↗",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "К местам",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      }
+    ],
+    "visited_nodes": 123,
+    "screen_policy": "NOT_PROVEN",
+    "capture_skipped": "SAFE_SCREEN_NOT_PROVEN"
+  },
+  {
+    "step": 7,
+    "action": "scroll_top",
+    "package": "kz.astanaai.diagnostics",
+    "visible_labels": [
+      {
+        "depth": 7,
+        "text": "",
+        "description": "МАРШРУТ ПРОГУЛКИ",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "",
+        "description": "Отображает карту, созданную при помощи MapLibre. Пролистывайте двумя пальцами. Меняйте масштаб сведением пальцев.",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Значок атрибутов. Активируйте, чтобы показать диалог.",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "Свернуть к карте",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "⌄",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "Сейчас · Бульвар Нуржол",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "Город между небом и землёй",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "63 мин",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "·",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "2,2 км",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "·",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "1\/3 историй прочитано",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "ПРОГУЛКА НАЧАЛАСЬ",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "Город между небом и землёй",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "Слушайте истории и сохраняйте прочитанные главы",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "ВАШ ПРОГРЕСС",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "1 \/ 3",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 12,
+        "text": "",
+        "description": "01, Байтерек",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 13,
+        "text": "01",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 13,
+        "text": "Байтерек",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 12,
+        "text": "",
+        "description": "02, Бульвар Нуржол",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 13,
+        "text": "02",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 13,
+        "text": "Бульвар Нуржол",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 12,
+        "text": "",
+        "description": "03, Круглая площадь",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 13,
+        "text": "03",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 13,
+        "text": "Круглая площадь",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "",
+        "description": "Завершить досрочно",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 11,
+        "text": "Завершить досрочно",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "⌕",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "[INPUT_VALUE_OMITTED]",
+        "description": "",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "RU",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "RU",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "KK",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "KK",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "EN",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "EN",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "astana.",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "ВАША ПРОГУЛКА",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "О городе ↗",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "О городе ↗",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "← К местам",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "← К местам",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Историю прочитал · дальше →",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Историю прочитал · дальше →",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Пауза",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Пауза",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Остановить и сохранить",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Остановить и сохранить",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "⌁, Карта",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "⌁",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Карта",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "↗, К местам",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "↗",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "К местам",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      }
+    ],
+    "visited_nodes": 123,
+    "screen_policy": "NOT_PROVEN",
+    "capture_skipped": "SAFE_SCREEN_NOT_PROVEN"
+  },
+  {
+    "step": 8,
+    "action": "listen_chapter",
+    "package": "kz.astanaai.diagnostics",
+    "visible_labels": [
+      {
+        "depth": 7,
+        "text": "",
+        "description": "МАРШРУТ ПРОГУЛКИ",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "",
+        "description": "Отображает карту, созданную при помощи MapLibre. Пролистывайте двумя пальцами. Меняйте масштаб сведением пальцев.",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Значок атрибутов. Активируйте, чтобы показать диалог.",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "Свернуть к карте",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "⌄",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "Сейчас · Бульвар Нуржол",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "Город между небом и землёй",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "63 мин",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "·",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "2,2 км",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "·",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "1\/3 историй прочитано",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "",
+        "description": "Завершить досрочно",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 11,
+        "text": "Завершить досрочно",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "",
+        "description": "Открыть точку старта в картах",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 11,
+        "text": "Открыть точку старта в картах",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "ГЛАВА 02 · 6 мин",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "Линия, которая собирает город",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "Бульвар Нуржол",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "",
+        "description": "Ⅱ Приостановить звук",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 11,
+        "text": "Ⅱ Приостановить звук",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "⌕",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "[INPUT_VALUE_OMITTED]",
+        "description": "",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "RU",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "RU",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "KK",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "KK",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "EN",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "EN",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "astana.",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "ВАША ПРОГУЛКА",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "О городе ↗",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "О городе ↗",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "← К местам",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "← К местам",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Историю прочитал · дальше →",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Историю прочитал · дальше →",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Пауза",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Пауза",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Остановить и сохранить",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Остановить и сохранить",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "⌁, Карта",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "⌁",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Карта",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "↗, К местам",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "↗",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "К местам",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      }
+    ],
+    "visited_nodes": 123,
+    "screen_policy": "NOT_PROVEN",
+    "capture_skipped": "SAFE_SCREEN_NOT_PROVEN"
+  },
+  {
+    "step": 9,
+    "action": "wait_audio",
+    "package": "kz.astanaai.diagnostics",
+    "visible_labels": [
+      {
+        "depth": 7,
+        "text": "",
+        "description": "МАРШРУТ ПРОГУЛКИ",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "",
+        "description": "Отображает карту, созданную при помощи MapLibre. Пролистывайте двумя пальцами. Меняйте масштаб сведением пальцев.",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Значок атрибутов. Активируйте, чтобы показать диалог.",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "Свернуть к карте",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "⌄",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "Сейчас · Бульвар Нуржол",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "Город между небом и землёй",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "63 мин",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "·",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "2,2 км",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "·",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "1\/3 историй прочитано",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "",
+        "description": "Завершить досрочно",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 11,
+        "text": "Завершить досрочно",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "",
+        "description": "Открыть точку старта в картах",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 11,
+        "text": "Открыть точку старта в картах",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "ГЛАВА 02 · 6 мин",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "Линия, которая собирает город",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "Бульвар Нуржол",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "",
+        "description": "Ⅱ Приостановить звук",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 11,
+        "text": "Ⅱ Приостановить звук",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "⌕",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "[INPUT_VALUE_OMITTED]",
+        "description": "",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "RU",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "RU",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "KK",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "KK",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "EN",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "EN",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "astana.",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "ВАША ПРОГУЛКА",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "О городе ↗",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "О городе ↗",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "← К местам",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "← К местам",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Историю прочитал · дальше →",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Историю прочитал · дальше →",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Пауза",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Пауза",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Остановить и сохранить",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Остановить и сохранить",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "⌁, Карта",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "⌁",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Карта",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "↗, К местам",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "↗",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "К местам",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      }
+    ],
+    "visited_nodes": 123,
+    "screen_policy": "NOT_PROVEN",
+    "capture_skipped": "SAFE_SCREEN_NOT_PROVEN"
+  },
+  {
+    "step": 10,
+    "action": "background_audio_20s",
+    "package": "kz.astanaai.diagnostics",
+    "visible_labels": [
+      {
+        "depth": 7,
+        "text": "",
+        "description": "МАРШРУТ ПРОГУЛКИ",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "",
+        "description": "Отображает карту, созданную при помощи MapLibre. Пролистывайте двумя пальцами. Меняйте масштаб сведением пальцев.",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Значок атрибутов. Активируйте, чтобы показать диалог.",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "Свернуть к карте",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "⌄",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "Сейчас · Бульвар Нуржол",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "Город между небом и землёй",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "63 мин",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "·",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "2,2 км",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "·",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "1\/3 историй прочитано",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "",
+        "description": "Завершить досрочно",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 11,
+        "text": "Завершить досрочно",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "",
+        "description": "Открыть точку старта в картах",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 11,
+        "text": "Открыть точку старта в картах",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "ГЛАВА 02 · 6 мин",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "Линия, которая собирает город",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "Бульвар Нуржол",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "",
+        "description": "Ⅱ Приостановить звук",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 11,
+        "text": "Ⅱ Приостановить звук",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "⌕",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "[INPUT_VALUE_OMITTED]",
+        "description": "",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "RU",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "RU",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "KK",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "KK",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "EN",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "EN",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "astana.",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "ВАША ПРОГУЛКА",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "О городе ↗",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "О городе ↗",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "← К местам",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "← К местам",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Историю прочитал · дальше →",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Историю прочитал · дальше →",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Пауза",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Пауза",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Остановить и сохранить",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Остановить и сохранить",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "⌁, Карта",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "⌁",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Карта",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "↗, К местам",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "↗",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "К местам",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      }
+    ],
+    "visited_nodes": 123,
+    "screen_policy": "NOT_PROVEN",
+    "capture_skipped": "SAFE_SCREEN_NOT_PROVEN"
+  },
+  {
+    "step": 11,
+    "action": "inspect",
+    "package": "kz.astanaai.diagnostics",
+    "visible_labels": [
+      {
+        "depth": 7,
+        "text": "",
+        "description": "МАРШРУТ ПРОГУЛКИ",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "",
+        "description": "Отображает карту, созданную при помощи MapLibre. Пролистывайте двумя пальцами. Меняйте масштаб сведением пальцев.",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Значок атрибутов. Активируйте, чтобы показать диалог.",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "Свернуть к карте",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "⌄",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "Сейчас · Бульвар Нуржол",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "Город между небом и землёй",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "63 мин",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "·",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "2,2 км",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "·",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "1\/3 историй прочитано",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "",
+        "description": "Завершить досрочно",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 11,
+        "text": "Завершить досрочно",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "",
+        "description": "Открыть точку старта в картах",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 11,
+        "text": "Открыть точку старта в картах",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "ГЛАВА 02 · 6 мин",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "Линия, которая собирает город",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "Бульвар Нуржол",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "",
+        "description": "Ⅱ Приостановить звук",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 11,
+        "text": "Ⅱ Приостановить звук",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "⌕",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "[INPUT_VALUE_OMITTED]",
+        "description": "",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "RU",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "RU",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "KK",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "KK",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "EN",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "EN",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "astana.",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "ВАША ПРОГУЛКА",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "О городе ↗",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "О городе ↗",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "← К местам",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "← К местам",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Историю прочитал · дальше →",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Историю прочитал · дальше →",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Пауза",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Пауза",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Остановить и сохранить",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Остановить и сохранить",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "⌁, Карта",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "⌁",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Карта",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "↗, К местам",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "↗",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "К местам",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      }
+    ],
+    "visited_nodes": 123,
+    "screen_policy": "NOT_PROVEN",
+    "capture_skipped": "SAFE_SCREEN_NOT_PROVEN"
+  },
+  {
+    "step": 12,
+    "action": "pause_audio",
+    "package": "kz.astanaai.diagnostics",
+    "visible_labels": [
+      {
+        "depth": 7,
+        "text": "",
+        "description": "МАРШРУТ ПРОГУЛКИ",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "",
+        "description": "Отображает карту, созданную при помощи MapLibre. Пролистывайте двумя пальцами. Меняйте масштаб сведением пальцев.",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Значок атрибутов. Активируйте, чтобы показать диалог.",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "Свернуть к карте",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "⌄",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "Сейчас · Бульвар Нуржол",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "Город между небом и землёй",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "63 мин",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "·",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "2,2 км",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "·",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "1\/3 историй прочитано",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "",
+        "description": "Завершить досрочно",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 11,
+        "text": "Завершить досрочно",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "",
+        "description": "Открыть точку старта в картах",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 11,
+        "text": "Открыть точку старта в картах",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "ГЛАВА 02 · 6 мин",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "Линия, которая собирает город",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "Бульвар Нуржол",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "",
+        "description": "Ⅱ Приостановить звук",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 11,
+        "text": "▷ Послушать главу",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "⌕",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "[INPUT_VALUE_OMITTED]",
+        "description": "",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "RU",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "RU",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "KK",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "KK",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "EN",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "EN",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "astana.",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "ВАША ПРОГУЛКА",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "О городе ↗",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "О городе ↗",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "← К местам",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "← К местам",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Историю прочитал · дальше →",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Историю прочитал · дальше →",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Пауза",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Пауза",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Остановить и сохранить",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Остановить и сохранить",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "⌁, Карта",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "⌁",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Карта",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "↗, К местам",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "↗",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "К местам",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      }
+    ],
+    "visited_nodes": 123,
+    "screen_policy": "NOT_PROVEN",
+    "capture_skipped": "SAFE_SCREEN_NOT_PROVEN"
+  },
+  {
+    "step": 13,
+    "action": "stop_audio",
+    "package": "kz.astanaai.diagnostics",
+    "visible_labels": [
+      {
+        "depth": 7,
+        "text": "",
+        "description": "МАРШРУТ ПРОГУЛКИ",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "",
+        "description": "Отображает карту, созданную при помощи MapLibre. Пролистывайте двумя пальцами. Меняйте масштаб сведением пальцев.",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Значок атрибутов. Активируйте, чтобы показать диалог.",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "Свернуть к карте",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "⌄",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "Сейчас · Бульвар Нуржол",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "Город между небом и землёй",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "63 мин",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "·",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "2,2 км",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "·",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "1\/3 историй прочитано",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "",
+        "description": "▷ Послушать главу",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "",
+        "description": "■ Остановить звук",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 11,
+        "text": "■ Остановить звук",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "Записанная озвучка · работает без сети",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "Приглядитесь На этой остановке главным героем будет промежуток. Выберите спокойное место на доступной пешеходной дорожке и посмотрите вдаль. Попробуйте на не...",
+        "description": "",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "⌕",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "[INPUT_VALUE_OMITTED]",
+        "description": "",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "RU",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "RU",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "KK",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "KK",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "EN",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "EN",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "astana.",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "ВАША ПРОГУЛКА",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "О городе ↗",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "О городе ↗",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "← К местам",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "← К местам",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Историю прочитал · дальше →",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Историю прочитал · дальше →",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Пауза",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Пауза",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Остановить и сохранить",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Остановить и сохранить",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "⌁, Карта",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "⌁",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Карта",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "↗, К местам",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "↗",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "К местам",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      }
+    ],
+    "visited_nodes": 123,
+    "screen_policy": "NOT_PROVEN",
+    "capture_skipped": "SAFE_SCREEN_NOT_PROVEN"
+  },
+  {
+    "step": 14,
+    "action": "stop_walk",
+    "package": "kz.astanaai.diagnostics",
+    "visible_labels": [
+      {
+        "depth": 7,
+        "text": "",
+        "description": "МАРШРУТ ПРОГУЛКИ",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "",
+        "description": "Отображает карту, созданную при помощи MapLibre. Пролистывайте двумя пальцами. Меняйте масштаб сведением пальцев.",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Значок атрибутов. Активируйте, чтобы показать диалог.",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "Свернуть к карте",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "⌄",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "ПРОГУЛКА НА ПАУЗЕ",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "Город между небом и землёй",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "63 мин",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "·",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "2,2 км",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "·",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "1\/3 историй прочитано",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "Линия, которая собирает город",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "Бульвар Нуржол",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "",
+        "description": "▷ Послушать главу",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 11,
+        "text": "▷ Послушать главу",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "",
+        "description": "■ Остановить звук",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 11,
+        "text": "■ Остановить звук",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "Записанная озвучка · работает без сети",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "Приглядитесь На этой остановке главным героем будет промежуток. Выберите спокойное место на доступной пешеходной дорожке и посмотрите вдаль. Попробуйте на не...",
+        "description": "",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "⌕",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "[INPUT_VALUE_OMITTED]",
+        "description": "",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "RU",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "RU",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "KK",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "KK",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "EN",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "EN",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "astana.",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "ВАША ПРОГУЛКА",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "О городе ↗",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "О городе ↗",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "← К местам",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "← К местам",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Историю прочитал · дальше →",
+        "clickable": true,
+        "enabled": false,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Историю прочитал · дальше →",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Продолжить",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Продолжить",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Остановить и сохранить",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Остановить и сохранить",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "⌁, Карта",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "⌁",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Карта",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "↗, К местам",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "↗",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "К местам",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      }
+    ],
+    "visited_nodes": 127,
+    "screen_policy": "NOT_PROVEN",
+    "capture_skipped": "SAFE_SCREEN_NOT_PROVEN"
+  },
+  {
+    "step": 15,
+    "action": "wait_audio",
+    "package": "kz.astanaai.diagnostics",
+    "visible_labels": [
+      {
+        "depth": 7,
+        "text": "",
+        "description": "МАРШРУТ ПРОГУЛКИ",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "",
+        "description": "Отображает карту, созданную при помощи MapLibre. Пролистывайте двумя пальцами. Меняйте масштаб сведением пальцев.",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Значок атрибутов. Активируйте, чтобы показать диалог.",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "Свернуть к карте",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "⌄",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "ПРОГУЛКА НА ПАУЗЕ",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "Город между небом и землёй",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "63 мин",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "·",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "2,2 км",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "·",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "1\/3 историй прочитано",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "Линия, которая собирает город",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "Бульвар Нуржол",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "",
+        "description": "▷ Послушать главу",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 11,
+        "text": "▷ Послушать главу",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "",
+        "description": "■ Остановить звук",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 11,
+        "text": "■ Остановить звук",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "Записанная озвучка · работает без сети",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "Приглядитесь На этой остановке главным героем будет промежуток. Выберите спокойное место на доступной пешеходной дорожке и посмотрите вдаль. Попробуйте на не...",
+        "description": "",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "⌕",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "[INPUT_VALUE_OMITTED]",
+        "description": "",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "RU",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "RU",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "KK",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "KK",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "EN",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "EN",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "astana.",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "ВАША ПРОГУЛКА",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "О городе ↗",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "О городе ↗",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "← К местам",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "← К местам",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Историю прочитал · дальше →",
+        "clickable": true,
+        "enabled": false,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Историю прочитал · дальше →",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Продолжить",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Продолжить",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Остановить и сохранить",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Остановить и сохранить",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "⌁, Карта",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "⌁",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Карта",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "↗, К местам",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "↗",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "К местам",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      }
+    ],
+    "visited_nodes": 127,
+    "screen_policy": "NOT_PROVEN",
+    "capture_skipped": "SAFE_SCREEN_NOT_PROVEN"
+  },
+  {
+    "step": 16,
+    "action": "inspect",
+    "package": "kz.astanaai.diagnostics",
+    "visible_labels": [
+      {
+        "depth": 7,
+        "text": "",
+        "description": "МАРШРУТ ПРОГУЛКИ",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 7,
+        "text": "",
+        "description": "Отображает карту, созданную при помощи MapLibre. Пролистывайте двумя пальцами. Меняйте масштаб сведением пальцев.",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Значок атрибутов. Активируйте, чтобы показать диалог.",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "Свернуть к карте",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "⌄",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "ПРОГУЛКА НА ПАУЗЕ",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "Город между небом и землёй",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "63 мин",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "·",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "2,2 км",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "·",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "1\/3 историй прочитано",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "Линия, которая собирает город",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "Бульвар Нуржол",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "",
+        "description": "▷ Послушать главу",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 11,
+        "text": "▷ Послушать главу",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "",
+        "description": "■ Остановить звук",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 11,
+        "text": "■ Остановить звук",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "Записанная озвучка · работает без сети",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "Приглядитесь На этой остановке главным героем будет промежуток. Выберите спокойное место на доступной пешеходной дорожке и посмотрите вдаль. Попробуйте на не...",
+        "description": "",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "⌕",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "[INPUT_VALUE_OMITTED]",
+        "description": "",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "RU",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "RU",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "KK",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "KK",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "",
+        "description": "EN",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 10,
+        "text": "EN",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "astana.",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "ВАША ПРОГУЛКА",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "О городе ↗",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "О городе ↗",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "← К местам",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "← К местам",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Историю прочитал · дальше →",
+        "clickable": true,
+        "enabled": false,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Историю прочитал · дальше →",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Продолжить",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Продолжить",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "Остановить и сохранить",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Остановить и сохранить",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "⌁, Карта",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "⌁",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "Карта",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 8,
+        "text": "",
+        "description": "↗, К местам",
+        "clickable": true,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "↗",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      },
+      {
+        "depth": 9,
+        "text": "К местам",
+        "description": "",
+        "clickable": false,
+        "enabled": true,
+        "scrollable": false
+      }
+    ],
+    "visited_nodes": 127,
+    "screen_policy": "NOT_PROVEN",
+    "capture_skipped": "SAFE_SCREEN_NOT_PROVEN"
+  }
+]

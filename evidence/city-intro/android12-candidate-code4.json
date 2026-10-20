@@ -1,0 +1,14 @@
+{
+  "version": "0.3.0",
+  "versionCode": 4,
+  "installResult": "Success",
+  "ownAppFocused": true,
+  "ownServiceAbsent": true,
+  "adbTap": "Rejected: INJECT_EVENTS",
+  "screenshots": {
+    "android12-welcome.png": "Actually bootstrap/loading; filename is historical, not welcome proof",
+    "android12-river.png": "Actual welcome-to-map transition, not steady state",
+    "android12-river-steady-initial.png": "Actually KK/selected Almaty, actor unspecified; confirms render and CTA overlap, not controlled tap test"
+  },
+  "finalUiAccepted": false
+}

@@ -1,0 +1,915 @@
+{
+  "schemaVersion": 1,
+  "kind": "walk_bundle",
+  "bundleId": "fixture-bundle",
+  "revision": 1,
+  "generatedAt": "2026-10-20T10:00:00.000Z",
+  "contentRevision": "synthetic-1",
+  "evidenceRevision": "synthetic-1",
+  "plannerVersion": "contract-fixture-1",
+  "evidenceMode": "test_fixture",
+  "timeZone": "Asia/Almaty",
+  "request": {
+    "requestId": "fixture-request",
+    "locale": "ru",
+    "origin": {
+      "kind": "public_anchor",
+      "anchorId": "a",
+      "explicitlyChosen": true
+    },
+    "startAt": "2026-10-20T10:00:00.000Z",
+    "budgetMinutes": 30,
+    "endRule": {
+      "kind": "return_to_start"
+    },
+    "interests": [
+      "architecture"
+    ],
+    "constraints": [],
+    "contextFlags": []
+  },
+  "originalOrigin": {
+    "requested": {
+      "kind": "public_anchor",
+      "anchorId": "a",
+      "explicitlyChosen": true
+    },
+    "coordinate": [
+      0,
+      0
+    ],
+    "graphPoint": {
+      "id": "a",
+      "coordinate": [
+        0,
+        0
+      ]
+    },
+    "snapDistanceM": 0,
+    "connector": {
+      "kind": "exact"
+    }
+  },
+  "continuation": {
+    "origin": {
+      "requested": {
+        "kind": "public_anchor",
+        "anchorId": "a",
+        "explicitlyChosen": true
+      },
+      "coordinate": [
+        0,
+        0
+      ],
+      "graphPoint": {
+        "id": "a",
+        "coordinate": [
+          0,
+          0
+        ]
+      },
+      "snapDistanceM": 0,
+      "connector": {
+        "kind": "exact"
+      }
+    },
+    "startAt": "2026-10-20T10:00:00.000Z",
+    "budgetMinutes": 30,
+    "constraints": [],
+    "timeTerms": {
+      "kind": "current_deadline",
+      "deadlineAt": "2026-10-20T10:30:00.000Z"
+    }
+  },
+  "resolvedEnd": {
+    "endpoint": {
+      "requested": {
+        "kind": "public_anchor",
+        "anchorId": "a",
+        "explicitlyChosen": true
+      },
+      "coordinate": [
+        0,
+        0
+      ],
+      "graphPoint": {
+        "id": "a",
+        "coordinate": [
+          0,
+          0
+        ]
+      },
+      "snapDistanceM": 0,
+      "connector": {
+        "kind": "exact"
+      }
+    }
+  },
+  "theme": {
+    "id": "fixture-theme",
+    "title": {
+      "ru": "Intentionally modified after sealing",
+      "kk": "Synthetic contract walk",
+      "en": "Synthetic contract walk"
+    },
+    "explanation": {
+      "text": {
+        "ru": "Test-only explanation",
+        "kk": "Test-only explanation",
+        "en": "Test-only explanation"
+      },
+      "factRefs": [
+        "fixture-fact"
+      ]
+    }
+  },
+  "stops": [
+    {
+      "id": "stop-0",
+      "poiId": "fixture:place:0",
+      "title": {
+        "ru": "Synthetic stop 0",
+        "kk": "Synthetic stop 0",
+        "en": "Synthetic stop 0"
+      },
+      "anchor": {
+        "id": "a",
+        "coordinate": [
+          0,
+          0
+        ],
+        "graphNodeId": "a",
+        "sourceIds": [
+          "fixture-source"
+        ],
+        "checkedAt": "2026-10-20T10:00:00.000Z",
+        "fieldVerified": false
+      },
+      "arrivalAt": "2026-10-20T10:00:00.000Z",
+      "departureAt": "2026-10-20T10:04:00.000Z",
+      "visitMinutes": 4,
+      "intent": "outdoor_observation",
+      "access": {
+        "state": "unknown",
+        "reason": "Synthetic fixture, not field data",
+        "sourceIds": []
+      },
+      "opening": {
+        "state": "unknown",
+        "reason": "No actual schedule",
+        "sourceIds": []
+      },
+      "services": {
+        "coffee": {
+          "state": "unknown",
+          "reason": "No actual service",
+          "sourceIds": []
+        }
+      },
+      "factRefs": [
+        "fixture-fact"
+      ],
+      "chapterId": "chapter-0",
+      "questId": "quest-0",
+      "collectionId": "fixture-collection"
+    },
+    {
+      "id": "stop-1",
+      "poiId": "fixture:place:1",
+      "title": {
+        "ru": "Synthetic stop 1",
+        "kk": "Synthetic stop 1",
+        "en": "Synthetic stop 1"
+      },
+      "anchor": {
+        "id": "b",
+        "coordinate": [
+          0.001,
+          0
+        ],
+        "graphNodeId": "b",
+        "sourceIds": [
+          "fixture-source"
+        ],
+        "checkedAt": "2026-10-20T10:00:00.000Z",
+        "fieldVerified": false
+      },
+      "arrivalAt": "2026-10-20T10:06:00.000Z",
+      "departureAt": "2026-10-20T10:10:00.000Z",
+      "visitMinutes": 4,
+      "intent": "outdoor_observation",
+      "access": {
+        "state": "unknown",
+        "reason": "Synthetic fixture, not field data",
+        "sourceIds": []
+      },
+      "opening": {
+        "state": "unknown",
+        "reason": "No actual schedule",
+        "sourceIds": []
+      },
+      "services": {
+        "coffee": {
+          "state": "unknown",
+          "reason": "No actual service",
+          "sourceIds": []
+        }
+      },
+      "factRefs": [
+        "fixture-fact"
+      ],
+      "chapterId": "chapter-1",
+      "questId": "quest-1",
+      "collectionId": "fixture-collection"
+    }
+  ],
+  "legs": [
+    {
+      "id": "first",
+      "fromId": "origin",
+      "toId": "stop-0",
+      "from": {
+        "requested": {
+          "kind": "public_anchor",
+          "anchorId": "a",
+          "explicitlyChosen": true
+        },
+        "coordinate": [
+          0,
+          0
+        ],
+        "graphPoint": {
+          "id": "a",
+          "coordinate": [
+            0,
+            0
+          ]
+        },
+        "snapDistanceM": 0,
+        "connector": {
+          "kind": "exact"
+        }
+      },
+      "to": {
+        "requested": {
+          "kind": "public_anchor",
+          "anchorId": "a",
+          "explicitlyChosen": true
+        },
+        "coordinate": [
+          0,
+          0
+        ],
+        "graphPoint": {
+          "id": "a",
+          "coordinate": [
+            0,
+            0
+          ]
+        },
+        "snapDistanceM": 0,
+        "connector": {
+          "kind": "exact"
+        }
+      },
+      "kind": "already_at_endpoint",
+      "distanceMeters": 0,
+      "walkMinutes": 0
+    },
+    {
+      "id": "middle",
+      "fromId": "stop-0",
+      "toId": "stop-1",
+      "from": {
+        "requested": {
+          "kind": "public_anchor",
+          "anchorId": "a",
+          "explicitlyChosen": true
+        },
+        "coordinate": [
+          0,
+          0
+        ],
+        "graphPoint": {
+          "id": "a",
+          "coordinate": [
+            0,
+            0
+          ]
+        },
+        "snapDistanceM": 0,
+        "connector": {
+          "kind": "exact"
+        }
+      },
+      "to": {
+        "requested": {
+          "kind": "public_anchor",
+          "anchorId": "b",
+          "explicitlyChosen": true
+        },
+        "coordinate": [
+          0.001,
+          0
+        ],
+        "graphPoint": {
+          "id": "b",
+          "coordinate": [
+            0.001,
+            0
+          ]
+        },
+        "snapDistanceM": 0,
+        "connector": {
+          "kind": "exact"
+        }
+      },
+      "kind": "walk",
+      "distanceMeters": 111.32,
+      "walkMinutes": 2,
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            0,
+            0
+          ],
+          [
+            0.001,
+            0
+          ]
+        ]
+      },
+      "source": {
+        "sourceIds": [
+          "fixture-source"
+        ],
+        "datasetRevision": "synthetic-1",
+        "graphSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "checkedAt": "2026-10-20T10:00:00.000Z",
+        "license": "CC0-1.0",
+        "attribution": "Synthetic test geometry",
+        "fieldVerified": false
+      },
+      "stepFree": {
+        "state": "unknown",
+        "reason": "No actual route accessibility proof",
+        "sourceIds": []
+      }
+    },
+    {
+      "id": "return",
+      "fromId": "stop-1",
+      "toId": "end",
+      "from": {
+        "requested": {
+          "kind": "public_anchor",
+          "anchorId": "b",
+          "explicitlyChosen": true
+        },
+        "coordinate": [
+          0.001,
+          0
+        ],
+        "graphPoint": {
+          "id": "b",
+          "coordinate": [
+            0.001,
+            0
+          ]
+        },
+        "snapDistanceM": 0,
+        "connector": {
+          "kind": "exact"
+        }
+      },
+      "to": {
+        "requested": {
+          "kind": "public_anchor",
+          "anchorId": "a",
+          "explicitlyChosen": true
+        },
+        "coordinate": [
+          0,
+          0
+        ],
+        "graphPoint": {
+          "id": "a",
+          "coordinate": [
+            0,
+            0
+          ]
+        },
+        "snapDistanceM": 0,
+        "connector": {
+          "kind": "exact"
+        }
+      },
+      "kind": "walk",
+      "distanceMeters": 111.32,
+      "walkMinutes": 2,
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            0.001,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      },
+      "source": {
+        "sourceIds": [
+          "fixture-source"
+        ],
+        "datasetRevision": "synthetic-1",
+        "graphSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "checkedAt": "2026-10-20T10:00:00.000Z",
+        "license": "CC0-1.0",
+        "attribution": "Synthetic test geometry",
+        "fieldVerified": false
+      },
+      "stepFree": {
+        "state": "unknown",
+        "reason": "No actual route accessibility proof",
+        "sourceIds": []
+      }
+    }
+  ],
+  "timing": {
+    "walkMinutes": 4,
+    "visitMinutes": 8,
+    "reserveMinutes": 5,
+    "totalMinutes": 17,
+    "distanceMeters": 222.64,
+    "endsAt": "2026-10-20T10:17:00.000Z"
+  },
+  "sources": [
+    {
+      "id": "fixture-source",
+      "title": "Owned synthetic fixture",
+      "url": "https://example.invalid/astanaai-fixture",
+      "checkedAt": "2026-10-20T10:00:00.000Z",
+      "rights": "CC0-1.0"
+    }
+  ],
+  "facts": [
+    {
+      "id": "fixture-fact",
+      "statement": {
+        "ru": "This is synthetic contract test data.",
+        "kk": "This is synthetic contract test data.",
+        "en": "This is synthetic contract test data."
+      },
+      "sourceIds": [
+        "fixture-source"
+      ],
+      "checkedAt": "2026-10-20T10:00:00.000Z"
+    }
+  ],
+  "content": {
+    "origin": "editorial",
+    "translationReview": "pending",
+    "chapters": [
+      {
+        "id": "chapter-0",
+        "stopId": "stop-0",
+        "title": {
+          "ru": "Test chapter 0",
+          "kk": "Test chapter 0",
+          "en": "Test chapter 0"
+        },
+        "blocks": [
+          {
+            "kind": "fact",
+            "text": {
+              "ru": "This is synthetic contract test data.",
+              "kk": "This is synthetic contract test data.",
+              "en": "This is synthetic contract test data."
+            },
+            "factRefs": [
+              "fixture-fact"
+            ]
+          },
+          {
+            "kind": "idea",
+            "text": {
+              "ru": "Look around in this test.",
+              "kk": "Look around in this test.",
+              "en": "Look around in this test."
+            }
+          }
+        ],
+        "audio": {
+          "ru": {
+            "state": "missing",
+            "reason": "Test only"
+          },
+          "kk": {
+            "state": "missing",
+            "reason": "Test only"
+          },
+          "en": {
+            "state": "missing",
+            "reason": "Test only"
+          }
+        }
+      },
+      {
+        "id": "chapter-1",
+        "stopId": "stop-1",
+        "title": {
+          "ru": "Test chapter 1",
+          "kk": "Test chapter 1",
+          "en": "Test chapter 1"
+        },
+        "blocks": [
+          {
+            "kind": "fact",
+            "text": {
+              "ru": "This is synthetic contract test data.",
+              "kk": "This is synthetic contract test data.",
+              "en": "This is synthetic contract test data."
+            },
+            "factRefs": [
+              "fixture-fact"
+            ]
+          },
+          {
+            "kind": "idea",
+            "text": {
+              "ru": "Look around in this test.",
+              "kk": "Look around in this test.",
+              "en": "Look around in this test."
+            }
+          }
+        ],
+        "audio": {
+          "ru": {
+            "state": "missing",
+            "reason": "Test only"
+          },
+          "kk": {
+            "state": "missing",
+            "reason": "Test only"
+          },
+          "en": {
+            "state": "missing",
+            "reason": "Test only"
+          }
+        }
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest-0",
+        "stopId": "stop-0",
+        "question": {
+          "ru": "Is this synthetic?",
+          "kk": "Is this synthetic?",
+          "en": "Is this synthetic?"
+        },
+        "choices": [
+          {
+            "id": "yes",
+            "label": {
+              "ru": "Yes",
+              "kk": "Yes",
+              "en": "Yes"
+            }
+          },
+          {
+            "id": "no",
+            "label": {
+              "ru": "No",
+              "kk": "No",
+              "en": "No"
+            }
+          }
+        ],
+        "correctChoiceId": "yes",
+        "hint": {
+          "ru": "Read the fixture label",
+          "kk": "Read the fixture label",
+          "en": "Read the fixture label"
+        },
+        "explanation": {
+          "ru": "This is a contract test",
+          "kk": "This is a contract test",
+          "en": "This is a contract test"
+        },
+        "factRefs": [
+          "fixture-fact"
+        ],
+        "proof": "answer",
+        "audio": {
+          "question": {
+            "ru": {
+              "state": "missing",
+              "reason": "Test only"
+            },
+            "kk": {
+              "state": "missing",
+              "reason": "Test only"
+            },
+            "en": {
+              "state": "missing",
+              "reason": "Test only"
+            }
+          },
+          "hint": {
+            "ru": {
+              "state": "missing",
+              "reason": "Test only"
+            },
+            "kk": {
+              "state": "missing",
+              "reason": "Test only"
+            },
+            "en": {
+              "state": "missing",
+              "reason": "Test only"
+            }
+          },
+          "explanation": {
+            "ru": {
+              "state": "missing",
+              "reason": "Test only"
+            },
+            "kk": {
+              "state": "missing",
+              "reason": "Test only"
+            },
+            "en": {
+              "state": "missing",
+              "reason": "Test only"
+            }
+          }
+        }
+      },
+      {
+        "id": "quest-1",
+        "stopId": "stop-1",
+        "question": {
+          "ru": "Is this synthetic?",
+          "kk": "Is this synthetic?",
+          "en": "Is this synthetic?"
+        },
+        "choices": [
+          {
+            "id": "yes",
+            "label": {
+              "ru": "Yes",
+              "kk": "Yes",
+              "en": "Yes"
+            }
+          },
+          {
+            "id": "no",
+            "label": {
+              "ru": "No",
+              "kk": "No",
+              "en": "No"
+            }
+          }
+        ],
+        "correctChoiceId": "yes",
+        "hint": {
+          "ru": "Read the fixture label",
+          "kk": "Read the fixture label",
+          "en": "Read the fixture label"
+        },
+        "explanation": {
+          "ru": "This is a contract test",
+          "kk": "This is a contract test",
+          "en": "This is a contract test"
+        },
+        "factRefs": [
+          "fixture-fact"
+        ],
+        "proof": "answer",
+        "audio": {
+          "question": {
+            "ru": {
+              "state": "missing",
+              "reason": "Test only"
+            },
+            "kk": {
+              "state": "missing",
+              "reason": "Test only"
+            },
+            "en": {
+              "state": "missing",
+              "reason": "Test only"
+            }
+          },
+          "hint": {
+            "ru": {
+              "state": "missing",
+              "reason": "Test only"
+            },
+            "kk": {
+              "state": "missing",
+              "reason": "Test only"
+            },
+            "en": {
+              "state": "missing",
+              "reason": "Test only"
+            }
+          },
+          "explanation": {
+            "ru": {
+              "state": "missing",
+              "reason": "Test only"
+            },
+            "kk": {
+              "state": "missing",
+              "reason": "Test only"
+            },
+            "en": {
+              "state": "missing",
+              "reason": "Test only"
+            }
+          }
+        }
+      }
+    ],
+    "collections": [
+      {
+        "id": "fixture-collection",
+        "title": {
+          "ru": "Test collection",
+          "kk": "Test collection",
+          "en": "Test collection"
+        },
+        "description": {
+          "ru": "No actual visit",
+          "kk": "No actual visit",
+          "en": "No actual visit"
+        },
+        "proof": "manual"
+      }
+    ],
+    "cues": {
+      "start": {
+        "text": {
+          "ru": "Synthetic start cue",
+          "kk": "Synthetic start cue",
+          "en": "Synthetic start cue"
+        },
+        "audio": {
+          "ru": {
+            "state": "missing",
+            "reason": "Test only"
+          },
+          "kk": {
+            "state": "missing",
+            "reason": "Test only"
+          },
+          "en": {
+            "state": "missing",
+            "reason": "Test only"
+          }
+        }
+      },
+      "nearby": {
+        "text": {
+          "ru": "Synthetic nearby cue",
+          "kk": "Synthetic nearby cue",
+          "en": "Synthetic nearby cue"
+        },
+        "audio": {
+          "ru": {
+            "state": "missing",
+            "reason": "Test only"
+          },
+          "kk": {
+            "state": "missing",
+            "reason": "Test only"
+          },
+          "en": {
+            "state": "missing",
+            "reason": "Test only"
+          }
+        }
+      },
+      "pause": {
+        "text": {
+          "ru": "Synthetic pause cue",
+          "kk": "Synthetic pause cue",
+          "en": "Synthetic pause cue"
+        },
+        "audio": {
+          "ru": {
+            "state": "missing",
+            "reason": "Test only"
+          },
+          "kk": {
+            "state": "missing",
+            "reason": "Test only"
+          },
+          "en": {
+            "state": "missing",
+            "reason": "Test only"
+          }
+        }
+      },
+      "resume": {
+        "text": {
+          "ru": "Synthetic resume cue",
+          "kk": "Synthetic resume cue",
+          "en": "Synthetic resume cue"
+        },
+        "audio": {
+          "ru": {
+            "state": "missing",
+            "reason": "Test only"
+          },
+          "kk": {
+            "state": "missing",
+            "reason": "Test only"
+          },
+          "en": {
+            "state": "missing",
+            "reason": "Test only"
+          }
+        }
+      },
+      "complete": {
+        "text": {
+          "ru": "Synthetic complete cue",
+          "kk": "Synthetic complete cue",
+          "en": "Synthetic complete cue"
+        },
+        "audio": {
+          "ru": {
+            "state": "missing",
+            "reason": "Test only"
+          },
+          "kk": {
+            "state": "missing",
+            "reason": "Test only"
+          },
+          "en": {
+            "state": "missing",
+            "reason": "Test only"
+          }
+        }
+      },
+      "abandon": {
+        "text": {
+          "ru": "Synthetic abandon cue",
+          "kk": "Synthetic abandon cue",
+          "en": "Synthetic abandon cue"
+        },
+        "audio": {
+          "ru": {
+            "state": "missing",
+            "reason": "Test only"
+          },
+          "kk": {
+            "state": "missing",
+            "reason": "Test only"
+          },
+          "en": {
+            "state": "missing",
+            "reason": "Test only"
+          }
+        }
+      }
+    }
+  },
+  "assets": {
+    "version": 1,
+    "items": [],
+    "map": {
+      "state": "missing",
+      "reason": "No offline map in synthetic fixture"
+    }
+  },
+  "context": {
+    "evaluatedAt": "2026-10-20T10:00:00.000Z",
+    "season": "autumn",
+    "weather": {
+      "state": "unknown",
+      "reason": "Unavailable in synthetic fixture",
+      "sourceIds": []
+    },
+    "calendar": {
+      "state": "unknown",
+      "reason": "Unavailable in synthetic fixture",
+      "sourceIds": []
+    }
+  },
+  "limitations": [
+    {
+      "ru": "Synthetic test data only; no field or offline acceptance.",
+      "kk": "Synthetic test data only; no field or offline acceptance.",
+      "en": "Synthetic test data only; no field or offline acceptance."
+    }
+  ],
+  "sha256": "cdbaf2140fc726e86c52d9db419211e008ae2d0b58e107a28a5c19dc273c0bbf"
+}

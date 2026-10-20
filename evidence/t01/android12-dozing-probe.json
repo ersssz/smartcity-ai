@@ -1,0 +1,56 @@
+[
+  {
+    "at_utc": "2026-10-20T08:41:20.8486473Z",
+    "elapsed_seconds": 0.2,
+    "wakefulness": "mWakefulness=Dozing",
+    "last_sleep": "mLastSleepTime=3580186 (49302 ms ago)",
+    "last_wake": "mLastWakeTime=1889632 (1739856 ms ago)",
+    "own_service_present": true,
+    "os_foreground": true
+  },
+  {
+    "at_utc": "2026-10-20T08:41:31.0478756Z",
+    "elapsed_seconds": 10.4,
+    "wakefulness": "mWakefulness=Dozing",
+    "last_sleep": "mLastSleepTime=3580186 (59578 ms ago)",
+    "last_wake": "mLastWakeTime=1889632 (1750132 ms ago)",
+    "own_service_present": true,
+    "os_foreground": true
+  },
+  {
+    "at_utc": "2026-10-20T08:41:41.2042460Z",
+    "elapsed_seconds": 20.6,
+    "wakefulness": "mWakefulness=Dozing",
+    "last_sleep": "mLastSleepTime=3580186 (69736 ms ago)",
+    "last_wake": "mLastWakeTime=1889632 (1760290 ms ago)",
+    "own_service_present": true,
+    "os_foreground": true
+  },
+  {
+    "at_utc": "2026-10-20T08:41:51.3592174Z",
+    "elapsed_seconds": 30.7,
+    "wakefulness": "mWakefulness=Dozing",
+    "last_sleep": "mLastSleepTime=3580186 (79890 ms ago)",
+    "last_wake": "mLastWakeTime=1889632 (1770444 ms ago)",
+    "own_service_present": true,
+    "os_foreground": true
+  },
+  {
+    "at_utc": "2026-10-20T08:42:01.5118648Z",
+    "elapsed_seconds": 40.9,
+    "wakefulness": "mWakefulness=Awake",
+    "last_sleep": "mLastSleepTime=3580186 (90040 ms ago)",
+    "last_wake": "mLastWakeTime=3661197 (9029 ms ago)",
+    "own_service_present": true,
+    "os_foreground": true
+  },
+  {
+    "at_utc": "2026-10-20T08:42:11.6554484Z",
+    "elapsed_seconds": 51.0,
+    "wakefulness": "mWakefulness=Awake",
+    "last_sleep": "mLastSleepTime=3580186 (100197 ms ago)",
+    "last_wake": "mLastWakeTime=3661197 (19186 ms ago)",
+    "own_service_present": true,
+    "os_foreground": true
+  }
+]

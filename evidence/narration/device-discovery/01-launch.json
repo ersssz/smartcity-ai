@@ -1,0 +1,394 @@
+{
+  "step": 1,
+  "action": "launch",
+  "package": "kz.astanaai.diagnostics",
+  "visible_labels": [
+    {
+      "depth": 7,
+      "text": "",
+      "description": "Отображает карту, созданную при помощи MapLibre. Пролистывайте двумя пальцами. Меняйте масштаб сведением пальцев.",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "",
+      "description": "Значок атрибутов. Активируйте, чтобы показать диалог.",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 7,
+      "text": "Открой Астану",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 7,
+      "text": "Места, ради которых стоит выйти",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 7,
+      "text": "",
+      "description": "О городе ↗",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "О городе ↗",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 9,
+      "text": "",
+      "description": "Все",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 10,
+      "text": "Все",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 9,
+      "text": "",
+      "description": "История",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 10,
+      "text": "История",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 9,
+      "text": "",
+      "description": "Архитектура",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 10,
+      "text": "Архитектура",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 9,
+      "text": "",
+      "description": "У реки",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 10,
+      "text": "У реки",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 7,
+      "text": "",
+      "description": "Погода и события: Погода пока неизвестна",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "Погода пока неизвестна",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "⌄",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 7,
+      "text": "",
+      "description": "⌖ Все места",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "⌖ Все места",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 7,
+      "text": "",
+      "description": "Схема",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "Схема",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 7,
+      "text": "",
+      "description": "RU",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "RU",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 7,
+      "text": "",
+      "description": "KK",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "KK",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 7,
+      "text": "",
+      "description": "EN",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "EN",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "С чего начнём?",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "05",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 11,
+      "text": "",
+      "description": "Музей Сакена Сейфуллина. Деревянный дом старой Акмолы. Календарная дата — повод узнать историю этого места.",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 12,
+      "text": "",
+      "description": "Деревянный фасад музея Сакена Сейфуллина",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 12,
+      "text": "Музей Сакена Сейфуллина",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 12,
+      "text": "↗",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 12,
+      "text": "Деревянный дом старой Акмолы",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 12,
+      "text": "Календарная дата — повод узнать историю этого места.",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 11,
+      "text": "",
+      "description": "Театр имени Горького. Театр в старом центре. Календарная дата — повод узнать историю этого места.",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 12,
+      "text": "",
+      "description": "Голубой фасад театра имени Горького",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 12,
+      "text": "Театр имени Горького",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 12,
+      "text": "Театр в старом центре",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 12,
+      "text": "Календарная дата — повод узнать историю этого места.",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 7,
+      "text": "ASTANA \/ AI",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 7,
+      "text": "",
+      "description": "Сразу к местам →",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "Сразу к местам →",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 11,
+      "text": "А",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 10,
+      "text": "ГОРОД, КОТОРЫЙ ОТКРЫВАЕТСЯ",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 10,
+      "text": "Добро пожаловать в Астану!",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 10,
+      "text": "Места с характером. Истории, которые хочется услышать.",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 7,
+      "text": "АСТАНА · 51° N",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    }
+  ],
+  "visited_nodes": 125,
+  "screen_policy": "PUBLIC_DISCOVERY_COMPOSITE",
+  "screenshot": "\/storage\/emulated\/0\/Android\/data\/kz.astanaai.diagnostics\/files\/android-ui-tests\/run-1792517165688-31845\/01-launch.png"
+}

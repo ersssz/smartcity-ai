@@ -1,0 +1,59 @@
+{
+  "checked_at_utc": "2026-10-20T10:41:05.7454360Z",
+  "artifact": "AstanaAI-0.3.0-arm64.apk",
+  "bytes": 42410552,
+  "sha256": "2c5c81dc4925d5667de89f40026abb29c4ac741c1f9640a89002c404705c87c0",
+  "build_result": "BUILD SUCCESSFUL in 1m 47s",
+  "task_result": "605 actionable tasks: 11 executed, 594 up-to-date",
+  "embedded_javascript": {
+    "entry": "assets/index.android.bundle",
+    "sha256": "a34f7f36f301e3f270272967ea369e8ac2576c74899baad55d22adb148e827f5",
+    "bytes": 1873716
+  },
+  "dex_files": 4,
+  "native_libraries": [
+    "lib/arm64-v8a/libappmodules.so",
+    "lib/arm64-v8a/libc++_shared.so",
+    "lib/arm64-v8a/libexpo-modules-core.so",
+    "lib/arm64-v8a/libexpo-modules-jsi.so",
+    "lib/arm64-v8a/libexpo-modules-v2.so",
+    "lib/arm64-v8a/libexpo-sqlite.so",
+    "lib/arm64-v8a/libfbjni.so",
+    "lib/arm64-v8a/libgifimage.so",
+    "lib/arm64-v8a/libhermestooling.so",
+    "lib/arm64-v8a/libhermesvm.so",
+    "lib/arm64-v8a/libimagepipeline.so",
+    "lib/arm64-v8a/libjsi.so",
+    "lib/arm64-v8a/libmaplibre.so",
+    "lib/arm64-v8a/libnative-filters.so",
+    "lib/arm64-v8a/libnative-imagetranscoder.so",
+    "lib/arm64-v8a/libreactnative.so",
+    "lib/arm64-v8a/libstatic-webp.so",
+    "lib/arm64-v8a/libzstd-kmp.so"
+  ],
+  "signature_result": [
+    "Verifies",
+    "Verified using v1 scheme (JAR signing): false",
+    "Verified using v2 scheme (APK Signature Scheme v2): true",
+    "Verified using v3 scheme (APK Signature Scheme v3): false",
+    "Verified using v3.1 scheme (APK Signature Scheme v3.1): false",
+    "Verified using v3.2 scheme (APK Signature Scheme v3.2): false",
+    "Verified using v4 scheme (APK Signature Scheme v4): false",
+    "V2 Signer: certificate SHA-256 digest: fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c"
+  ],
+  "android_metadata": [
+    "package: name='kz.astanaai.diagnostics' versionCode='4' versionName='0.3.0' platformBuildVersionName='17' platformBuildVersionCode='37' compileSdkVersion='37' compileSdkVersionCodename='17'",
+    "minSdkVersion:'24'",
+    "targetSdkVersion:'36'",
+    "native-code: 'arm64-v8a'"
+  ],
+  "signing_identity": "Public Android debug identity; not production signing",
+  "metro_required": false,
+  "device_install_or_launch_verified": false,
+  "full_t01_accepted": false,
+  "limitations": [
+    "Physical Android 12 connected; runtime tests recorded separately",
+    "Android 14+, legacy upgrade, JS-stall, battery and field gates pending",
+    "Prepared editorial route bundled; field, offline map pack, prepared audio and RAG acceptance remain open"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "@astanaai/offline-pack",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": { "types": "./src/index.d.mts", "default": "./src/index.mjs" },
+    "./node-storage": { "types": "./src/node-storage.d.mts", "default": "./src/node-storage.mjs" }
+  },
+  "scripts": { "test": "node --experimental-sqlite --test test/*.test.mjs" }
+}

@@ -1,0 +1,166 @@
+TAP version 13
+# Subtest: capture is synchronous and immutable; an old gesture crosses play without an implicit recapture or Stop
+ok 1 - capture is synchronous and immutable; an old gesture crosses play without an implicit recapture or Stop
+  ---
+  duration_ms: 237.1721
+  type: 'test'
+  ...
+# Subtest: stale-scope rejection is surfaced with its state, without a new scope, retry or speech fallback
+ok 2 - stale-scope rejection is surfaced with its state, without a new scope, retry or speech fallback
+  ---
+  duration_ms: 89.1712
+  type: 'test'
+  ...
+# Subtest: pause/resume carry the supplied gesture; Stop is unconditional and does not borrow a stale scope
+ok 3 - pause/resume carry the supplied gesture; Stop is unconditional and does not borrow a stale scope
+  ---
+  duration_ms: 59.5369
+  type: 'test'
+  ...
+# Subtest: the same audio bytes in a different chapter, session, revision or locale never count as an exact resume
+ok 4 - the same audio bytes in a different chapter, session, revision or locale never count as an exact resume
+  ---
+  duration_ms: 60.6982
+  type: 'test'
+  ...
+# Subtest: URLs, unmatched hashes, extra ref fields and unsafe captured epochs never reach native
+ok 5 - URLs, unmatched hashes, extra ref fields and unsafe captured epochs never reach native
+  ---
+  duration_ms: 39.9874
+  type: 'test'
+  ...
+# Subtest: stale native observations cannot replace a newer host generation and listeners unsubscribe
+ok 6 - stale native observations cannot replace a newer host generation and listeners unsubscribe
+  ---
+  duration_ms: 33.9682
+  type: 'test'
+  ...
+# Subtest: invalid state identity and unconfirmed Stop cannot be reported as successful cleanup
+ok 7 - invalid state identity and unconfirmed Stop cannot be reported as successful cleanup
+  ---
+  duration_ms: 124.7249
+  type: 'test'
+  ...
+# Subtest: Stop observation revokes command scope before releasing the actual playing hardware
+ok 8 - Stop observation revokes command scope before releasing the actual playing hardware
+  ---
+  duration_ms: 28.7485
+  type: 'test'
+  ...
+# Subtest: real TSX captures the gesture before operate state writes and sends the exact prepared identity without a pre-Play Stop
+ok 9 - real TSX captures the gesture before operate state writes and sends the exact prepared identity without a pre-Play Stop
+  ---
+  duration_ms: 801.2416
+  type: 'test'
+  ...
+# Subtest: background retains accepted narration; foreground only observes state and never autoplays
+ok 10 - background retains accepted narration; foreground only observes state and never autoplays
+  ---
+  duration_ms: 147.2359
+  type: 'test'
+  ...
+# Subtest: late accepted native Play after background does not trigger a JS Stop, retry, or automatic Resume
+ok 11 - late accepted native Play after background does not trigger a JS Stop, retry, or automatic Resume
+  ---
+  duration_ms: 131.4327
+  type: 'test'
+  ...
+# Subtest: explicit Stop invokes both native boundaries before a held Play settles, then persists walk pause
+ok 12 - explicit Stop invokes both native boundaries before a held Play settles, then persists walk pause
+  ---
+  duration_ms: 110.7623
+  type: 'test'
+  ...
+# Subtest: onOpenCity stops narration and tracking before navigation, preserving a pause action
+ok 13 - onOpenCity stops narration and tracking before navigation, preserving a pause action
+  ---
+  duration_ms: 100.9649
+  type: 'test'
+  ...
+# Subtest: onOpenDiagnostics stops narration and tracking before navigation, preserving a pause action
+ok 14 - onOpenDiagnostics stops narration and tracking before navigation, preserving a pause action
+  ---
+  duration_ms: 70.4017
+  type: 'test'
+  ...
+# Subtest: onBackToSaved stops narration and tracking before navigation, preserving a pause action
+ok 15 - onBackToSaved stops narration and tracking before navigation, preserving a pause action
+  ---
+  duration_ms: 81.4708
+  type: 'test'
+  ...
+# Subtest: a failed audio Stop blocks navigation while still attempting tracking cleanup and durable pause
+ok 16 - a failed audio Stop blocks navigation while still attempting tracking cleanup and durable pause
+  ---
+  duration_ms: 77.2634
+  type: 'test'
+  ...
+# Subtest: unmount stops audio, detaches listeners and refuses late UI writes
+ok 17 - unmount stops audio, detaches listeners and refuses late UI writes
+  ---
+  duration_ms: 86.3567
+  type: 'test'
+  ...
+# Subtest: only a resumable paused exact six-field narration identity uses Resume
+ok 18 - only a resumable paused exact six-field narration identity uses Resume
+  ---
+  duration_ms: 65.2606
+  type: 'test'
+  ...
+# Subtest: shared MP3 identity never resumes a different session, bundle, chapter or locale; expired pause starts a new explicit Play
+ok 19 - shared MP3 identity never resumes a different session, bundle, chapter or locale; expired pause starts a new explicit Play
+  ---
+  duration_ms: 69.3362
+  type: 'test'
+  ...
+# Subtest: a stale native rejection is visible and never borrows a new scope or retries
+ok 20 - a stale native rejection is visible and never borrows a new scope or retries
+  ---
+  duration_ms: 59.1435
+  type: 'test'
+  ...
+# Subtest: audio Pause captures scope but does not pause the walk or stop tracking
+ok 21 - audio Pause captures scope but does not pause the walk or stop tracking
+  ---
+  duration_ms: 62.5112
+  type: 'test'
+  ...
+# Subtest: Pause during cold STARTING cancels the pending audio request without pretending a player is resumable
+ok 22 - Pause during cold STARTING cancels the pending audio request without pretending a player is resumable
+  ---
+  duration_ms: 77.3155
+  type: 'test'
+  ...
+# Subtest: audio-only Stop keeps walk progress and tracking separate
+ok 23 - audio-only Stop keeps walk progress and tracking separate
+  ---
+  duration_ms: 78.2237
+  type: 'test'
+  ...
+# Subtest: unmount with a held command stops sound immediately and late rejection cannot update the removed screen
+ok 24 - unmount with a held command stops sound immediately and late rejection cannot update the removed screen
+  ---
+  duration_ms: 73.011
+  type: 'test'
+  ...
+# Subtest: unavailable capture and background gestures fail closed before native Play
+ok 25 - unavailable capture and background gestures fail closed before native Play
+  ---
+  duration_ms: 61.0736
+  type: 'test'
+  ...
+# Subtest: changing locale stops audio before persistence and never auto-starts another language
+ok 26 - changing locale stops audio before persistence and never auto-starts another language
+  ---
+  duration_ms: 92.4536
+  type: 'test'
+  ...
+1..26
+# tests 26
+# suites 0
+# pass 26
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2853.1023

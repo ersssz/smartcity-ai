@@ -1,0 +1,13 @@
+{
+  "date_local": "2026-10-20",
+  "integrated_t02_commit": "832c3aa0bbbbbc7784151067e126f9bde24fb833",
+  "command": "scripts/verify-local.ps1 -PythonPath <existing-python-executable> -NodePath <system-node-executable>",
+  "exit_code": 0,
+  "tests": {"data_and_recorded_replay": 25, "spend_policy": 22, "mobile_lifecycle_simulated_os": 1, "total_passed": 48, "failed": 0},
+  "typechecks": {"spend_policy_strict_source": "PASS", "mobile_strict_project": "PASS"},
+  "native_mobile_source_state": "Repeated after mandatory pre-Start privacy explanation, Kotlin cache exclusion and successful Debug native build; standalone build is a separate check",
+  "repeated_final_runner_exit_code": 0,
+  "no_network_in_test_runner": true,
+  "hardware_or_full_product_acceptance": false,
+  "limitations": ["Mobile OS and SQLite adapters are simulated in the lifecycle test", "Recorded OSM replay is not a live route or a physical walk", "No generator API entitlement or RAG test", "No Android APK runtime checked"]
+}

@@ -1,0 +1,88 @@
+{
+  "purpose": "Bounded observation while waiting for manual screen lock",
+  "samples": [
+    {
+      "at_utc": "2026-10-20T08:37:25.4653775Z",
+      "elapsed_seconds": 0.3,
+      "wakefulness": "mWakefulness=Awake",
+      "display": null,
+      "own_service_present": true,
+      "os_foreground": true
+    },
+    {
+      "at_utc": "2026-10-20T08:37:35.6591037Z",
+      "elapsed_seconds": 10.5,
+      "wakefulness": "mWakefulness=Awake",
+      "display": null,
+      "own_service_present": true,
+      "os_foreground": true
+    },
+    {
+      "at_utc": "2026-10-20T08:37:45.8934717Z",
+      "elapsed_seconds": 20.7,
+      "wakefulness": "mWakefulness=Awake",
+      "display": null,
+      "own_service_present": true,
+      "os_foreground": true
+    },
+    {
+      "at_utc": "2026-10-20T08:37:56.1069863Z",
+      "elapsed_seconds": 30.9,
+      "wakefulness": "mWakefulness=Awake",
+      "display": null,
+      "own_service_present": true,
+      "os_foreground": true
+    },
+    {
+      "at_utc": "2026-10-20T08:38:06.271246Z",
+      "elapsed_seconds": 41.1,
+      "wakefulness": "mWakefulness=Awake",
+      "display": null,
+      "own_service_present": true,
+      "os_foreground": true
+    },
+    {
+      "at_utc": "2026-10-20T08:38:16.5039467Z",
+      "elapsed_seconds": 51.3,
+      "wakefulness": "mWakefulness=Awake",
+      "display": null,
+      "own_service_present": true,
+      "os_foreground": true
+    },
+    {
+      "at_utc": "2026-10-20T08:38:26.649349Z",
+      "elapsed_seconds": 61.4,
+      "wakefulness": "mWakefulness=Awake",
+      "display": null,
+      "own_service_present": true,
+      "os_foreground": true
+    },
+    {
+      "at_utc": "2026-10-20T08:38:36.8069825Z",
+      "elapsed_seconds": 71.6,
+      "wakefulness": "mWakefulness=Awake",
+      "display": null,
+      "own_service_present": true,
+      "os_foreground": true
+    },
+    {
+      "at_utc": "2026-10-20T08:38:46.9605815Z",
+      "elapsed_seconds": 81.8,
+      "wakefulness": "mWakefulness=Awake",
+      "display": null,
+      "own_service_present": true,
+      "os_foreground": true
+    },
+    {
+      "at_utc": "2026-10-20T08:38:57.1021544Z",
+      "elapsed_seconds": 91.9,
+      "wakefulness": "mWakefulness=Awake",
+      "display": null,
+      "own_service_present": true,
+      "os_foreground": true
+    }
+  ],
+  "all_sampled_awake": true,
+  "screen_off_accepted": false,
+  "notes": "This interval never observed a sleeping device. Foreground service presence throughout does not establish screen-off delivery."
+}

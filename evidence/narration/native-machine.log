@@ -1,0 +1,38 @@
+PASS fresh play promotes before verify and starts only after every acknowledgement
+PASS fresh background play has no service or player effects
+PASS invalid paths hash locale and metadata rejected before effects
+PASS stop revokes RAM epoch before a consumer runs cleanup
+PASS late verify prepared focus and started after stop never start
+PASS late Expo play captured before Stop rejected without retry
+PASS replacement ignores completion and error from previous asset
+PASS loading pause cancels pending work and can only resume explicitly
+PASS screen off and ordinary background preserve the explicitly playing asset
+PASS noisy pauses preserves position and releases focus wake and foreground
+PASS every focus loss pauses speech and gain never resumes
+PASS focus denied cleans up and late gain does not bypass it
+PASS lockscreen resume re-verifies same asset at retained position after promotion
+PASS UI resume in background rejected but notification resume can request FGS
+PASS process recreation has no resumable asset and rejects old scope
+PASS FGS denial fails without verifying or starting
+PASS bad verified byte counts and invalid duration safely error
+PASS bridge reload stops only its current audio owner
+PASS task dismissal and live service destruction release asset
+PASS old service destruction cannot stop a newer epoch
+PASS completion has no queue and cannot resume from system controls
+PASS new language invalidates old scope without changing walk progress
+PASS paused deadline is ten minutes and expiry clears RAM-only asset
+PASS old idle deadline does not stop a resumed newer epoch
+PASS snapshot sequence and position updates do not change playback epoch
+PASS repeated lifecycle cycles never issue implicit playback
+PASS cleanup failure is visible without a recursive cleanup loop
+PASS service release cannot be revived even with its freshly observed scope
+28 PUBLIC MACHINE TESTS PASS; no Android runtime/SQL/phone acceptance
+PASS CORE release rejects a listener's fresh Play before cleanup and notification
+PASS CORE rejected and no-op input does not republish a state or recurse
+PASS CORE Stop nested inside an effect invalidates remaining startup and old notification effects
+PASS CORE cleanup failure attempts remaining cleanup but skips a fresh startup
+PASS CORE actual port position is retained on pause
+PASS CORE native events after release are harmless and cannot start playback
+PASS CORE listener failure never prevents native stop or another listener
+PASS CORE port close failure stays visible without resurrecting a released runtime
+8 PUBLIC RUNTIME CORE TESTS PASS; recording port is not Android execution

@@ -1,0 +1,47 @@
+{
+  "verifiedOn": "2026-10-20",
+  "environment": "Windows Node v22.22.2",
+  "testCommand": "node --experimental-sqlite --test packages/offline-pack/test/pack.test.mjs",
+  "tests": {
+    "passed": 14,
+    "failed": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "exitCode": 0,
+    "durationMs": 7689.9695
+  },
+  "declarationTypecheck": {
+    "exitCode": 0,
+    "strict": true,
+    "module": "nodenext",
+    "target": "es2022"
+  },
+  "files": {
+    "package.json": "536892f275d90fa34cc4f63b5a807985091fc874ad1eb919c2dbd7077dab7b81",
+    "README.md": "7333dd4e18af8da7d334f4c7adf3c6079d0ea10eed4d5752edff44c46748b590",
+    "src/index.d.mts": "76bed23a132c92e7f6c57b419a8b9c06b4940672477739d9d8b08d6741aa59fc",
+    "src/index.mjs": "0937f77ccfa08533d63fc2adb5d1292e1de4447183a5fd046050e8215fb40b9b",
+    "src/node-storage.d.mts": "43f938f7fc1b7a9c04f121444c804a7e39a4754c9cdb1c755e5e907d73f18983",
+    "src/node-storage.mjs": "4ff18038a93350161ae8b4a47e5bdc18493c2db535dc637694a69cc1ba78646c",
+    "test/helpers.cjs": "3b239d921b6c4123485571115a198125eb18d84ca2a2389a02b78d0e93165008",
+    "test/pack.test.mjs": "4fd04face8cf5ab44a2e510487731c6c37944ef3569fce47de52430b8f111985",
+    "test-receipt.tap": "d4be6fd4fa83e5c3b4453bc4dd85d5047dd3936377d6faf638789d66702b0978",
+    "VERIFICATION.md": "0688c2011132ed883c7f416217a2c89ef0d2fd13936734df0c7557283943c354"
+  },
+  "contractSources": {
+    "packages/contracts/src/assets.ts": "9d368660fa7b28cb0dd0c84b1afa9ee3dbc37267bca61c41e11be5b8255d49bb",
+    "packages/contracts/src/bundle.ts": "549458151995efef284dd8980af8b524bfcf65b6f91ca8303c0c020031a8eaf7",
+    "packages/contracts/src/index.ts": "1e6eef80e8e41c684be04de431dbd102979dbe2dc2f7883f0ed5d3c6a66a854c",
+    "packages/contracts/src/interfaces.ts": "e132db50b657004936f66805c929b98e0bfa138de5bf86df12774e7ace71a874",
+    "packages/contracts/src/model.ts": "d27988a1ff5088a8ff5bded75ddf69d74351a379188d58ca583fdcd486919bad",
+    "packages/contracts/src/revision.ts": "03d8857f2831ec0b569308efa493c56687c55234b96e5020312e38c4d0f36f66"
+  },
+  "limitations": [
+    "No native Android adapter or phone checks.",
+    "No real provider requests or provider-policy acceptance.",
+    "Synthetic CC0 map/audio bytes; no render/decode acceptance.",
+    "One writer process per root.",
+    "Process-kill recovery tested, electrical power-loss durability not tested.",
+    "ENOSPC failure is simulated at the public Storage seam."
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "version": "0.3.2",
+  "versionCode": 7,
+  "device": "Xiaomi22101316G Android12/API31",
+  "install": "Success after human Play Protect confirmation",
+  "installed_apk_sha256": "da6d80bde14cc93cccb7a6414166f5e48d46774fe02f7eec5e482a393f1d2811",
+  "installed_apk_hash_matches": true,
+  "own_service_absent_during_capture": true,
+  "human_reports": [
+    "Pressed replay: greeting and map opening visible",
+    "Repeated opening for a longer recording"
+  ],
+  "settled_screenshot": {
+    "sha256": "e86a2a3b879591e1a9d1965c0a8d443f130e127d29a1335d910f6f176bec3976",
+    "bank_and_river_labels_visible": true,
+    "repeat_button_visible": true,
+    "cta_above_navigation": true,
+    "file": "android12-code7-river-after-opening.png"
+  },
+  "partial_video": {
+    "sha256": "6dbea745059b304e97c0f6d4cebde5dcc32415f26e9f6e6b553c85f22fe218a3",
+    "limitation": "User pressed near end; only start of greeting captured, not a complete transition",
+    "seconds": 44.465333,
+    "file": "android12-code7-opening-20261020T114611Z.mp4"
+  },
+  "full_motion_recording_review": "NOT ACCEPTED: full recording shows brief loss of native map at modal settlement. Fixed parent hierarchy is code8; physical recheck pending.",
+  "frame_rate_acceptance": false,
+  "talkback_and_android14_acceptance": false,
+  "paid_api_calls": 0,
+  "purchases": 0,
+  "full_video": {
+    "native_blank_visible": true,
+    "file": "android12-code7-opening-20261020T114735Z.mp4",
+    "sha256": "33e5accff1019ad1373a4639ff1a90fb905d54dd0dd589aa9101a45f34fa238b",
+    "seconds": 88.413589
+  }
+}

@@ -1,0 +1,44 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+  repositories {
+    google()
+    mavenCentral()
+  }
+  dependencies {
+    classpath('com.android.tools.build:gradle')
+    classpath('com.facebook.react:react-native-gradle-plugin')
+    def kotlinVersion = findProperty('android.kotlinVersion')
+    classpath(kotlinVersion ? "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion" : 'org.jetbrains.kotlin:kotlin-gradle-plugin')
+  }
+}
+
+allprojects {
+  repositories {
+    google()
+    mavenCentral()
+    maven { url 'https://www.jitpack.io' }
+  }
+}
+
+// Expo's Prefab CMake inputs also exceed Ninja's Windows relative-path limit
+// in a deep checkout. Keep this module in its own short staging subdirectory.
+subprojects { subproject ->
+  if (subproject.name == 'expo-modules-core') {
+    subproject.plugins.withId('com.android.library') {
+      def nativeStagingDir = rootProject.findProperty('astanaNativeStagingDir')
+      if (nativeStagingDir) {
+        subproject.extensions.getByName('android').externalNativeBuild.cmake.buildStagingDirectory = new File(nativeStagingDir, 'e')
+      }
+      def nativeNinjaExecutable = rootProject.findProperty('astanaNinjaExecutable')
+      if (nativeNinjaExecutable) {
+        subproject.extensions.getByName('android').defaultConfig.externalNativeBuild.cmake.arguments(
+          "-DCMAKE_MAKE_PROGRAM=${new File(nativeNinjaExecutable).absolutePath.replace('\\', '/')}"
+        )
+      }
+    }
+  }
+}
+
+apply plugin: "expo-root-project"
+apply plugin: "com.facebook.react.rootproject"

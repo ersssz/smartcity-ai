@@ -1,0 +1,34 @@
+{
+  "testedAt": "2026-10-20T14:43:50.9339622+05:00",
+  "deviceAndroidApi": 31,
+  "package": "kz.astanaai.diagnostics",
+  "versionCode3Observed": true,
+  "versionName020Observed": true,
+  "activeWalkServicePresent": false,
+  "scrcpyVersion": "3.3.3",
+  "scrcpyMode": "uhid mouse and keyboard",
+  "existingScrcpyPreserved": true,
+  "adbTapResult": "blocked: SecurityException INJECT_EVENTS",
+  "observedSheetHandle": [
+    {
+      "description": "Развернуть карточку",
+      "bounds": "[0,1553][1080,1674]"
+    }
+  ],
+  "controls": {
+    "expandCollapse": {
+      "status": "not_verified",
+      "attempts": "ADB tap denied; two scrcpy/sky clicks at observed handle; handle still says expand"
+    },
+    "repeatedPin": "not_tested_due_imprecise_control",
+    "localStopSearch": "not_tested_due_imprecise_control",
+    "languageSwitchRU_KK_EN_RU": "not_tested_due_imprecise_control",
+    "localJournalBack": "not_tested_due_imprecise_control",
+    "keyboardTabFocus": "not_verified"
+  },
+  "limitation": "UHID relative Android pointer does not align with absolute coordinates used by Windows automation. No control is marked passed from screenshot alone.",
+  "startWalkPressed": false,
+  "progressChanged": false,
+  "globalSettingsChanged": false,
+  "privateNotificationsCaptured": false
+}

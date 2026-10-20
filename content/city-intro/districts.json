@@ -1,0 +1,231 @@
+{
+  "version": 1,
+  "verifiedAt": "2026-10-20",
+  "river": {
+    "name": {
+      "ru": "Есиль (Ишим)",
+      "kk": "Есіл",
+      "en": "Yesil (Ishim)"
+    },
+    "description": {
+      "ru": "Астана стоит на двух берегах реки Есиль, также известной как Ишим. Левый и правый берег помогают ориентироваться в городе, а шесть районов — его административные части.",
+      "kk": "Астана Есіл өзенінің екі жағалауында орналасқан; бұл өзен Ишим деген атпен де белгілі. Сол және оң жағалау қалада бағдар табуға көмектеседі, ал алты аудан — оның әкімшілік бөліктері.",
+      "en": "Astana stands on both banks of the Yesil River, also known as the Ishim. The left and right banks help you find your bearings; the six districts are the city's administrative divisions."
+    },
+    "sourceIds": ["river-names", "city-two-banks", "city-six-districts"]
+  },
+  "sources": [
+    {
+      "id": "city-six-districts",
+      "title": "Акимат Астаны: План развития города на 2026–2030 годы, паспорт",
+      "url": "https://www.gov.kz/org/astana/documents/details/940185?lang=ru",
+      "checkedAt": "2026-10-20"
+    },
+    {
+      "id": "district-kazakh-names",
+      "title": "Акимат Астаны: «Наурызнама-2026», перечень шести районов с казахским написанием",
+      "url": "https://www.gov.kz/org/astana/press/news/details/1178711?lang=ru",
+      "checkedAt": "2026-10-20"
+    },
+    {
+      "id": "river-names",
+      "title": "Управление природных ресурсов СКО: Водные «артерии» Северного Казахстана",
+      "url": "https://www.gov.kz/org/sko-tabigat/press/news/details/478263?lang=ru",
+      "checkedAt": "2026-10-20"
+    },
+    {
+      "id": "city-two-banks",
+      "title": "Отчёт по проекту улицы ТМ-66 в Астане, 2023, раздел 1.2.2: поверхностные воды",
+      "url": "https://www.gov.kz/uploads/2023/4/19/1bae6e198173a9ff2ce4da0b62ba0817_original.6964189.pdf",
+      "checkedAt": "2026-10-20"
+    },
+    {
+      "id": "district-landmarks",
+      "title": "Акимат Астаны: Катки, горки, фотозоны — районные ориентиры в сообщении о новогоднем оформлении",
+      "url": "https://www.gov.kz/memleket/entities/astana/press/news/details/893126?lang=ru",
+      "checkedAt": "2026-10-20"
+    },
+    {
+      "id": "nura-khan-shatyr",
+      "title": "ДЧС Астаны: Құтқарушылар сауда және ойын-сауық орталықтарында нұсқаулық жүргізді",
+      "url": "https://www.gov.kz/memleket/entities/emer-astana/press/news/details/817644",
+      "checkedAt": "2026-10-20"
+    },
+    {
+      "id": "almaty-parks",
+      "title": "Акимат Астаны: «Закон и порядок» — в столичных парках проходят профилактические рейды",
+      "url": "https://www.gov.kz/memleket/entities/astana/press/news/details/1280867?lang=ru",
+      "checkedAt": "2026-10-20"
+    },
+    {
+      "id": "baikonyr-public-spaces",
+      "title": "Аппарат акима района Байқоңыр: Бюджет народного участия, парк Ататюрк и адреса по проспекту Республики",
+      "url": "https://www.gov.kz/org/astana-baikonyr/bnu/1024?lang=ru",
+      "checkedAt": "2026-10-20"
+    },
+    {
+      "id": "saryarka-embankment",
+      "title": "Акимат Астаны: В Сарыаркинском районе столицы открылась новая набережная",
+      "url": "https://www.gov.kz/memleket/entities/astana/press/news/details/588096?lang=ru",
+      "checkedAt": "2026-10-20"
+    },
+    {
+      "id": "baiterek-boulevard",
+      "title": "Акимат Астаны: туристский информационный центр в Байтереке на бульваре Нуржол",
+      "url": "https://www.gov.kz/memleket/entities/astana/press/news/details/1205985?lang=ru",
+      "checkedAt": "2026-10-20"
+    },
+    {
+      "id": "central-park-map",
+      "title": "Visit Astana: Центральный парк, координата карты на первичной странице",
+      "url": "https://visitastana.kz/ru/about-city/what-to-see/tsentralnyy-park/",
+      "checkedAt": "2026-10-20"
+    },
+    {
+      "id": "botanical-garden-operator",
+      "title": "Астанинский ботанический сад: официальный сайт, адрес в районе Есиль",
+      "url": "https://www.astanabotsad.kz/ru",
+      "checkedAt": "2026-10-20"
+    },
+    {
+      "id": "tourism-parks",
+      "title": "Visit Astana: Парки, Центральный парк и Триатлон-парк у Есиля",
+      "url": "https://visitastana.kz/ru/about-city/what-to-see/?category=parks",
+      "checkedAt": "2026-10-20"
+    },
+    {
+      "id": "tourism-khan-shatyr-shape",
+      "title": "Visit Astana: 24 и 48 часов в столице, описание силуэта Хан Шатыра",
+      "url": "https://visitastana.kz/ru/about-city/24-and-48-hours-in-the-capital/",
+      "checkedAt": "2026-10-20"
+    },
+    {
+      "id": "sarayshyq-cultural-landmarks",
+      "title": "Маслихат Астаны: Депутаты посетили район Сарайшық, 29.10.2025",
+      "url": "https://www.gov.kz/memleket/entities/astana-maslihat/press/news/details/1096766?lang=ru",
+      "checkedAt": "2026-10-20"
+    }
+  ],
+  "districts": [
+    {
+      "id": "almaty",
+      "name": {"ru": "Алматы", "kk": "Алматы", "en": "Almaty"},
+      "tagline": {
+        "ru": "Парки и движение у реки",
+        "kk": "Саябақтар және өзен жағасындағы қозғалыс",
+        "en": "Parks and movement by the river"
+      },
+      "description": {
+        "ru": "Жеруйык и Триатлон-парк — два парковых ориентира района Алматы. Триатлон-парк расположен у Есиля.",
+        "kk": "Жерұйық пен Триатлон паркі — Алматы ауданындағы екі саябақ бағдары. Триатлон паркі Есіл жағасында орналасқан.",
+        "en": "Zheruyik and Triathlon Park are two park landmarks in Almaty district. Triathlon Park is beside the Yesil."
+      },
+      "experience": {
+        "ru": "Совет редакции: начните знакомство с одним из парков и наблюдайте, как город встречается с природой.",
+        "kk": "Редакция кеңесі: танысуды саябақтардың бірінен бастап, қала мен табиғаттың тоғысуын байқаңыз.",
+        "en": "Editor's suggestion: start in one of the parks and notice where the city meets nature."
+      },
+      "sourceIds": ["city-six-districts", "district-kazakh-names", "almaty-parks", "tourism-parks"]
+    },
+    {
+      "id": "baikonyr",
+      "name": {"ru": "Байконур", "kk": "Байқоңыр", "en": "Baikonyr"},
+      "tagline": {
+        "ru": "Парк и жизнь городских кварталов",
+        "kk": "Саябақ пен қала орамдарының өмірі",
+        "en": "A park and neighbourhood life"
+      },
+      "description": {
+        "ru": "Парк Ататюрк и жилые кварталы у проспекта Республики — ориентиры района Байконур.",
+        "kk": "Ататүрік саябағы мен Республика даңғылы маңындағы тұрғын орамдар — Байқоңыр ауданының бағдарлары.",
+        "en": "Ataturk Park and the residential blocks around Republic Avenue are landmarks of Baikonyr district."
+      },
+      "experience": {
+        "ru": "Совет редакции: выберите парк для первого знакомства, а затем присмотритесь к повседневным деталям соседних кварталов.",
+        "kk": "Редакция кеңесі: алғашқы танысу үшін саябақты таңдап, кейін көрші орамдардың күнделікті тіршілігіне назар аударыңыз.",
+        "en": "Editor's suggestion: begin with the park, then look for everyday details in the surrounding neighbourhoods."
+      },
+      "sourceIds": ["city-six-districts", "district-kazakh-names", "baikonyr-public-spaces"]
+    },
+    {
+      "id": "esil",
+      "name": {"ru": "Есиль", "kk": "Есіл", "en": "Esil"},
+      "tagline": {
+        "ru": "Символы столицы и линии бульвара",
+        "kk": "Елорда нышандары мен желекжол сызықтары",
+        "en": "Capital landmarks and boulevard lines"
+      },
+      "description": {
+        "ru": "В Есиле находятся Байтерек и Ботанический сад. У Байтерека можно начать знакомство с бульваром Нуржол.",
+        "kk": "Есіл ауданында Бәйтерек пен Ботаникалық бақ орналасқан. Нұржол желекжолымен танысуды Бәйтерек маңынан бастауға болады.",
+        "en": "Baiterek and the Botanical Garden are in Esil district. You can begin discovering Nurzhol Boulevard around Baiterek."
+      },
+      "experience": {
+        "ru": "Совет редакции: начните с Нуржола и замечайте формы зданий — с ними знакомит наша первая подготовленная прогулка.",
+        "kk": "Редакция кеңесі: Нұржолдан бастап, ғимараттардың пішініне назар аударыңыз — алғашқы дайын серуеніміз солармен таныстырады.",
+        "en": "Editor's suggestion: begin on Nurzhol and notice the shapes of the buildings, a theme of our first prepared walk."
+      },
+      "sourceIds": ["city-six-districts", "district-kazakh-names", "district-landmarks", "botanical-garden-operator", "baiterek-boulevard"]
+    },
+    {
+      "id": "nura",
+      "name": {"ru": "Нура", "kk": "Нұра", "en": "Nura"},
+      "tagline": {
+        "ru": "Большой шатёр и парк у реки",
+        "kk": "Үлкен шатыр және өзен жағасындағы саябақ",
+        "en": "A great tent and a riverside park"
+      },
+      "description": {
+        "ru": "Хан Шатыр и Центральный парк — два разных ориентира района Нура: здание с узнаваемым силуэтом и зелёное пространство у Есиля.",
+        "kk": "Хан Шатыр мен Орталық саябақ — Нұра ауданындағы екі түрлі бағдар: бірегей сұлбасы бар ғимарат пен Есіл жағасындағы жасыл кеңістік.",
+        "en": "Khan Shatyr and Central Park offer two different landmarks in Nura: a distinctive building silhouette and green space beside the Yesil."
+      },
+      "experience": {
+        "ru": "Совет редакции: выберите, с чего начать — рассмотреть силуэт Хан Шатыра или познакомиться с городом у реки.",
+        "kk": "Редакция кеңесі: Хан Шатырдың сұлбасын тамашалаудан немесе өзен жағасындағы қаламен танысудан бастаңыз.",
+        "en": "Editor's suggestion: choose a first discovery — Khan Shatyr's silhouette or the city beside the river."
+      },
+      "sourceIds": ["city-six-districts", "district-kazakh-names", "nura-khan-shatyr", "district-landmarks", "tourism-parks", "tourism-khan-shatyr-shape", "central-park-map"]
+    },
+    {
+      "id": "saryarka",
+      "name": {"ru": "Сарыарка", "kk": "Сарыарқа", "en": "Saryarka"},
+      "tagline": {
+        "ru": "Городские истории у воды",
+        "kk": "Су жағасындағы қала хикаялары",
+        "en": "City stories by the water"
+      },
+      "description": {
+        "ru": "В районе Сарыарка есть набережная возле моста по улице Шабал Бейсековой. Здесь обустроены пешеходная дорожка и зоны отдыха.",
+        "kk": "Сарыарқа ауданында Шабал Бейсекова көшесіндегі көпірдің жанында жағалау бар. Мұнда жаяу жүргіншілер жолы мен демалыс аймақтары жасалған.",
+        "en": "Saryarka has an embankment beside the bridge on Shabal Beisekova Street. It includes a walking path and recreation areas."
+      },
+      "experience": {
+        "ru": "Совет редакции: начните у воды и ищите, как мосты, дорожки и места встреч связывают повседневную жизнь района.",
+        "kk": "Редакция кеңесі: су жағасынан бастап, көпірлер, жолдар мен кездесу орындарының аудан өмірін қалай байланыстыратынын байқаңыз.",
+        "en": "Editor's suggestion: start by the water and notice how bridges, paths and meeting places connect neighbourhood life."
+      },
+      "sourceIds": ["city-six-districts", "district-kazakh-names", "saryarka-embankment"]
+    },
+    {
+      "id": "sarayshyq",
+      "name": {"ru": "Сарайшык", "kk": "Сарайшық", "en": "Sarayshyq"},
+      "tagline": {
+        "ru": "Большие формы и культурная память",
+        "kk": "Айшықты пішіндер мен мәдени жады",
+        "en": "Bold forms and cultural memory"
+      },
+      "description": {
+        "ru": "Национальный музей и Дворец мира и согласия — культурные ориентиры района Сарайшык. Здесь же находятся мечеть Хазрет Султан и Дворец Независимости.",
+        "kk": "Ұлттық музей мен Бейбітшілік және келісім сарайы — Сарайшық ауданының мәдени бағдарлары. Әзірет Сұлтан мешіті мен Тәуелсіздік сарайы да осында орналасқан.",
+        "en": "The National Museum and the Palace of Peace and Reconciliation are cultural landmarks of Sarayshyq. The Hazret Sultan Mosque and the Palace of Independence are here too."
+      },
+      "experience": {
+        "ru": "Совет редакции: начните с внешнего облика одного из этих зданий; посещение внутри планируйте после отдельной проверки условий.",
+        "kk": "Редакция кеңесі: осы ғимараттардың бірін сыртынан тамашалаудан бастаңыз, ал ішке кіруді шарттарын бөлек тексергеннен кейін жоспарлаңыз.",
+        "en": "Editor's suggestion: start with one building's exterior; check entry conditions separately before planning an indoor visit."
+      },
+      "sourceIds": ["city-six-districts", "district-kazakh-names", "sarayshyq-cultural-landmarks"]
+    }
+  ]
+}

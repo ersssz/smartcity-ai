@@ -1,3 +1,55 @@
 {
-  "checks": []
+  "checks": [
+    {
+      "name": "Root lockfile dependencies (no lifecycle scripts)",
+      "command": "npm.cmd",
+      "arguments": [
+        "ci",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund",
+        "--prefer-offline"
+      ],
+      "workingDirectory": "."
+    },
+    {
+      "name": "Mobile lockfile dependencies (no lifecycle scripts)",
+      "command": "npm.cmd",
+      "arguments": [
+        "ci",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund",
+        "--prefer-offline"
+      ],
+      "workingDirectory": "apps/mobile"
+    },
+    {
+      "name": "Strict Node workspace build",
+      "command": "npm.cmd",
+      "arguments": [
+        "run",
+        "build:node"
+      ],
+      "workingDirectory": "."
+    },
+    {
+      "name": "Node workspace runtime integration",
+      "command": "npm.cmd",
+      "arguments": [
+        "run",
+        "test:node-runtime"
+      ],
+      "workingDirectory": "."
+    },
+    {
+      "name": "Mobile TypeScript",
+      "command": "node",
+      "arguments": [
+        "node_modules/typescript/bin/tsc",
+        "--noEmit"
+      ],
+      "workingDirectory": "apps/mobile"
+    }
+  ]
 }

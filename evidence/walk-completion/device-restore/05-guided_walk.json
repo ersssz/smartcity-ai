@@ -1,0 +1,42 @@
+{
+  "step": 5,
+  "action": "guided_walk",
+  "package": "kz.astanaai.diagnostics",
+  "visible_labels": [
+    {
+      "depth": 6,
+      "text": "AstGeo",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 6,
+      "text": "Готовим вашу прогулку…",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 6,
+      "text": "",
+      "description": "К сохранённой прогулке",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 7,
+      "text": "К сохранённой прогулке",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    }
+  ],
+  "visited_nodes": 14,
+  "screen_policy": "NOT_PROVEN",
+  "capture_skipped": "SAFE_SCREEN_NOT_PROVEN"
+}

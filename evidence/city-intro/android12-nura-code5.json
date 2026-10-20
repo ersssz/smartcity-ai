@@ -1,0 +1,15 @@
+{
+  "version": "0.3.0",
+  "versionCode": 5,
+  "screenshot": "android12-code5-nura.png",
+  "sha256": "b487a7fa1c59f7fc94660ffb05fb2d288bf90be94f0912fafbbae52808a47485",
+  "actor": "Human user selected RU / City guide / Nura",
+  "rootScreenshotVerified": true,
+  "independentVisualAgent": "/root/nura_device_visual_check",
+  "nuraPolygonTitleAndSelectedButtonMatch": true,
+  "ctaFullyAboveSystemNavigation": true,
+  "ownServiceAbsentAtCapture": true,
+  "adbTapAccepted": false,
+  "animationAndScrollingVerified": false,
+  "note": "User subsequently requested smaller sheet and closer city view; those changes are version0.3.1, not accepted by this screenshot"
+}

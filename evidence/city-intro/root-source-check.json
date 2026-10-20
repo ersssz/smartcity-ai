@@ -1,0 +1,10 @@
+{
+  "result": "PASS_EXACT_APP_GEOMETRY_AGAINST_RAW_WITNESSES",
+  "districts": 6,
+  "directedOrReverseRawBoundaryEdges": 2542,
+  "riverMainStreamWays": 16,
+  "riverSourceComponents": 3,
+  "guideSha256": "e565c4d307adca5a1730152a4dbd7a81e126fd4fc3d941d14c41cc850a88fc9b",
+  "noSyntheticGeometry": true,
+  "legalOrFieldAcceptance": false
+}

@@ -1,0 +1,88 @@
+TAP version 13
+# Subtest: the explicit progress intent marks only the currently selected active story without mutating progress
+ok 1 - the explicit progress intent marks only the currently selected active story without mutating progress
+  ---
+  duration_ms: 1.9985
+  type: 'test'
+  ...
+# Subtest: after the final chapter every real ending needs an explicit confirm_end rather than another read or an automatic completion
+ok 2 - after the final chapter every real ending needs an explicit confirm_end rather than another read or an automatic completion
+  ---
+  duration_ms: 150.6311
+  type: 'test'
+  ...
+# Subtest: reading previews never marks an earlier or future story while an active current chapter remains actionable
+ok 3 - reading previews never marks an earlier or future story while an active current chapter remains actionable
+  ---
+  duration_ms: 0.262
+  type: 'test'
+  ...
+# Subtest: paused, terminal, prepared, non-story and denied states offer neither reading nor end confirmation
+ok 4 - paused, terminal, prepared, non-story and denied states offer neither reading nor end confirmation
+  ---
+  duration_ms: 0.3856
+  type: 'test'
+  ...
+# Subtest: empty walks, nonintegral or out-of-range cursors and missing current IDs cannot fabricate progression
+ok 5 - empty walks, nonintegral or out-of-range cursors and missing current IDs cannot fabricate progression
+  ---
+  duration_ms: 0.4791
+  type: 'test'
+  ...
+# Subtest: after all stories the explicit finish is reachable outside scrolling content
+ok 6 - after all stories the explicit finish is reachable outside scrolling content
+  ---
+  duration_ms: 22.6218
+  type: 'test'
+  ...
+# Subtest: persistent finish retains the selected last_stop meaning
+ok 7 - persistent finish retains the selected last_stop meaning
+  ---
+  duration_ms: 1.8295
+  type: 'test'
+  ...
+# Subtest: persistent finish retains the selected point meaning
+ok 8 - persistent finish retains the selected point meaning
+  ---
+  duration_ms: 0.6926
+  type: 'test'
+  ...
+# Subtest: explicit finish cannot advance while paused
+ok 9 - explicit finish cannot advance while paused
+  ---
+  duration_ms: 2.362
+  type: 'test'
+  ...
+# Subtest: explicit finish cannot advance while busy
+ok 10 - explicit finish cannot advance while busy
+  ---
+  duration_ms: 1.9942
+  type: 'test'
+  ...
+# Subtest: legacy manual completion of the current chapter does not trap reading progress
+ok 11 - legacy manual completion of the current chapter does not trap reading progress
+  ---
+  duration_ms: 1.0088
+  type: 'test'
+  ...
+# Subtest: ordinary current story still offers reading rather than premature finish
+ok 12 - ordinary current story still offers reading rather than premature finish
+  ---
+  duration_ms: 0.5362
+  type: 'test'
+  ...
+# Subtest: non-story flow retains its established inline confirmation
+ok 13 - non-story flow retains its established inline confirmation
+  ---
+  duration_ms: 0.3227
+  type: 'test'
+  ...
+1..13
+# tests 13
+# suites 0
+# pass 13
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 743.6111

@@ -1,0 +1,3605 @@
+{
+  "schemaVersion": 1,
+  "auditUtc": "2026-10-20T17:42:55.408977+00:00",
+  "sourceCommit": "c5b45ff1f422e9b461957356847d826db730d635",
+  "buildStage": "final-0.6.1-narration-bootstrap",
+  "requireNarration": true,
+  "status": "PASS_STATIC",
+  "apk": {
+    "path": "C:\\Users\\era\\Documents\\Codex\\2026-10-20\\x20\\outputs\\AstanaAI\\apps\\mobile\\android\\app\\build\\outputs\\apk\\release\\app-release.apk",
+    "bytes": 54046595,
+    "sha256": "ac550e02efa855c5c8b2c9209b110d511495ca5818ba5101f791e7c9722b0712"
+  },
+  "registry": {
+    "path": "C:\\Users\\era\\Documents\\Codex\\2026-10-20\\x20\\outputs\\AstanaAI\\apps\\mobile\\src\\canonical\\preparedAudioRegistry.generated.json",
+    "sha256": "959e466442bbe090a8523f0d88607454706ce67d2e7e763e6b4798587ab71925",
+    "manifestSha256": "f4f0e5c4d5ec40316c01fcad554942f561c563c133ad1d72d1ca053e15ba58c6",
+    "contentRevision": "editorial-r2-canonical-1"
+  },
+  "manifest": {
+    "identity": {
+      "versionCode": 14,
+      "versionName": "0.6.1",
+      "compileSdkVersion": 37,
+      "compileSdkVersionCodename": "17",
+      "package": "kz.astanaai.diagnostics",
+      "platformBuildVersionCode": 37,
+      "platformBuildVersionName": 17,
+      "minSdkVersion": 24,
+      "targetSdkVersion": 36
+    },
+    "application": {
+      "theme": "@0x7f11000d",
+      "label": "@0x7f10001d",
+      "icon": "@0x7f0d0000",
+      "name": "kz.astanaai.diagnostics.MainApplication",
+      "allowBackup": false,
+      "supportsRtl": true,
+      "extractNativeLibs": false,
+      "roundIcon": "@0x7f0d0001",
+      "appComponentFactory": "androidx.core.app.CoreComponentFactory",
+      "enableOnBackInvokedCallback": false
+    },
+    "permissions": [
+      "android.permission.ACCESS_COARSE_LOCATION",
+      "android.permission.ACCESS_FINE_LOCATION",
+      "android.permission.FOREGROUND_SERVICE",
+      "android.permission.FOREGROUND_SERVICE_LOCATION",
+      "android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK",
+      "android.permission.WAKE_LOCK",
+      "android.permission.INTERNET",
+      "android.permission.POST_NOTIFICATIONS",
+      "android.permission.VIBRATE",
+      "android.permission.ACCESS_NETWORK_STATE",
+      "android.permission.ACCESS_WIFI_STATE",
+      "kz.astanaai.diagnostics.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+    ],
+    "components": {
+      "activity": [
+        {
+          "theme": "@0x7f11025a",
+          "name": "kz.astanaai.diagnostics.MainActivity",
+          "exported": true,
+          "launchMode": 2,
+          "screenOrientation": 1,
+          "configChanges": 2147487664,
+          "windowSoftInputMode": 16
+        }
+      ],
+      "service": [
+        {
+          "name": "kz.astanaai.activewalk.ActiveWalkService",
+          "exported": false,
+          "stopWithTask": true,
+          "foregroundServiceType": 8
+        },
+        {
+          "name": "kz.astanaai.activewalk.narration.NarrationPlaybackService",
+          "exported": false,
+          "stopWithTask": true,
+          "foregroundServiceType": 2
+        }
+      ],
+      "receiver": [
+        {
+          "name": "kz.astanaai.activewalk.StopReceiver",
+          "exported": false
+        },
+        {
+          "name": "kz.astanaai.activewalk.narration.NarrationMediaActionReceiver",
+          "exported": false
+        },
+        {
+          "name": "androidx.profileinstaller.ProfileInstallReceiver",
+          "permission": "android.permission.DUMP",
+          "enabled": true,
+          "exported": true,
+          "directBootAware": false
+        }
+      ],
+      "provider": [
+        {
+          "name": "expo.modules.filesystem.FileSystemFileProvider",
+          "exported": false,
+          "authorities": "kz.astanaai.diagnostics.FileSystemFileProvider",
+          "grantUriPermissions": true
+        },
+        {
+          "name": "androidx.startup.InitializationProvider",
+          "exported": false,
+          "authorities": "kz.astanaai.diagnostics.androidx-startup"
+        }
+      ],
+      "meta-data": [
+        {
+          "name": "expo.modules.updates.ENABLED",
+          "value": false
+        },
+        {
+          "name": "expo.modules.updates.ENABLE_BSDIFF_PATCH_SUPPORT",
+          "value": true
+        },
+        {
+          "name": "expo.modules.updates.EXPO_UPDATES_CHECK_ON_LAUNCH",
+          "value": "ALWAYS"
+        },
+        {
+          "name": "expo.modules.updates.EXPO_UPDATES_LAUNCH_WAIT_MS",
+          "value": 0
+        },
+        {
+          "name": "org.unimodules.core.AppLoader#react-native-headless",
+          "value": "expo.modules.adapters.react.apploader.RNHeadlessAppLoader"
+        },
+        {
+          "name": "com.facebook.soloader.enabled",
+          "value": true
+        },
+        {
+          "name": "android.support.FILE_PROVIDER_PATHS",
+          "resource": "@0x7f130000"
+        },
+        {
+          "name": "androidx.emoji2.text.EmojiCompatInitializer",
+          "value": "androidx.startup"
+        },
+        {
+          "name": "androidx.lifecycle.ProcessLifecycleInitializer",
+          "value": "androidx.startup"
+        },
+        {
+          "name": "androidx.profileinstaller.ProfileInstallerInitializer",
+          "value": "androidx.startup"
+        }
+      ]
+    }
+  },
+  "checks": [
+    {
+      "name": "tool:badging",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tool:manifest",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tool:signature",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tool:alignment",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "package/version",
+      "passed": true,
+      "detail": {
+        "versionCode": 14,
+        "versionName": "0.6.1",
+        "compileSdkVersion": 37,
+        "compileSdkVersionCodename": "17",
+        "package": "kz.astanaai.diagnostics",
+        "platformBuildVersionCode": 37,
+        "platformBuildVersionName": 17,
+        "minSdkVersion": 24,
+        "targetSdkVersion": 36
+      }
+    },
+    {
+      "name": "not-debuggable",
+      "passed": true,
+      "detail": "absent/default false"
+    },
+    {
+      "name": "backup-disabled",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "forbidden-permissions-absent",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "active-walk-service",
+      "passed": true,
+      "detail": [
+        {
+          "name": "kz.astanaai.activewalk.ActiveWalkService",
+          "exported": false,
+          "stopWithTask": true,
+          "foregroundServiceType": 8
+        }
+      ]
+    },
+    {
+      "name": "stop-receiver-not-exported",
+      "passed": true,
+      "detail": [
+        {
+          "name": "kz.astanaai.activewalk.StopReceiver",
+          "exported": false
+        }
+      ]
+    },
+    {
+      "name": "narration-media-playback-service",
+      "passed": true,
+      "detail": [
+        {
+          "name": "kz.astanaai.activewalk.narration.NarrationPlaybackService",
+          "exported": false,
+          "stopWithTask": true,
+          "foregroundServiceType": 2
+        }
+      ]
+    },
+    {
+      "name": "narration-media-receiver-not-exported",
+      "passed": true,
+      "detail": [
+        {
+          "name": "kz.astanaai.activewalk.narration.NarrationMediaActionReceiver",
+          "exported": false
+        }
+      ]
+    },
+    {
+      "name": "narration-permission:WAKE_LOCK",
+      "passed": true,
+      "detail": "android.permission.WAKE_LOCK"
+    },
+    {
+      "name": "narration-permission:FOREGROUND_SERVICE_MEDIA_PLAYBACK",
+      "passed": true,
+      "detail": "android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK"
+    },
+    {
+      "name": "expo-updates-disabled",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "signature-v2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "registry-54-unique",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "no-duplicate-zip-names",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:chapter:bayterek-outdoor:ru",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:chapter:nurzhol-outdoor:ru",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:chapter:round-square-outdoor:ru",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:quest-tree:question:ru",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:quest-tree:hint:ru",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:quest-tree:explanation:ru",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:quest-line:question:ru",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:quest-line:hint:ru",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:quest-line:explanation:ru",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:quest-circle:question:ru",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:quest-circle:hint:ru",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:quest-circle:explanation:ru",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:cue:start:ru",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:cue:nearby:ru",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:cue:pause:ru",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:cue:resume:ru",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:cue:complete:ru",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:cue:abandon:ru",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:chapter:bayterek-outdoor:kk",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:chapter:nurzhol-outdoor:kk",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:chapter:round-square-outdoor:kk",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:quest-tree:question:kk",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:quest-tree:hint:kk",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:quest-tree:explanation:kk",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:quest-line:question:kk",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:quest-line:hint:kk",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:quest-line:explanation:kk",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:quest-circle:question:kk",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:quest-circle:hint:kk",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:quest-circle:explanation:kk",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:cue:start:kk",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:cue:nearby:kk",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:cue:pause:kk",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:cue:resume:kk",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:cue:complete:kk",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:cue:abandon:kk",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:chapter:bayterek-outdoor:en",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:chapter:nurzhol-outdoor:en",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:chapter:round-square-outdoor:en",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:quest-tree:question:en",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:quest-tree:hint:en",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:quest-tree:explanation:en",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:quest-line:question:en",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:quest-line:hint:en",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:quest-line:explanation:en",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:quest-circle:question:en",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:quest-circle:hint:en",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:quest-circle:explanation:en",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:cue:start:en",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:cue:nearby:en",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:cue:pause:en",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:cue:resume:en",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:cue:complete:en",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audio:cue:abandon:en",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact-audio-set",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "dex-integrity:classes.dex",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "dex-integrity:classes2.dex",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "dex-integrity:classes3.dex",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "dex-integrity:classes4.dex",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "native:ActiveWalkModule",
+      "passed": true,
+      "detail": {
+        "required": [
+          "definition"
+        ],
+        "foundCodeMethods": [
+          "<init>",
+          "access$audio",
+          "access$getDisposed$p",
+          "access$getMain$p",
+          "access$getNarrationBridge$p",
+          "access$getObserver$p",
+          "access$getPreparedPlayer$p",
+          "access$narration",
+          "access$resumed",
+          "access$setDisposed$p",
+          "access$setNarrationBridge$p",
+          "access$setPreparedPlayer$p",
+          "audio",
+          "audio$lambda$2",
+          "definition",
+          "narration",
+          "resumed"
+        ]
+      }
+    },
+    {
+      "name": "native:PreparedAssetVerifier",
+      "passed": true,
+      "detail": {
+        "required": [
+          "hashUtf8",
+          "verify"
+        ],
+        "foundCodeMethods": [
+          "<clinit>",
+          "<init>",
+          "hashUtf8",
+          "hex",
+          "hex$lambda$1",
+          "verify"
+        ]
+      }
+    },
+    {
+      "name": "native:PreparedAudioPlayer",
+      "passed": true,
+      "detail": {
+        "required": [
+          "getState",
+          "pause",
+          "play",
+          "release",
+          "setForeground",
+          "stop"
+        ],
+        "foundCodeMethods": [
+          "<init>",
+          "abandonFocus",
+          "access$getDisposed$p",
+          "canPlay",
+          "capturePosition",
+          "checkMain",
+          "clearResources",
+          "current",
+          "fail",
+          "getState",
+          "pause",
+          "play",
+          "play$lambda$5",
+          "play$lambda$5$lambda$3",
+          "play$lambda$5$lambda$4",
+          "prepare",
+          "prepare$lambda$6",
+          "prepare$lambda$7",
+          "prepare$lambda$8",
+          "publish",
+          "registerNoisy",
+          "release",
+          "releasedState",
+          "requestFocus",
+          "requestFocus$lambda$11",
+          "requestFocus$lambda$11$lambda$10",
+          "setForeground",
+          "snapshot",
+          "stop",
+          "unregisterNoisy",
+          "worker$lambda$1"
+        ]
+      }
+    },
+    {
+      "name": "native:PreparedAudioOwner",
+      "passed": true,
+      "detail": {
+        "required": [
+          "detach",
+          "register",
+          "stop"
+        ],
+        "foundCodeMethods": [
+          "<clinit>",
+          "<init>",
+          "detach",
+          "detach$lambda$5",
+          "register",
+          "register$lambda$0",
+          "stop",
+          "stop$lambda$10"
+        ]
+      }
+    },
+    {
+      "name": "native:narration/NarrationPlaybackService",
+      "passed": true,
+      "detail": {
+        "required": [
+          "onBind",
+          "onCreate",
+          "onDestroy",
+          "onStartCommand",
+          "onTaskRemoved"
+        ],
+        "foundCodeMethods": [
+          "<clinit>",
+          "<init>",
+          "acknowledgeForeground",
+          "onBind",
+          "onCreate",
+          "onDestroy",
+          "onStartCommand",
+          "onTaskRemoved"
+        ]
+      }
+    },
+    {
+      "name": "native:narration/NarrationMediaActionReceiver",
+      "passed": true,
+      "detail": {
+        "required": [
+          "onReceive"
+        ],
+        "foundCodeMethods": [
+          "<init>",
+          "onReceive"
+        ]
+      }
+    },
+    {
+      "name": "native:narration/NarrationHost",
+      "passed": true,
+      "detail": {
+        "required": [
+          "createBridge",
+          "existing",
+          "install",
+          "stopIfInstalled"
+        ],
+        "foundCodeMethods": [
+          "<clinit>",
+          "<init>",
+          "access$checkMain",
+          "checkMain",
+          "createBridge",
+          "createBridge$default",
+          "existing",
+          "install",
+          "install$default",
+          "install$lambda$0",
+          "stopIfInstalled"
+        ]
+      }
+    },
+    {
+      "name": "native:narration/NarrationBridgeFacade",
+      "passed": true,
+      "detail": {
+        "required": [
+          "captureScopeDto",
+          "close",
+          "getState",
+          "pause",
+          "play",
+          "resume",
+          "stop"
+        ],
+        "foundCodeMethods": [
+          "<init>",
+          "_init_$lambda$0",
+          "audioDto",
+          "captureScopeDto",
+          "close",
+          "control",
+          "getState",
+          "hostDto",
+          "pause",
+          "play",
+          "receipt",
+          "refused",
+          "resume",
+          "stateDto",
+          "stop",
+          "unsubscribe$lambda$1"
+        ]
+      }
+    },
+    {
+      "name": "native:narration/NarrationCoordinator",
+      "passed": true,
+      "detail": {
+        "required": [
+          "consumeStart",
+          "detachClient",
+          "observe",
+          "onServiceCreated",
+          "onServiceDestroyed",
+          "pause",
+          "play",
+          "registerClient",
+          "resume",
+          "stopAudio"
+        ],
+        "foundCodeMethods": [
+          "<clinit>",
+          "<init>",
+          "_init_$lambda$0",
+          "access$visibleId",
+          "closeCurrent",
+          "closeCurrent$default",
+          "commandError",
+          "consumeStart",
+          "consumeStart$lambda$6",
+          "control",
+          "detachClient",
+          "detachClient$lambda$7",
+          "observe",
+          "onAudio",
+          "onServiceBootstrapFailed",
+          "onServiceCreated",
+          "onServiceDestroyed",
+          "pause",
+          "play",
+          "publish",
+          "registerClient",
+          "reject",
+          "releaseUnowned",
+          "resume",
+          "snapshot",
+          "stopAudio",
+          "subscribe",
+          "subscribe$lambda$9",
+          "taskRemoved",
+          "valid",
+          "visible",
+          "visibleId"
+        ]
+      }
+    },
+    {
+      "name": "native:narration/AndroidNarrationEffects",
+      "passed": true,
+      "detail": {
+        "required": [
+          "apply",
+          "positionMs",
+          "release"
+        ],
+        "foundCodeMethods": [
+          "<clinit>",
+          "<init>",
+          "access$cancelJobs",
+          "access$getCurrent$p",
+          "access$getDispatch$p",
+          "access$getReleased$p",
+          "access$releaseFocus",
+          "access$releasePlayer",
+          "access$unregisterNoisy",
+          "access$updateSession$authorized",
+          "alive",
+          "apply",
+          "apply$lambda$5",
+          "cancelJobs",
+          "capturePosition",
+          "checkMain",
+          "createSession",
+          "executor$lambda$1",
+          "notification",
+          "positionMs",
+          "post",
+          "post$lambda$32",
+          "prepare",
+          "prepare$lambda$20",
+          "prepare$lambda$20$lambda$19",
+          "prepare$lambda$21",
+          "prepare$lambda$22",
+          "promote",
+          "promote$lambda$16",
+          "registerNoisy",
+          "release",
+          "release$clean",
+          "release$lambda$11",
+          "release$lambda$12",
+          "release$lambda$13",
+          "releaseFocus",
+          "releasePlayer",
+          "requestFocus",
+          "requestFocus$lambda$26",
+          "requestFocus$lambda$26$lambda$25",
+          "start",
+          "unregisterNoisy",
+          "updateSession",
+          "updateSession$authorized",
+          "validPlayer",
+          "verify",
+          "verify$lambda$18"
+        ]
+      }
+    },
+    {
+      "name": "js-matches-build-output",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "hermes-bundle",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "registry-hashes-in-js",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "credits-match-registry",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "gpl-text-bundled",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "apk-unchanged-during-audit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "registry-unchanged-during-audit",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "audio": [
+    {
+      "id": "chapter:bayterek-outdoor:ru",
+      "locale": "ru",
+      "zipPath": "assets/astana-audio/b78a7645a8f376d9ec9734136beeb7791b582b9d0ba816b7360b856e15ef6424.mp3",
+      "bytes": 752109,
+      "sha256": "b78a7645a8f376d9ec9734136beeb7791b582b9d0ba816b7360b856e15ef6424",
+      "textSha256": "9eb819f682a0e531d3d4ba883e3d831c346fd864f9ca02ce82b48a3d902d37c0",
+      "compression": 0,
+      "compressedBytes": 752109,
+      "passed": true
+    },
+    {
+      "id": "chapter:nurzhol-outdoor:ru",
+      "locale": "ru",
+      "zipPath": "assets/astana-audio/f5f60024e2c9d538185e9840b486dc237712f811b018dea152a4b27d6155b4b9.mp3",
+      "bytes": 766125,
+      "sha256": "f5f60024e2c9d538185e9840b486dc237712f811b018dea152a4b27d6155b4b9",
+      "textSha256": "850fb70511c342b23762c01c80ac66a80fcaed8ebb349e965b8a5bc592580b05",
+      "compression": 0,
+      "compressedBytes": 766125,
+      "passed": true
+    },
+    {
+      "id": "chapter:round-square-outdoor:ru",
+      "locale": "ru",
+      "zipPath": "assets/astana-audio/8a9becab04088e571bac5e651495a3f23ce3617ef338b7c5b381639744eae7b2.mp3",
+      "bytes": 773037,
+      "sha256": "8a9becab04088e571bac5e651495a3f23ce3617ef338b7c5b381639744eae7b2",
+      "textSha256": "da173a906b0d82965bdf5e0fd8f044143662d1a1413d30673c6774ea15b1b9a3",
+      "compression": 0,
+      "compressedBytes": 773037,
+      "passed": true
+    },
+    {
+      "id": "quest-tree:question:ru",
+      "locale": "ru",
+      "zipPath": "assets/astana-audio/290a56bf0868a27e0b1ce200aa1e9bcd132e2cb84ab49ad819e6c500f64bf7db.mp3",
+      "bytes": 64365,
+      "sha256": "290a56bf0868a27e0b1ce200aa1e9bcd132e2cb84ab49ad819e6c500f64bf7db",
+      "textSha256": "7561796b2ec99b126162b76c1a44fe5e59ea0abae0fb2769e865d69e1a94cabf",
+      "compression": 0,
+      "compressedBytes": 64365,
+      "passed": true
+    },
+    {
+      "id": "quest-tree:hint:ru",
+      "locale": "ru",
+      "zipPath": "assets/astana-audio/3ef240cfc13fc151548738d9222b6f97129bd67cefb008da5f5b1ec0b34998ac.mp3",
+      "bytes": 52269,
+      "sha256": "3ef240cfc13fc151548738d9222b6f97129bd67cefb008da5f5b1ec0b34998ac",
+      "textSha256": "1752253143734ab357c15bf654267638b789af1862b8682d7291dd54faef0fdd",
+      "compression": 0,
+      "compressedBytes": 52269,
+      "passed": true
+    },
+    {
+      "id": "quest-tree:explanation:ru",
+      "locale": "ru",
+      "zipPath": "assets/astana-audio/bfaa886f816a8ce977a8fd2de63e181c6e58d8bcbdc601d61daff93f440a98b3.mp3",
+      "bytes": 80493,
+      "sha256": "bfaa886f816a8ce977a8fd2de63e181c6e58d8bcbdc601d61daff93f440a98b3",
+      "textSha256": "12e2a10e9a23f38f69bd5282f00b111389fe4e21a0859ed63a6fbc7465333d91",
+      "compression": 0,
+      "compressedBytes": 80493,
+      "passed": true
+    },
+    {
+      "id": "quest-line:question:ru",
+      "locale": "ru",
+      "zipPath": "assets/astana-audio/8cc3f442fdea1c78b9f34dd5257fba61d339767a869edce293d696be958396a1.mp3",
+      "bytes": 91245,
+      "sha256": "8cc3f442fdea1c78b9f34dd5257fba61d339767a869edce293d696be958396a1",
+      "textSha256": "2a10c987064259a304a1253991c0bab0740767aaef204568960e4acf35cb4181",
+      "compression": 0,
+      "compressedBytes": 91245,
+      "passed": true
+    },
+    {
+      "id": "quest-line:hint:ru",
+      "locale": "ru",
+      "zipPath": "assets/astana-audio/d9e86da324f13beb5d4c870477f168b3711045704d16e5dcbaab2679a834c7ae.mp3",
+      "bytes": 38445,
+      "sha256": "d9e86da324f13beb5d4c870477f168b3711045704d16e5dcbaab2679a834c7ae",
+      "textSha256": "34886cd3a07ccd1ebd3e71e8be11ce7e5568f666d594ad6eaabe5fe2478994d4",
+      "compression": 0,
+      "compressedBytes": 38445,
+      "passed": true
+    },
+    {
+      "id": "quest-line:explanation:ru",
+      "locale": "ru",
+      "zipPath": "assets/astana-audio/31778bb5708249bf24f579f996213f58a17ae9ddc80e33772324048605d5b975.mp3",
+      "bytes": 74925,
+      "sha256": "31778bb5708249bf24f579f996213f58a17ae9ddc80e33772324048605d5b975",
+      "textSha256": "a046962d681eea433ea8f4747e945c40bd145b08e66f018c96d31aa32ff12391",
+      "compression": 0,
+      "compressedBytes": 74925,
+      "passed": true
+    },
+    {
+      "id": "quest-circle:question:ru",
+      "locale": "ru",
+      "zipPath": "assets/astana-audio/0a075aa2cc4eb952419634c7a86f32a9123667d284194b1497677f7e7e6788a2.mp3",
+      "bytes": 95469,
+      "sha256": "0a075aa2cc4eb952419634c7a86f32a9123667d284194b1497677f7e7e6788a2",
+      "textSha256": "caef5ebd96f750b6ffcf673175c9e8903b4aa7b9632f844df1597ee19332e016",
+      "compression": 0,
+      "compressedBytes": 95469,
+      "passed": true
+    },
+    {
+      "id": "quest-circle:hint:ru",
+      "locale": "ru",
+      "zipPath": "assets/astana-audio/193ca035a47959055410adff96de2f2f7e8a4334d7ba17b9f34b8e992b342ba8.mp3",
+      "bytes": 37677,
+      "sha256": "193ca035a47959055410adff96de2f2f7e8a4334d7ba17b9f34b8e992b342ba8",
+      "textSha256": "dcbad9a000c50b3fbc5ba393f1c4ec332543bcf62de653e3300c30db7c1ffa6d",
+      "compression": 0,
+      "compressedBytes": 37677,
+      "passed": true
+    },
+    {
+      "id": "quest-circle:explanation:ru",
+      "locale": "ru",
+      "zipPath": "assets/astana-audio/9e9bfec883a3efb1cd3424789d7710f167a97e05f79f6c5d19ba3f649ba6dd95.mp3",
+      "bytes": 84909,
+      "sha256": "9e9bfec883a3efb1cd3424789d7710f167a97e05f79f6c5d19ba3f649ba6dd95",
+      "textSha256": "406810a855169e64a89efa6951e86910ad84107032d5e7c2f91965a5c8161547",
+      "compression": 0,
+      "compressedBytes": 84909,
+      "passed": true
+    },
+    {
+      "id": "cue:start:ru",
+      "locale": "ru",
+      "zipPath": "assets/astana-audio/c72a24269d33db07120e81d411a31164c7598018596cd57ad07b413699311bf7.mp3",
+      "bytes": 11373,
+      "sha256": "c72a24269d33db07120e81d411a31164c7598018596cd57ad07b413699311bf7",
+      "textSha256": "6c18f42774ffcdd97c666bcb370a1315319a5b2eaac280639b967c46ad7e3da2",
+      "compression": 0,
+      "compressedBytes": 11373,
+      "passed": true
+    },
+    {
+      "id": "cue:nearby:ru",
+      "locale": "ru",
+      "zipPath": "assets/astana-audio/4961f0b810935d65c687bc20ab659dfa1951d1373b790480a74bae12b8c894a3.mp3",
+      "bytes": 12333,
+      "sha256": "4961f0b810935d65c687bc20ab659dfa1951d1373b790480a74bae12b8c894a3",
+      "textSha256": "e066d1a335a5a47b1d3c85499499ce006f9409f68d92cc7bb0fead1a5bbb3445",
+      "compression": 0,
+      "compressedBytes": 12333,
+      "passed": true
+    },
+    {
+      "id": "cue:pause:ru",
+      "locale": "ru",
+      "zipPath": "assets/astana-audio/aa8b1c93dbad4fb90b3235a4e4c1b2cce01a908b89a9c880ed006f4ca9b5c622.mp3",
+      "bytes": 13101,
+      "sha256": "aa8b1c93dbad4fb90b3235a4e4c1b2cce01a908b89a9c880ed006f4ca9b5c622",
+      "textSha256": "7db5db369a889980bf2294220bf603a040e50bb556e011d20842fc9327de84b6",
+      "compression": 0,
+      "compressedBytes": 13101,
+      "passed": true
+    },
+    {
+      "id": "cue:resume:ru",
+      "locale": "ru",
+      "zipPath": "assets/astana-audio/624b0ae5e56c95907127e5662c57b4076ac9b6c3ba1379a5094cf9576fa657bb.mp3",
+      "bytes": 12525,
+      "sha256": "624b0ae5e56c95907127e5662c57b4076ac9b6c3ba1379a5094cf9576fa657bb",
+      "textSha256": "9f624a1281fe27aa4141399c3a302729231478aae4eee9d987228254eb8a2d15",
+      "compression": 0,
+      "compressedBytes": 12525,
+      "passed": true
+    },
+    {
+      "id": "cue:complete:ru",
+      "locale": "ru",
+      "zipPath": "assets/astana-audio/8b28cea28056f2505a1ba7ed23a3d1b7cf524261db036248398d70662c6cd606.mp3",
+      "bytes": 174765,
+      "sha256": "8b28cea28056f2505a1ba7ed23a3d1b7cf524261db036248398d70662c6cd606",
+      "textSha256": "bb8e12acc09e505c9811ff669474d180dbc40c9fb2eeba75eab2ee4190a41740",
+      "compression": 0,
+      "compressedBytes": 174765,
+      "passed": true
+    },
+    {
+      "id": "cue:abandon:ru",
+      "locale": "ru",
+      "zipPath": "assets/astana-audio/c607ab4205fddb7442b3fa11c1ada27ba15aaab9802034bf781c905395353a1d.mp3",
+      "bytes": 16365,
+      "sha256": "c607ab4205fddb7442b3fa11c1ada27ba15aaab9802034bf781c905395353a1d",
+      "textSha256": "408accc3b88f35e3ae6282942bc87945dc1c43f7ec93cd4518d09a835dae5a46",
+      "compression": 0,
+      "compressedBytes": 16365,
+      "passed": true
+    },
+    {
+      "id": "chapter:bayterek-outdoor:kk",
+      "locale": "kk",
+      "zipPath": "assets/astana-audio/f5750cad929195cb3b37ed5b98067dc5f5eaf0ab84f4913bf715fd525ffae4fd.mp3",
+      "bytes": 793957,
+      "sha256": "f5750cad929195cb3b37ed5b98067dc5f5eaf0ab84f4913bf715fd525ffae4fd",
+      "textSha256": "5697f33e40857a30656584df8bb3e27e6a0fb63d26b6fa1a626cf360a09e1878",
+      "compression": 0,
+      "compressedBytes": 793957,
+      "passed": true
+    },
+    {
+      "id": "chapter:nurzhol-outdoor:kk",
+      "locale": "kk",
+      "zipPath": "assets/astana-audio/d5f416cf7c22c54da0867fb41eac4d9913c45d17aa423d1ea63d07b0ae132a56.mp3",
+      "bytes": 778910,
+      "sha256": "d5f416cf7c22c54da0867fb41eac4d9913c45d17aa423d1ea63d07b0ae132a56",
+      "textSha256": "05cc89e49f3e013c605d38aaf2ac76690e936a39ba19e339d960e3e35c36ea26",
+      "compression": 0,
+      "compressedBytes": 778910,
+      "passed": true
+    },
+    {
+      "id": "chapter:round-square-outdoor:kk",
+      "locale": "kk",
+      "zipPath": "assets/astana-audio/3a4a81fbb661a747b9563c74e362524ba328b9fb57d1ec839041180b48a338ea.mp3",
+      "bytes": 758013,
+      "sha256": "3a4a81fbb661a747b9563c74e362524ba328b9fb57d1ec839041180b48a338ea",
+      "textSha256": "818a9bfe0b4b6e6e60394cd5f171920f1cb10c86488061b8242e0572250597da",
+      "compression": 0,
+      "compressedBytes": 758013,
+      "passed": true
+    },
+    {
+      "id": "quest-tree:question:kk",
+      "locale": "kk",
+      "zipPath": "assets/astana-audio/f46b0cb0ffd1b44a203a36a9c678f80db1af1976d3f5027ae1843026b46517fe.mp3",
+      "bytes": 62528,
+      "sha256": "f46b0cb0ffd1b44a203a36a9c678f80db1af1976d3f5027ae1843026b46517fe",
+      "textSha256": "bfaffe68b8f8e7fbb961ffdf1b6e9aea392ed628d7e7fa69c82a3c905cbecae5",
+      "compression": 0,
+      "compressedBytes": 62528,
+      "passed": true
+    },
+    {
+      "id": "quest-tree:hint:kk",
+      "locale": "kk",
+      "zipPath": "assets/astana-audio/3f8c0ae1e5325a05952c43745333534977471ee5c7b0190527fa7a9a490cc42b.mp3",
+      "bytes": 53124,
+      "sha256": "3f8c0ae1e5325a05952c43745333534977471ee5c7b0190527fa7a9a490cc42b",
+      "textSha256": "9e9b0eb6e53aa26d7bdb041a6a99e1a33754a0b9bb42bc86a770265b30b411a3",
+      "compression": 0,
+      "compressedBytes": 53124,
+      "passed": true
+    },
+    {
+      "id": "quest-tree:explanation:kk",
+      "locale": "kk",
+      "zipPath": "assets/astana-audio/4902b61b32f95d3ead4310d484f06d12392357124805ed85ea2c900cb1fa9cee.mp3",
+      "bytes": 97637,
+      "sha256": "4902b61b32f95d3ead4310d484f06d12392357124805ed85ea2c900cb1fa9cee",
+      "textSha256": "63a5e9313a752b8284918d2fb9226681ca30181248f3bca2642837af27f7c7af",
+      "compression": 0,
+      "compressedBytes": 97637,
+      "passed": true
+    },
+    {
+      "id": "quest-line:question:kk",
+      "locale": "kk",
+      "zipPath": "assets/astana-audio/266add590b435d4ffebcf573bf4eda51312b50c2f45f916cd66a05f6d6f13ebc.mp3",
+      "bytes": 95965,
+      "sha256": "266add590b435d4ffebcf573bf4eda51312b50c2f45f916cd66a05f6d6f13ebc",
+      "textSha256": "bd59abdf359a65d5dcf930266cce53f058e32c2a39625611ed6be5b525b9388c",
+      "compression": 0,
+      "compressedBytes": 95965,
+      "passed": true
+    },
+    {
+      "id": "quest-line:hint:kk",
+      "locale": "kk",
+      "zipPath": "assets/astana-audio/0cee3598b4eb7f9435cb0fdafe45cb895b324a3460297f3a0d82c2eb9dadd83b.mp3",
+      "bytes": 42048,
+      "sha256": "0cee3598b4eb7f9435cb0fdafe45cb895b324a3460297f3a0d82c2eb9dadd83b",
+      "textSha256": "b688d6e1de66fb63a22e7d44332da764eec4ce8ce59d7c13f2fee5a92ede026f",
+      "compression": 0,
+      "compressedBytes": 42048,
+      "passed": true
+    },
+    {
+      "id": "quest-line:explanation:kk",
+      "locale": "kk",
+      "zipPath": "assets/astana-audio/27b363f1b90580fa290091a3c53175651c6d0f65c8cfd8af4cb88664e75b14dc.mp3",
+      "bytes": 72768,
+      "sha256": "27b363f1b90580fa290091a3c53175651c6d0f65c8cfd8af4cb88664e75b14dc",
+      "textSha256": "3bcd5ea6df2e89a0c8f6aa368843633409f11fd4e84d4a6b939b438b94b931c8",
+      "compression": 0,
+      "compressedBytes": 72768,
+      "passed": true
+    },
+    {
+      "id": "quest-circle:question:kk",
+      "locale": "kk",
+      "zipPath": "assets/astana-audio/8b6f6bef0a28db3cdc74fb6f3bb8015ab6a8d4cff8ef419925671e3a54dae567.mp3",
+      "bytes": 105578,
+      "sha256": "8b6f6bef0a28db3cdc74fb6f3bb8015ab6a8d4cff8ef419925671e3a54dae567",
+      "textSha256": "e5ea2cfcc9e9460c41b900413214c8358465ef3b66ee1dce1b201661737340af",
+      "compression": 0,
+      "compressedBytes": 105578,
+      "passed": true
+    },
+    {
+      "id": "quest-circle:hint:kk",
+      "locale": "kk",
+      "zipPath": "assets/astana-audio/d19e2f253614ffad6d08bc9b0abd1b597992bd6db969b683c891b47b794adb90.mp3",
+      "bytes": 37660,
+      "sha256": "d19e2f253614ffad6d08bc9b0abd1b597992bd6db969b683c891b47b794adb90",
+      "textSha256": "5f55e98781e86bf3ab06bd81f097c5f6c0a96354863acd2addd9c321f447e51f",
+      "compression": 0,
+      "compressedBytes": 37660,
+      "passed": true
+    },
+    {
+      "id": "quest-circle:explanation:kk",
+      "locale": "kk",
+      "zipPath": "assets/astana-audio/376cf1d78a82e6634b37aa280f1a9eabef6b1642ea79e0d59a20cbf15488bae8.mp3",
+      "bytes": 101817,
+      "sha256": "376cf1d78a82e6634b37aa280f1a9eabef6b1642ea79e0d59a20cbf15488bae8",
+      "textSha256": "835f28f1af6481cedfb529ef5698541f7e306be913e7f0eff98e46c06d06b7cc",
+      "compression": 0,
+      "compressedBytes": 101817,
+      "passed": true
+    },
+    {
+      "id": "cue:start:kk",
+      "locale": "kk",
+      "zipPath": "assets/astana-audio/80f9b1dcb4063dd6ece36118fee3a6a59169892669aaca9c76e4ec3047b1e68c.mp3",
+      "bytes": 12164,
+      "sha256": "80f9b1dcb4063dd6ece36118fee3a6a59169892669aaca9c76e4ec3047b1e68c",
+      "textSha256": "8c62a15cec7ee03e52740c04b5b9cf4036ba4e04abcb8ebf67ff6845e9a0293c",
+      "compression": 0,
+      "compressedBytes": 12164,
+      "passed": true
+    },
+    {
+      "id": "cue:nearby:kk",
+      "locale": "kk",
+      "zipPath": "assets/astana-audio/7b303137a8f45dda3f1e54bc9990b741a0ce6f7f957d930cfe39788e53bc30e2.mp3",
+      "bytes": 15926,
+      "sha256": "7b303137a8f45dda3f1e54bc9990b741a0ce6f7f957d930cfe39788e53bc30e2",
+      "textSha256": "fd25442d40194f3a0904d028277f2ad36c5692173ab6d4279fc6318d72bf4af3",
+      "compression": 0,
+      "compressedBytes": 15926,
+      "passed": true
+    },
+    {
+      "id": "cue:pause:kk",
+      "locale": "kk",
+      "zipPath": "assets/astana-audio/9b88748e6506138ef7fbd4d2d7e76186dd51e2f1188dcdef676eb1bb9a990f01.mp3",
+      "bytes": 14672,
+      "sha256": "9b88748e6506138ef7fbd4d2d7e76186dd51e2f1188dcdef676eb1bb9a990f01",
+      "textSha256": "c37cd891a3dad2e298d37774c9442a1e6480aa087b323f3f1b2a90333466d4f1",
+      "compression": 0,
+      "compressedBytes": 14672,
+      "passed": true
+    },
+    {
+      "id": "cue:resume:kk",
+      "locale": "kk",
+      "zipPath": "assets/astana-audio/286fb9b7b6eb5aefefc2d57e5f8f74dd3fa3cbf6ed772264cf03ef5592d10ccc.mp3",
+      "bytes": 14254,
+      "sha256": "286fb9b7b6eb5aefefc2d57e5f8f74dd3fa3cbf6ed772264cf03ef5592d10ccc",
+      "textSha256": "3eb6d2e2d5f7680b15bf6290286e32ddde46d952e3b9491a089c47544df5d5df",
+      "compression": 0,
+      "compressedBytes": 14254,
+      "passed": true
+    },
+    {
+      "id": "cue:complete:kk",
+      "locale": "kk",
+      "zipPath": "assets/astana-audio/3b22454178e66d51b62e3d2be8163d39fe8051631d139cc79544f3c3ee86151f.mp3",
+      "bytes": 205679,
+      "sha256": "3b22454178e66d51b62e3d2be8163d39fe8051631d139cc79544f3c3ee86151f",
+      "textSha256": "f6171c40965d33b619ada6ec4c812c5b1f8d301c88476326c89e010dbf6defa8",
+      "compression": 0,
+      "compressedBytes": 205679,
+      "passed": true
+    },
+    {
+      "id": "cue:abandon:kk",
+      "locale": "kk",
+      "zipPath": "assets/astana-audio/a8567f810c667f5f13c4435ffed4a35b995ba2dce604f228339486c774db7e84.mp3",
+      "bytes": 19270,
+      "sha256": "a8567f810c667f5f13c4435ffed4a35b995ba2dce604f228339486c774db7e84",
+      "textSha256": "b59601cc6128ebe3dde474e6c87310c37919d5b469ab77b19f9f0a62e85ed8f1",
+      "compression": 0,
+      "compressedBytes": 19270,
+      "passed": true
+    },
+    {
+      "id": "chapter:bayterek-outdoor:en",
+      "locale": "en",
+      "zipPath": "assets/astana-audio/c7e65f207f054d427fa31f7cb6c75512a6bbcd22f8490b2494ff8425112b2e5f.mp3",
+      "bytes": 822587,
+      "sha256": "c7e65f207f054d427fa31f7cb6c75512a6bbcd22f8490b2494ff8425112b2e5f",
+      "textSha256": "d2d3b99f81d0fa2517f8a3a4f1f27038e2a907ba0dda381b3b7a9f5b4a47feef",
+      "compression": 0,
+      "compressedBytes": 822587,
+      "passed": true
+    },
+    {
+      "id": "chapter:nurzhol-outdoor:en",
+      "locale": "en",
+      "zipPath": "assets/astana-audio/a0a6a6ab4148edfb23e1659f87a907b635d12d8c86e3103baec3b94a4ae8f360.mp3",
+      "bytes": 851217,
+      "sha256": "a0a6a6ab4148edfb23e1659f87a907b635d12d8c86e3103baec3b94a4ae8f360",
+      "textSha256": "605f38c1744094d66d399c877961ba2e0abfac3814f784e7b15cf45f7a9ac430",
+      "compression": 0,
+      "compressedBytes": 851217,
+      "passed": true
+    },
+    {
+      "id": "chapter:round-square-outdoor:en",
+      "locale": "en",
+      "zipPath": "assets/astana-audio/8cfa75daa3561b7b373913644a926f54857b7c9ca840771d4fe7c37c3edcb529.mp3",
+      "bytes": 772014,
+      "sha256": "8cfa75daa3561b7b373913644a926f54857b7c9ca840771d4fe7c37c3edcb529",
+      "textSha256": "863165dd1b10f274a9cfd17cac69c5af7335c04c3ff7475b751181c455d8bff8",
+      "compression": 0,
+      "compressedBytes": 772014,
+      "passed": true
+    },
+    {
+      "id": "quest-tree:question:en",
+      "locale": "en",
+      "zipPath": "assets/astana-audio/f61ab38741d02c07d284a0a9f67f3782ac5fe3c8728b230848e67bd44c3aa4fe.mp3",
+      "bytes": 71724,
+      "sha256": "f61ab38741d02c07d284a0a9f67f3782ac5fe3c8728b230848e67bd44c3aa4fe",
+      "textSha256": "f3f39aa07265cf86c8ba12bef286d68d8d85984ade8ec6187436823b269e1cfb",
+      "compression": 0,
+      "compressedBytes": 71724,
+      "passed": true
+    },
+    {
+      "id": "quest-tree:hint:en",
+      "locale": "en",
+      "zipPath": "assets/astana-audio/2ef97b38404a31c33f096f3f76d39a4b6c833da65c77df6535254579a3494f81.mp3",
+      "bytes": 50199,
+      "sha256": "2ef97b38404a31c33f096f3f76d39a4b6c833da65c77df6535254579a3494f81",
+      "textSha256": "f540456c10fa3ee0ab3684721c6992fee20423d64421b33d98ae2949206aa724",
+      "compression": 0,
+      "compressedBytes": 50199,
+      "passed": true
+    },
+    {
+      "id": "quest-tree:explanation:en",
+      "locale": "en",
+      "zipPath": "assets/astana-audio/4a25daac41b823c3bacbe052c6dca432a74e1e97cbc3d865da3860de83bd0f48.mp3",
+      "bytes": 86770,
+      "sha256": "4a25daac41b823c3bacbe052c6dca432a74e1e97cbc3d865da3860de83bd0f48",
+      "textSha256": "532db13fa21716dc00cd36bd14f48f58d94dd9dc87a5a7569e3f81e0f8340298",
+      "compression": 0,
+      "compressedBytes": 86770,
+      "passed": true
+    },
+    {
+      "id": "quest-line:question:en",
+      "locale": "en",
+      "zipPath": "assets/astana-audio/7e1002d37383baa7c8d5731df0ee5d4802abe5aac929508124631fa96b55d0cf.mp3",
+      "bytes": 114146,
+      "sha256": "7e1002d37383baa7c8d5731df0ee5d4802abe5aac929508124631fa96b55d0cf",
+      "textSha256": "7a6ee0f71b16a43ee112c20e2cee154a8370cf6e3e3c3fb66b87f878feacd51c",
+      "compression": 0,
+      "compressedBytes": 114146,
+      "passed": true
+    },
+    {
+      "id": "quest-line:hint:en",
+      "locale": "en",
+      "zipPath": "assets/astana-audio/cc3a56e95810d6f6453d0e468f928043067115b93e54d9d43d2cdce85df7d1d6.mp3",
+      "bytes": 48945,
+      "sha256": "cc3a56e95810d6f6453d0e468f928043067115b93e54d9d43d2cdce85df7d1d6",
+      "textSha256": "b107c68ad99361b689c26f34889289fca18a91eafc2605d1715ee4b2473d111d",
+      "compression": 0,
+      "compressedBytes": 48945,
+      "passed": true
+    },
+    {
+      "id": "quest-line:explanation:en",
+      "locale": "en",
+      "zipPath": "assets/astana-audio/689436e160b55123c0ad9e6d956f24c31f5420beccf6f6140c30dcd8741cba1a.mp3",
+      "bytes": 95338,
+      "sha256": "689436e160b55123c0ad9e6d956f24c31f5420beccf6f6140c30dcd8741cba1a",
+      "textSha256": "7918a1c1ced039f1c39734d8815033399d12886ba9b203b26f6307d105cf6178",
+      "compression": 0,
+      "compressedBytes": 95338,
+      "passed": true
+    },
+    {
+      "id": "quest-circle:question:en",
+      "locale": "en",
+      "zipPath": "assets/astana-audio/c132b03e2b2ba29f9ac4178626b396b41aef193ff192b874b27f9e9bce8ad255.mp3",
+      "bytes": 94920,
+      "sha256": "c132b03e2b2ba29f9ac4178626b396b41aef193ff192b874b27f9e9bce8ad255",
+      "textSha256": "acebd2c73b92e3c88261248e5aef74f6e77d6eff52d0c36c3917123f3ca5ec64",
+      "compression": 0,
+      "compressedBytes": 94920,
+      "passed": true
+    },
+    {
+      "id": "quest-circle:hint:en",
+      "locale": "en",
+      "zipPath": "assets/astana-audio/aa51f2a03d1f7cc4caf79ec0a5e5e1b042ef09498b9071ceb976dbe9baa922d6.mp3",
+      "bytes": 34316,
+      "sha256": "aa51f2a03d1f7cc4caf79ec0a5e5e1b042ef09498b9071ceb976dbe9baa922d6",
+      "textSha256": "3317db6e888d89c3df78463e704dc8ac51bebca19e87a4011cfce6a2e9c695ba",
+      "compression": 0,
+      "compressedBytes": 34316,
+      "passed": true
+    },
+    {
+      "id": "quest-circle:explanation:en",
+      "locale": "en",
+      "zipPath": "assets/astana-audio/f34b6fe599eb8e0170e259ecaecd015408f93630e5a59bef703cc13a21e14b45.mp3",
+      "bytes": 82799,
+      "sha256": "f34b6fe599eb8e0170e259ecaecd015408f93630e5a59bef703cc13a21e14b45",
+      "textSha256": "3be7ef93c59a7de7818b029e62b7783310613537b0cfc56c634d61a24d8e4982",
+      "compression": 0,
+      "compressedBytes": 82799,
+      "passed": true
+    },
+    {
+      "id": "cue:start:en",
+      "locale": "en",
+      "zipPath": "assets/astana-audio/48a8ac16cb3daade338a796ae3a7adf089b4b5051c170c817bfa56dc9a2f242c.mp3",
+      "bytes": 10701,
+      "sha256": "48a8ac16cb3daade338a796ae3a7adf089b4b5051c170c817bfa56dc9a2f242c",
+      "textSha256": "4c6ef0f27c154dabd8ff0444d75a2c7180ec1f0f5e88688d0d329430a20019ac",
+      "compression": 0,
+      "compressedBytes": 10701,
+      "passed": true
+    },
+    {
+      "id": "cue:nearby:en",
+      "locale": "en",
+      "zipPath": "assets/astana-audio/d1e4e15fca0f9172d92defa76f80fb36bc6cd267a5066ee26830735f452a4d69.mp3",
+      "bytes": 10701,
+      "sha256": "d1e4e15fca0f9172d92defa76f80fb36bc6cd267a5066ee26830735f452a4d69",
+      "textSha256": "642ab5ba9400f683aed015aef5e43973e5aba5fb1800383277a3adee363f76c2",
+      "compression": 0,
+      "compressedBytes": 10701,
+      "passed": true
+    },
+    {
+      "id": "cue:pause:en",
+      "locale": "en",
+      "zipPath": "assets/astana-audio/de1d0e0292b436536ff389a2bdce1cf44e577371c8ebf684e56267af2ad1e7dd.mp3",
+      "bytes": 9030,
+      "sha256": "de1d0e0292b436536ff389a2bdce1cf44e577371c8ebf684e56267af2ad1e7dd",
+      "textSha256": "8c96caa0557a0e853137877f6698c518fa242bb8f51d49de74f1831ca2dd19ee",
+      "compression": 0,
+      "compressedBytes": 9030,
+      "passed": true
+    },
+    {
+      "id": "cue:resume:en",
+      "locale": "en",
+      "zipPath": "assets/astana-audio/c20853215cf0ba37f62b5720067add4c27790dda46244af97069bb5478f8d077.mp3",
+      "bytes": 10701,
+      "sha256": "c20853215cf0ba37f62b5720067add4c27790dda46244af97069bb5478f8d077",
+      "textSha256": "1ccd3d70c7fe94d05892655bc544f1fbcad0fd4ec41e6e75981bb654138d9fb4",
+      "compression": 0,
+      "compressedBytes": 10701,
+      "passed": true
+    },
+    {
+      "id": "cue:complete:en",
+      "locale": "en",
+      "zipPath": "assets/astana-audio/8f286a8cde9102fd9e977b70011f615ee4b950fb63e6489d3ab76e159b088521.mp3",
+      "bytes": 182901,
+      "sha256": "8f286a8cde9102fd9e977b70011f615ee4b950fb63e6489d3ab76e159b088521",
+      "textSha256": "be2acc734de2a578cb29aba3a2145201e16738b3ccdba35b4ddff420a71ef60a",
+      "compression": 0,
+      "compressedBytes": 182901,
+      "passed": true
+    },
+    {
+      "id": "cue:abandon:en",
+      "locale": "en",
+      "zipPath": "assets/astana-audio/d4637c0a5df64d1fe0b0f7ca7d431308faffac9ed4806305369a013bf8295c8e.mp3",
+      "bytes": 10701,
+      "sha256": "d4637c0a5df64d1fe0b0f7ca7d431308faffac9ed4806305369a013bf8295c8e",
+      "textSha256": "703383f2a7c57b8b27a23a6c78b5ff786167cee5adc03a931c9297cb0686f076",
+      "compression": 0,
+      "compressedBytes": 10701,
+      "passed": true
+    }
+  ],
+  "audioBytes": 9793210,
+  "nativeAbis": [
+    "arm64-v8a"
+  ],
+  "localeCounts": {
+    "ru": 18,
+    "kk": 18,
+    "en": 18
+  },
+  "dex": [
+    {
+      "version": "037",
+      "bytes": 9878984,
+      "sha256": "c804b8e873c92ccb6d4b58f8c5d5f82aae94b84444aa872a08d85496136cf582",
+      "definedClassCount": 7764,
+      "headerSha1Valid": true,
+      "adler32Valid": true,
+      "requiredClasses": {},
+      "zipPath": "classes.dex"
+    },
+    {
+      "version": "037",
+      "bytes": 560,
+      "sha256": "4891c6b39a9e9ed5a6bda4ec7c7d3ff8815748260de03628ea83b21d0353dc72",
+      "definedClassCount": 1,
+      "headerSha1Valid": true,
+      "adler32Valid": true,
+      "requiredClasses": {},
+      "zipPath": "classes2.dex"
+    },
+    {
+      "version": "037",
+      "bytes": 10503196,
+      "sha256": "03d5584805efe3f2f4b7847ed6bcf1b9141492e972143cec54199d71cdf1da8f",
+      "definedClassCount": 8687,
+      "headerSha1Valid": true,
+      "adler32Valid": true,
+      "requiredClasses": {
+        "ActiveWalkModule": {
+          "descriptor": "Lkz/astanaai/activewalk/ActiveWalkModule;",
+          "methods": [
+            {
+              "name": "<init>",
+              "hasCode": true,
+              "accessFlags": 65537
+            },
+            {
+              "name": "access$audio",
+              "hasCode": true,
+              "accessFlags": 4121
+            },
+            {
+              "name": "access$getDisposed$p",
+              "hasCode": true,
+              "accessFlags": 4121
+            },
+            {
+              "name": "access$getMain$p",
+              "hasCode": true,
+              "accessFlags": 4121
+            },
+            {
+              "name": "access$getNarrationBridge$p",
+              "hasCode": true,
+              "accessFlags": 4121
+            },
+            {
+              "name": "access$getObserver$p",
+              "hasCode": true,
+              "accessFlags": 4121
+            },
+            {
+              "name": "access$getPreparedPlayer$p",
+              "hasCode": true,
+              "accessFlags": 4121
+            },
+            {
+              "name": "access$narration",
+              "hasCode": true,
+              "accessFlags": 4121
+            },
+            {
+              "name": "access$resumed",
+              "hasCode": true,
+              "accessFlags": 4121
+            },
+            {
+              "name": "access$setDisposed$p",
+              "hasCode": true,
+              "accessFlags": 4121
+            },
+            {
+              "name": "access$setNarrationBridge$p",
+              "hasCode": true,
+              "accessFlags": 4121
+            },
+            {
+              "name": "access$setPreparedPlayer$p",
+              "hasCode": true,
+              "accessFlags": 4121
+            },
+            {
+              "name": "audio",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "audio$lambda$2",
+              "hasCode": true,
+              "accessFlags": 24
+            },
+            {
+              "name": "narration",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "resumed",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "definition",
+              "hasCode": true,
+              "accessFlags": 1
+            }
+          ]
+        },
+        "PreparedAssetVerifier": {
+          "descriptor": "Lkz/astanaai/activewalk/PreparedAssetVerifier;",
+          "methods": [
+            {
+              "name": "<clinit>",
+              "hasCode": true,
+              "accessFlags": 65544
+            },
+            {
+              "name": "<init>",
+              "hasCode": true,
+              "accessFlags": 65538
+            },
+            {
+              "name": "hex",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "hex$lambda$1",
+              "hasCode": true,
+              "accessFlags": 24
+            },
+            {
+              "name": "hashUtf8",
+              "hasCode": true,
+              "accessFlags": 17
+            },
+            {
+              "name": "verify",
+              "hasCode": true,
+              "accessFlags": 17
+            }
+          ]
+        },
+        "PreparedAudioOwner": {
+          "descriptor": "Lkz/astanaai/activewalk/PreparedAudioOwner;",
+          "methods": [
+            {
+              "name": "<clinit>",
+              "hasCode": true,
+              "accessFlags": 65544
+            },
+            {
+              "name": "<init>",
+              "hasCode": true,
+              "accessFlags": 65538
+            },
+            {
+              "name": "detach$lambda$5",
+              "hasCode": true,
+              "accessFlags": 24
+            },
+            {
+              "name": "register$lambda$0",
+              "hasCode": true,
+              "accessFlags": 24
+            },
+            {
+              "name": "stop$lambda$10",
+              "hasCode": true,
+              "accessFlags": 24
+            },
+            {
+              "name": "detach",
+              "hasCode": true,
+              "accessFlags": 17
+            },
+            {
+              "name": "register",
+              "hasCode": true,
+              "accessFlags": 17
+            },
+            {
+              "name": "stop",
+              "hasCode": true,
+              "accessFlags": 17
+            }
+          ]
+        },
+        "PreparedAudioPlayer": {
+          "descriptor": "Lkz/astanaai/activewalk/PreparedAudioPlayer;",
+          "methods": [
+            {
+              "name": "<init>",
+              "hasCode": true,
+              "accessFlags": 65537
+            },
+            {
+              "name": "abandonFocus",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "access$getDisposed$p",
+              "hasCode": true,
+              "accessFlags": 4121
+            },
+            {
+              "name": "canPlay",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "capturePosition",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "checkMain",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "clearResources",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "current",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "fail",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "play$lambda$5",
+              "hasCode": true,
+              "accessFlags": 24
+            },
+            {
+              "name": "play$lambda$5$lambda$3",
+              "hasCode": true,
+              "accessFlags": 24
+            },
+            {
+              "name": "play$lambda$5$lambda$4",
+              "hasCode": true,
+              "accessFlags": 24
+            },
+            {
+              "name": "prepare",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "prepare$lambda$6",
+              "hasCode": true,
+              "accessFlags": 24
+            },
+            {
+              "name": "prepare$lambda$7",
+              "hasCode": true,
+              "accessFlags": 24
+            },
+            {
+              "name": "prepare$lambda$8",
+              "hasCode": true,
+              "accessFlags": 24
+            },
+            {
+              "name": "publish",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "registerNoisy",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "releasedState",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "requestFocus",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "requestFocus$lambda$11",
+              "hasCode": true,
+              "accessFlags": 24
+            },
+            {
+              "name": "requestFocus$lambda$11$lambda$10",
+              "hasCode": true,
+              "accessFlags": 24
+            },
+            {
+              "name": "snapshot",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "unregisterNoisy",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "worker$lambda$1",
+              "hasCode": true,
+              "accessFlags": 24
+            },
+            {
+              "name": "getState",
+              "hasCode": true,
+              "accessFlags": 17
+            },
+            {
+              "name": "pause",
+              "hasCode": true,
+              "accessFlags": 17
+            },
+            {
+              "name": "play",
+              "hasCode": true,
+              "accessFlags": 17
+            },
+            {
+              "name": "release",
+              "hasCode": true,
+              "accessFlags": 17
+            },
+            {
+              "name": "setForeground",
+              "hasCode": true,
+              "accessFlags": 17
+            },
+            {
+              "name": "stop",
+              "hasCode": true,
+              "accessFlags": 17
+            }
+          ]
+        },
+        "narration/AndroidNarrationEffects": {
+          "descriptor": "Lkz/astanaai/activewalk/narration/AndroidNarrationEffects;",
+          "methods": [
+            {
+              "name": "<clinit>",
+              "hasCode": true,
+              "accessFlags": 65544
+            },
+            {
+              "name": "<init>",
+              "hasCode": true,
+              "accessFlags": 65537
+            },
+            {
+              "name": "<init>",
+              "hasCode": true,
+              "accessFlags": 69633
+            },
+            {
+              "name": "access$cancelJobs",
+              "hasCode": true,
+              "accessFlags": 4121
+            },
+            {
+              "name": "access$getCurrent$p",
+              "hasCode": true,
+              "accessFlags": 4121
+            },
+            {
+              "name": "access$getDispatch$p",
+              "hasCode": true,
+              "accessFlags": 4121
+            },
+            {
+              "name": "access$getReleased$p",
+              "hasCode": true,
+              "accessFlags": 4121
+            },
+            {
+              "name": "access$releaseFocus",
+              "hasCode": true,
+              "accessFlags": 4121
+            },
+            {
+              "name": "access$releasePlayer",
+              "hasCode": true,
+              "accessFlags": 4121
+            },
+            {
+              "name": "access$unregisterNoisy",
+              "hasCode": true,
+              "accessFlags": 4121
+            },
+            {
+              "name": "access$updateSession$authorized",
+              "hasCode": true,
+              "accessFlags": 4121
+            },
+            {
+              "name": "alive",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "apply$lambda$5",
+              "hasCode": true,
+              "accessFlags": 24
+            },
+            {
+              "name": "cancelJobs",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "checkMain",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "createSession",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "executor$lambda$1",
+              "hasCode": true,
+              "accessFlags": 24
+            },
+            {
+              "name": "notification",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "post",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "post$lambda$32",
+              "hasCode": true,
+              "accessFlags": 24
+            },
+            {
+              "name": "prepare",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "prepare$lambda$20",
+              "hasCode": true,
+              "accessFlags": 24
+            },
+            {
+              "name": "prepare$lambda$20$lambda$19",
+              "hasCode": true,
+              "accessFlags": 24
+            },
+            {
+              "name": "prepare$lambda$21",
+              "hasCode": true,
+              "accessFlags": 24
+            },
+            {
+              "name": "prepare$lambda$22",
+              "hasCode": true,
+              "accessFlags": 24
+            },
+            {
+              "name": "promote",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "promote$lambda$16",
+              "hasCode": true,
+              "accessFlags": 24
+            },
+            {
+              "name": "registerNoisy",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "release$clean",
+              "hasCode": true,
+              "accessFlags": 26
+            },
+            {
+              "name": "release$lambda$11",
+              "hasCode": true,
+              "accessFlags": 24
+            },
+            {
+              "name": "release$lambda$12",
+              "hasCode": true,
+              "accessFlags": 24
+            },
+            {
+              "name": "release$lambda$13",
+              "hasCode": true,
+              "accessFlags": 24
+            },
+            {
+              "name": "releaseFocus",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "releasePlayer",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "requestFocus",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "requestFocus$lambda$26",
+              "hasCode": true,
+              "accessFlags": 24
+            },
+            {
+              "name": "requestFocus$lambda$26$lambda$25",
+              "hasCode": true,
+              "accessFlags": 24
+            },
+            {
+              "name": "start",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "unregisterNoisy",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "updateSession",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "updateSession$authorized",
+              "hasCode": true,
+              "accessFlags": 26
+            },
+            {
+              "name": "validPlayer",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "verify",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "verify$lambda$18",
+              "hasCode": true,
+              "accessFlags": 24
+            },
+            {
+              "name": "apply",
+              "hasCode": true,
+              "accessFlags": 1
+            },
+            {
+              "name": "capturePosition",
+              "hasCode": true,
+              "accessFlags": 17
+            },
+            {
+              "name": "positionMs",
+              "hasCode": true,
+              "accessFlags": 1
+            },
+            {
+              "name": "release",
+              "hasCode": true,
+              "accessFlags": 1
+            }
+          ]
+        },
+        "narration/NarrationBridgeFacade": {
+          "descriptor": "Lkz/astanaai/activewalk/narration/NarrationBridgeFacade;",
+          "methods": [
+            {
+              "name": "<init>",
+              "hasCode": true,
+              "accessFlags": 65537
+            },
+            {
+              "name": "<init>",
+              "hasCode": true,
+              "accessFlags": 69633
+            },
+            {
+              "name": "_init_$lambda$0",
+              "hasCode": true,
+              "accessFlags": 24
+            },
+            {
+              "name": "audioDto",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "control",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "hostDto",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "receipt",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "refused",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "stateDto",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "unsubscribe$lambda$1",
+              "hasCode": true,
+              "accessFlags": 24
+            },
+            {
+              "name": "captureScopeDto",
+              "hasCode": true,
+              "accessFlags": 17
+            },
+            {
+              "name": "close",
+              "hasCode": true,
+              "accessFlags": 17
+            },
+            {
+              "name": "getState",
+              "hasCode": true,
+              "accessFlags": 17
+            },
+            {
+              "name": "pause",
+              "hasCode": true,
+              "accessFlags": 17
+            },
+            {
+              "name": "play",
+              "hasCode": true,
+              "accessFlags": 17
+            },
+            {
+              "name": "resume",
+              "hasCode": true,
+              "accessFlags": 17
+            },
+            {
+              "name": "stop",
+              "hasCode": true,
+              "accessFlags": 17
+            }
+          ]
+        },
+        "narration/NarrationCoordinator": {
+          "descriptor": "Lkz/astanaai/activewalk/narration/NarrationCoordinator;",
+          "methods": [
+            {
+              "name": "<clinit>",
+              "hasCode": true,
+              "accessFlags": 65544
+            },
+            {
+              "name": "<init>",
+              "hasCode": true,
+              "accessFlags": 65537
+            },
+            {
+              "name": "<init>",
+              "hasCode": true,
+              "accessFlags": 69633
+            },
+            {
+              "name": "_init_$lambda$0",
+              "hasCode": true,
+              "accessFlags": 24
+            },
+            {
+              "name": "access$visibleId",
+              "hasCode": true,
+              "accessFlags": 4121
+            },
+            {
+              "name": "closeCurrent",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "closeCurrent$default",
+              "hasCode": true,
+              "accessFlags": 4104
+            },
+            {
+              "name": "commandError",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "consumeStart$lambda$6",
+              "hasCode": true,
+              "accessFlags": 24
+            },
+            {
+              "name": "control",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "detachClient$lambda$7",
+              "hasCode": true,
+              "accessFlags": 24
+            },
+            {
+              "name": "onAudio",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "publish",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "reject",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "releaseUnowned",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "subscribe$lambda$9",
+              "hasCode": true,
+              "accessFlags": 24
+            },
+            {
+              "name": "valid",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "visible",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "visibleId",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "consumeStart",
+              "hasCode": true,
+              "accessFlags": 17
+            },
+            {
+              "name": "detachClient",
+              "hasCode": true,
+              "accessFlags": 17
+            },
+            {
+              "name": "observe",
+              "hasCode": true,
+              "accessFlags": 17
+            },
+            {
+              "name": "onServiceBootstrapFailed",
+              "hasCode": true,
+              "accessFlags": 17
+            },
+            {
+              "name": "onServiceCreated",
+              "hasCode": true,
+              "accessFlags": 17
+            },
+            {
+              "name": "onServiceDestroyed",
+              "hasCode": true,
+              "accessFlags": 17
+            },
+            {
+              "name": "pause",
+              "hasCode": true,
+              "accessFlags": 17
+            },
+            {
+              "name": "play",
+              "hasCode": true,
+              "accessFlags": 17
+            },
+            {
+              "name": "registerClient",
+              "hasCode": true,
+              "accessFlags": 17
+            },
+            {
+              "name": "resume",
+              "hasCode": true,
+              "accessFlags": 17
+            },
+            {
+              "name": "snapshot",
+              "hasCode": true,
+              "accessFlags": 17
+            },
+            {
+              "name": "stopAudio",
+              "hasCode": true,
+              "accessFlags": 17
+            },
+            {
+              "name": "subscribe",
+              "hasCode": true,
+              "accessFlags": 17
+            },
+            {
+              "name": "taskRemoved",
+              "hasCode": true,
+              "accessFlags": 17
+            }
+          ]
+        },
+        "narration/NarrationHost": {
+          "descriptor": "Lkz/astanaai/activewalk/narration/NarrationHost;",
+          "methods": [
+            {
+              "name": "<clinit>",
+              "hasCode": true,
+              "accessFlags": 65544
+            },
+            {
+              "name": "<init>",
+              "hasCode": true,
+              "accessFlags": 65538
+            },
+            {
+              "name": "access$checkMain",
+              "hasCode": true,
+              "accessFlags": 4121
+            },
+            {
+              "name": "checkMain",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "createBridge$default",
+              "hasCode": true,
+              "accessFlags": 4105
+            },
+            {
+              "name": "install$default",
+              "hasCode": true,
+              "accessFlags": 4105
+            },
+            {
+              "name": "install$lambda$0",
+              "hasCode": true,
+              "accessFlags": 24
+            },
+            {
+              "name": "createBridge",
+              "hasCode": true,
+              "accessFlags": 17
+            },
+            {
+              "name": "existing",
+              "hasCode": true,
+              "accessFlags": 17
+            },
+            {
+              "name": "install",
+              "hasCode": true,
+              "accessFlags": 17
+            },
+            {
+              "name": "stopIfInstalled",
+              "hasCode": true,
+              "accessFlags": 17
+            }
+          ]
+        },
+        "narration/NarrationMediaActionReceiver": {
+          "descriptor": "Lkz/astanaai/activewalk/narration/NarrationMediaActionReceiver;",
+          "methods": [
+            {
+              "name": "<init>",
+              "hasCode": true,
+              "accessFlags": 65537
+            },
+            {
+              "name": "onReceive",
+              "hasCode": true,
+              "accessFlags": 1
+            }
+          ]
+        },
+        "narration/NarrationPlaybackService": {
+          "descriptor": "Lkz/astanaai/activewalk/narration/NarrationPlaybackService;",
+          "methods": [
+            {
+              "name": "<clinit>",
+              "hasCode": true,
+              "accessFlags": 65544
+            },
+            {
+              "name": "<init>",
+              "hasCode": true,
+              "accessFlags": 65537
+            },
+            {
+              "name": "acknowledgeForeground",
+              "hasCode": true,
+              "accessFlags": 18
+            },
+            {
+              "name": "onBind",
+              "hasCode": true,
+              "accessFlags": 1
+            },
+            {
+              "name": "onCreate",
+              "hasCode": true,
+              "accessFlags": 1
+            },
+            {
+              "name": "onDestroy",
+              "hasCode": true,
+              "accessFlags": 1
+            },
+            {
+              "name": "onStartCommand",
+              "hasCode": true,
+              "accessFlags": 1
+            },
+            {
+              "name": "onTaskRemoved",
+              "hasCode": true,
+              "accessFlags": 1
+            }
+          ]
+        }
+      },
+      "zipPath": "classes3.dex"
+    },
+    {
+      "version": "037",
+      "bytes": 2611436,
+      "sha256": "6ab1d8860db1cebe21401a9e20df4fbbebb698a432738157867d56686adc5ef4",
+      "definedClassCount": 1735,
+      "headerSha1Valid": true,
+      "adler32Valid": true,
+      "requiredClasses": {},
+      "zipPath": "classes4.dex"
+    }
+  ],
+  "nativeClasses": {
+    "ActiveWalkModule": {
+      "zipPath": "classes3.dex",
+      "descriptor": "Lkz/astanaai/activewalk/ActiveWalkModule;",
+      "methods": [
+        {
+          "name": "<init>",
+          "hasCode": true,
+          "accessFlags": 65537
+        },
+        {
+          "name": "access$audio",
+          "hasCode": true,
+          "accessFlags": 4121
+        },
+        {
+          "name": "access$getDisposed$p",
+          "hasCode": true,
+          "accessFlags": 4121
+        },
+        {
+          "name": "access$getMain$p",
+          "hasCode": true,
+          "accessFlags": 4121
+        },
+        {
+          "name": "access$getNarrationBridge$p",
+          "hasCode": true,
+          "accessFlags": 4121
+        },
+        {
+          "name": "access$getObserver$p",
+          "hasCode": true,
+          "accessFlags": 4121
+        },
+        {
+          "name": "access$getPreparedPlayer$p",
+          "hasCode": true,
+          "accessFlags": 4121
+        },
+        {
+          "name": "access$narration",
+          "hasCode": true,
+          "accessFlags": 4121
+        },
+        {
+          "name": "access$resumed",
+          "hasCode": true,
+          "accessFlags": 4121
+        },
+        {
+          "name": "access$setDisposed$p",
+          "hasCode": true,
+          "accessFlags": 4121
+        },
+        {
+          "name": "access$setNarrationBridge$p",
+          "hasCode": true,
+          "accessFlags": 4121
+        },
+        {
+          "name": "access$setPreparedPlayer$p",
+          "hasCode": true,
+          "accessFlags": 4121
+        },
+        {
+          "name": "audio",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "audio$lambda$2",
+          "hasCode": true,
+          "accessFlags": 24
+        },
+        {
+          "name": "narration",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "resumed",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "definition",
+          "hasCode": true,
+          "accessFlags": 1
+        }
+      ]
+    },
+    "PreparedAssetVerifier": {
+      "zipPath": "classes3.dex",
+      "descriptor": "Lkz/astanaai/activewalk/PreparedAssetVerifier;",
+      "methods": [
+        {
+          "name": "<clinit>",
+          "hasCode": true,
+          "accessFlags": 65544
+        },
+        {
+          "name": "<init>",
+          "hasCode": true,
+          "accessFlags": 65538
+        },
+        {
+          "name": "hex",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "hex$lambda$1",
+          "hasCode": true,
+          "accessFlags": 24
+        },
+        {
+          "name": "hashUtf8",
+          "hasCode": true,
+          "accessFlags": 17
+        },
+        {
+          "name": "verify",
+          "hasCode": true,
+          "accessFlags": 17
+        }
+      ]
+    },
+    "PreparedAudioOwner": {
+      "zipPath": "classes3.dex",
+      "descriptor": "Lkz/astanaai/activewalk/PreparedAudioOwner;",
+      "methods": [
+        {
+          "name": "<clinit>",
+          "hasCode": true,
+          "accessFlags": 65544
+        },
+        {
+          "name": "<init>",
+          "hasCode": true,
+          "accessFlags": 65538
+        },
+        {
+          "name": "detach$lambda$5",
+          "hasCode": true,
+          "accessFlags": 24
+        },
+        {
+          "name": "register$lambda$0",
+          "hasCode": true,
+          "accessFlags": 24
+        },
+        {
+          "name": "stop$lambda$10",
+          "hasCode": true,
+          "accessFlags": 24
+        },
+        {
+          "name": "detach",
+          "hasCode": true,
+          "accessFlags": 17
+        },
+        {
+          "name": "register",
+          "hasCode": true,
+          "accessFlags": 17
+        },
+        {
+          "name": "stop",
+          "hasCode": true,
+          "accessFlags": 17
+        }
+      ]
+    },
+    "PreparedAudioPlayer": {
+      "zipPath": "classes3.dex",
+      "descriptor": "Lkz/astanaai/activewalk/PreparedAudioPlayer;",
+      "methods": [
+        {
+          "name": "<init>",
+          "hasCode": true,
+          "accessFlags": 65537
+        },
+        {
+          "name": "abandonFocus",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "access$getDisposed$p",
+          "hasCode": true,
+          "accessFlags": 4121
+        },
+        {
+          "name": "canPlay",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "capturePosition",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "checkMain",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "clearResources",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "current",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "fail",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "play$lambda$5",
+          "hasCode": true,
+          "accessFlags": 24
+        },
+        {
+          "name": "play$lambda$5$lambda$3",
+          "hasCode": true,
+          "accessFlags": 24
+        },
+        {
+          "name": "play$lambda$5$lambda$4",
+          "hasCode": true,
+          "accessFlags": 24
+        },
+        {
+          "name": "prepare",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "prepare$lambda$6",
+          "hasCode": true,
+          "accessFlags": 24
+        },
+        {
+          "name": "prepare$lambda$7",
+          "hasCode": true,
+          "accessFlags": 24
+        },
+        {
+          "name": "prepare$lambda$8",
+          "hasCode": true,
+          "accessFlags": 24
+        },
+        {
+          "name": "publish",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "registerNoisy",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "releasedState",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "requestFocus",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "requestFocus$lambda$11",
+          "hasCode": true,
+          "accessFlags": 24
+        },
+        {
+          "name": "requestFocus$lambda$11$lambda$10",
+          "hasCode": true,
+          "accessFlags": 24
+        },
+        {
+          "name": "snapshot",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "unregisterNoisy",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "worker$lambda$1",
+          "hasCode": true,
+          "accessFlags": 24
+        },
+        {
+          "name": "getState",
+          "hasCode": true,
+          "accessFlags": 17
+        },
+        {
+          "name": "pause",
+          "hasCode": true,
+          "accessFlags": 17
+        },
+        {
+          "name": "play",
+          "hasCode": true,
+          "accessFlags": 17
+        },
+        {
+          "name": "release",
+          "hasCode": true,
+          "accessFlags": 17
+        },
+        {
+          "name": "setForeground",
+          "hasCode": true,
+          "accessFlags": 17
+        },
+        {
+          "name": "stop",
+          "hasCode": true,
+          "accessFlags": 17
+        }
+      ]
+    },
+    "narration/AndroidNarrationEffects": {
+      "zipPath": "classes3.dex",
+      "descriptor": "Lkz/astanaai/activewalk/narration/AndroidNarrationEffects;",
+      "methods": [
+        {
+          "name": "<clinit>",
+          "hasCode": true,
+          "accessFlags": 65544
+        },
+        {
+          "name": "<init>",
+          "hasCode": true,
+          "accessFlags": 65537
+        },
+        {
+          "name": "<init>",
+          "hasCode": true,
+          "accessFlags": 69633
+        },
+        {
+          "name": "access$cancelJobs",
+          "hasCode": true,
+          "accessFlags": 4121
+        },
+        {
+          "name": "access$getCurrent$p",
+          "hasCode": true,
+          "accessFlags": 4121
+        },
+        {
+          "name": "access$getDispatch$p",
+          "hasCode": true,
+          "accessFlags": 4121
+        },
+        {
+          "name": "access$getReleased$p",
+          "hasCode": true,
+          "accessFlags": 4121
+        },
+        {
+          "name": "access$releaseFocus",
+          "hasCode": true,
+          "accessFlags": 4121
+        },
+        {
+          "name": "access$releasePlayer",
+          "hasCode": true,
+          "accessFlags": 4121
+        },
+        {
+          "name": "access$unregisterNoisy",
+          "hasCode": true,
+          "accessFlags": 4121
+        },
+        {
+          "name": "access$updateSession$authorized",
+          "hasCode": true,
+          "accessFlags": 4121
+        },
+        {
+          "name": "alive",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "apply$lambda$5",
+          "hasCode": true,
+          "accessFlags": 24
+        },
+        {
+          "name": "cancelJobs",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "checkMain",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "createSession",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "executor$lambda$1",
+          "hasCode": true,
+          "accessFlags": 24
+        },
+        {
+          "name": "notification",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "post",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "post$lambda$32",
+          "hasCode": true,
+          "accessFlags": 24
+        },
+        {
+          "name": "prepare",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "prepare$lambda$20",
+          "hasCode": true,
+          "accessFlags": 24
+        },
+        {
+          "name": "prepare$lambda$20$lambda$19",
+          "hasCode": true,
+          "accessFlags": 24
+        },
+        {
+          "name": "prepare$lambda$21",
+          "hasCode": true,
+          "accessFlags": 24
+        },
+        {
+          "name": "prepare$lambda$22",
+          "hasCode": true,
+          "accessFlags": 24
+        },
+        {
+          "name": "promote",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "promote$lambda$16",
+          "hasCode": true,
+          "accessFlags": 24
+        },
+        {
+          "name": "registerNoisy",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "release$clean",
+          "hasCode": true,
+          "accessFlags": 26
+        },
+        {
+          "name": "release$lambda$11",
+          "hasCode": true,
+          "accessFlags": 24
+        },
+        {
+          "name": "release$lambda$12",
+          "hasCode": true,
+          "accessFlags": 24
+        },
+        {
+          "name": "release$lambda$13",
+          "hasCode": true,
+          "accessFlags": 24
+        },
+        {
+          "name": "releaseFocus",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "releasePlayer",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "requestFocus",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "requestFocus$lambda$26",
+          "hasCode": true,
+          "accessFlags": 24
+        },
+        {
+          "name": "requestFocus$lambda$26$lambda$25",
+          "hasCode": true,
+          "accessFlags": 24
+        },
+        {
+          "name": "start",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "unregisterNoisy",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "updateSession",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "updateSession$authorized",
+          "hasCode": true,
+          "accessFlags": 26
+        },
+        {
+          "name": "validPlayer",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "verify",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "verify$lambda$18",
+          "hasCode": true,
+          "accessFlags": 24
+        },
+        {
+          "name": "apply",
+          "hasCode": true,
+          "accessFlags": 1
+        },
+        {
+          "name": "capturePosition",
+          "hasCode": true,
+          "accessFlags": 17
+        },
+        {
+          "name": "positionMs",
+          "hasCode": true,
+          "accessFlags": 1
+        },
+        {
+          "name": "release",
+          "hasCode": true,
+          "accessFlags": 1
+        }
+      ]
+    },
+    "narration/NarrationBridgeFacade": {
+      "zipPath": "classes3.dex",
+      "descriptor": "Lkz/astanaai/activewalk/narration/NarrationBridgeFacade;",
+      "methods": [
+        {
+          "name": "<init>",
+          "hasCode": true,
+          "accessFlags": 65537
+        },
+        {
+          "name": "<init>",
+          "hasCode": true,
+          "accessFlags": 69633
+        },
+        {
+          "name": "_init_$lambda$0",
+          "hasCode": true,
+          "accessFlags": 24
+        },
+        {
+          "name": "audioDto",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "control",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "hostDto",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "receipt",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "refused",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "stateDto",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "unsubscribe$lambda$1",
+          "hasCode": true,
+          "accessFlags": 24
+        },
+        {
+          "name": "captureScopeDto",
+          "hasCode": true,
+          "accessFlags": 17
+        },
+        {
+          "name": "close",
+          "hasCode": true,
+          "accessFlags": 17
+        },
+        {
+          "name": "getState",
+          "hasCode": true,
+          "accessFlags": 17
+        },
+        {
+          "name": "pause",
+          "hasCode": true,
+          "accessFlags": 17
+        },
+        {
+          "name": "play",
+          "hasCode": true,
+          "accessFlags": 17
+        },
+        {
+          "name": "resume",
+          "hasCode": true,
+          "accessFlags": 17
+        },
+        {
+          "name": "stop",
+          "hasCode": true,
+          "accessFlags": 17
+        }
+      ]
+    },
+    "narration/NarrationCoordinator": {
+      "zipPath": "classes3.dex",
+      "descriptor": "Lkz/astanaai/activewalk/narration/NarrationCoordinator;",
+      "methods": [
+        {
+          "name": "<clinit>",
+          "hasCode": true,
+          "accessFlags": 65544
+        },
+        {
+          "name": "<init>",
+          "hasCode": true,
+          "accessFlags": 65537
+        },
+        {
+          "name": "<init>",
+          "hasCode": true,
+          "accessFlags": 69633
+        },
+        {
+          "name": "_init_$lambda$0",
+          "hasCode": true,
+          "accessFlags": 24
+        },
+        {
+          "name": "access$visibleId",
+          "hasCode": true,
+          "accessFlags": 4121
+        },
+        {
+          "name": "closeCurrent",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "closeCurrent$default",
+          "hasCode": true,
+          "accessFlags": 4104
+        },
+        {
+          "name": "commandError",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "consumeStart$lambda$6",
+          "hasCode": true,
+          "accessFlags": 24
+        },
+        {
+          "name": "control",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "detachClient$lambda$7",
+          "hasCode": true,
+          "accessFlags": 24
+        },
+        {
+          "name": "onAudio",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "publish",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "reject",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "releaseUnowned",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "subscribe$lambda$9",
+          "hasCode": true,
+          "accessFlags": 24
+        },
+        {
+          "name": "valid",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "visible",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "visibleId",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "consumeStart",
+          "hasCode": true,
+          "accessFlags": 17
+        },
+        {
+          "name": "detachClient",
+          "hasCode": true,
+          "accessFlags": 17
+        },
+        {
+          "name": "observe",
+          "hasCode": true,
+          "accessFlags": 17
+        },
+        {
+          "name": "onServiceBootstrapFailed",
+          "hasCode": true,
+          "accessFlags": 17
+        },
+        {
+          "name": "onServiceCreated",
+          "hasCode": true,
+          "accessFlags": 17
+        },
+        {
+          "name": "onServiceDestroyed",
+          "hasCode": true,
+          "accessFlags": 17
+        },
+        {
+          "name": "pause",
+          "hasCode": true,
+          "accessFlags": 17
+        },
+        {
+          "name": "play",
+          "hasCode": true,
+          "accessFlags": 17
+        },
+        {
+          "name": "registerClient",
+          "hasCode": true,
+          "accessFlags": 17
+        },
+        {
+          "name": "resume",
+          "hasCode": true,
+          "accessFlags": 17
+        },
+        {
+          "name": "snapshot",
+          "hasCode": true,
+          "accessFlags": 17
+        },
+        {
+          "name": "stopAudio",
+          "hasCode": true,
+          "accessFlags": 17
+        },
+        {
+          "name": "subscribe",
+          "hasCode": true,
+          "accessFlags": 17
+        },
+        {
+          "name": "taskRemoved",
+          "hasCode": true,
+          "accessFlags": 17
+        }
+      ]
+    },
+    "narration/NarrationHost": {
+      "zipPath": "classes3.dex",
+      "descriptor": "Lkz/astanaai/activewalk/narration/NarrationHost;",
+      "methods": [
+        {
+          "name": "<clinit>",
+          "hasCode": true,
+          "accessFlags": 65544
+        },
+        {
+          "name": "<init>",
+          "hasCode": true,
+          "accessFlags": 65538
+        },
+        {
+          "name": "access$checkMain",
+          "hasCode": true,
+          "accessFlags": 4121
+        },
+        {
+          "name": "checkMain",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "createBridge$default",
+          "hasCode": true,
+          "accessFlags": 4105
+        },
+        {
+          "name": "install$default",
+          "hasCode": true,
+          "accessFlags": 4105
+        },
+        {
+          "name": "install$lambda$0",
+          "hasCode": true,
+          "accessFlags": 24
+        },
+        {
+          "name": "createBridge",
+          "hasCode": true,
+          "accessFlags": 17
+        },
+        {
+          "name": "existing",
+          "hasCode": true,
+          "accessFlags": 17
+        },
+        {
+          "name": "install",
+          "hasCode": true,
+          "accessFlags": 17
+        },
+        {
+          "name": "stopIfInstalled",
+          "hasCode": true,
+          "accessFlags": 17
+        }
+      ]
+    },
+    "narration/NarrationMediaActionReceiver": {
+      "zipPath": "classes3.dex",
+      "descriptor": "Lkz/astanaai/activewalk/narration/NarrationMediaActionReceiver;",
+      "methods": [
+        {
+          "name": "<init>",
+          "hasCode": true,
+          "accessFlags": 65537
+        },
+        {
+          "name": "onReceive",
+          "hasCode": true,
+          "accessFlags": 1
+        }
+      ]
+    },
+    "narration/NarrationPlaybackService": {
+      "zipPath": "classes3.dex",
+      "descriptor": "Lkz/astanaai/activewalk/narration/NarrationPlaybackService;",
+      "methods": [
+        {
+          "name": "<clinit>",
+          "hasCode": true,
+          "accessFlags": 65544
+        },
+        {
+          "name": "<init>",
+          "hasCode": true,
+          "accessFlags": 65537
+        },
+        {
+          "name": "acknowledgeForeground",
+          "hasCode": true,
+          "accessFlags": 18
+        },
+        {
+          "name": "onBind",
+          "hasCode": true,
+          "accessFlags": 1
+        },
+        {
+          "name": "onCreate",
+          "hasCode": true,
+          "accessFlags": 1
+        },
+        {
+          "name": "onDestroy",
+          "hasCode": true,
+          "accessFlags": 1
+        },
+        {
+          "name": "onStartCommand",
+          "hasCode": true,
+          "accessFlags": 1
+        },
+        {
+          "name": "onTaskRemoved",
+          "hasCode": true,
+          "accessFlags": 1
+        }
+      ]
+    }
+  },
+  "jsBundle": {
+    "zipPath": "assets/index.android.bundle",
+    "bytes": 2259740,
+    "sha256": "02cba061691fcdde7ffc9e1786f28dcc7a1cf5c6b18970c5084893bbf57c2a0f",
+    "compression": 0,
+    "hermesMagic": true,
+    "hermesVersion": 99,
+    "audioHashesPresent": 54,
+    "textHashesPresent": 54,
+    "narrationIdsPresent": 54,
+    "buildOutputReferenceSha256": "02cba061691fcdde7ffc9e1786f28dcc7a1cf5c6b18970c5084893bbf57c2a0f"
+  },
+  "credits": {
+    "sha256": "5db8bb7414a593f2e039aeb6cb0f703acbaef2a6b0d43113c97fc7ce6fa5aad7",
+    "entries": [
+      {
+        "locale": "ru",
+        "license": "GPL-3.0",
+        "attribution": "RHVoice, Olga Yakovleva and contributors; Elena voice: Artem Plaksin, Sergey Parshakov, Zvonimir Stanecic, Dmitry Kaslin; speaker Elena Soboleva; narrator is synthetic"
+      },
+      {
+        "locale": "kk",
+        "license": "CC-BY-4.0",
+        "attribution": "Piper/Rhasspy; ISSAI, Nazarbayev University, KazakhTTS/KazakhTTS2, Mussakhojayeva et al."
+      },
+      {
+        "locale": "en",
+        "license": "Public domain LJ Speech",
+        "attribution": "Piper/Rhasspy; LJ Speech dataset by Keith Ito and Linda Johnson public-domain recordings; narrator synthetic"
+      }
+    ],
+    "gplBytes": 35823,
+    "gplSha256": "230184f60bae2feaf244f10a8bac053c8ff33a183bcc365b4d8b876d2b7f4809"
+  },
+  "tools": {
+    "badging": {
+      "argv": [
+        "..\\..\\work\\android-toolchain\\sdk\\build-tools\\37.0.0\\aapt2.exe",
+        "dump",
+        "badging",
+        "C:\\Users\\era\\Documents\\Codex\\2026-10-20\\x20\\outputs\\AstanaAI\\apps\\mobile\\android\\app\\build\\outputs\\apk\\release\\app-release.apk"
+      ],
+      "exitCode": 0,
+      "stdout": "package: name='kz.astanaai.diagnostics' versionCode='14' versionName='0.6.1' platformBuildVersionName='17' platformBuildVersionCode='37' compileSdkVersion='37' compileSdkVersionCodename='17'\nminSdkVersion:'24'\ntargetSdkVersion:'36'\nuses-permission: name='android.permission.ACCESS_COARSE_LOCATION'\nuses-permission: name='android.permission.ACCESS_FINE_LOCATION'\nuses-permission: name='android.permission.FOREGROUND_SERVICE'\nuses-permission: name='android.permission.FOREGROUND_SERVICE_LOCATION'\nuses-permission: name='android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK'\nuses-permission: name='android.permission.WAKE_LOCK'\nuses-permission: name='android.permission.INTERNET'\nuses-permission: name='android.permission.POST_NOTIFICATIONS'\nuses-permission: name='android.permission.VIBRATE'\nuses-permission: name='android.permission.ACCESS_NETWORK_STATE'\nuses-permission: name='android.permission.ACCESS_WIFI_STATE'\nuses-permission: name='kz.astanaai.diagnostics.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION'\napplication-label:'AstanaAI'\napplication-label-af:'AstanaAI'\napplication-label-am:'AstanaAI'\napplication-label-ar:'AstanaAI'\napplication-label-as:'AstanaAI'\napplication-label-az:'AstanaAI'\napplication-label-be:'AstanaAI'\napplication-label-bg:'AstanaAI'\napplication-label-bn:'AstanaAI'\napplication-label-bs:'AstanaAI'\napplication-label-ca:'AstanaAI'\napplication-label-cs:'AstanaAI'\napplication-label-da:'AstanaAI'\napplication-label-de:'AstanaAI'\napplication-label-el:'AstanaAI'\napplication-label-en-AU:'AstanaAI'\napplication-label-en-CA:'AstanaAI'\napplication-label-en-GB:'AstanaAI'\napplication-label-en-IN:'AstanaAI'\napplication-label-en-XC:'AstanaAI'\napplication-label-es:'AstanaAI'\napplication-label-es-419:'AstanaAI'\napplication-label-es-ES:'AstanaAI'\napplication-label-es-US:'AstanaAI'\napplication-label-et:'AstanaAI'\napplication-label-eu:'AstanaAI'\napplication-label-fa:'AstanaAI'\napplication-label-fi:'AstanaAI'\napplication-label-fr:'AstanaAI'\napplication-label-fr-CA:'AstanaAI'\napplication-label-gl:'AstanaAI'\napplication-label-gu:'AstanaAI'\napplication-label-he:'AstanaAI'\napplication-label-hi:'AstanaAI'\napplication-label-hr:'AstanaAI'\napplication-label-hu:'AstanaAI'\napplication-label-hy:'AstanaAI'\napplication-label-in:'AstanaAI'\napplication-label-is:'AstanaAI'\napplication-label-it:'AstanaAI'\napplication-label-iw:'AstanaAI'\napplication-label-ja:'AstanaAI'\napplication-label-ka:'AstanaAI'\napplication-label-kk:'AstanaAI'\napplication-label-km:'AstanaAI'\napplication-label-kn:'AstanaAI'\napplication-label-ko:'AstanaAI'\napplication-label-ky:'AstanaAI'\napplication-label-lo:'AstanaAI'\napplication-label-lt:'AstanaAI'\napplication-label-lv:'AstanaAI'\napplication-label-mk:'AstanaAI'\napplication-label-ml:'AstanaAI'\napplication-label-mn:'AstanaAI'\napplication-label-mr:'AstanaAI'\napplication-label-ms:'AstanaAI'\napplication-label-my:'AstanaAI'\napplication-label-nb:'AstanaAI'\napplication-label-ne:'AstanaAI'\napplication-label-nl:'AstanaAI'\napplication-label-or:'AstanaAI'\napplication-label-pa:'AstanaAI'\napplication-label-pl:'AstanaAI'\napplication-label-pt:'AstanaAI'\napplication-label-pt-BR:'AstanaAI'\napplication-label-pt-PT:'AstanaAI'\napplication-label-ro:'AstanaAI'\napplication-label-ru:'AstanaAI'\napplication-label-si:'AstanaAI'\napplication-label-sk:'AstanaAI'\napplication-label-sl:'AstanaAI'\napplication-label-sq:'AstanaAI'\napplication-label-sr:'AstanaAI'\napplication-label-sr-Latn:'AstanaAI'\napplication-label-sv:'AstanaAI'\napplication-label-sw:'AstanaAI'\napplication-label-ta:'AstanaAI'\napplication-label-te:'AstanaAI'\napplication-label-th:'AstanaAI'\napplication-label-tl:'AstanaAI'\napplication-label-tr:'AstanaAI'\napplication-label-uk:'AstanaAI'\napplication-label-ur:'AstanaAI'\napplication-label-uz:'AstanaAI'\napplication-label-vi:'AstanaAI'\napplication-label-zh-CN:'AstanaAI'\napplication-label-zh-HK:'AstanaAI'\napplication-label-zh-TW:'AstanaAI'\napplication-label-zu:'AstanaAI'\napplication-icon-120:'res/d2.webp'\napplication-icon-160:'res/d2.webp'\napplication-icon-240:'res/MO.webp'\napplication-icon-320:'res/qs.webp'\napplication-icon-480:'res/Sn.webp'\napplication-icon-640:'res/sK.webp'\napplication-icon-65534:'res/d2.webp'\napplication: label='AstanaAI' icon='res/d2.webp'\nlaunchable-activity: name='kz.astanaai.diagnostics.MainActivity'  label='' icon=''\nuses-library-not-required:'androidx.window.extensions'\nuses-library-not-required:'androidx.window.sidecar'\nfeature-group: label=''\n  uses-feature-not-required: name='android.hardware.wifi'\n  uses-feature: name='android.hardware.faketouch'\n  uses-implied-feature: name='android.hardware.faketouch' reason='default feature for all apps'\n  uses-feature: name='android.hardware.location'\n  uses-implied-feature: name='android.hardware.location' reason='requested android.permission.ACCESS_COARSE_LOCATION permission, and requested android.permission.ACCESS_FINE_LOCATION permission'\n  uses-feature: name='android.hardware.screen.portrait'\n  uses-implied-feature: name='android.hardware.screen.portrait' reason='one or more activities have specified a portrait orientation'\nmain\nother-receivers\nother-services\nsupports-screens: 'small' 'normal' 'large' 'xlarge'\nsupports-any-density: 'true'\nlocales: '--_--' 'af' 'am' 'ar' 'as' 'az' 'be' 'bg' 'bn' 'bs' 'ca' 'cs' 'da' 'de' 'el' 'en-AU' 'en-CA' 'en-GB' 'en-IN' 'en-XC' 'es' 'es-419' 'es-ES' 'es-US' 'et' 'eu' 'fa' 'fi' 'fr' 'fr-CA' 'gl' 'gu' 'he' 'hi' 'hr' 'hu' 'hy' 'in' 'is' 'it' 'iw' 'ja' 'ka' 'kk' 'km' 'kn' 'ko' 'ky' 'lo' 'lt' 'lv' 'mk' 'ml' 'mn' 'mr' 'ms' 'my' 'nb' 'ne' 'nl' 'or' 'pa' 'pl' 'pt' 'pt-BR' 'pt-PT' 'ro' 'ru' 'si' 'sk' 'sl' 'sq' 'sr' 'sr-Latn' 'sv' 'sw' 'ta' 'te' 'th' 'tl' 'tr' 'uk' 'ur' 'uz' 'vi' 'zh-CN' 'zh-HK' 'zh-TW' 'zu'\ndensities: '120' '160' '240' '320' '480' '640' '65534'\nnative-code: 'arm64-v8a'\n",
+      "stderr": ""
+    },
+    "manifest": {
+      "argv": [
+        "..\\..\\work\\android-toolchain\\sdk\\build-tools\\37.0.0\\aapt2.exe",
+        "dump",
+        "xmltree",
+        "C:\\Users\\era\\Documents\\Codex\\2026-10-20\\x20\\outputs\\AstanaAI\\apps\\mobile\\android\\app\\build\\outputs\\apk\\release\\app-release.apk",
+        "--file",
+        "AndroidManifest.xml"
+      ],
+      "exitCode": 0,
+      "stdout": "N: android=http://schemas.android.com/apk/res/android (line=2)\n  E: manifest (line=2)\n    A: http://schemas.android.com/apk/res/android:versionCode(0x0101021b)=14\n    A: http://schemas.android.com/apk/res/android:versionName(0x0101021c)=\"0.6.1\" (Raw: \"0.6.1\")\n    A: http://schemas.android.com/apk/res/android:compileSdkVersion(0x01010572)=37\n    A: http://schemas.android.com/apk/res/android:compileSdkVersionCodename(0x01010573)=\"17\" (Raw: \"17\")\n    A: package=\"kz.astanaai.diagnostics\" (Raw: \"kz.astanaai.diagnostics\")\n    A: platformBuildVersionCode=37\n    A: platformBuildVersionName=17\n      E: uses-sdk (line=7)\n        A: http://schemas.android.com/apk/res/android:minSdkVersion(0x0101020c)=24\n        A: http://schemas.android.com/apk/res/android:targetSdkVersion(0x01010270)=36\n      E: uses-permission (line=11)\n        A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"android.permission.ACCESS_COARSE_LOCATION\" (Raw: \"android.permission.ACCESS_COARSE_LOCATION\")\n      E: uses-permission (line=12)\n        A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"android.permission.ACCESS_FINE_LOCATION\" (Raw: \"android.permission.ACCESS_FINE_LOCATION\")\n      E: uses-permission (line=13)\n        A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"android.permission.FOREGROUND_SERVICE\" (Raw: \"android.permission.FOREGROUND_SERVICE\")\n      E: uses-permission (line=14)\n        A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"android.permission.FOREGROUND_SERVICE_LOCATION\" (Raw: \"android.permission.FOREGROUND_SERVICE_LOCATION\")\n      E: uses-permission (line=15)\n        A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK\" (Raw: \"android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK\")\n      E: uses-permission (line=16)\n        A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"android.permission.WAKE_LOCK\" (Raw: \"android.permission.WAKE_LOCK\")\n      E: uses-permission (line=17)\n        A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"android.permission.INTERNET\" (Raw: \"android.permission.INTERNET\")\n      E: uses-permission (line=18)\n        A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"android.permission.POST_NOTIFICATIONS\" (Raw: \"android.permission.POST_NOTIFICATIONS\")\n      E: uses-permission (line=19)\n        A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"android.permission.VIBRATE\" (Raw: \"android.permission.VIBRATE\")\n      E: queries (line=21)\n          E: intent (line=22)\n              E: action (line=23)\n                A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"android.intent.action.VIEW\" (Raw: \"android.intent.action.VIEW\")\n              E: category (line=25)\n                A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"android.intent.category.BROWSABLE\" (Raw: \"android.intent.category.BROWSABLE\")\n              E: data (line=27)\n                A: http://schemas.android.com/apk/res/android:scheme(0x01010027)=\"https\" (Raw: \"https\")\n          E: intent (line=30)\n              E: action (line=31)\n                A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"android.intent.action.OPEN_DOCUMENT_TREE\" (Raw: \"android.intent.action.OPEN_DOCUMENT_TREE\")\n          E: intent (line=33)\n              E: action (line=36)\n                A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"android.intent.action.VIEW\" (Raw: \"android.intent.action.VIEW\")\n              E: data (line=38)\n                A: http://schemas.android.com/apk/res/android:mimeType(0x01010026)=\"*/*\" (Raw: \"*/*\")\n          E: intent (line=40)\n              E: action (line=43)\n                A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"android.intent.action.TTS_SERVICE\" (Raw: \"android.intent.action.TTS_SERVICE\")\n      E: uses-feature (line=47)\n        A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"android.hardware.wifi\" (Raw: \"android.hardware.wifi\")\n        A: http://schemas.android.com/apk/res/android:required(0x0101028e)=false\n      E: uses-permission (line=51)\n        A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"android.permission.ACCESS_NETWORK_STATE\" (Raw: \"android.permission.ACCESS_NETWORK_STATE\")\n      E: uses-permission (line=52)\n        A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"android.permission.ACCESS_WIFI_STATE\" (Raw: \"android.permission.ACCESS_WIFI_STATE\")\n      E: permission (line=54)\n        A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"kz.astanaai.diagnostics.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION\" (Raw: \"kz.astanaai.diagnostics.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION\")\n        A: http://schemas.android.com/apk/res/android:protectionLevel(0x01010009)=0x00000002\n      E: uses-permission (line=58)\n        A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"kz.astanaai.diagnostics.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION\" (Raw: \"kz.astanaai.diagnostics.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION\")\n      E: application (line=60)\n        A: http://schemas.android.com/apk/res/android:theme(0x01010000)=@0x7f11000d\n        A: http://schemas.android.com/apk/res/android:label(0x01010001)=@0x7f10001d\n        A: http://schemas.android.com/apk/res/android:icon(0x01010002)=@0x7f0d0000\n        A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"kz.astanaai.diagnostics.MainApplication\" (Raw: \"kz.astanaai.diagnostics.MainApplication\")\n        A: http://schemas.android.com/apk/res/android:allowBackup(0x01010280)=false\n        A: http://schemas.android.com/apk/res/android:supportsRtl(0x010103af)=true\n        A: http://schemas.android.com/apk/res/android:extractNativeLibs(0x010104ea)=false\n        A: http://schemas.android.com/apk/res/android:roundIcon(0x0101052c)=@0x7f0d0001\n        A: http://schemas.android.com/apk/res/android:appComponentFactory(0x0101057a)=\"androidx.core.app.CoreComponentFactory\" (Raw: \"androidx.core.app.CoreComponentFactory\")\n        A: http://schemas.android.com/apk/res/android:enableOnBackInvokedCallback(0x0101066c)=false\n          E: meta-data (line=71)\n            A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"expo.modules.updates.ENABLED\" (Raw: \"expo.modules.updates.ENABLED\")\n            A: http://schemas.android.com/apk/res/android:value(0x01010024)=false\n          E: meta-data (line=74)\n            A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"expo.modules.updates.ENABLE_BSDIFF_PATCH_SUPPORT\" (Raw: \"expo.modules.updates.ENABLE_BSDIFF_PATCH_SUPPORT\")\n            A: http://schemas.android.com/apk/res/android:value(0x01010024)=true\n          E: meta-data (line=77)\n            A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"expo.modules.updates.EXPO_UPDATES_CHECK_ON_LAUNCH\" (Raw: \"expo.modules.updates.EXPO_UPDATES_CHECK_ON_LAUNCH\")\n            A: http://schemas.android.com/apk/res/android:value(0x01010024)=\"ALWAYS\" (Raw: \"ALWAYS\")\n          E: meta-data (line=80)\n            A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"expo.modules.updates.EXPO_UPDATES_LAUNCH_WAIT_MS\" (Raw: \"expo.modules.updates.EXPO_UPDATES_LAUNCH_WAIT_MS\")\n            A: http://schemas.android.com/apk/res/android:value(0x01010024)=0\n          E: activity (line=84)\n            A: http://schemas.android.com/apk/res/android:theme(0x01010000)=@0x7f11025a\n            A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"kz.astanaai.diagnostics.MainActivity\" (Raw: \"kz.astanaai.diagnostics.MainActivity\")\n            A: http://schemas.android.com/apk/res/android:exported(0x01010010)=true\n            A: http://schemas.android.com/apk/res/android:launchMode(0x0101001d)=2\n            A: http://schemas.android.com/apk/res/android:screenOrientation(0x0101001e)=1\n            A: http://schemas.android.com/apk/res/android:configChanges(0x0101001f)=0x80000fb0\n            A: http://schemas.android.com/apk/res/android:windowSoftInputMode(0x0101022b)=0x00000010\n              E: intent-filter (line=92)\n                  E: action (line=93)\n                    A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"android.intent.action.MAIN\" (Raw: \"android.intent.action.MAIN\")\n                  E: category (line=95)\n                    A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"android.intent.category.LAUNCHER\" (Raw: \"android.intent.category.LAUNCHER\")\n              E: intent-filter (line=97)\n                  E: action (line=98)\n                    A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"android.intent.action.VIEW\" (Raw: \"android.intent.action.VIEW\")\n                  E: category (line=100)\n                    A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"android.intent.category.DEFAULT\" (Raw: \"android.intent.category.DEFAULT\")\n                  E: category (line=101)\n                    A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"android.intent.category.BROWSABLE\" (Raw: \"android.intent.category.BROWSABLE\")\n                  E: data (line=103)\n                    A: http://schemas.android.com/apk/res/android:scheme(0x01010027)=\"exp+astanaai-native-diagnostics\" (Raw: \"exp+astanaai-native-diagnostics\")\n          E: meta-data (line=107)\n            A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"org.unimodules.core.AppLoader#react-native-headless\" (Raw: \"org.unimodules.core.AppLoader#react-native-headless\")\n            A: http://schemas.android.com/apk/res/android:value(0x01010024)=\"expo.modules.adapters.react.apploader.RNHeadlessAppLoader\" (Raw: \"expo.modules.adapters.react.apploader.RNHeadlessAppLoader\")\n          E: meta-data (line=110)\n            A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"com.facebook.soloader.enabled\" (Raw: \"com.facebook.soloader.enabled\")\n            A: http://schemas.android.com/apk/res/android:value(0x01010024)=true\n          E: provider (line=114)\n            A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"expo.modules.filesystem.FileSystemFileProvider\" (Raw: \"expo.modules.filesystem.FileSystemFileProvider\")\n            A: http://schemas.android.com/apk/res/android:exported(0x01010010)=false\n            A: http://schemas.android.com/apk/res/android:authorities(0x01010018)=\"kz.astanaai.diagnostics.FileSystemFileProvider\" (Raw: \"kz.astanaai.diagnostics.FileSystemFileProvider\")\n            A: http://schemas.android.com/apk/res/android:grantUriPermissions(0x0101001b)=true\n              E: meta-data (line=119)\n                A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"android.support.FILE_PROVIDER_PATHS\" (Raw: \"android.support.FILE_PROVIDER_PATHS\")\n                A: http://schemas.android.com/apk/res/android:resource(0x01010025)=@0x7f130000\n          E: service (line=124)\n            A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"kz.astanaai.activewalk.ActiveWalkService\" (Raw: \"kz.astanaai.activewalk.ActiveWalkService\")\n            A: http://schemas.android.com/apk/res/android:exported(0x01010010)=false\n            A: http://schemas.android.com/apk/res/android:stopWithTask(0x0101036a)=true\n            A: http://schemas.android.com/apk/res/android:foregroundServiceType(0x01010599)=0x00000008\n          E: receiver (line=130)\n            A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"kz.astanaai.activewalk.StopReceiver\" (Raw: \"kz.astanaai.activewalk.StopReceiver\")\n            A: http://schemas.android.com/apk/res/android:exported(0x01010010)=false\n          E: service (line=134)\n            A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"kz.astanaai.activewalk.narration.NarrationPlaybackService\" (Raw: \"kz.astanaai.activewalk.narration.NarrationPlaybackService\")\n            A: http://schemas.android.com/apk/res/android:exported(0x01010010)=false\n            A: http://schemas.android.com/apk/res/android:stopWithTask(0x0101036a)=true\n            A: http://schemas.android.com/apk/res/android:foregroundServiceType(0x01010599)=0x00000002\n          E: receiver (line=140)\n            A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"kz.astanaai.activewalk.narration.NarrationMediaActionReceiver\" (Raw: \"kz.astanaai.activewalk.narration.NarrationMediaActionReceiver\")\n            A: http://schemas.android.com/apk/res/android:exported(0x01010010)=false\n          E: uses-library (line=144)\n            A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"androidx.window.extensions\" (Raw: \"androidx.window.extensions\")\n            A: http://schemas.android.com/apk/res/android:required(0x0101028e)=false\n          E: uses-library (line=147)\n            A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"androidx.window.sidecar\" (Raw: \"androidx.window.sidecar\")\n            A: http://schemas.android.com/apk/res/android:required(0x0101028e)=false\n          E: provider (line=151)\n            A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"androidx.startup.InitializationProvider\" (Raw: \"androidx.startup.InitializationProvider\")\n            A: http://schemas.android.com/apk/res/android:exported(0x01010010)=false\n            A: http://schemas.android.com/apk/res/android:authorities(0x01010018)=\"kz.astanaai.diagnostics.androidx-startup\" (Raw: \"kz.astanaai.diagnostics.androidx-startup\")\n              E: meta-data (line=155)\n                A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"androidx.emoji2.text.EmojiCompatInitializer\" (Raw: \"androidx.emoji2.text.EmojiCompatInitializer\")\n                A: http://schemas.android.com/apk/res/android:value(0x01010024)=\"androidx.startup\" (Raw: \"androidx.startup\")\n              E: meta-data (line=158)\n                A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"androidx.lifecycle.ProcessLifecycleInitializer\" (Raw: \"androidx.lifecycle.ProcessLifecycleInitializer\")\n                A: http://schemas.android.com/apk/res/android:value(0x01010024)=\"androidx.startup\" (Raw: \"androidx.startup\")\n              E: meta-data (line=161)\n                A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"androidx.profileinstaller.ProfileInstallerInitializer\" (Raw: \"androidx.profileinstaller.ProfileInstallerInitializer\")\n                A: http://schemas.android.com/apk/res/android:value(0x01010024)=\"androidx.startup\" (Raw: \"androidx.startup\")\n          E: receiver (line=166)\n            A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"androidx.profileinstaller.ProfileInstallReceiver\" (Raw: \"androidx.profileinstaller.ProfileInstallReceiver\")\n            A: http://schemas.android.com/apk/res/android:permission(0x01010006)=\"android.permission.DUMP\" (Raw: \"android.permission.DUMP\")\n            A: http://schemas.android.com/apk/res/android:enabled(0x0101000e)=true\n            A: http://schemas.android.com/apk/res/android:exported(0x01010010)=true\n            A: http://schemas.android.com/apk/res/android:directBootAware(0x01010505)=false\n              E: intent-filter (line=172)\n                  E: action (line=173)\n                    A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"androidx.profileinstaller.action.INSTALL_PROFILE\" (Raw: \"androidx.profileinstaller.action.INSTALL_PROFILE\")\n              E: intent-filter (line=175)\n                  E: action (line=176)\n                    A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"androidx.profileinstaller.action.SKIP_FILE\" (Raw: \"androidx.profileinstaller.action.SKIP_FILE\")\n              E: intent-filter (line=178)\n                  E: action (line=179)\n                    A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"androidx.profileinstaller.action.SAVE_PROFILE\" (Raw: \"androidx.profileinstaller.action.SAVE_PROFILE\")\n              E: intent-filter (line=181)\n                  E: action (line=182)\n                    A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"androidx.profileinstaller.action.BENCHMARK_OPERATION\" (Raw: \"androidx.profileinstaller.action.BENCHMARK_OPERATION\")\n",
+      "stderr": ""
+    },
+    "signature": {
+      "argv": [
+        "..\\..\\work\\android-toolchain\\gradle-cache\\jdks\\eclipse_adoptium-17-amd64-windows.2\\bin\\java.exe",
+        "-jar",
+        "..\\..\\work\\android-toolchain\\sdk\\build-tools\\37.0.0\\lib\\apksigner.jar",
+        "verify",
+        "--verbose",
+        "--print-certs",
+        "C:\\Users\\era\\Documents\\Codex\\2026-10-20\\x20\\outputs\\AstanaAI\\apps\\mobile\\android\\app\\build\\outputs\\apk\\release\\app-release.apk"
+      ],
+      "exitCode": 0,
+      "stdout": "Verifies\nVerified using v1 scheme (JAR signing): false\nVerified using v2 scheme (APK Signature Scheme v2): true\nVerified using v3 scheme (APK Signature Scheme v3): false\nVerified using v3.1 scheme (APK Signature Scheme v3.1): false\nVerified using v3.2 scheme (APK Signature Scheme v3.2): false\nVerified using v4 scheme (APK Signature Scheme v4): false\nVerified for SourceStamp: false\nNumber of signers: 1\nV2 Signer: certificate DN: CN=Android Debug, OU=Android, O=Unknown, L=Unknown, ST=Unknown, C=US\nV2 Signer: certificate SHA-256 digest: fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c\nV2 Signer: certificate SHA-1 digest: 5e8f16062ea3cd2c4a0d547876baa6f38cabf625\nV2 Signer: certificate MD5 digest: 20f46148b72d8e5e5ca23d37a4f41490\nV2 Signer: key algorithm: RSA\nV2 Signer: key size (bits): 2048\nV2 Signer: public key SHA-256 digest: 06104aa0b28fac286bae06b08313ac69c37c35a6462853db32d2ec5fa7b1ed0e\nV2 Signer: public key SHA-1 digest: 88325602a013a12d5ac13516c609aa57ce9e2234\nV2 Signer: public key MD5 digest: 49921988ad9941656cd9b95203196f17\n",
+      "stderr": ""
+    },
+    "alignment": {
+      "argv": [
+        "..\\..\\work\\android-toolchain\\sdk\\build-tools\\37.0.0\\zipalign.exe",
+        "-c",
+        "-P",
+        "16",
+        "4",
+        "C:\\Users\\era\\Documents\\Codex\\2026-10-20\\x20\\outputs\\AstanaAI\\apps\\mobile\\android\\app\\build\\outputs\\apk\\release\\app-release.apk"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  },
+  "runtime": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "scriptSha256": "2b388e1b66261aae7b814549643d299b54bc0b9fa27e2dbca77a5bf7b101c380",
+    "aapt2Sha256": "4b09f89d449cc4498fcf5076a4ad6b28f079e565d2737f7881a674580960c8df",
+    "apksignerJarSha256": "2defad215d7ff52968a409cde528cdaef7918b115e276b8e3378ca7a178e4180",
+    "zipalignSha256": "da1b807956bab10d89eba27b3998d38885fed4b2101f052eda0436adcc9c4c71"
+  },
+  "limits": [
+    "Static archive/manifest/signature/class definition evidence, not Android execution.",
+    "DEX method bodies were not decompiled or executed; class existence does not prove lifecycle semantics.",
+    "Hermes string/hash presence does not prove code reachability or React rendering.",
+    "Audio hashes validate bytes, not pronunciation or human quality.",
+    "Android Debug certificate is for development; production signing/distribution is not accepted.",
+    "Any rebuild changes artifact identity and requires this audit again."
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "version": "0.3.4",
+  "versionCode": 9,
+  "manifest_gate": "PASS",
+  "runtime_acceptance": false
+}

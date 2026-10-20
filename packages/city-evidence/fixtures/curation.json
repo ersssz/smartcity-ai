@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "checkedOn": "2026-10-20",
+  "zoneId": "astana:bayterek-research",
+  "sourcePins": {
+    "data/curated/poi-bayterek.json": "8526ee65b745d9eb007ee7cb594af004dc80dd1c0008d7732de372b34d56d033",
+    "apps/mobile/src/walk/preparedWalk.json": "4c361722fd6eefc31488431ca84e8bf9fe17fa09b83d193256381512ba86422b",
+    "evidence/first-walk/routing-source.json": "7c71e91aa760e046c7a706ebd68fca4954d71fd457fa7d8c1d7a744fb9e5799b"
+  },
+  "mappings": [
+    {
+      "placeId": "osm:way/230401645",
+      "preparedStopId": "bayterek-outdoor",
+      "candidateKey": "baiterek",
+      "identitySourceIds": ["src-baiterek"],
+      "categories": ["landmark"],
+      "basis": "The imported named Baiterek monument and the prepared Baiterek chapter identify the same named landmark. The official GOV.KZ content supports the landmark identity and Tree of Life interpretation. The west pedestrian-plaza observation anchor is an explicit prepared-editorial association, not the building center or an official entrance.",
+      "fieldVerified": false
+    },
+    {
+      "placeId": "curated:place:nurzhol",
+      "preparedStopId": "nurzhol-outdoor",
+      "candidateKey": "nurzhol",
+      "identitySourceIds": ["src-axis", "src-nurzhol"],
+      "categories": ["public_space"],
+      "basis": "The official Akorda ensemble description and Visit Astana walking-guide content identify Nurzhol. Reuse the prepared Nurzhol candidate and its explicit west pedestrian-alley anchor; no nearest-center or unnamed-node identity inference is performed. No building entrance or field visibility is certified.",
+      "fieldVerified": false
+    },
+    {
+      "placeId": "curated:place:round-square",
+      "preparedStopId": "round-square-outdoor",
+      "candidateKey": "round-square",
+      "identitySourceIds": ["src-nurzhol"],
+      "categories": ["public_space"],
+      "basis": "The Visit Astana content used by the prepared Round Square chapter identifies the two-tier public space. Reuse the exact prepared circular-footway observation anchor and the independently checked routing context. Physical level, entrance, current passage and visible features remain unverified; no geometric proximity merge is used.",
+      "fieldVerified": false
+    }
+  ]
+}

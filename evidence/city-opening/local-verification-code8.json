@@ -1,0 +1,13 @@
+{
+  "version": "0.3.3",
+  "versionCode": 8,
+  "strict_typescript": "PASS after isolated fix",
+  "independent_review": "review-code8.md",
+  "product_delta": "Permanent collapsable=false on map parent; camera and choreography unchanged",
+  "city_intro_sha256": "512aa03f79a42c2c7b753c44fc716ae0f6632209ea06787e67212e9bcbc65f04",
+  "city_opening_sha256": "627d7b92062f1976f25709fd89b4f01edf64e4708e0d81cbaf46920b4f047ce2",
+  "eight_targeted_tests": "Passed on code7 before isolated UI parent fix; not rerun for code8",
+  "device_fix_accepted": false,
+  "paid_api_calls": 0,
+  "purchases": 0
+}

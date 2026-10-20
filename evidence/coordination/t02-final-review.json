@@ -1,0 +1,18 @@
+{
+  "date_local": "2026-10-20",
+  "reviewed_commit": "0ea6f8f93bef07e7a16406143eecd7d069411989",
+  "baseline": "cbea535fb7b655e5830ad9a3c46aabfd6d88753f",
+  "bundle_sha256": "20308d092ad7e558a857c50d9c316b529dd3fe0690941b2294342029a4e14bc3",
+  "bundle_bytes": 57516,
+  "bundle_integrity_and_prerequisite_verified": true,
+  "allowed_scope_verified": {"changed_files": 22, "file_modes": "100644", "prefixes": ["tools/data/", "data/curated/", "evidence/t02/", "tests/data/"]},
+  "root_tests": {"command": "python -B -m unittest discover -s tests/data -v", "passed": 25, "failed": 0, "exit_code": 0},
+  "independent_standards": {"agent": "delegation_design", "early_and_final_delta_reviewed": true, "remaining_findings": 0},
+  "independent_spec": {"agent": "spend_standards_review", "early_and_final_delta_reviewed": true, "remaining_findings": 0},
+  "delivered_data": {"unique_poi_cards": 20, "replay_records": 145, "public_cases": 10, "technical_paths": 6, "expected_refusals": 4, "replay_results_match_reported_full_source_results": true, "json_bytes_match_git_utf8_lf": true},
+  "acceptance": "Scoped research result accepted for integration; full T02 remains open",
+  "not_independently_repeated_on_main": ["Full PBF download and extraction", "Real street or entrance checks"],
+  "pending": ["Actual GPS endpoints and verified connectors", "Hosted or managed routing resources and privacy", "Measured offline map package", "Actual free account entitlement", "30-case live RAG quality and latency", "Hardware and field checks"],
+  "paid_calls": 0,
+  "remote_system_settings_changed": false
+}

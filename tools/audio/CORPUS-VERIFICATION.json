@@ -1,0 +1,184 @@
+{
+  "schemaVersion": 1,
+  "sourceTests": {
+    "python": {
+      "command": "python -X utf8 -B -m unittest discover -s tools/audio -p test_*.py -v",
+      "pass": 18,
+      "fail": 0,
+      "skip": 0,
+      "seconds": 4.796
+    },
+    "node": {
+      "command": "node --test tools/audio/test_canonical_audio.cjs",
+      "pass": 3,
+      "fail": 0,
+      "skip": 0,
+      "durationMs": 2097.3284
+    }
+  },
+  "sourceSha256": {
+    "tools/audio/canonical_audio.cjs": "fe8b937ad81a487405dbc6b5a829177ecefc087ac24ba533c5dbbfb114d2404b",
+    "tools/audio/build_narration_corpus.py": "0fce22ed9971ad7144d7a23620182fb1649eaa8dacbc594d0d56dc32bf03df9c",
+    "tools/audio/test_canonical_audio.cjs": "c60a13780e43514861a6b7bd2fa3e6b755f2e26089239555a4417d1f6667a249",
+    "tools/audio/test_build_narration_corpus.py": "c29953064e47083883b475ef4207511df54ac6aa2f9885f41c2f51639ca8fc1b"
+  },
+  "actualSynthesisAndSafeCacheVerification": {
+    "schemaVersion": 1,
+    "actualSynthesisManifestSha256": "f4f0e5c4d5ec40316c01fcad554942f561c563c133ad1d72d1ca053e15ba58c6",
+    "corpusSha256": "60d47bec055e667597bbbb8689ec23af1a2bbd6cdd394895f95bc9b5ca80a7f3",
+    "voiceConfigSha256": "09068a792c2b49037b885b06f64c1bdf4bdc904f28399ef3658ba5a3b7956079",
+    "actualExecutingBuilderSha256": "3f7244f70d5b820a2cfe59b842f1f7c35a75b796ec795f916fb9199b47da7862",
+    "correctedVerificationBuilderSha256": "0fce22ed9971ad7144d7a23620182fb1649eaa8dacbc594d0d56dc32bf03df9c",
+    "originalManifestUnchanged": true,
+    "cacheVerification": {
+      "entries": 54,
+      "bytes": 9793210,
+      "cacheHits": 54,
+      "manifestSha256": "f4f0e5c4d5ec40316c01fcad554942f561c563c133ad1d72d1ca053e15ba58c6"
+    },
+    "renderCallsDuringCacheVerification": 0,
+    "byLocale": {
+      "ru": {
+        "entries": 18,
+        "mp3Bytes": 3151530,
+        "durationSeconds": 392.331916,
+        "wavBytes": 18832632,
+        "clippedSamples": 0,
+        "minNonzeroSamples": 31641
+      },
+      "kk": {
+        "entries": 18,
+        "mp3Bytes": 3281970,
+        "durationSeconds": 408.57832,
+        "wavBytes": 18019096,
+        "clippedSamples": 0,
+        "minNonzeroSamples": 31204
+      },
+      "en": {
+        "entries": 18,
+        "mp3Bytes": 3359710,
+        "durationSeconds": 418.26104499999997,
+        "wavBytes": 18446104,
+        "clippedSamples": 0,
+        "minNonzeroSamples": 22483
+      }
+    },
+    "runtime": {
+      "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "piper": "1.8.0",
+      "onnxruntime": "1.31.0",
+      "ffmpegVersion": "ffmpeg version 8.1.1-full_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers",
+      "ffmpegSha256": "09948d4cdd0650da6ff5a87577469f2a218dc2615ae379f8f734d24c49de0f73",
+      "ffprobeSha256": "a6618e99bb58869ded3c6f37b53aa1a8d701c3591dbb7b5b317d47369c112be2"
+    },
+    "acceptance": {
+      "humanPronunciation": "pending",
+      "nativePlayback": "pending",
+      "offlinePack": "not_asserted",
+      "networkUseDuringSynthesis": false
+    }
+  },
+  "actualContractAdapter": {
+    "sealedBundleHash": "4d968a31d1cf0115ad60ee2ec609e3711b2cde5b90a005205e5af73d66fb8ce9",
+    "verification": {
+      "state": "partial",
+      "identity": {
+        "bundleHash": "4d968a31d1cf0115ad60ee2ec609e3711b2cde5b90a005205e5af73d66fb8ce9",
+        "revision": 1,
+        "manifestHash": "d1d2291f59f5a58f55f387db6bd361b5b65559694c7cf7aa4d7a7e0a8f0645cd"
+      },
+      "missing": [
+        {
+          "id": "map",
+          "reason": "MAP_UNAVAILABLE"
+        }
+      ]
+    },
+    "actualOriginalUserMP3FilesChecked": 54,
+    "decodeAtThisAdapterSeam": false,
+    "actualDecodeAndDurationsCheckedByCorrectedCacheBuilder": true
+  },
+  "preservedOriginalSampleSha256": {
+    "first-chapter-output/bayterek-chapter-kk-sample-r2.mp3": "c1fccef28ecdae4f501494b5ea2184990ec8f759469cde4307e924417c317393",
+    "first-chapter-output/bayterek-chapter-en-sample-r2.mp3": "349ec427b31826e55850a9afec691d2934fce4d02e30f4aa0f526361b086f3ee",
+    "first-chapter-ru-output/bayterek-chapter-ru-sample-r2.mp3": "76765569d4baebde60df7087c2509a74c7acf2c8f6407617d22755b671bb32c4"
+  },
+  "deliveryFilesSha256": {
+    ".audio-corpus-owner.json": "2eae6e1d54826c612d283ccae3de7be6fd26f0d8f0b834409af89d0b7de180ff",
+    "canonical-bundle-original.json": "3e87d7f9b6a2e2e5b8b09dc82b4f09abe4c852f4bcda14107403a4c76d7f5774",
+    "canonical-corpus.json": "60d47bec055e667597bbbb8689ec23af1a2bbd6cdd394895f95bc9b5ca80a7f3",
+    "narrated-bundle.json": "a5ea40d8ed5237937404ace94a2484e034950836bb3f0b8e85ef179abab8e965",
+    "pack-verification.json": "0679ae78b4f273ddb2599a0b525fa8ca969e2e505039576cae19269522dcd778",
+    "prepared-narration-manifest.json": "f4f0e5c4d5ec40316c01fcad554942f561c563c133ad1d72d1ca053e15ba58c6",
+    "README.md": "f08346afdbb2ea77360bb032935c5b541e0d04740a852f28f621d4c2f580da0e",
+    "verification.json": "80c94ef5ea8f0b7c1b4f854233a03d55745a14720c3780ddae235050be11960c",
+    "audio/0a075aa2cc4eb952419634c7a86f32a9123667d284194b1497677f7e7e6788a2.mp3": "0a075aa2cc4eb952419634c7a86f32a9123667d284194b1497677f7e7e6788a2",
+    "audio/0cee3598b4eb7f9435cb0fdafe45cb895b324a3460297f3a0d82c2eb9dadd83b.mp3": "0cee3598b4eb7f9435cb0fdafe45cb895b324a3460297f3a0d82c2eb9dadd83b",
+    "audio/193ca035a47959055410adff96de2f2f7e8a4334d7ba17b9f34b8e992b342ba8.mp3": "193ca035a47959055410adff96de2f2f7e8a4334d7ba17b9f34b8e992b342ba8",
+    "audio/266add590b435d4ffebcf573bf4eda51312b50c2f45f916cd66a05f6d6f13ebc.mp3": "266add590b435d4ffebcf573bf4eda51312b50c2f45f916cd66a05f6d6f13ebc",
+    "audio/27b363f1b90580fa290091a3c53175651c6d0f65c8cfd8af4cb88664e75b14dc.mp3": "27b363f1b90580fa290091a3c53175651c6d0f65c8cfd8af4cb88664e75b14dc",
+    "audio/286fb9b7b6eb5aefefc2d57e5f8f74dd3fa3cbf6ed772264cf03ef5592d10ccc.mp3": "286fb9b7b6eb5aefefc2d57e5f8f74dd3fa3cbf6ed772264cf03ef5592d10ccc",
+    "audio/290a56bf0868a27e0b1ce200aa1e9bcd132e2cb84ab49ad819e6c500f64bf7db.mp3": "290a56bf0868a27e0b1ce200aa1e9bcd132e2cb84ab49ad819e6c500f64bf7db",
+    "audio/2ef97b38404a31c33f096f3f76d39a4b6c833da65c77df6535254579a3494f81.mp3": "2ef97b38404a31c33f096f3f76d39a4b6c833da65c77df6535254579a3494f81",
+    "audio/31778bb5708249bf24f579f996213f58a17ae9ddc80e33772324048605d5b975.mp3": "31778bb5708249bf24f579f996213f58a17ae9ddc80e33772324048605d5b975",
+    "audio/376cf1d78a82e6634b37aa280f1a9eabef6b1642ea79e0d59a20cbf15488bae8.mp3": "376cf1d78a82e6634b37aa280f1a9eabef6b1642ea79e0d59a20cbf15488bae8",
+    "audio/3a4a81fbb661a747b9563c74e362524ba328b9fb57d1ec839041180b48a338ea.mp3": "3a4a81fbb661a747b9563c74e362524ba328b9fb57d1ec839041180b48a338ea",
+    "audio/3b22454178e66d51b62e3d2be8163d39fe8051631d139cc79544f3c3ee86151f.mp3": "3b22454178e66d51b62e3d2be8163d39fe8051631d139cc79544f3c3ee86151f",
+    "audio/3ef240cfc13fc151548738d9222b6f97129bd67cefb008da5f5b1ec0b34998ac.mp3": "3ef240cfc13fc151548738d9222b6f97129bd67cefb008da5f5b1ec0b34998ac",
+    "audio/3f8c0ae1e5325a05952c43745333534977471ee5c7b0190527fa7a9a490cc42b.mp3": "3f8c0ae1e5325a05952c43745333534977471ee5c7b0190527fa7a9a490cc42b",
+    "audio/48a8ac16cb3daade338a796ae3a7adf089b4b5051c170c817bfa56dc9a2f242c.mp3": "48a8ac16cb3daade338a796ae3a7adf089b4b5051c170c817bfa56dc9a2f242c",
+    "audio/4902b61b32f95d3ead4310d484f06d12392357124805ed85ea2c900cb1fa9cee.mp3": "4902b61b32f95d3ead4310d484f06d12392357124805ed85ea2c900cb1fa9cee",
+    "audio/4961f0b810935d65c687bc20ab659dfa1951d1373b790480a74bae12b8c894a3.mp3": "4961f0b810935d65c687bc20ab659dfa1951d1373b790480a74bae12b8c894a3",
+    "audio/4a25daac41b823c3bacbe052c6dca432a74e1e97cbc3d865da3860de83bd0f48.mp3": "4a25daac41b823c3bacbe052c6dca432a74e1e97cbc3d865da3860de83bd0f48",
+    "audio/624b0ae5e56c95907127e5662c57b4076ac9b6c3ba1379a5094cf9576fa657bb.mp3": "624b0ae5e56c95907127e5662c57b4076ac9b6c3ba1379a5094cf9576fa657bb",
+    "audio/689436e160b55123c0ad9e6d956f24c31f5420beccf6f6140c30dcd8741cba1a.mp3": "689436e160b55123c0ad9e6d956f24c31f5420beccf6f6140c30dcd8741cba1a",
+    "audio/7b303137a8f45dda3f1e54bc9990b741a0ce6f7f957d930cfe39788e53bc30e2.mp3": "7b303137a8f45dda3f1e54bc9990b741a0ce6f7f957d930cfe39788e53bc30e2",
+    "audio/7e1002d37383baa7c8d5731df0ee5d4802abe5aac929508124631fa96b55d0cf.mp3": "7e1002d37383baa7c8d5731df0ee5d4802abe5aac929508124631fa96b55d0cf",
+    "audio/80f9b1dcb4063dd6ece36118fee3a6a59169892669aaca9c76e4ec3047b1e68c.mp3": "80f9b1dcb4063dd6ece36118fee3a6a59169892669aaca9c76e4ec3047b1e68c",
+    "audio/8a9becab04088e571bac5e651495a3f23ce3617ef338b7c5b381639744eae7b2.mp3": "8a9becab04088e571bac5e651495a3f23ce3617ef338b7c5b381639744eae7b2",
+    "audio/8b28cea28056f2505a1ba7ed23a3d1b7cf524261db036248398d70662c6cd606.mp3": "8b28cea28056f2505a1ba7ed23a3d1b7cf524261db036248398d70662c6cd606",
+    "audio/8b6f6bef0a28db3cdc74fb6f3bb8015ab6a8d4cff8ef419925671e3a54dae567.mp3": "8b6f6bef0a28db3cdc74fb6f3bb8015ab6a8d4cff8ef419925671e3a54dae567",
+    "audio/8cc3f442fdea1c78b9f34dd5257fba61d339767a869edce293d696be958396a1.mp3": "8cc3f442fdea1c78b9f34dd5257fba61d339767a869edce293d696be958396a1",
+    "audio/8cfa75daa3561b7b373913644a926f54857b7c9ca840771d4fe7c37c3edcb529.mp3": "8cfa75daa3561b7b373913644a926f54857b7c9ca840771d4fe7c37c3edcb529",
+    "audio/8f286a8cde9102fd9e977b70011f615ee4b950fb63e6489d3ab76e159b088521.mp3": "8f286a8cde9102fd9e977b70011f615ee4b950fb63e6489d3ab76e159b088521",
+    "audio/9b88748e6506138ef7fbd4d2d7e76186dd51e2f1188dcdef676eb1bb9a990f01.mp3": "9b88748e6506138ef7fbd4d2d7e76186dd51e2f1188dcdef676eb1bb9a990f01",
+    "audio/9e9bfec883a3efb1cd3424789d7710f167a97e05f79f6c5d19ba3f649ba6dd95.mp3": "9e9bfec883a3efb1cd3424789d7710f167a97e05f79f6c5d19ba3f649ba6dd95",
+    "audio/a0a6a6ab4148edfb23e1659f87a907b635d12d8c86e3103baec3b94a4ae8f360.mp3": "a0a6a6ab4148edfb23e1659f87a907b635d12d8c86e3103baec3b94a4ae8f360",
+    "audio/a8567f810c667f5f13c4435ffed4a35b995ba2dce604f228339486c774db7e84.mp3": "a8567f810c667f5f13c4435ffed4a35b995ba2dce604f228339486c774db7e84",
+    "audio/aa51f2a03d1f7cc4caf79ec0a5e5e1b042ef09498b9071ceb976dbe9baa922d6.mp3": "aa51f2a03d1f7cc4caf79ec0a5e5e1b042ef09498b9071ceb976dbe9baa922d6",
+    "audio/aa8b1c93dbad4fb90b3235a4e4c1b2cce01a908b89a9c880ed006f4ca9b5c622.mp3": "aa8b1c93dbad4fb90b3235a4e4c1b2cce01a908b89a9c880ed006f4ca9b5c622",
+    "audio/b78a7645a8f376d9ec9734136beeb7791b582b9d0ba816b7360b856e15ef6424.mp3": "b78a7645a8f376d9ec9734136beeb7791b582b9d0ba816b7360b856e15ef6424",
+    "audio/bfaa886f816a8ce977a8fd2de63e181c6e58d8bcbdc601d61daff93f440a98b3.mp3": "bfaa886f816a8ce977a8fd2de63e181c6e58d8bcbdc601d61daff93f440a98b3",
+    "audio/c132b03e2b2ba29f9ac4178626b396b41aef193ff192b874b27f9e9bce8ad255.mp3": "c132b03e2b2ba29f9ac4178626b396b41aef193ff192b874b27f9e9bce8ad255",
+    "audio/c20853215cf0ba37f62b5720067add4c27790dda46244af97069bb5478f8d077.mp3": "c20853215cf0ba37f62b5720067add4c27790dda46244af97069bb5478f8d077",
+    "audio/c607ab4205fddb7442b3fa11c1ada27ba15aaab9802034bf781c905395353a1d.mp3": "c607ab4205fddb7442b3fa11c1ada27ba15aaab9802034bf781c905395353a1d",
+    "audio/c72a24269d33db07120e81d411a31164c7598018596cd57ad07b413699311bf7.mp3": "c72a24269d33db07120e81d411a31164c7598018596cd57ad07b413699311bf7",
+    "audio/c7e65f207f054d427fa31f7cb6c75512a6bbcd22f8490b2494ff8425112b2e5f.mp3": "c7e65f207f054d427fa31f7cb6c75512a6bbcd22f8490b2494ff8425112b2e5f",
+    "audio/cc3a56e95810d6f6453d0e468f928043067115b93e54d9d43d2cdce85df7d1d6.mp3": "cc3a56e95810d6f6453d0e468f928043067115b93e54d9d43d2cdce85df7d1d6",
+    "audio/d19e2f253614ffad6d08bc9b0abd1b597992bd6db969b683c891b47b794adb90.mp3": "d19e2f253614ffad6d08bc9b0abd1b597992bd6db969b683c891b47b794adb90",
+    "audio/d1e4e15fca0f9172d92defa76f80fb36bc6cd267a5066ee26830735f452a4d69.mp3": "d1e4e15fca0f9172d92defa76f80fb36bc6cd267a5066ee26830735f452a4d69",
+    "audio/d4637c0a5df64d1fe0b0f7ca7d431308faffac9ed4806305369a013bf8295c8e.mp3": "d4637c0a5df64d1fe0b0f7ca7d431308faffac9ed4806305369a013bf8295c8e",
+    "audio/d5f416cf7c22c54da0867fb41eac4d9913c45d17aa423d1ea63d07b0ae132a56.mp3": "d5f416cf7c22c54da0867fb41eac4d9913c45d17aa423d1ea63d07b0ae132a56",
+    "audio/d9e86da324f13beb5d4c870477f168b3711045704d16e5dcbaab2679a834c7ae.mp3": "d9e86da324f13beb5d4c870477f168b3711045704d16e5dcbaab2679a834c7ae",
+    "audio/de1d0e0292b436536ff389a2bdce1cf44e577371c8ebf684e56267af2ad1e7dd.mp3": "de1d0e0292b436536ff389a2bdce1cf44e577371c8ebf684e56267af2ad1e7dd",
+    "audio/f34b6fe599eb8e0170e259ecaecd015408f93630e5a59bef703cc13a21e14b45.mp3": "f34b6fe599eb8e0170e259ecaecd015408f93630e5a59bef703cc13a21e14b45",
+    "audio/f46b0cb0ffd1b44a203a36a9c678f80db1af1976d3f5027ae1843026b46517fe.mp3": "f46b0cb0ffd1b44a203a36a9c678f80db1af1976d3f5027ae1843026b46517fe",
+    "audio/f5750cad929195cb3b37ed5b98067dc5f5eaf0ab84f4913bf715fd525ffae4fd.mp3": "f5750cad929195cb3b37ed5b98067dc5f5eaf0ab84f4913bf715fd525ffae4fd",
+    "audio/f5f60024e2c9d538185e9840b486dc237712f811b018dea152a4b27d6155b4b9.mp3": "f5f60024e2c9d538185e9840b486dc237712f811b018dea152a4b27d6155b4b9",
+    "audio/f61ab38741d02c07d284a0a9f67f3782ac5fe3c8728b230848e67bd44c3aa4fe.mp3": "f61ab38741d02c07d284a0a9f67f3782ac5fe3c8728b230848e67bd44c3aa4fe",
+    "licenses/ELENA-VOICE-README.md": "d604c7111f766cf5aaea60061c2b0a37eedc37ca91f41de6ccf60455ee6a945b",
+    "licenses/EN-LJSPEECH-MODEL-CARD.txt": "289f7421072d689a3d91f6c632f486af46f9b8b04417536104a4ea667b8a394b",
+    "licenses/GPL-3.0.txt": "230184f60bae2feaf244f10a8bac053c8ff33a183bcc365b4d8b876d2b7f4809",
+    "licenses/KK-ISSAI-MODEL-CARD.txt": "1b0704348a17a5f84fba84caa20d14a116eea9953bb9bc147ada4234d18687a2",
+    "licenses/RHVOICE-NOTICE.md": "ca3e447aba7964a64884f5c55b1ba8f47d91d02046c796ebca6d5f93624de446"
+  },
+  "limitations": [
+    "Source tests use explicit fixtures; neural corpus generation is separate evidence.",
+    "Original synthesis started with builder SHA3f7244... on normal roots. The exact executed source is preserved outside Git.",
+    "Corrected builder18/Node3 independently reviewed; two ownership P2 findings closed.",
+    "Competent pronunciation/listening/native Android playback/audio focus/headphone/lockscreen acceptance pending.",
+    "No offline readiness: map is still missing.",
+    "No network/API/model download/purchase/key inspection performed."
+  ]
+}

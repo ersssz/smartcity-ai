@@ -1,0 +1,10 @@
+{
+  "version": "0.3.2",
+  "versionCode": 7,
+  "manifest_gate": "PASS",
+  "backup_allowed": false,
+  "native_service_exported": false,
+  "native_stop_receiver_exported": false,
+  "service_stops_with_task": true,
+  "runtime_acceptance": false
+}
