@@ -77,6 +77,7 @@ export type WalkExperienceProps = {
   onRestart: () => void;
   onConfirmReturn: () => void;
   onOpenDiagnostics: () => void;
+  onOpenCity?: () => void;
 };
 
 const COPY = {
@@ -183,7 +184,7 @@ function RouteMap({ walk, labels, selectedId, livePosition, bottomPadding, onSel
   }, [walk.route]);
   return <View style={s.mapCanvas} accessibilityLabel={labels.routeMap}>
       {bounds ? <Map key={walk.id} style={s.map} mapStyle="https://tiles.openfreemap.org/styles/liberty" attribution compass
-        attributionPosition={{ top: (StatusBar.currentHeight ?? 24) + 94, right: 12 }} compassPosition={{ top: (StatusBar.currentHeight ?? 24) + 94, right: 58 }}
+        attributionPosition={{ top: (StatusBar.currentHeight ?? 24) + 154, right: 12 }} compassPosition={{ top: (StatusBar.currentHeight ?? 24) + 154, right: 58 }}
         onDidFailLoadingMap={() => setFailed(true)} onDidFinishLoadingMap={() => setFailed(false)}>
         <Camera initialViewState={{ bounds, padding: { top: 155, bottom: bottomPadding, left: 46, right: 46 } }} />
         <GeoJSONSource id="walk-route" data={shape}>
@@ -329,7 +330,9 @@ export default function WalkExperience(props: WalkExperienceProps) {
         <View style={s.searchNumber}><Text style={s.searchNumberText}>{index + 1}</Text></View><View style={s.flex}><Text style={s.searchResultTitle}>{item.title}</Text><Text style={s.meta}>{item.kicker}</Text></View>
       </Pressable>) : <Text style={s.searchEmpty}>{t.noSearchResults}</Text>}
     </ScrollView></View>}
-    {!searchFocused && <View pointerEvents="none" style={s.mapBrand}><Text style={s.mapBrandText}>astana<Text style={s.wordmarkDot}>.</Text></Text><Text style={s.mapBrandCaption}>{t.route}</Text></View>}
+    {!searchFocused && <View style={s.mapBrandRow}><View pointerEvents="none" style={s.mapBrand}><Text style={s.mapBrandText}>astana<Text style={s.wordmarkDot}>.</Text></Text><Text style={s.mapBrandCaption}>{t.route}</Text></View>
+      {props.onOpenCity && <Pressable accessibilityRole="button" disabled={busy} accessibilityState={{ disabled: busy }} onPress={props.onOpenCity} style={s.cityButton}><Text style={s.cityButtonText}>{({ ru: 'О городе ↗', kk: 'Қала туралы ↗', en: 'City guide ↗' })[locale]}</Text></Pressable>}
+    </View>}
     </View>
     <Animated.View style={[s.sheet, { bottom: footerHeight, height: sheetHeight, transform: [{ translateY: sheetOffset }] }]}>
       <View {...drag.panHandlers} style={s.sheetHandleArea}>
@@ -474,6 +477,9 @@ export default function WalkExperience(props: WalkExperienceProps) {
 }
 
 const s = StyleSheet.create({
+    mapBrandRow: { flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-between', gap: 10 },
+    cityButton: { minHeight: 44, paddingHorizontal: 15, paddingVertical: 12, borderRadius: 16, marginTop: 12, backgroundColor: COLORS.paper, borderWidth: 1, borderColor: COLORS.line, justifyContent: 'center' },
+    cityButtonText: { color: COLORS.ink, fontSize: 13, fontWeight: '700' },
     placePreview: { paddingBottom: 20, marginBottom: 4, borderBottomWidth: 1, borderBottomColor: COLORS.line, gap: 16 },
     placePreviewHeading: { flexDirection: 'row', alignItems: 'center', gap: 14 },
     root: { flex: 1, backgroundColor: COLORS.paper, overflow: 'hidden' },

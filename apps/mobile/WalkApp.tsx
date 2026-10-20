@@ -9,6 +9,10 @@ import { getWalkRepository } from './src/walk/mobileRepository';
 import { type Locale, type WalkAction } from './src/walk/model';
 import { type Snapshot, WalkStorageError } from './src/walk/repository';
 import { runPriorityStop } from './src/walk/priorityStop';
+import CityIntro from './src/features/city/CityIntro';
+import { getCityGuide } from './src/city/catalog';
+import { getCityPreferences } from './src/city/mobilePreferences';
+import { shouldIntroduceCity } from './src/city/preferences';
 
 const COPY = {
   ru: { loading: 'Открываем вашу прогулку…', retry: 'Повторить', diagnostics: 'Техническая проверка', error: 'Не удалось сохранить изменение. Предыдущее сохранение осталось на телефоне. Повторите действие.', loadError: 'Не удалось открыть сохранённую прогулку. Данные не удалены.', corrupt: 'Сохранённая прогулка не прошла проверку. Можно начать новую: прежняя запись останется в локальном архиве.', restart: 'Начать заново?', restartBody: 'Текущая прогулка останется в локальном архиве. Открытия сохранятся. Новый проход начнётся с первой главы.', reset: 'Новый проход', cancel: 'Отмена', gpsOff: 'GPS-сопровождение выключено', gpsWaiting: 'GPS включён · ждём свежую позицию', gpsPermission: 'Нет разрешения на геолокацию', gpsProvider: 'Геолокация устройства выключена', gpsLive: 'Живая позиция · точность около', meters: 'м', gpsHelp: 'Показать себя на карте?', gpsBody: 'Геолокация включится только после вашего разрешения. Позиция не сохраняется; остановки и задания вы отмечаете вручную. Остановить GPS можно здесь или в уведомлении.', enable: 'Включить', trackingError: 'Не удалось включить GPS. Проверьте геолокацию и разрешения приложения.', voice: 'Голос системы · может требовать интернет; офлайн не проверен', noVoice: 'Для этого языка нет доступного голоса на устройстве. Текст главы доступен полностью.', speechError: 'Системный голос не смог прочитать главу. Можно продолжить чтение.', fieldNote: 'Рассчитано по пешеходному графу OpenStreetMap. Проходимость на месте ещё не проверена. Учитывайте ограждения, погоду и переходы; время оценено для темпа 3,6 км/ч. Вход в здания не требуется.', eyebrow: 'ТРИ ФОРМЫ · ОДНА ИСТОРИЯ' },
@@ -40,8 +44,13 @@ export default function WalkApp({ onOpenDiagnostics }: { onOpenDiagnostics: () =
   const [livePosition, setLivePosition] = useState<LivePosition>();
   const [voices, setVoices] = useState<Speech.Voice[]>([]);
   const [playing, setPlaying] = useState(false);
+  const [showCity, setShowCity] = useState(false);
+  const [cityReplay, setCityReplay] = useState(false);
+  const [cityNotice, setCityNotice] = useState<string | null>(null);
+  const introChecked = useRef(false);
   const speechGeneration = useRef(0);
   const t = COPY[locale];
+  const cityGuide = useMemo(() => getCityGuide(locale), [locale]);
   const publish = (next: Snapshot) => { snapshotRef.current = next; if (mounted.current) setSnapshot(next); };
   const stopAudio = useCallback(async () => {
     speechGeneration.current++; await Speech.stop();
@@ -65,6 +74,13 @@ export default function WalkApp({ onOpenDiagnostics }: { onOpenDiagnostics: () =
       await stopTracking(); await stopAudio();
       const repo = await getWalkRepository(); repository.current = repo;
       const nextLocale = await repo.getLocale(); const next = await repo.load(getPreparedWalk());
+      if (!introChecked.current) {
+        introChecked.current = true;
+        // A preference failure must never prevent access to an existing walk.
+        const seen = await getCityPreferences().then(preferences => preferences.hasSeen()).catch(() => true);
+        if (mounted.current && shouldIntroduceCity(seen, next.session.phase)) setShowCity(true);
+      }
+      // Publish the first walk only after the introduction decision: no route-map flash.
       if (mounted.current) { setLocale(nextLocale); setCorrupt(false); publish(next); }
     } catch (issue) {
       if (mounted.current) { setCorrupt(issue instanceof WalkStorageError && issue.code === 'CORRUPT_PROGRESS'); setError(issue instanceof StopError ? STOP_ERROR.ru : COPY.ru.loadError); }
@@ -139,6 +155,19 @@ export default function WalkApp({ onOpenDiagnostics }: { onOpenDiagnostics: () =
     if (snapshotRef.current?.session.phase === 'active' && repository.current) publish(await repository.current.act({ type: 'pause' }));
     onOpenDiagnostics();
   });
+  const openCity = () => void operate(async () => {
+    // Keep the walk controls visible until native acquisition is confirmed stopped.
+    await stopTracking(); await stopAudio();
+    if (snapshotRef.current?.session.phase === 'active' && repository.current) publish(await repository.current.act({ type: 'pause' }));
+    if (mounted.current) { setCityReplay(true); setShowCity(true); }
+  });
+  const finishCity = () => {
+    setShowCity(false);
+    // Leaving an introduction is always possible, even if its preference cannot be saved.
+    void getCityPreferences().then(preferences => preferences.finish()).catch(() => {
+      if (mounted.current) setCityNotice({ ru: 'Знакомство закрыто. Не удалось сохранить этот выбор; при следующем запуске оно может появиться снова.', kk: 'Танысу жабылды. Таңдау сақталмады; келесі іске қосуда ол қайта көрінуі мүмкін.', en: 'The introduction is closed. This choice could not be saved; it may appear again next time.' }[locale]);
+    });
+  };
   const toggleTracking = () => {
     if (hasAcquisition(nativeState)) { void urgentStop(false); return; }
     if (snapshotRef.current?.session.phase !== 'active' || operating.current) return;
@@ -188,14 +217,17 @@ export default function WalkApp({ onOpenDiagnostics }: { onOpenDiagnostics: () =
   </View></SafeAreaView>;
   const tracking = hasAcquisition(nativeState);
   const locationStatus = nativeState?.status === 'error' && tracking ? STOP_ERROR[locale] : !tracking ? t.gpsOff : nativeState?.precision === 'denied' ? t.gpsPermission : !nativeState?.providerEnabled ? t.gpsProvider : livePosition?.accuracyMeters != null ? `${t.gpsLive} ${Math.round(livePosition.accuracyMeters)} ${t.meters}` : t.gpsWaiting;
-  return <WalkExperience locale={locale} walk={uiWalk} session={uiSession} busy={busy} error={error} locationStatus={locationStatus}
+  if (showCity) return <CityIntro guide={cityGuide} locale={locale} replay={cityReplay} busy={busy}
+    onLocaleChange={next => void operate(async () => { await stopAudio(); await repository.current?.setLocale(next); setLocale(next); })}
+    error={error} onFinish={finishCity} />;
+  return <WalkExperience locale={locale} walk={uiWalk} session={uiSession} busy={busy} error={error ?? cityNotice} locationStatus={locationStatus}
     discoveries={snapshot!.discoveries.map(discovery => ({ walkId: discovery.walkId, title: discovery.title[locale] }))}
     livePosition={tracking ? livePosition : undefined} tracking={{ active: tracking, label: locationStatus }} audio={{ available: !!voice, playing, label: voice ? t.voice : t.noVoice }}
     onLocaleChange={next => void operate(async () => { await stopAudio(); await repository.current?.setLocale(next); setLocale(next); })}
     onStart={() => command({ type: 'start' })} onResume={() => command({ type: 'resume' })} onPause={() => void urgentStop()} onStop={() => void urgentStop()}
     onMarkStop={stopId => command({ type: 'mark_stop', stopId })} onAnswer={(stopId, choiceId) => command({ type: 'answer', stopId, choiceId })}
     onContinue={stopId => command({ type: 'continue', stopId })} onSkip={stopId => command({ type: 'skip', stopId })} onConfirmReturn={() => command({ type: 'confirm_return' })}
-    onRestart={restart} onSpeak={speak} onStopAudio={() => void stopAudio().catch(() => setError(t.speechError))} onToggleTracking={toggleTracking} onOpenDiagnostics={openDiagnostics}
+    onRestart={restart} onSpeak={speak} onStopAudio={() => void stopAudio().catch(() => setError(t.speechError))} onToggleTracking={toggleTracking} onOpenDiagnostics={openDiagnostics} onOpenCity={openCity}
     onOpenExternalRoute={() => { const [lon, lat] = snapshot!.walk.startAnchor.coordinate; void Linking.openURL(`https://www.openstreetmap.org/?mlat=${lat}&mlon=${lon}#map=17/${lat}/${lon}`).catch(() => setError(t.error)); }} />;
 }
 const styles = StyleSheet.create({ page: { flex: 1, backgroundColor: '#F8F6EF', justifyContent: 'center', padding: 24 }, card: { padding: 24, gap: 20 }, brand: { fontSize: 36, color: '#173F3B', fontWeight: '700' }, body: { fontSize: 17, color: '#173F3B', lineHeight: 26 }, button: { padding: 16, backgroundColor: '#173F3B', borderRadius: 16 }, buttonText: { color: '#FFFFFF', textAlign: 'center', fontWeight: '600' }, link: { color: '#173F3B', textAlign: 'center', padding: 16 } });
