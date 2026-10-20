@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Alert, AppState, Linking, Pressable, ScrollView, StatusBar, StyleSheet, Text, View } from 'react-native';
 import { Camera, Map, ViewAnnotation } from '@maplibre/maplibre-react-native';
-import * as Location from 'expo-location';
 import * as Speech from 'expo-speech';
-import { addManualStep, readProgress, type DiagnosticProgress } from './src/diagnosticStore';
-import { readLocationCapability, reconcileDiagnostic, startDiagnostic, suspendDiagnostic } from './src/walkDiagnostic';
+import { nativeActiveWalk, type NativeWalkState } from './modules/astana-active-walk/src';
+import { addManualStep, readProgress, recordGpsSample, type DiagnosticProgress } from './src/diagnosticStore';
+import { isNativeRunning, readLocationCapability, reconcileDiagnostic, startDiagnostic, suspendDiagnostic } from './src/walkDiagnostic';
 
 const ASTANA: [number, number] = [71.4304, 51.1282];
 const LANGUAGES = [
@@ -12,7 +12,7 @@ const LANGUAGES = [
   { code: 'kk', label: 'KK', text: 'Астанаға қош келдіңіз. Бұл құрылғыдағы дауысты тексеру.' },
   { code: 'en', label: 'EN', text: 'Welcome to Astana. This is a device voice check, not a guided tour.' },
 ] as const;
-type Capability = Awaited<ReturnType<typeof readLocationCapability>>;
+type Position = { coordinate: [number, number]; timestamp: number; generation: number };
 
 function Action({ label, onPress, disabled = false, primary = false }: {
   label: string; onPress: () => void; disabled?: boolean; primary?: boolean;
@@ -25,31 +25,44 @@ function Action({ label, onPress, disabled = false, primary = false }: {
 
 export default function App() {
   const [progress, setProgress] = useState<DiagnosticProgress | null>(null);
-  const [capability, setCapability] = useState<Capability | null>(null);
-  const [position, setPosition] = useState<{ coordinate: [number, number]; timestamp: number } | null>(null);
+  const [capability, setCapability] = useState<NativeWalkState | null>(null);
+  const [position, setPosition] = useState<Position | null>(null);
   const [voices, setVoices] = useState<Speech.Voice[]>([]);
   const [voiceStatus, setVoiceStatus] = useState('Проверяем системный TTS…');
   const [mapStatus, setMapStatus] = useState('Карта загружается…');
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
-  const [runtimeEnabled, setRuntimeEnabled] = useState(false);
-  const foregroundWatcher = useRef<Location.LocationSubscription | undefined>(undefined);
+  const capabilityRef = useRef<NativeWalkState | null>(null);
+  const refreshRevision = useRef(0);
   const busyOperations = useRef(0);
 
-  const refresh = useCallback(async () => {
-    const observed = await readLocationCapability();
+  const observeNativeState = useCallback((observed: NativeWalkState) => {
+    if (capabilityRef.current && observed.generation < capabilityRef.current.generation) return;
+    capabilityRef.current = observed;
     setCapability(observed);
-    setPosition((previous) => previous && observed.foreground.granted && observed.servicesEnabled && observed.registered && Date.now() - previous.timestamp < 30_000 ? previous : null);
+    setPosition(previous => previous && isNativeRunning(observed) && observed.providerEnabled &&
+      observed.precision !== 'denied' && previous.generation === observed.generation &&
+      observed.fixStatus === 'fresh' && AppState.currentState === 'active' &&
+      Date.now() - previous.timestamp >= 0 && Date.now() - previous.timestamp < 30_000 ? previous : null);
+  }, []);
+
+  const refresh = useCallback(async () => {
+    const revision = ++refreshRevision.current;
+    const observed = await readLocationCapability();
+    if (revision !== refreshRevision.current) return;
+    observeNativeState(observed);
     try {
       const stored = await readProgress();
+      if (revision !== refreshRevision.current) return;
       setProgress(stored);
       if (stored.phase !== 'active') setPosition(null);
     } catch {
+      if (revision !== refreshRevision.current) return;
       setProgress(null);
       setPosition(null);
       throw new Error('SQLite недоступна. Stop остаётся доступным для остановки геолокации.');
     }
-  }, []);
+  }, [observeNativeState]);
 
   const perform = useCallback(async (operation: () => Promise<unknown>) => {
     busyOperations.current++;
@@ -66,73 +79,69 @@ export default function App() {
 
   useEffect(() => {
     let alive = true;
-    const update = () => { if (alive) refresh().catch(() => setError('Не удалось прочитать SQLite или состояние ОС.')); };
-    reconcileDiagnostic(true).then(update).catch(() => { update(); setError('Не удалось проверить состояние сопровождения. Используйте Stop.'); });
+    const update = () => {
+      if (alive && AppState.currentState === 'active') {
+        void reconcileDiagnostic().then(() => { if (alive) return refresh(); })
+          .catch(() => { if (alive) setError('Не удалось проверить состояние сопровождения. Используйте Stop.'); });
+      }
+    };
+    const stateSubscription = nativeActiveWalk.addListener('onStateChanged', state => {
+      if (alive) observeNativeState(state);
+    });
+    const locationSubscription = nativeActiveWalk.addListener('onLocation', fix => {
+      const current = capabilityRef.current;
+      const age = Date.now() - fix.timestampMs;
+      if (!alive || AppState.currentState !== 'active' || !current || !isNativeRunning(current) ||
+          current.generation !== fix.generation || age < 0 || age > 30_000 ||
+          !Number.isFinite(fix.latitude) || !Number.isFinite(fix.longitude) ||
+          Math.abs(fix.latitude) > 90 || Math.abs(fix.longitude) > 180) return;
+      setPosition({ coordinate: [fix.longitude, fix.latitude], timestamp: fix.timestampMs, generation: fix.generation });
+      // Only metadata crosses the SQLite boundary; never the coordinates.
+      void recordGpsSample(fix.accuracyMeters, fix.timestampMs)
+        .catch(() => { if (alive) setError('Не удалось сохранить диагностический счётчик.'); });
+    });
+    update();
     Speech.getAvailableVoicesAsync().then((available) => {
       if (alive) { setVoices(available); setVoiceStatus('Список голосов получен от ОС. Offline-воспроизведение не проверено.'); }
     }).catch(() => { if (alive) setVoiceStatus('Системный TTS недоступен.'); });
     const timer = setInterval(update, 3000);
     const subscription = AppState.addEventListener('change', (state) => {
-      if (state === 'active') reconcileDiagnostic().then(update).catch(() => setError('Проверка после возврата не удалась.'));
+      if (state === 'active') update();
       else setPosition(null);
     });
-    return () => { alive = false; clearInterval(timer); subscription.remove(); };
-  }, [refresh]);
-
-  useEffect(() => {
-    if (!runtimeEnabled || !capability?.registered || !capability.foreground.granted) return;
-    let disposed = false;
-    let watcher: Location.LocationSubscription | undefined;
-    Location.watchPositionAsync({ accuracy: Location.Accuracy.High, timeInterval: 5000, distanceInterval: 5 }, (fix) => {
-      if (!disposed && AppState.currentState === 'active' && Date.now() - fix.timestamp < 30_000) {
-        setPosition({ coordinate: [fix.coords.longitude, fix.coords.latitude], timestamp: fix.timestamp });
-      }
-    }).then((subscription) => { if (disposed) subscription.remove(); else { watcher = subscription; foregroundWatcher.current = subscription; } })
-      .catch(() => setError('Не удалось получить позицию для маркера.'));
-    return () => { disposed = true; watcher?.remove(); foregroundWatcher.current = undefined; };
-  }, [runtimeEnabled, capability?.registered, capability?.foreground.granted]);
+    return () => {
+      alive = false;
+      clearInterval(timer);
+      subscription.remove();
+      stateSubscription.remove();
+      locationSubscription.remove();
+    };
+  }, [observeNativeState, refresh]);
 
   const stop = (phase: 'paused' | 'stopped') => {
-    // Dispose the foreground observer before awaiting either native unregister or SQLite.
-    setRuntimeEnabled(false);
-    foregroundWatcher.current?.remove();
-    foregroundWatcher.current = undefined;
     setPosition(null);
     void perform(() => suspendDiagnostic(phase));
   };
 
-  const requestBackground = () => Alert.alert(
-    'Только во время активного теста',
-    'Start сначала проверяет режим «При использовании» с foreground-уведомлением. «Всегда» — дополнительная диагностическая проверка, пока не обязательное условие. Разрешите её только для теста, если это нужно. Наша SQLite не хранит координаты, но Expo/Android могут сохранить служебную очередь GPS. Privacy gate этой диагностики открыт.',
-    [{ text: 'Отмена', style: 'cancel' }, { text: 'Продолжить', onPress: () => {
-      void perform(async () => {
-        const foreground = await Location.requestForegroundPermissionsAsync();
-        if (!foreground.granted) throw new Error('Сначала разрешите геолокацию при использовании.');
-        const background = await Location.requestBackgroundPermissionsAsync();
-        if (!background.granted) throw new Error('Фоновая геолокация пока не разрешена.');
-      });
-    } }],
-  );
-
   const requestStart = () => Alert.alert(
     'Только лабораторный тест',
-    'Эта сборка не предназначена для обычной прогулки. Expo/Android могут сохранить точные координаты в служебной очереди и восстановить задачу до загрузки JavaScript. Наша SQLite координат не хранит, но общий privacy gate НЕ пройден. Запускайте только осознанную техническую проверку.',
-    [{ text: 'Отмена', style: 'cancel' }, { text: 'Запустить тест', onPress: () => {
-      void perform(async () => { await startDiagnostic(); setRuntimeEnabled(true); });
-    } }],
+    'Start включает геолокацию для технической проверки, в том числе при погашенном экране. Остановить её можно здесь или кнопкой Stop в уведомлении. Координаты не сохраняются приложением. Маршрут и прибытия эта сборка пока не проверяет.',
+    [{ text: 'Отмена', style: 'cancel' }, { text: 'Запустить тест', onPress: () => void perform(startDiagnostic) }],
   );
 
-  const phase = progress?.phase === 'active' ? capability?.registered && capability.servicesEnabled && capability.foreground.granted ? 'Активный тест запрошен' : 'Сопровождение недоступно' : progress?.phase === 'paused' ? 'На паузе' : progress ? 'Остановлено' : 'Состояние не подтверждено';
-  const permissionLabel = capability?.foreground.granted
-    ? capability.foreground.android?.accuracy === 'coarse' ? 'Приблизительная позиция' : 'Разрешено'
-    : capability?.foreground.status ?? 'Не проверено';
-  const ageSeconds = progress?.lastFixAt ? Math.max(0, Math.round((Date.now() - progress.lastFixAt) / 1000)) : null;
+  const running = capability ? isNativeRunning(capability) : false;
+  const phase = running ? 'Сервис работает' : capability?.status === 'starting' ? 'Запускается…' :
+    capability?.status === 'error' ? 'Сервис недоступен' : progress?.phase === 'paused' ? 'На паузе' :
+    capability?.status === 'stopped' ? 'Остановлено' : 'Состояние не подтверждено';
+  const permissionLabel = capability?.precision === 'fine' ? 'Точная позиция' :
+    capability?.precision === 'coarse' ? 'Приблизительная позиция' : 'Нет разрешения';
+  const ageSeconds = capability?.lastFixAgeMs == null ? null : Math.round(capability.lastFixAgeMs / 1000);
 
   return <View style={styles.screen}>
     <StatusBar barStyle="light-content" />
     <ScrollView contentContainerStyle={styles.content}>
-      <View style={styles.header}><View><Text style={styles.eyebrow}>ASTANA / NATIVE LAB</Text><Text style={styles.title}>Город начинается с шага.</Text></View><Text style={styles.badge}>T01</Text></View>
-      <Text style={styles.notice}>Диагностическая сборка · реальный Android, GPS и работа с погашенным экраном ещё не проверены.</Text>
+      <View style={styles.header}><View><Text style={styles.eyebrow}>ASTANA / NATIVE LAB</Text><Text style={styles.title}>Город начинается с шага.</Text></View><Text style={styles.badge}>T01.1</Text></View>
+      <Text style={styles.notice}>Диагностическая сборка · нативная геолокация только после Start. Полевые проверки ещё впереди.</Text>
       <View style={styles.mapFrame}>
         <Map style={styles.map} mapStyle="https://tiles.openfreemap.org/styles/liberty" attribution
           onDidFinishLoadingMap={() => setMapStatus('Карта загружена · online')}
@@ -149,23 +158,22 @@ export default function App() {
       </View>
       <View style={styles.card}>
         <Text style={styles.eyebrow}>01 / АКТИВНАЯ ПРОГУЛКА</Text><Text style={styles.heading}>{phase}</Text>
-        <Text style={styles.body}>GPS: {capability ? capability.servicesEnabled ? 'включён' : 'выключен' : 'не проверен'} · {permissionLabel}</Text>
-        <Text style={styles.body}>Фоновое разрешение: {capability?.background.granted ? 'разрешено' : 'не разрешено'} · задача ОС: {capability ? capability.registered ? 'зарегистрирована' : 'не зарегистрирована' : 'не проверена'}</Text>
-        <Text style={styles.muted}>Privacy gate открыт: регистрация не доказывает живую работу сервиса. Expo/Android могут сохранять координаты в служебной очереди и восстанавливать задачу до JS. Это диагностика, не принятая бета.</Text>
-        <Text style={styles.body}>Последний отсчёт: {ageSeconds === null ? 'нет данных' : `${ageSeconds} с назад`}{progress?.lastAccuracy != null ? ` · ±${Math.round(progress.lastAccuracy)} м` : ''}</Text>
+        <Text style={styles.body}>GPS: {capability ? capability.providerEnabled ? 'включён' : 'выключен' : 'не проверен'} · {permissionLabel}</Text>
+        <Text style={styles.body}>Уведомления: {capability?.notificationsEnabled ? 'разрешены' : 'недоступны'} · подписка ОС: {capability?.subscribed ? 'включена' : 'выключена'}</Text>
+        <Text style={styles.body}>Отсчётов в текущем сеансе: {capability?.sampleCount ?? '—'}. Последний: {ageSeconds === null ? 'нет данных' : `${ageSeconds} с назад`}{capability?.accuracyMeters != null ? ` · ±${Math.round(capability.accuracyMeters)} м` : ''}</Text>
+        {capability?.errorCode && <Text style={styles.errorText}>Диагностика: {capability.errorCode}</Text>}
         <Text style={styles.muted}>Маркер появляется только от реальной позиции во время активного теста. Отсчёты не означают прибытие или вход в здание. Маршрут пока не рассчитан.</Text>
         <View style={styles.actions}>
-          <Action label="Start" primary disabled={busy || !progress || runtimeEnabled} onPress={requestStart} />
-          <Action label="Pause" disabled={busy || !runtimeEnabled} onPress={() => stop('paused')} />
+          <Action label="Start" primary disabled={busy || !progress || running || capability?.status === 'starting'} onPress={requestStart} />
+          <Action label="Pause" disabled={busy || !running} onPress={() => stop('paused')} />
           <Action label="Stop" onPress={() => stop('stopped')} />
         </View>
-        <Action label="Разрешить фон для теста" disabled={busy} onPress={requestBackground} />
         <Text style={styles.link} onPress={() => void Linking.openSettings()}>Настройки разрешений и батареи ↗</Text>
       </View>
       <View style={styles.card}>
         <Text style={styles.eyebrow}>02 / ЛОКАЛЬНЫЙ ПРОГРЕСС</Text>
         <Text style={styles.heading}>{progress?.manualSteps ?? '—'} ручных тестовых шагов</Text>
-        <Text style={styles.body}>Отсчёты ОС: {progress?.gpsSamples ?? '—'}. SQLite хранит только счётчики, состояние и точность, без координат.</Text>
+        <Text style={styles.body}>Сохранено метаданных при открытом экране: {progress?.gpsSamples ?? '—'}. SQLite хранит только счётчики, состояние и точность, без координат.</Text>
         <Action label="Добавить ручной тестовый шаг" disabled={busy || !progress} onPress={() => void perform(addManualStep)} />
         <Text style={styles.muted}>Закройте процесс и откройте сборку: счётчик должен восстановиться. На устройстве это ещё не проверено. Ручной шаг не становится GPS-посещением.</Text>
       </View>
@@ -189,7 +197,7 @@ export default function App() {
         <Text style={styles.muted}>Лицензированные файлы RU/KK/EN и offline audio пока unavailable. Голос ОС не доказывает право сохранить запись. Фоновое аудио, offline-карта и разрешённый пакет прогулки ещё не проверены.</Text>
       </View>
       {(error || progress?.issue) && <View accessibilityRole="alert" style={styles.error}><Text style={styles.errorText}>{error ?? progress?.issue}</Text></View>}
-      <Text style={styles.footer}>Никаких платных API · Без аккаунта · В нашей SQLite нет координат; служебная очередь Expo/Android остаётся открытым privacy gate. Карта делает запросы OpenFreeMap по видимой области; GPS отдельным запросом серверу приложения не передаётся.</Text>
+      <Text style={styles.footer}>Никаких платных API · Без аккаунта · Координаты не записываются в SQLite. Карта запрашивает OpenFreeMap по видимой области. Проверки других версий Android, батареи и реальной прогулки выполняются отдельно.</Text>
     </ScrollView>
   </View>;
 }

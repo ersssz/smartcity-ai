@@ -1,0 +1,27 @@
+{
+  "date_local": "2026-10-20",
+  "source_branch": "codex/t01-native-location",
+  "baseline": "9859ba9aecc9622d12eb7ec2e3bd6421c447d475",
+  "runner": "scripts/verify-local.ps1",
+  "runner_exit_code": 0,
+  "tests": {
+    "data_recorded_replay": 25,
+    "spend_policy": 22,
+    "mobile_simulated_lifecycle": 10,
+    "process_authorization_jvm": 7,
+    "total_passed": 64,
+    "failed": 0
+  },
+  "strict_types": {
+    "spend_policy": "PASS",
+    "mobile": "PASS"
+  },
+  "native_compilation": "Recorded separately; JVM tests do not compile or run Android services",
+  "hardware_acceptance": false,
+  "paid_api_calls": 0,
+  "limitations": [
+    "JS tests simulate OS/SQLite boundaries",
+    "JVM tests use simulated monotonic time and process authorization",
+    "No field, battery, migration or Android 14 evidence from these tests"
+  ]
+}

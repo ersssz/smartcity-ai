@@ -1,0 +1,20 @@
+{
+  "date_local": "2026-10-20",
+  "apk_sha256": "f1a7bf073e4a21266f0dbaf75932136556adec55095c1014eb4c1b37a90edf90",
+  "device_alias": "physical-android-1",
+  "manufacturer": "Xiaomi",
+  "model": "22101316G",
+  "android": "12",
+  "api_level": 31,
+  "adb_authorized": true,
+  "previous_diagnostic_installed": false,
+  "install_result": "INSTALL_FAILED_USER_RESTRICTED: Install canceled by user",
+  "installed": false,
+  "launched": false,
+  "gps_started": false,
+  "user_confirmation_requested": true,
+  "user_data_cleared": false,
+  "device_security_settings_changed": false,
+  "user_decision_after_failure": "Leave APK for manual installation later; no retry",
+  "device_runtime_checks": "NOT_EXECUTED"
+}

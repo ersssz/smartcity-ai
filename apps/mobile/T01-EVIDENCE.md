@@ -1,6 +1,10 @@
 # T01 evidence · 20 October 2026
 
-Status: Debug and embedded-JavaScript Release diagnostic APKs compiled and signatures verified. Full T01 acceptance is **OPEN**. The user explicitly said to continue today **without a phone**.
+Current update: native replacement APK **0.1.1/versionCode 2** compiled and passed signature, embedded-JS, DEX-class and packaged-manifest checks. SHA-256 `f1a7bf073e4a21266f0dbaf75932136556adec55095c1014eb4c1b37a90edf90`, 42,020,664 bytes. Final build: 2m37s, 605 tasks (30 executed, 575 up-to-date). Root repeated 64 local tests and two strict typechecks. See [`native-location-apk.json`](../../evidence/t01/native-location-apk.json), [`native-review.md`](../../evidence/t01/native-review.md), [`native-local-verification.json`](../../evidence/t01/native-local-verification.json).
+
+A Xiaomi Android 12/API 31 is authorized over ADB. No earlier diagnostic was installed. Android rejected the install with `INSTALL_FAILED_USER_RESTRICTED: Install canceled by user`; the user then chose to install the APK manually later. No app launch, acquisition, notification Stop, background/screen-off, durability or field test occurred. No phone data was cleared or security settings changed. Full T01 acceptance is **OPEN**. Details: [`android12-device-check.json`](../../evidence/t01/android12-device-check.json).
+
+The remaining sections preserve **historical baseline evidence** from the earlier build, when the user had asked to proceed without a phone. They do not describe the replacement APK above.
 
 Source baseline: `cbea535fb7b655e5830ad9a3c46aabfd6d88753f`; integrated T02 base: `832c3aa0bbbbbc7784151067e126f9bde24fb833`. Root integrated and reviewed the mobile work. The delivery manifest identifies the exact final source commit.
 

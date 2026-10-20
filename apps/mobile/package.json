@@ -3,6 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "main": "index.ts",
+  "expo": {
+    "autolinking": {
+      "android": {
+        "exclude": ["expo-location", "expo-task-manager"]
+      }
+    }
+  },
   "scripts": {
     "start": "expo start --dev-client",
     "android": "expo run:android",

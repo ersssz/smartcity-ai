@@ -1,10 +1,10 @@
 # Non-persistent Android location adapter: bounded next ticket
 
-Status: research and proposed implementation, 2026-10-20. No application code was changed, no builds or installs were run for this note. **No hardware, privacy, battery or field PASS.** This note does not change the approved product plan.
+Original ticket: research and proposed implementation, 2026-10-20, against baseline `9859ba9`. It is retained as the rationale and acceptance specification. Implementation is now in `apps/mobile/modules/astana-active-walk/`; actual validation is tracked in `IMPLEMENTATION-STATUS.md` and `evidence/t01/`. Statements about the old diagnostic and its source lines below describe that baseline. This ticket itself is **not hardware, privacy, battery or field PASS** and does not change the approved product plan.
 
 ## Verified defect and scope
 
-The current diagnostic uses Expo 58.0.16, expo-location 58.0.18 and expo-task-manager 58.0.12. Its README now correctly leaves the privacy gate open. Discarding coordinates in JavaScript/SQLite does not make this adapter memory-only.
+The baseline diagnostic uses Expo 58.0.16, expo-location 58.0.18 and expo-task-manager 58.0.12. Its README correctly left the privacy gate open. Discarding coordinates in JavaScript/SQLite does not make that adapter memory-only.
 
 All local source references below are relative to `apps/mobile/` in this repository and describe the installed files, not a tested APK:
 
@@ -48,14 +48,14 @@ Policy choice for this diagnostic: require enabled notifications and its trackin
 
 ## Bounded files and order
 
-Future new files, rooted at `apps/mobile/modules/astana-active-walk/`:
+Implementation files, rooted at `apps/mobile/modules/astana-active-walk/`:
 
 - `package.json`, `expo-module.config.json`, `android/build.gradle` — existing Expo core/plugin only; no new runtime dependency.
 - `android/src/main/AndroidManifest.xml`, `android/src/main/res/drawable/ic_walk.xml`.
 - `android/src/main/java/kz/astanaai/activewalk/{ActiveWalkModule,ActiveWalkService,ActiveWalkController,StopReceiver}.kt`.
 - `src/index.ts` — contract/wrapper; native transition tests under `android/src/test/`, lifecycle/device tests under `android/src/androidTest/` only with available test tooling.
 
-Existing files to change in that future ticket: mobile `package.json` (autolinking), `app.json`/checked manifest (remove old background path), `src/walkDiagnostic.ts` and `App.tsx` (one collector and native truth), focused diagnostic tests and README. No unrelated plan/product/provider refactor. Implement in order: module-linkage spike → tested in-memory state/admission/Stop → callback service → JS integration → artifact inspection → device gate. Avoid installing test libraries merely to satisfy a checklist; document any execution gap.
+Integration files: mobile `package.json` (autolinking), `app.json`/checked manifest (remove old background path), `src/walkDiagnostic.ts` and `App.tsx` (one collector and native truth), focused diagnostic tests and README. No unrelated plan/product/provider refactor. Implementation order: module-linkage spike → tested in-memory state/admission/Stop → callback service → JS integration → artifact inspection → device gate. Avoid installing test libraries merely to satisfy a checklist; document any execution gap.
 
 ## Required evidence and remaining risk
 

@@ -2,7 +2,7 @@
 
 ## Current authority
 
-The user authorized implementation on 2026-10-20, autonomous coordination of both Codex laptops, and subagents. The archived plan in `docs/plan` predates this authorization; its “planning only” statements describe that completed phase. The current zero-spending rules below also supersede every archived allowance to use paid APIs through existing credits, subscriptions, or other available resources. Preserve the archived plan as evidence; do not follow those superseded allowances. No phone is available tonight. Build and implement what can be verified, but leave physical Android, GPS, battery, and field acceptance pending.
+The user authorized implementation on 2026-10-20, autonomous coordination of both Codex laptops, and subagents. The archived plan in `docs/plan` predates this authorization; its “planning only” statements describe that completed phase. The current zero-spending rules below also supersede every archived allowance to use paid APIs through existing credits, subscriptions, or other available resources. Preserve the archived plan as evidence; do not follow those superseded allowances. The user has now connected and authorized a physical Xiaomi Android 12/API 31 device for app checks. This supersedes the earlier no-phone limitation. Preserve unrelated phone data/settings, never log raw coordinates, and report each actually performed device check separately. Android 14+, battery and field acceptance remain pending unless measured.
 
 ## Zero spending is mandatory for every agent
 

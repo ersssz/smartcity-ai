@@ -1,0 +1,15 @@
+plugins {
+  id 'com.android.library'
+  id 'expo-module-gradle-plugin'
+}
+
+group = 'kz.astanaai.activewalk'
+version = '0.1.0'
+
+android {
+  namespace "kz.astanaai.activewalk"
+  defaultConfig {
+    versionCode 1
+    versionName "0.1.0"
+  }
+}
