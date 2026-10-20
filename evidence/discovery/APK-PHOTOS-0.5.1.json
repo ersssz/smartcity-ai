@@ -1,0 +1,31 @@
+{
+  "apkSha256": "a07205193ad394d6b1c0b453d29888eac0c8c11324408a96fab97c0a6e166fb7",
+  "photos": [
+    {
+      "source": "bayterek.jpg",
+      "apkEntry": "res/xa.jpg",
+      "sha256": "dc04688689b145a0610789da5e7af904984a08d72d9f79e7c95e1d9e1d745f0d"
+    },
+    {
+      "source": "gorky-theatre.jpg",
+      "apkEntry": "res/Ef.jpg",
+      "sha256": "c74611766ae9565b2df0ab610d77b3157b7108d7a90d4a20a0ce58621be42599"
+    },
+    {
+      "source": "khan-shatyr.jpg",
+      "apkEntry": "res/kH.jpg",
+      "sha256": "a59b22b5e294cd6ed8e062a97c4ef07a131ffe79a432859a09bb6323e599345e"
+    },
+    {
+      "source": "seifullin-museum.jpg",
+      "apkEntry": "res/IN.jpg",
+      "sha256": "7ab1416c3dcf1507b2751e56952138719322009721d69b7f242984d103632233"
+    },
+    {
+      "source": "yesil-river.jpg",
+      "apkEntry": "res/-s.jpg",
+      "sha256": "8e4478dc5b77cde07a0336dfc9575873bd34c3623f510b4432df52a0eb7dfc41"
+    }
+  ],
+  "result": "5/5 exact JPEG byte matches"
+}

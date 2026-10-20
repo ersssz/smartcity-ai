@@ -318,6 +318,7 @@ public final class OwnUiInstrumentation extends Instrumentation {
 
   private static final class Scan {
     int nodes; boolean sensitive; boolean safe; boolean opening;
+    int[] ownWindow;
     final UiPolicy.DiscoveryScreenEvidence discovery = new UiPolicy.DiscoveryScreenEvidence();
     final JSONArray labels = new JSONArray();
     final List<AccessibilityNodeInfo> targets = new ArrayList<>();
@@ -326,7 +327,7 @@ public final class OwnUiInstrumentation extends Instrumentation {
   }
   private Scan scan(String action) throws org.json.JSONException {
     AccessibilityNodeInfo root = ownRoot(); Scan scan = new Scan();
-    try { walk(root, action, scan, 0); scan.safe |= scan.discovery.isSafe(); return scan; }
+    try { if ("resume_walk_footer".equals(action)) scan.ownWindow = ownWindowBounds(root); walk(root, action, scan, 0); scan.safe |= scan.discovery.isSafe(); return scan; }
     catch (RuntimeException | org.json.JSONException failure) { scan.close(); throw failure; }
     finally { root.recycle(); }
   }
@@ -351,6 +352,7 @@ public final class OwnUiInstrumentation extends Instrumentation {
       }
       if (action != null && (UiPolicy.matches(action, text) || UiPolicy.matches(action, description))) {
         AccessibilityNodeInfo clickable = clickableAncestor(node);
+        if (clickable != null && "resume_walk_footer".equals(action) && !"android.widget.Button".contentEquals(clickable.getClassName() == null ? "" : clickable.getClassName())) { clickable.recycle(); clickable = null; }
         if (clickable != null) {
           boolean duplicate = false;
           for (AccessibilityNodeInfo existing : scan.targets) if (existing.equals(clickable)) duplicate = true;
@@ -379,7 +381,24 @@ public final class OwnUiInstrumentation extends Instrumentation {
   private boolean hasVisibleAction(String action) {
     Scan scan;
     try { scan = scan(action); } catch (org.json.JSONException invalid) { throw new UiPolicy.Refusal("UI_TREE_ENCODING_FAILED", false); }
-    try { return !scan.targets.isEmpty(); } finally { scan.close(); }
+    try { return "resume_walk_footer".equals(action) ? footerIndex(scan) != -1 : !scan.targets.isEmpty(); } finally { scan.close(); }
+  }
+  private int[] ownWindowBounds(AccessibilityNodeInfo root) {
+    AccessibilityWindowInfo window = root.getWindow();
+    try {
+      if (window == null || window.getType() != AccessibilityWindowInfo.TYPE_APPLICATION || !window.isActive() || !window.isFocused()) throw new UiPolicy.Refusal("OWN_WINDOW_GEOMETRY_UNAVAILABLE", true);
+      Rect bounds = new Rect(); window.getBoundsInScreen(bounds);
+      return new int[] { bounds.left, bounds.top, bounds.right, bounds.bottom };
+    } finally { if (window != null) window.recycle(); }
+  }
+  private int[] nodeBounds(AccessibilityNodeInfo node) {
+    Rect bounds = new Rect(); node.getBoundsInScreen(bounds);
+    return new int[] { bounds.left, bounds.top, bounds.right, bounds.bottom };
+  }
+  private int footerIndex(Scan scan) {
+    List<int[]> bounds = new ArrayList<>();
+    for (AccessibilityNodeInfo node : scan.targets) bounds.add(nodeBounds(node));
+    return UiPolicy.footerTargetIndex(scan.ownWindow, bounds);
   }
   private boolean waitVisibleAction(String action, long wait) {
     long until = Math.min(deadline, SystemClock.elapsedRealtime() + wait);
@@ -400,15 +419,21 @@ public final class OwnUiInstrumentation extends Instrumentation {
     while (SystemClock.elapsedRealtime() < until) {
       Scan scan = scan(action);
       try {
-        if (scan.targets.size() > 1) throw new UiPolicy.Refusal("AMBIGUOUS_ACTION_" + action.toUpperCase(java.util.Locale.ROOT), false);
-        if (scan.targets.size() == 1) {
-          AccessibilityNodeInfo guard = ownRoot(); guard.recycle();
-          AccessibilityNodeInfo target = scan.targets.get(0);
+        boolean footer = "resume_walk_footer".equals(action);
+        if (!footer && scan.targets.size() > 1) throw new UiPolicy.Refusal("AMBIGUOUS_ACTION_" + action.toUpperCase(java.util.Locale.ROOT), false);
+        int targetIndex = footer ? footerIndex(scan) : scan.targets.size() == 1 ? 0 : -1;
+        if (targetIndex != -1) {
+          AccessibilityNodeInfo guard = ownRoot();
+          int[] currentWindow;
+          try { currentWindow = footer ? ownWindowBounds(guard) : null; } finally { guard.recycle(); }
+          AccessibilityNodeInfo target = scan.targets.get(targetIndex);
           if (target.refresh() && target.isVisibleToUser() && target.isEnabled()) {
+            if (footer && (!"android.widget.Button".contentEquals(target.getClassName() == null ? "" : target.getClassName()) || !target.isClickable() || !target.getActionList().contains(AccessibilityNodeInfo.AccessibilityAction.ACTION_CLICK)
+                || UiPolicy.footerTargetIndex(currentWindow, java.util.Collections.singletonList(nodeBounds(target))) != 0)) throw new UiPolicy.Refusal("FOOTER_TARGET_CHANGED", false);
             if (!target.performAction(AccessibilityNodeInfo.ACTION_CLICK)) throw new UiPolicy.Refusal("ACTION_CLICK_DECLINED", true);
             guardedWait(350); return;
           }
-        } else if (scrollCount < 8 && scan.scrolls.size() == 1) {
+        } else if (!footer && scrollCount < 8 && scan.scrolls.size() == 1) {
           AccessibilityNodeInfo guard = ownRoot(); guard.recycle();
           if (scan.scrolls.get(0).performAction(AccessibilityNodeInfo.ACTION_SCROLL_FORWARD)) { scrollCount++; guardedWait(300); continue; }
           scrollCount = 8;

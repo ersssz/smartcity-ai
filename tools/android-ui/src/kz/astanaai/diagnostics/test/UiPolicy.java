@@ -33,6 +33,7 @@ public final class UiPolicy {
     add(labels, "mark_manual", "Я у остановки · ручная отметка", "Аялдамадамын · қолмен белгілеу", "I am at this stop · manual mark");
     add(labels, "pause_walk", "Пауза", "Үзіліс", "Pause");
     add(labels, "resume_walk", "Продолжить", "Жалғастыру", "Continue");
+    add(labels, "resume_walk_footer", "Продолжить", "Жалғастыру", "Continue");
     add(labels, "stop_walk", "Остановить и сохранить", "Тоқтатып, сақтау", "Stop and save");
     add(labels, "discovery_all", "Все", "Бәрі", "All");
     add(labels, "discovery_history", "История", "Тарих", "History");
@@ -118,6 +119,22 @@ public final class UiPolicy {
     return "UNKNOWN";
   }
   public static boolean sensitive(String text) { return text != null && LOCATION.matcher(text).find(); }
+  /** Fixed footer action only: full target bounds must be in the own window's bottom 20%. */
+  public static int footerTargetIndex(int[] window, List<int[]> targets) {
+    if (window == null || window.length != 4 || targets == null) return -1;
+    long height = (long) window[3] - window[1];
+    if (height <= 0 || window[2] <= window[0]) return -1;
+    int selected = -1;
+    for (int index = 0; index < targets.size(); index++) {
+      int[] target = targets.get(index);
+      if (target == null || target.length != 4 || target[2] <= target[0] || target[3] <= target[1]
+          || target[0] < window[0] || target[1] < window[1] || target[2] > window[2] || target[3] > window[3]
+          || ((long) target[1] - window[1]) * 5 < height * 4) continue;
+      if (selected != -1) throw new Refusal("AMBIGUOUS_ACTION_RESUME_WALK_FOOTER", false);
+      selected = index;
+    }
+    return selected;
+  }
   public static String redact(String text) {
     if (sensitive(text)) return "[LOCATION_REDACTED]";
     String normalized = normalize(text).replaceAll("[\\p{Cntrl}]", "");

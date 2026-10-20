@@ -39,3 +39,6 @@ All five production `assets/discovery/*.jpg` SHA256 values exactly match the fin
 | canonical/schema.ts | `44ac5d92a7d686970de5fb1f90123c6be64c6b6b28b79b6b61b8f12cde224cd8` |
 
 No speculative P1, actual field traversal, audible playback, device rendering or complete focused-release acceptance is claimed.
+# Root closure (2026-10-20)
+
+Both reported P2 findings were fixed before delivery. Terminal story-only sessions now expose the existing restart command, with a separate abandoned title. Discovery receives parent busy/error, disables operation controls and displays a bounded alert. A second independent source review found no blocking defect in those fixes. Final APK 0.5.1/code12: application commit `1b67844db25e21a2668d2bc643c2adaa5c800327`; actual phone evidence and remaining limits are recorded in `DISCOVERY-0.5.1.md`.

@@ -1,0 +1,354 @@
+{
+  "step": 6,
+  "action": "consent_public_start",
+  "package": "kz.astanaai.diagnostics",
+  "visible_labels": [
+    {
+      "depth": 7,
+      "text": "",
+      "description": "МАРШРУТ ПРОГУЛКИ",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 7,
+      "text": "",
+      "description": "Отображает карту, созданную при помощи MapLibre. Пролистывайте двумя пальцами. Меняйте масштаб сведением пальцев.",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "",
+      "description": "Значок атрибутов. Активируйте, чтобы показать диалог.",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 9,
+      "text": "",
+      "description": "Свернуть к карте",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 10,
+      "text": "⌄",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "Реальные данные · сохранённый маршрут",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "Город между небом и землёй",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "63 мин",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "·",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "2,2 км",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "·",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "3 остановки",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 10,
+      "text": "Полевое прохождение этого пакета не подтверждено. Языковая редактура ещё не завершена. 20 выбранных OSM-карточек из 247 записей одной зоны и 2 дополнительные...",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 10,
+      "text": "",
+      "description": "✓, Старт — выбранная общественная точка. Подход от вашего текущего положения до неё не включён во время прогулки.",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 11,
+      "text": "✓",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 11,
+      "text": "Старт — выбранная общественная точка. Подход от вашего текущего положения до неё не включён во время прогулки.",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 10,
+      "text": "",
+      "description": "Начать прогулку",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 11,
+      "text": "Начать прогулку",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 10,
+      "text": "© OpenStreetMap contributors",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 10,
+      "text": "Истории и записанная озвучка сохранены в приложении. Для уличной подложки карты нужен интернет.",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 10,
+      "text": "astana.",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 10,
+      "text": "",
+      "description": "Техническая проверка",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 11,
+      "text": "Техническая проверка",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 9,
+      "text": "⌕",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 9,
+      "text": "[INPUT_VALUE_OMITTED]",
+      "description": "",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 9,
+      "text": "",
+      "description": "RU",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 10,
+      "text": "RU",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 9,
+      "text": "",
+      "description": "KK",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 10,
+      "text": "KK",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 9,
+      "text": "",
+      "description": "EN",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 10,
+      "text": "EN",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 9,
+      "text": "astana.",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 9,
+      "text": "ВАША ПРОГУЛКА",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "",
+      "description": "О городе ↗",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 9,
+      "text": "О городе ↗",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "",
+      "description": "← К местам",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 9,
+      "text": "← К местам",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "",
+      "description": "⌁, Карта",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 9,
+      "text": "⌁",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 9,
+      "text": "Карта",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 8,
+      "text": "",
+      "description": "↗, К местам",
+      "clickable": true,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 9,
+      "text": "↗",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    },
+    {
+      "depth": 9,
+      "text": "К местам",
+      "description": "",
+      "clickable": false,
+      "enabled": true,
+      "scrollable": false
+    }
+  ],
+  "visited_nodes": 129,
+  "screen_policy": "NOT_PROVEN",
+  "capture_skipped": "SAFE_SCREEN_NOT_PROVEN"
+}
