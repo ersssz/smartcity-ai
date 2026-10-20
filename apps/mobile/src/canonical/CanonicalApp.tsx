@@ -4,7 +4,7 @@ import { narrationEntries, type Locale, type PackVerification } from '@astanaai/
 import WalkExperience from '../features/walk/WalkExperience';
 import CanonicalPreview from '../features/walk/CanonicalPreview';
 import { nativeActiveWalk } from '../../modules/astana-active-walk/src';
-import { preparedAudio, type PreparedAudioState } from '../../modules/astana-active-walk/src/preparedAudio';
+import { narration, sameNarration, type NarrationRef, type NarrationState } from '../../modules/astana-active-walk/src/narration';
 import { getCanonicalSession } from './mobileSession';
 import { prepareCanonicalWalk, verifyInstalledWalk, type PreparedCanonicalWalk } from './preparation';
 import { toCanonicalUiSession, toCanonicalUiWalk } from './presentation';
@@ -27,7 +27,7 @@ export default function CanonicalApp({ initialLocale, onBack, onOpenCity, onOpen
   const repository = useRef<Repository | undefined>(undefined);
   const [proposal, setProposal] = useState<PreparedCanonicalWalk>();
   const [verification, setVerification] = useState<PackVerification>();
-  const [audioState, setAudioState] = useState<PreparedAudioState>();
+  const [audioState, setAudioState] = useState<NarrationState>();
   const [busy, setBusy] = useState(false), [error, setError] = useState<string | null>(null);
   const operating = useRef(false), stopping = useRef(false), mounted = useRef(true);
   const pending = useRef<Promise<void>>(Promise.resolve());
@@ -49,7 +49,7 @@ export default function CanonicalApp({ initialLocale, onBack, onOpenCity, onOpen
     if (!repo || !previous) return;
     publish(await repo.dispatch({ eventId: `event-${Date.now().toString(36)}-${++eventSequence}`, expectedVersion: previous.session.version, action }));
   };
-  const stopAudio = async () => { generation.current++; await preparedAudio.stop(); };
+  const stopAudio = async () => { generation.current++; await narration.stop(); };
   const stopNative = async () => {
     const state = await nativeActiveWalk.stop();
     if (state.foreground || state.subscribed || state.status !== 'stopped') throw new Error('STOP_NOT_CONFIRMED');
@@ -66,7 +66,8 @@ export default function CanonicalApp({ initialLocale, onBack, onOpenCity, onOpen
     finally { stopping.current = false; if (mounted.current) setBusy(false); }
   };
   const load = useCallback(() => operate(async () => {
-    await preparedAudio.stop();
+    await nativeActiveWalk.stop();
+    await narration.stop();
     const repo = await getCanonicalSession(); repository.current = repo;
     const id = await repo.getCurrentSessionId();
     if (id) {
@@ -80,12 +81,22 @@ export default function CanonicalApp({ initialLocale, onBack, onOpenCity, onOpen
   }), [operate, initialLocale]);
   useEffect(() => {
     mounted.current = true; void load();
-    const listener = preparedAudio.addListener(state => { if (mounted.current) setAudioState(state); });
+    const publishAudio = (state: NarrationState) => {
+      if (mounted.current) setAudioState(previous => !previous || state.generation >= previous.generation ? state : previous);
+    };
+    const listener = narration.addListener(publishAudio);
     const lifecycle = AppState.addEventListener('change', state => {
-      if (state !== 'active') { generation.current++; void preparedAudio.stop().catch(() => {}); }
-      else if (repository.current && current.current) void repository.current.snapshot().then(publish).catch(() => setError(COPY[initialLocale].error));
+      if (state !== 'active') {
+        // Cancel pending JS work. The explicitly selected native chapter may keep playing.
+        generation.current++;
+      } else {
+        void narration.getState().then(publishAudio).catch(() => { if (mounted.current) setError(COPY[initialLocale].audioError); });
+        if (repository.current && current.current) void repository.current.snapshot().then(next => {
+          if (mounted.current) publish(next);
+        }).catch(() => { if (mounted.current) setError(COPY[initialLocale].error); });
+      }
     });
-    return () => { mounted.current = false; generation.current++; listener.remove(); lifecycle.remove(); void preparedAudio.stop().catch(() => {}); };
+    return () => { mounted.current = false; generation.current++; listener.remove(); lifecycle.remove(); void narration.stop().catch(() => {}); };
     // The screen opens once; language changes stop sound without reopening a session.
   }, []);
   const choose = () => void operate(async () => {
@@ -99,7 +110,13 @@ export default function CanonicalApp({ initialLocale, onBack, onOpenCity, onOpen
     if (['confirm_end', 'abandon'].includes(action.type)) await stopNative();
     await dispatch(action);
   });
-  const speakEntry = (id: string) => void operate(async () => {
+  const speakEntry = (id: string) => {
+    if (operating.current || stopping.current || AppState.currentState !== 'active') return;
+    // Capture belongs to this click, before entering any asynchronous work. A concurrent
+    // Stop invalidates it; a rejected command never borrows a fresh scope or retries.
+    let captured: ReturnType<typeof narration.capture>;
+    try { captured = narration.capture(); } catch { setError(t.audioError); return; }
+    void operate(async () => {
     const value = current.current; if (!value || AppState.currentState !== 'active') return;
     const token = ++generation.current;
     const entry = narrationEntries(value.bundle).find(item => item.id === id);
@@ -107,10 +124,21 @@ export default function CanonicalApp({ initialLocale, onBack, onOpenCity, onOpen
     const assetId = entry.audio.assetId;
     const asset = value.bundle.assets.items.find(item => item.id === assetId);
     if (!asset || asset.location.kind !== 'bundled') throw new Error('ASSET_MISSING');
-    if (audioState?.status !== 'paused' || audioState.assetId !== assetId) await preparedAudio.stop();
+    const ref: NarrationRef = { walkSessionId: value.session.sessionId, bundleSha256: value.bundle.sha256,
+      narrationId: id, locale, assetPath: `astana-${asset.location.path}`, assetSha256: asset.sha256 };
     if (token !== generation.current || stopping.current || AppState.currentState !== 'active') return;
-    await preparedAudio.play(`astana-${asset.location.path}`, asset.sha256);
-  });
+    if (audioState?.status === 'paused' && audioState.canResume && sameNarration(audioState.ref, ref)) await narration.resume(captured);
+    else await narration.play(captured, ref);
+    });
+  };
+  const pauseAudio = () => {
+    try {
+      const captured = narration.capture(); generation.current++;
+      // Before cold service admission there is no player to pause. Cancel its pending
+      // request through Stop; do not let it start after the user pressed Pause.
+      void (captured.audio === null ? narration.stop() : narration.pause(captured)).catch(() => setError(t.audioError));
+    } catch { setError(t.audioError); }
+  };
   const changeLocale = (next: Locale) => void operate(async () => { await stopAudio(); await onLocaleChange(next); setLocale(next); });
   const uiWalk = useMemo(() => snapshot && ({ ...toCanonicalUiWalk(snapshot.bundle, locale),
     materialsNote: ({ ru: 'Истории и записанная озвучка сохранены в приложении. Для уличной подложки карты нужен интернет.',
@@ -130,7 +158,7 @@ export default function CanonicalApp({ initialLocale, onBack, onOpenCity, onOpen
     storyOnly onFinishStory={stopId => command({ type: 'read_story', stopId })}
     onBackToSavedLabel={({ ru: 'К местам', kk: 'Орындарға', en: 'Back to places' })[locale]}
     discoveries={snapshot.discoveries.map(d => ({ walkId: d.walkId, title: d.title[locale] }))}
-    audio={{ available: !!audioReady, playing: audioState?.status === 'playing' || audioState?.status === 'loading', label: audioReady ? t.audio : t.unavailable }}
+    audio={{ available: !!audioReady, playing: audioState?.status === 'playing' || audioState?.status === 'loading' || audioState?.hostPhase === 'STARTING', label: audioReady ? t.audio : t.unavailable }}
     locationStatus={t.gps} onLocaleChange={changeLocale}
     onStart={() => command({ type: 'start' })} onResume={() => command({ type: 'resume' })} onPause={() => void urgentStop()} onStop={() => void urgentStop()}
     onMarkStop={stopId => command({ type: 'mark_stop', stopId })} onAnswer={(stopId, choiceId) => command({ type: 'answer', stopId, choiceId })}
@@ -142,7 +170,7 @@ export default function CanonicalApp({ initialLocale, onBack, onOpenCity, onOpen
       const questId = snapshot.bundle.stops.find(stop => stop.id === stopId)?.questId;
       if (questId) speakEntry(`${questId}:${part}:${locale}`);
     }} onStopAudio={() => void stopAudio().catch(() => setError(t.audioError))}
-    onPauseAudio={() => { generation.current++; void preparedAudio.pause().catch(() => setError(t.audioError)); }}
+    onPauseAudio={pauseAudio}
     onOpenCity={() => void urgentStop(onOpenCity)} onOpenDiagnostics={() => void urgentStop(onOpenDiagnostics)} onBackToSaved={() => void urgentStop(onBack)}
     onAbandon={() => Alert.alert(({ ru: 'Завершить прогулку досрочно?', kk: 'Серуенді ерте аяқтау керек пе?', en: 'End this walk early?' })[locale],
       ({ ru: 'Прочитанные главы останутся на телефоне. Можно вернуться к местам и выбрать прогулку снова.', kk: 'Оқылған тараулар телефонда қалады. Орындарға оралып, серуенді қайта таңдауға болады.', en: 'Read chapters stay on this phone. You can return to places and choose the walk again.' })[locale],

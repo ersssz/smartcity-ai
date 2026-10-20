@@ -51,9 +51,17 @@ export function useDiscoveryContext(locale: DiscoveryLocale, places: readonly Co
     return () => { mounted.current = false; cancel(); clearTimeout(initial); clearInterval(clock); subscription.remove(); };
   }, [cancel, client, refresh]);
   const view = useMemo(() => discoveryContextView(locale, places, weather, choice, nowMs), [locale, places, weather, choice, nowMs]);
+  const cooldownMinutes = Math.ceil(Math.max(0, (weather.nextAttemptAt ?? nowMs) - nowMs) / 60_000);
+  const refreshHint = cooldownMinutes > 0 ? {
+    ru: `Обновление через ${cooldownMinutes} мин. Пока можно выбрать условия вручную.`,
+    kk: `Жаңарту ${cooldownMinutes} минуттан кейін. Әзірше жағдайды қолмен таңдауға болады.`,
+    en: `Refresh available in ${cooldownMinutes} min. You can choose conditions manually.`,
+  }[locale] : undefined;
   return {
     context: { summary: view.summary, detail: view.detail, attribution: view.attribution, busy,
-      onRefresh: () => choose('auto'), choices: CHOICES.map((id) => ({ id, label: weatherChoiceLabel(id, locale), selected: id === choice, onPress: () => choose(id) })) },
+      refreshDisabled: busy || cooldownMinutes > 0, refreshHint,
+      onRefresh: () => { if ((client.read().nextAttemptAt ?? 0) <= Date.now()) choose('auto'); },
+      choices: CHOICES.map((id) => ({ id, label: weatherChoiceLabel(id, locale), selected: id === choice, onPress: () => choose(id) })) },
     reasonByPlace: view.reasonByPlace, rankedPlaceIds: view.rankedPlaceIds,
   };
 }

@@ -52,8 +52,9 @@ export default function DiscoveryHome({ locale, places, selectedPlaceId, busy = 
           <ScrollView showsVerticalScrollIndicator nestedScrollEnabled contentContainerStyle={s.contextContent}>
             {context.detail ? <Text style={s.contextDetail}>{context.detail}</Text> : null}
             {!!context.choices?.length && <View style={s.contextChoices}>{context.choices.map(choice => <Pressable key={choice.id} accessibilityRole="button" accessibilityState={{ selected: choice.selected }} onPress={choice.onPress} style={({ pressed }) => [s.contextChoice, choice.selected && s.contextChoiceSelected, pressed && s.pressed]}><Text style={[s.choiceText, choice.selected && s.choiceTextSelected]}>{choice.label}</Text></Pressable>)}</View>}
+            {context.refreshHint && <Text accessibilityLiveRegion="polite" style={s.contextDetail}>{context.refreshHint}</Text>}
             <View style={s.contextActions}>
-              {context.onRefresh && <Pressable accessibilityRole="button" accessibilityState={{ disabled: context.busy }} disabled={context.busy} onPress={context.onRefresh} style={s.contextAction}><Text style={s.contextActionText}>↻  {t.refresh}</Text></Pressable>}
+              {context.onRefresh && <Pressable accessibilityRole="button" accessibilityHint={context.refreshHint} accessibilityState={{ disabled: context.busy || context.refreshDisabled }} disabled={context.busy || context.refreshDisabled} onPress={context.onRefresh} style={[s.contextAction, (context.busy || context.refreshDisabled) && { opacity: .45 }]}><Text style={s.contextActionText}>↻  {t.refresh}</Text></Pressable>}
               <Pressable accessibilityRole="button" onPress={() => setContextExpanded(false)} style={s.contextAction}><Text style={s.contextActionText}>{t.contextClose} ↑</Text></Pressable>
             </View>
           </ScrollView>

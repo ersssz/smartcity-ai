@@ -32,6 +32,8 @@ export type DiscoveryContext = {
   detail?: string;
   busy?: boolean;
   onRefresh?: () => void;
+  refreshDisabled?: boolean;
+  refreshHint?: string;
   choices?: readonly { id: string; label: string; selected: boolean; onPress: () => void }[];
   attribution?: { label: string; url: string };
 };

@@ -3,6 +3,8 @@
   <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
   <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
   <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
+  <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
+  <uses-permission android:name="android.permission.WAKE_LOCK" />
   <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
   <application>
     <service
@@ -11,5 +13,8 @@
       android:foregroundServiceType="location"
       android:stopWithTask="true" />
     <receiver android:name=".StopReceiver" android:exported="false" />
+    <service android:name="kz.astanaai.activewalk.narration.NarrationPlaybackService"
+      android:exported="false" android:foregroundServiceType="mediaPlayback" android:stopWithTask="true" />
+    <receiver android:name="kz.astanaai.activewalk.narration.NarrationMediaActionReceiver" android:exported="false" />
   </application>
 </manifest>

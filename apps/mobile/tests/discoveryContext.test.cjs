@@ -55,6 +55,18 @@ test('HTTP failure never retries or calls a paid fallback, even repeated manual 
   assert.equal((await client.load()).status, 'unavailable');
   await client.load(); await client.load(); assert.equal(calls, 1);
 });
+test('a failed attempt exposes its fixed next allowed request time without silently retrying', async () => {
+  let calls = 0; let now = NOW;
+  const client = new context.DiscoveryWeatherClient({ now: () => now, fetcher: async () => {
+    calls++; return { ok: false, json: async () => { throw Error('Do not read'); } };
+  } });
+  assert.equal(client.read().nextAttemptAt, undefined);
+  const failed = await client.load();
+  assert.equal(failed.status, 'unavailable'); assert.equal(failed.nextAttemptAt, NOW + 30 * 60_000);
+  now += 29 * 60_000; assert.equal((await client.load()).nextAttemptAt, NOW + 30 * 60_000); assert.equal(calls, 1);
+  now += 60_000; client.read(); assert.equal(calls, 1);
+  assert.equal((await client.load()).nextAttemptAt, NOW + 60 * 60_000); assert.equal(calls, 2);
+});
 test('8 second timeout aborts actual boundary signal even if fetch ignores cancellation', async () => {
   let timeout; let signal; let resolve;
   const pending = new Promise((done) => { resolve = done; });

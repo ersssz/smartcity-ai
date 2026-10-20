@@ -3,7 +3,7 @@ import type { DiscoveryLocale } from './types';
 export type WeatherChoiceId = 'auto' | 'sunshine' | 'rain' | 'cold' | 'windy';
 export type ContextPlace = Readonly<{ id: string; category: 'history' | 'architecture' | 'river'; indoor?: boolean; hasIndoorOption?: boolean; hoursVerified?: boolean }>;
 export type WeatherSample = Readonly<{ timeMs: number; temperatureC: number; apparentC: number; precipitationMm: number; windKmh: number; code: number; isDay: boolean }>;
-export type WeatherRead = Readonly<{ status: 'unknown' | 'available' | 'stale' | 'unavailable'; sample?: WeatherSample; reason?: string }>;
+export type WeatherRead = Readonly<{ status: 'unknown' | 'available' | 'stale' | 'unavailable'; sample?: WeatherSample; reason?: string; nextAttemptAt?: number }>;
 export const WEATHER_MAX_AGE_MS = 90 * 60_000;
 export const WEATHER_CACHE_MS = 30 * 60_000;
 export const WEATHER_TIMEOUT_MS = 8_000;
@@ -175,8 +175,9 @@ export class DiscoveryWeatherClient {
   constructor(private readonly options: WeatherClientOptions = {}) {}
   private now(): number { return (this.options.now ?? Date.now)(); }
   read(): WeatherRead {
-    if (this.sample) return { status: weatherFresh(this.sample, this.now()) ? 'available' : 'stale', sample: this.sample, reason: this.lastFailure };
-    return { status: this.lastFailure ? 'unavailable' : 'unknown', reason: this.lastFailure };
+    const retry = this.lastAttempt === undefined ? {} : { nextAttemptAt: this.lastAttempt + WEATHER_CACHE_MS };
+    if (this.sample) return { status: weatherFresh(this.sample, this.now()) ? 'available' : 'stale', sample: this.sample, reason: this.lastFailure, ...retry };
+    return { status: this.lastFailure ? 'unavailable' : 'unknown', reason: this.lastFailure, ...retry };
   }
   load(signal?: AbortSignal): Promise<WeatherRead> {
     if (signal?.aborted) return Promise.resolve(this.read());

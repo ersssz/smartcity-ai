@@ -42,7 +42,7 @@ function harness(client, initialState = 'active') {
   setInterval: (fn, delay) => addTimer(fn, delay, true), clearInterval: (id) => timers.delete(id) }, { filename });
   const places = [{ id: 'river', category: 'river' }];
   return {
-    render() { index = 0; const value = output.exports.useDiscoveryContext('en', places, { client }); while (pendingEffects.length) pendingEffects.shift()(); return value; },
+    render(locale = 'en') { index = 0; const value = output.exports.useDiscoveryContext(locale, places, { client }); while (pendingEffects.length) pendingEffects.shift()(); return value; },
     initial() { for (const [id, timer] of [...timers]) if (timer.delay === 0) { timers.delete(id); timer.fn(); } },
     emit(state) { AppState.currentState = state; [...listeners].forEach((fn) => fn(state)); },
     tick(nextTime) { time = nextTime; for (const timer of [...timers.values()]) if (timer.repeat) timer.fn(); },
@@ -85,4 +85,25 @@ test('local freshness tick removes weather adaptation without making a backgroun
   now += 91 * 60_000; hook.tick(now);
   const stale = hook.render(); assert.match(stale.context.summary, /unavailable/); assert.equal(stale.context.attribution, undefined);
   assert.equal(stale.reasonByPlace.river, ''); assert.equal(calls, 1); hook.unmount();
+});
+test('offline refresh has a visible cooldown, leaves manual choice usable and enables only explicit retry after expiry', async () => {
+  let now = NOW; let calls = 0; let online = false;
+  const client = new DiscoveryWeatherClient({ now: () => now, fetcher: async () => {
+    calls++; return { ok: online, json: async () => fixture() };
+  } });
+  const hook = harness(client); hook.render(); hook.initial(); await flush();
+  let view = hook.render(); assert.equal(calls, 1); assert.equal(view.context.refreshDisabled, true);
+  assert.match(view.context.refreshHint, /30 min/); assert.match(view.context.refreshHint, /manually/);
+  view.context.choices.find(choice => choice.id === 'rain').onPress();
+  view = hook.render(); assert.match(view.context.summary, /You chose: rain/); assert.equal(view.context.refreshDisabled, true);
+  online = true; view.context.onRefresh(); await flush();
+  assert.match(hook.render().context.summary, /You chose: rain/); assert.equal(calls, 1);
+  now = NOW + 29 * 60_000; hook.tick(now); view = hook.render();
+  assert.equal(view.context.refreshDisabled, true); assert.match(view.context.refreshHint, /1 min/);
+  now = NOW + 30 * 60_000; hook.tick(now); view = hook.render();
+  assert.equal(view.context.refreshDisabled, false); assert.equal(view.context.refreshHint, undefined); assert.equal(calls, 1);
+  view.context.onRefresh(); await flush(); view = hook.render();
+  assert.equal(calls, 2); assert.match(view.context.summary, /12 °C/); assert.equal(view.context.refreshDisabled, true);
+  assert.match(hook.render('ru').context.refreshHint, /30 мин/); assert.match(hook.render('kk').context.refreshHint, /30 минут/);
+  hook.unmount();
 });

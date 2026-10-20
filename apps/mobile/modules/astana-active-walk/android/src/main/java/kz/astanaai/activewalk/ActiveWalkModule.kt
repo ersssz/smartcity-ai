@@ -2,17 +2,25 @@ package kz.astanaai.activewalk
 
 import android.os.Handler
 import android.os.Looper
+import android.app.PendingIntent
+import android.content.Intent
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import expo.modules.kotlin.Promise
+import expo.modules.kotlin.exception.CodedException
 import expo.modules.kotlin.functions.Queues
 import expo.modules.kotlin.modules.Module
 import expo.modules.kotlin.modules.ModuleDefinition
+import kz.astanaai.activewalk.narration.NarrationBridgeFacade
+import kz.astanaai.activewalk.narration.NarrationHost
 
 class ActiveWalkModule : Module() {
   private val main = Handler(Looper.getMainLooper())
   @Volatile private var disposed = false
   private var preparedPlayer: PreparedAudioPlayer? = null
+  @Volatile private var narrationBridge: NarrationBridgeFacade? = null
+  private fun narration(): NarrationBridgeFacade = narrationBridge?.takeUnless { disposed }
+    ?: throw CodedException("NARRATION_UNAVAILABLE", "Narration is not ready", null)
   private fun audio(): PreparedAudioPlayer {
     check(!disposed) { "APP_CONTEXT_UNAVAILABLE" }
     return preparedPlayer ?: PreparedAudioPlayer(requireNotNull(appContext.reactContext)) { state ->
@@ -37,11 +45,17 @@ class ActiveWalkModule : Module() {
 
   override fun definition() = ModuleDefinition {
     Name("AstanaActiveWalk")
-    Events("onStateChanged", "onLocation", "onPreparedAudioState")
+    Events("onStateChanged", "onLocation", "onPreparedAudioState", "onNarrationState")
 
     OnCreate {
       ActiveWalkController.onMain {
         if (!disposed) appContext.reactContext?.let {
+          val launch = it.packageManager.getLaunchIntentForPackage(it.packageName)
+            ?.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_CLEAR_TOP)
+          val activity = launch?.let { intent -> PendingIntent.getActivity(it, 7401, intent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE) }
+          narrationBridge = NarrationHost.createBridge(it, android.R.drawable.ic_media_play,
+            { !disposed && resumed() }, { state -> if (!disposed) sendEvent("onNarrationState", state) }, activity)
           ActiveWalkController.attach(this@ActiveWalkModule, it, observer) { resumed() }
         }
       }
@@ -50,7 +64,13 @@ class ActiveWalkModule : Module() {
       disposed = true
       main.removeCallbacksAndMessages(null)
       ActiveWalkController.detach(this@ActiveWalkModule)
-      ActiveWalkController.onMain { PreparedAudioOwner.detach(preparedPlayer); preparedPlayer?.release(); preparedPlayer = null }
+      ActiveWalkController.onMain {
+        try { narrationBridge?.close() }
+        finally {
+          narrationBridge = null
+          PreparedAudioOwner.detach(preparedPlayer); preparedPlayer?.release(); preparedPlayer = null
+        }
+      }
     }
     OnActivityEntersForeground {
       // Expo can dispatch inside Activity.onResume before AndroidX's post-resume transition.
@@ -93,6 +113,13 @@ class ActiveWalkModule : Module() {
       val context = requireNotNull(appContext.reactContext) { "APP_CONTEXT_UNAVAILABLE" }
       PreparedAssetVerifier.verify(context, records)
     }
+    // Capture reads the immutable publication only. No lifecycle/player access on the JS thread.
+    Function("narrationCaptureScope") { narration().captureScopeDto() }
+    AsyncFunction("narrationPlay") { captured: Map<String, Any?>, ref: Map<String, Any?> -> narration().play(captured, ref) }.runOnQueue(Queues.MAIN)
+    AsyncFunction("narrationPause") { captured: Map<String, Any?> -> narration().pause(captured) }.runOnQueue(Queues.MAIN)
+    AsyncFunction("narrationResume") { captured: Map<String, Any?> -> narration().resume(captured) }.runOnQueue(Queues.MAIN)
+    AsyncFunction("narrationStop") { narration().stop() }.runOnQueue(Queues.MAIN)
+    AsyncFunction("narrationGetState") { narration().getState() }.runOnQueue(Queues.MAIN)
     AsyncFunction("preparedAudioPlay") { assetPath: String, expectedSha256: String ->
       val selected = audio(); PreparedAudioOwner.register(selected); selected.play(assetPath, expectedSha256)
     }.runOnQueue(Queues.MAIN)
