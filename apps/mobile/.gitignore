@@ -1,0 +1,12 @@
+dist*/
+.expo/
+node_modules/
+android/.gradle/
+android/.kotlin/
+android/.cxx/
+android/local.properties
+*.keystore
+*.jks
+*.apk
+*.aab
+*.log

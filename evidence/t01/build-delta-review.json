@@ -1,0 +1,26 @@
+{
+  "date_local": "2026-10-20",
+  "reviewer": "/root/final_build_delta_review",
+  "scope": [
+    "apps/mobile/scripts/build-android.ps1",
+    "apps/mobile/android/build.gradle",
+    "apps/mobile/android/app/build.gradle",
+    "apps/mobile/README.md",
+    "Actual generated CMake and AGP metadata for app and expo-modules-core"
+  ],
+  "confirmed_actionable_findings": 0,
+  "verified": [
+    "Portable Ninja executable matches the pinned SHA-256",
+    "Both CMake caches and configuration commands select Ninja 1.13.2",
+    "Both AGP build and clean metadata select the same executable",
+    "Build environment is process-scoped and restored",
+    "Staging ownership and root separation are checked",
+    "No SDK binary patch or system long-path policy change",
+    "README distinguishes Debug, embedded-JavaScript diagnostic Release and nonproduction signing"
+  ],
+  "limits": [
+    "Read-only delta review; reviewer did not run the full build",
+    "Gradle max-workers is not a bound on Ninja parallelism",
+    "No physical Android runtime or privacy gate acceptance"
+  ]
+}
