@@ -8,6 +8,14 @@ The user authorized implementation on 2026-10-20, autonomous coordination of bot
 
 No purchases, checkout, paid subscriptions, trials requiring payment details, credit top-ups, auto-recharge, domain purchases, paid cloud builds, or enabling billing. Never call a paid API, even with an existing key. Use local tooling, public data, and services whose no-charge operation is actually verified. An unverified key, dashboard alert, or existing subscription is not proof of a free API. Do not inspect or print secrets. Model adapters default disabled; only a verified no-charge adapter may be used. Report a blocked capability and continue independent work rather than spend money.
 
+## Focused first release (latest user decision, 2026-10-20)
+
+The user explicitly reduced scope after discussing a two-hour delivery window. Prioritize a clear first visit: short welcome and city reveal, interesting and historical places with real credited photos, map selection, and one complete guided walk with stories, narration and saved reading progress. District geography belongs under About the city. Quests are optional; reading a story must not require a correct answer or claim a GPS visit.
+
+Recommendations must explain their weather and holiday context. Use fresh city-level weather with timestamps, an explicit manual fallback, and a sourced Kazakhstan calendar. Unknown hours never prove that an indoor venue is open. A holiday is not evidence of a scheduled event. Weather uncertainty remains visible.
+
+Public profiles, collections, achievements, automatic GPS rewards, complex offline downloads and full-beta expansion are deferred. Preserve existing data and staged work. The archived full plan is a future backlog, not a requirement to block this focused release. Read `docs/FOCUSED-RELEASE.md` when implementing or reviewing the current product flow.
+
 ## Work boundaries
 
 - Read the assigned ticket and relevant `docs/plan/PRODUCT-SPEC.md`, `DECISIONS.md`, `ARCHITECTURE.md`, and `GLOSSARY.md` sections before changing behavior.

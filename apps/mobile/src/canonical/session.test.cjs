@@ -45,6 +45,44 @@ function sqliteAdapter(filename = ':memory:') {
 let nextId = 0;
 const deps = () => ({ hash, now: () => at, nextSessionId: () => `canonical-session-${++nextId}` });
 
+test('reading can finish a walk without fabricated answers, physical visits or a collection', async t => {
+  const store = sqliteAdapter(); t.after(() => store.sql.close());
+  const repo = api.createCanonicalWalkSession(store.db, deps());
+  let view = await repo.open(await actualBundle('reading-only-walk'));
+  let sequence = 0;
+  const send = async action => view = await repo.dispatch({ eventId: `read-${++sequence}`, expectedVersion: view.session.version, action });
+  await send({ type: 'start' });
+  for (const stop of view.bundle.stops) {
+    const command = { eventId: `read-${++sequence}`, expectedVersion: view.session.version, action: { type: 'read_story', stopId: stop.id } };
+    view = await repo.dispatch(command);
+    assert.deepEqual(await repo.dispatch(command), view, 'a repeated tap is idempotent');
+  }
+  await send({ type: 'confirm_end' });
+  assert.equal(view.session.phase, 'completed');
+  assert.deepEqual(view.session.readStopIds, view.bundle.stops.map(stop => stop.id));
+  assert.deepEqual(view.session.completedStopIds, []);
+  assert.deepEqual(view.session.manualStopIds, []);
+  assert.deepEqual(view.session.answers, {});
+  assert.deepEqual(view.discoveries, []);
+  assert.deepEqual(await api.createCanonicalWalkSession(store.db, deps()).open(view.session.sessionId), view);
+});
+
+test('reading requires the current active chapter and old saved v2 progress remains readable', async t => {
+  const store = sqliteAdapter(); t.after(() => store.sql.close());
+  const repo = api.createCanonicalWalkSession(store.db, deps());
+  let view = await repo.open(await actualBundle('reading-guards'));
+  const id = view.session.sessionId;
+  const old = { ...view.session }; delete old.readStopIds;
+  store.sql.prepare('UPDATE canonical_sessions SET session_json = ? WHERE session_id = ?').run(JSON.stringify(old), id);
+  view = await repo.open(id);
+  assert.deepEqual(view.session.readStopIds, []);
+  await assert.rejects(repo.dispatch({ eventId: 'before-start', expectedVersion: view.session.version, action: { type: 'read_story', stopId: view.bundle.stops[0].id } }), e => e.code === 'INVALID_STATE');
+  view = await repo.dispatch({ eventId: 'start-reading', expectedVersion: view.session.version, action: { type: 'start' } });
+  await assert.rejects(repo.dispatch({ eventId: 'future-reading', expectedVersion: view.session.version, action: { type: 'read_story', stopId: view.bundle.stops[1].id } }), e => e.code === 'NOT_CURRENT_STOP');
+  view = await repo.dispatch({ eventId: 'pause-reading', expectedVersion: view.session.version, action: { type: 'pause' } });
+  await assert.rejects(repo.dispatch({ eventId: 'paused-reading', expectedVersion: view.session.version, action: { type: 'read_story', stopId: view.bundle.stops[0].id } }), e => e.code === 'INVALID_STATE');
+});
+
 test('a real canonical bundle opens prepared once and coexists with readable legacy progress', async t => {
   const store = sqliteAdapter(); t.after(() => store.sql.close());
   const legacy = load(path.resolve(__dirname, '../walk/repository.ts')).createWalkRepository;

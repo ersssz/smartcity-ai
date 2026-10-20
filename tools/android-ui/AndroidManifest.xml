@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="kz.astanaai.diagnostics.test">
+  <uses-sdk android:minSdkVersion="26" android:targetSdkVersion="37" />
+  <application android:label="AstanaAI own UI tests" android:debuggable="true" android:allowBackup="false" android:supportsRtl="true" android:usesCleartextTraffic="false" />
+  <instrumentation android:name="kz.astanaai.diagnostics.test.OwnUiInstrumentation" android:targetPackage="kz.astanaai.diagnostics" android:functionalTest="true" android:handleProfiling="false" android:label="Bounded AstanaAI own UI test" />
+</manifest>

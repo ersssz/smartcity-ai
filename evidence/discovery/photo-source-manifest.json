@@ -1,0 +1,755 @@
+{
+  "schemaVersion": 1,
+  "status": "staged-for-Root-review",
+  "checkedAt": "2026-10-20T16:16:41.554004Z",
+  "scope": "Discovery home only; no GPS, awards, durable-native integration, provider or paid API.",
+  "places": [
+    {
+      "id": "seifullin-museum",
+      "category": "history",
+      "title": {
+        "ru": "Музей Сакена Сейфуллина",
+        "kk": "Сәкен Сейфуллин музейі",
+        "en": "Saken Seifullin Museum"
+      },
+      "summary": {
+        "ru": "Деревянный дом старой Акмолы",
+        "kk": "Ескі Ақмоланың ағаш үйі",
+        "en": "A wooden house in old Akmola"
+      },
+      "why": {
+        "ru": "Деревянный дом в историческом центре хранит рукописи и личные вещи Сакена Сейфуллина. Начните с резных деталей фасада.",
+        "kk": "Тарихи орталықтағы ағаш үйде Сәкен Сейфуллиннің қолжазбалары мен жеке заттары сақталған. Танысуды қасбеттің ойма бөлшектерінен бастаңыз.",
+        "en": "A wooden house in the historic centre holds Saken Seifullin's manuscripts and personal belongings. Start with the carved details of its facade."
+      },
+      "coordinate": {
+        "state": "known",
+        "lat": 51.17144196277,
+        "lon": 71.423534284662,
+        "sourceIds": [
+          "visit-seifullin"
+        ],
+        "kind": "place_point",
+        "verifiedEntrance": false,
+        "fieldVerified": false,
+        "note": "Published place point; not a surveyed entrance."
+      },
+      "photoId": "seifullin-museum",
+      "sourceIds": [
+        "visit-seifullin"
+      ],
+      "coordinateEvidenceExpression": "new ymaps.Placemark([51.17144196277,71.423534284662],...)",
+      "originalCatalogMatch": false,
+      "whyInteresting": {
+        "ru": "Деревянный дом в историческом центре хранит рукописи и личные вещи Сакена Сейфуллина. Начните с резных деталей фасада.",
+        "kk": "Тарихи орталықтағы ағаш үйде Сәкен Сейфуллиннің қолжазбалары мен жеке заттары сақталған. Танысуды қасбеттің ойма бөлшектерінен бастаңыз.",
+        "en": "A wooden house in the historic centre holds Saken Seifullin's manuscripts and personal belongings. Start with the carved details of its facade."
+      },
+      "factsSources": [
+        {
+          "id": "visit-seifullin",
+          "label": "Visit Astana: Государственный музей имени С. Сейфуллина",
+          "url": "https://visitastana.kz/ru/about-city/what-to-see/gosudarstvennyy-muzey-imeni-s-seyfullina/",
+          "checkedAt": "2026-10-20T16:16:41.554004Z",
+          "localEvidence": "source-evidence/visit-seifullin.html",
+          "localEvidenceSha256": "b04ca643f117f2f3fc2008f9a4692a8f4c7181416e8cbf7c548360c6e80c9d92"
+        }
+      ],
+      "hours": {
+        "state": "unknown",
+        "value": null,
+        "reason": "No current dated operator confirmation. Do not infer open now or promise indoor entry from tourism-page hours."
+      },
+      "visitMode": "outside_only",
+      "routeReady": false,
+      "copyReview": {
+        "ru": "source-checked-agent-draft",
+        "kk": "human-review-pending",
+        "en": "human-review-pending"
+      },
+      "editorialNote": "Short invitation/action is editorial; source-backed factual statements are cited. Outside-only does not guarantee unrestricted outdoor access."
+    },
+    {
+      "id": "gorky-theatre",
+      "category": "history",
+      "title": {
+        "ru": "Театр имени Горького",
+        "kk": "Горький атындағы театр",
+        "en": "Gorky Drama Theatre"
+      },
+      "summary": {
+        "ru": "Театр в старом центре",
+        "kk": "Ескі орталықтағы театр",
+        "en": "Theatre in the old centre"
+      },
+      "why": {
+        "ru": "Постоянная труппа театра была создана в 1899 году. Его фасад — остановка для знакомства с культурной историей старого города.",
+        "kk": "Театрдың тұрақты труппасы 1899 жылы құрылған. Қасбетіне қарап, қаланың ескі орталығының мәдени тарихымен танысуды бастауға болады.",
+        "en": "The theatre's permanent troupe was formed in 1899. Its facade is a starting point for discovering the old city's cultural history."
+      },
+      "coordinate": {
+        "state": "known",
+        "lat": 51.165083,
+        "lon": 71.416397,
+        "sourceIds": [
+          "visit-gorky"
+        ],
+        "kind": "place_point",
+        "verifiedEntrance": false,
+        "fieldVerified": false,
+        "note": "Published place point; not a surveyed entrance."
+      },
+      "photoId": "gorky-theatre",
+      "sourceIds": [
+        "gorky-operator",
+        "visit-gorky"
+      ],
+      "coordinateEvidenceExpression": "new ymaps.Placemark([51.165083,71.416397],...)",
+      "originalCatalogMatch": false,
+      "whyInteresting": {
+        "ru": "Постоянная труппа театра была создана в 1899 году. Его фасад — остановка для знакомства с культурной историей старого города.",
+        "kk": "Театрдың тұрақты труппасы 1899 жылы құрылған. Қасбетіне қарап, қаланың ескі орталығының мәдени тарихымен танысуды бастауға болады.",
+        "en": "The theatre's permanent troupe was formed in 1899. Its facade is a starting point for discovering the old city's cultural history."
+      },
+      "factsSources": [
+        {
+          "id": "gorky-operator",
+          "label": "Театр имени Горького: официальный сайт, основан в 1899 году",
+          "url": "https://gorkytheatre.kz/about",
+          "checkedAt": "2026-10-20T16:16:41.554004Z",
+          "localEvidence": "source-evidence/gorky-operator-about.html",
+          "localEvidenceSha256": "0781fe92576466393825c4038a7b89220c1e04586432284c2596bd76e2143544"
+        },
+        {
+          "id": "visit-gorky",
+          "label": "Visit Astana: театр драмы имени М. Горького",
+          "url": "https://www.visitastana.kz/ru/about-city/what-to-see/gosudarstvennyy-akademicheskiy-russkiy-teatr-dramy-imeni-m-gorkogo/",
+          "checkedAt": "2026-10-20T16:16:41.554004Z",
+          "localEvidence": "source-evidence/visit-gorky.html",
+          "localEvidenceSha256": "c36d1c5ec567bedb4030d6fe5fb33cde387ff01f0d585b33ef0a0e9013290064"
+        }
+      ],
+      "hours": {
+        "state": "unknown",
+        "value": null,
+        "reason": "No current dated operator confirmation. Do not infer open now or promise indoor entry from tourism-page hours."
+      },
+      "visitMode": "outside_only",
+      "routeReady": false,
+      "copyReview": {
+        "ru": "source-checked-agent-draft",
+        "kk": "human-review-pending",
+        "en": "human-review-pending"
+      },
+      "editorialNote": "Short invitation/action is editorial; source-backed factual statements are cited. Outside-only does not guarantee unrestricted outdoor access."
+    },
+    {
+      "id": "bayterek",
+      "category": "architecture",
+      "title": {
+        "ru": "Байтерек",
+        "kk": "Бәйтерек",
+        "en": "Baiterek"
+      },
+      "summary": {
+        "ru": "Золотой шар над Нуржолом",
+        "kk": "Нұржол үстіндегі алтын шар",
+        "en": "The golden sphere above Nurzhol"
+      },
+      "why": {
+        "ru": "Монумент связан с образом Древа жизни. Рассмотрите снаружи его «ветви» и золотой шар — знакомство можно начать без подъёма на смотровую площадку.",
+        "kk": "Монумент Өмір ағашы бейнесімен байланысты. Алдымен сыртынан оның «бұтақтары» мен алтын шарын бақылау алаңына көтерілмей тамашалаңыз.",
+        "en": "The monument is linked to the Tree of Life. Begin outside with its branching structure and golden sphere, without going up to the observation deck."
+      },
+      "coordinate": {
+        "state": "known",
+        "lat": 51.12828825,
+        "lon": 71.4304546,
+        "sourceIds": [
+          "catalog-bayterek"
+        ],
+        "kind": "place_point",
+        "verifiedEntrance": false,
+        "fieldVerified": false,
+        "note": "Existing T02 OSM bounding-box centre, explicitly not an entrance."
+      },
+      "photoId": "bayterek",
+      "sourceIds": [
+        "visit-map",
+        "catalog-bayterek"
+      ],
+      "catalogId": "osm:way/230401645",
+      "originalCatalogMatch": true,
+      "whyInteresting": {
+        "ru": "Монумент связан с образом Древа жизни. Рассмотрите снаружи его «ветви» и золотой шар — знакомство можно начать без подъёма на смотровую площадку.",
+        "kk": "Монумент Өмір ағашы бейнесімен байланысты. Алдымен сыртынан оның «бұтақтары» мен алтын шарын бақылау алаңына көтерілмей тамашалаңыз.",
+        "en": "The monument is linked to the Tree of Life. Begin outside with its branching structure and golden sphere, without going up to the observation deck."
+      },
+      "factsSources": [
+        {
+          "id": "visit-map",
+          "label": "Visit Astana: интерактивная карта и Байтерек",
+          "url": "https://www.visitastana.kz/ru/map/",
+          "checkedAt": "2026-10-20T16:16:41.554004Z",
+          "localEvidence": "source-evidence/visit-map.html",
+          "localEvidenceSha256": "f1c1902eed73ebb663db174996aedce45232346b0f75dd9101e36a4aa7ca3112"
+        },
+        {
+          "id": "catalog-bayterek",
+          "label": "OpenStreetMap: Байтерек, существующий T02 каталог",
+          "url": "https://www.openstreetmap.org/way/230401645",
+          "checkedAt": "2026-10-19T21:52:31.3613250Z",
+          "localEvidence": "../../outputs/AstanaAI/data/curated/poi-bayterek.json",
+          "license": "ODbL-1.0",
+          "attribution": "© OpenStreetMap contributors",
+          "localEvidenceSha256": "8526ee65b745d9eb007ee7cb594af004dc80dd1c0008d7732de372b34d56d033",
+          "locallyReviewedAt": "2026-10-20T16:16:41.554004Z"
+        }
+      ],
+      "hours": {
+        "state": "unknown",
+        "value": null,
+        "reason": "No current dated operator confirmation. Do not infer open now or promise indoor entry from tourism-page hours."
+      },
+      "visitMode": "outside_only",
+      "routeReady": false,
+      "copyReview": {
+        "ru": "source-checked-agent-draft",
+        "kk": "human-review-pending",
+        "en": "human-review-pending"
+      },
+      "editorialNote": "Short invitation/action is editorial; source-backed factual statements are cited. Outside-only does not guarantee unrestricted outdoor access."
+    },
+    {
+      "id": "khan-shatyr",
+      "category": "architecture",
+      "title": {
+        "ru": "Хан Шатыр",
+        "kk": "Хан Шатыр",
+        "en": "Khan Shatyr"
+      },
+      "summary": {
+        "ru": "Шатёр, который стал зданием",
+        "kk": "Ғимаратқа айналған шатыр",
+        "en": "A tent on the city skyline"
+      },
+      "why": {
+        "ru": "Торгово-развлекательный центр спроектирован Норманом Фостером. Его силуэт переосмысляет форму шатра; начните знакомство с внешнего облика.",
+        "kk": "Сауда және ойын-сауық орталығын Норман Фостер жобалаған. Оның сұлбасында шатыр пішіні жаңаша көрінеді; танысуды сыртқы көрінісінен бастаңыз.",
+        "en": "Designed by Norman Foster, the shopping and entertainment centre reinterprets the shape of a tent. Begin with the silhouette outside."
+      },
+      "coordinate": {
+        "state": "known",
+        "lat": 51.132671064951,
+        "lon": 71.403666537062,
+        "sourceIds": [
+          "visit-khan-shatyr"
+        ],
+        "kind": "place_point",
+        "verifiedEntrance": false,
+        "fieldVerified": false,
+        "note": "Published place point; not a surveyed entrance."
+      },
+      "photoId": "khan-shatyr",
+      "sourceIds": [
+        "visit-khan-shatyr"
+      ],
+      "coordinateEvidenceExpression": "new ymaps.Placemark([51.132671064951,71.403666537062],...)",
+      "originalCatalogMatch": false,
+      "whyInteresting": {
+        "ru": "Торгово-развлекательный центр спроектирован Норманом Фостером. Его силуэт переосмысляет форму шатра; начните знакомство с внешнего облика.",
+        "kk": "Сауда және ойын-сауық орталығын Норман Фостер жобалаған. Оның сұлбасында шатыр пішіні жаңаша көрінеді; танысуды сыртқы көрінісінен бастаңыз.",
+        "en": "Designed by Norman Foster, the shopping and entertainment centre reinterprets the shape of a tent. Begin with the silhouette outside."
+      },
+      "factsSources": [
+        {
+          "id": "visit-khan-shatyr",
+          "label": "Visit Astana: ТРЦ «Хан Шатыр»",
+          "url": "https://visitastana.kz/ru/about-city/what-to-see/trts-khan-shatyr/",
+          "checkedAt": "2026-10-20T16:16:41.554004Z",
+          "localEvidence": "source-evidence/visit-khan-shatyr.html",
+          "localEvidenceSha256": "3f97e60ea12f485cde6b86f601898afbe4a9e0c98deaec8d9bd015fc4b73cc41"
+        }
+      ],
+      "hours": {
+        "state": "unknown",
+        "value": null,
+        "reason": "No current dated operator confirmation. Do not infer open now or promise indoor entry from tourism-page hours."
+      },
+      "visitMode": "outside_only",
+      "routeReady": false,
+      "copyReview": {
+        "ru": "source-checked-agent-draft",
+        "kk": "human-review-pending",
+        "en": "human-review-pending"
+      },
+      "editorialNote": "Short invitation/action is editorial; source-backed factual statements are cited. Outside-only does not guarantee unrestricted outdoor access."
+    },
+    {
+      "id": "yesil-embankment",
+      "category": "river",
+      "title": {
+        "ru": "Набережная Есиля",
+        "kk": "Есіл жағалауы",
+        "en": "Yesil waterfront"
+      },
+      "summary": {
+        "ru": "Город с двух берегов",
+        "kk": "Екі жағалаудағы қала",
+        "en": "The city from the river"
+      },
+      "why": {
+        "ru": "На набережной Есиля встречаются река, мосты и городская панорама. Это повод рассмотреть Астану неспешно, во время прогулки снаружи.",
+        "kk": "Есіл жағалауынан өзен, көпірлер мен қала көрінісі ашылады. Бұл — Астанамен асықпай, жаяу танысуға себеп.",
+        "en": "The Yesil waterfront brings the river, bridges and skyline into one view. Discover Astana at walking pace, outdoors."
+      },
+      "coordinate": {
+        "state": "known",
+        "lat": 51.161151,
+        "lon": 71.420874,
+        "sourceIds": [
+          "commons-public-viewpoint"
+        ],
+        "kind": "published_viewpoint",
+        "verifiedEntrance": false,
+        "fieldVerified": false,
+        "note": "Photographer-published viewpoint by the Seruen bridge. Representative waterfront location only, not an official embankment entrance. This card photo is illustrative, not guaranteed to be taken at this point."
+      },
+      "photoId": "yesil-river",
+      "sourceIds": [
+        "visit-waterfront",
+        "commons-public-viewpoint"
+      ],
+      "originalCatalogMatch": false,
+      "whyInteresting": {
+        "ru": "На набережной Есиля встречаются река, мосты и городская панорама. Это повод рассмотреть Астану неспешно, во время прогулки снаружи.",
+        "kk": "Есіл жағалауынан өзен, көпірлер мен қала көрінісі ашылады. Бұл — Астанамен асықпай, жаяу танысуға себеп.",
+        "en": "The Yesil waterfront brings the river, bridges and skyline into one view. Discover Astana at walking pace, outdoors."
+      },
+      "factsSources": [
+        {
+          "id": "visit-waterfront",
+          "label": "Visit Astana: 24 и 48 часов в столице, набережная Астаны",
+          "url": "https://visitastana.kz/ru/about-city/24-and-48-hours-in-the-capital/",
+          "checkedAt": "2026-10-20T16:16:41.554004Z",
+          "localEvidence": "source-evidence/visit-24-hours.html",
+          "localEvidenceSha256": "8cdb7659b8d4f475003502766de29556abfb1cebccce686eb262921786797588"
+        },
+        {
+          "id": "commons-public-viewpoint",
+          "label": "Matti Blume: опубликованная точка съёмки моста Серуен на Есиле",
+          "url": "https://commons.wikimedia.org/wiki/File:Footbridge,_Astana_(P1190764).jpg",
+          "checkedAt": "2026-10-20T16:16:41.554004Z",
+          "localEvidence": "source-evidence/commons-viewpoint-metadata.json",
+          "note": "Published camera/viewpoint coordinate only; this source file was NOT downloaded as a photo. Not a surveyed entrance or routing anchor.",
+          "localEvidenceSha256": "2fc61931417de5e58ccce6be82b29ffa0ef08b73ec9372b329abda74ec791911"
+        }
+      ],
+      "hours": {
+        "state": "unknown",
+        "value": null,
+        "reason": "No current dated operator confirmation. Do not infer open now or promise indoor entry from tourism-page hours."
+      },
+      "visitMode": "outside_only",
+      "routeReady": false,
+      "copyReview": {
+        "ru": "source-checked-agent-draft",
+        "kk": "human-review-pending",
+        "en": "human-review-pending"
+      },
+      "editorialNote": "Short invitation/action is editorial; source-backed factual statements are cited. Outside-only does not guarantee unrestricted outdoor access."
+    }
+  ],
+  "photos": [
+    {
+      "id": "bayterek",
+      "optimizedPath": "photos/bayterek.jpg",
+      "mimeType": "image/jpeg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 268767,
+      "derivativeSha256": "dc04688689b145a0610789da5e7af904984a08d72d9f79e7c95e1d9e1d745f0d",
+      "originalSha256": "2bc1fd537fc3f898883183e72469e9073f1a6b5d2259a974c2a4120d001eb5c6",
+      "transform": {
+        "crop": "upper tower and golden sphere; base excluded for a landscape discovery card",
+        "cropBoxPixels": [
+          0,
+          300,
+          4000,
+          2967
+        ],
+        "cropBoxNormalized": [
+          0.0,
+          0.05,
+          1.0,
+          0.4945
+        ],
+        "exifOrientationApplied": false,
+        "color": "embedded ICC converted to sRGB",
+        "resizeFilter": "Pillow LANCZOS",
+        "jpegQuality": 94,
+        "progressive": true,
+        "subsampling": "4:2:0",
+        "metadataRemoved": "EXIF/IPTC/embedded camera position; attribution retained in manifest and credits",
+        "aiGenerated": false,
+        "contentEdits": false
+      },
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Baiterek_August.jpg",
+      "filePagePermanentUrl": "https://commons.wikimedia.org/w/index.php?title=File%3ABaiterek_August.jpg&oldid=1190467862",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Baiterek_August.jpg",
+      "originalPath": "originals/bayterek.jpg",
+      "originalBytes": 14889469,
+      "originalWidth": 4000,
+      "originalHeight": 6000,
+      "originalSha1": "934625502d4ccf4f1982b3e1e5a09e2c3107d579",
+      "photographer": "Quarot",
+      "photographerUrl": "https://commons.wikimedia.org/wiki/User:Quarot",
+      "photoDateReported": "2025-08-20",
+      "checkedAt": "2026-10-20T16:11:02.054287Z",
+      "licenseId": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "derivativeLicenseId": "CC0-1.0",
+      "attribution": "Фото: Quarot · CC0",
+      "creditLine": "Baiterek August.jpg — Quarot, CC0. Cropped to the upper tower and sphere; resized and recompressed.",
+      "changes": "Cropped to the upper tower and sphere; resized and recompressed.",
+      "alt": {
+        "ru": "Верхняя часть Байтерека и золотой шар",
+        "kk": "Бәйтеректің жоғарғы бөлігі мен алтын шары",
+        "en": "Upper part of Baiterek and its golden sphere"
+      },
+      "photographerLicenseVerified": true,
+      "publicReleaseApproved": false,
+      "localPrivateReviewCandidate": true,
+      "releaseLimitation": "Modern architecture rights are not established by the photograph CC0 license; Root release review pending.",
+      "visualReview": "reviewed-actual-pixels-2026-10-20"
+    },
+    {
+      "id": "khan-shatyr",
+      "optimizedPath": "photos/khan-shatyr.jpg",
+      "mimeType": "image/jpeg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 241205,
+      "derivativeSha256": "a59b22b5e294cd6ed8e062a97c4ef07a131ffe79a432859a09bb6323e599345e",
+      "originalSha256": "6bc6c9d292ad53540d4c06879b6b5c851bae3fde56768183a2ba15001521042d",
+      "transform": {
+        "crop": "none-full-frame",
+        "cropBoxPixels": [
+          0,
+          0,
+          6000,
+          4000
+        ],
+        "cropBoxNormalized": [
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "exifOrientationApplied": false,
+        "color": "RGB conversion; no embedded ICC profile",
+        "resizeFilter": "Pillow LANCZOS",
+        "jpegQuality": 90,
+        "progressive": true,
+        "subsampling": "4:2:0",
+        "metadataRemoved": "EXIF/IPTC/embedded camera position; attribution retained in manifest and credits",
+        "aiGenerated": false,
+        "contentEdits": false
+      },
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Khan_Shatyr.jpg",
+      "filePagePermanentUrl": "https://commons.wikimedia.org/w/index.php?title=File%3AKhan_Shatyr.jpg&oldid=1190500546",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Khan_Shatyr.jpg",
+      "originalPath": "originals/khan-shatyr.jpg",
+      "originalBytes": 6622776,
+      "originalWidth": 6000,
+      "originalHeight": 4000,
+      "originalSha1": "2f070fd1751203fe1b799123c2bbae224998a310",
+      "photographer": "Quarot",
+      "photographerUrl": "https://commons.wikimedia.org/wiki/User:Quarot",
+      "photoDateReported": "2025-08-20 08:56:03",
+      "checkedAt": "2026-10-20T16:11:02.054287Z",
+      "licenseId": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "derivativeLicenseId": "CC0-1.0",
+      "attribution": "Фото: Quarot · CC0",
+      "creditLine": "Khan Shatyr.jpg — Quarot, CC0. Resized and recompressed; full frame retained.",
+      "changes": "Resized and recompressed; full frame retained.",
+      "alt": {
+        "ru": "Шатровый силуэт Хан Шатыра",
+        "kk": "Хан Шатырдың шатыр пішінді сыртқы көрінісі",
+        "en": "Khan Shatyr's tent-shaped exterior"
+      },
+      "photographerLicenseVerified": true,
+      "publicReleaseApproved": false,
+      "localPrivateReviewCandidate": true,
+      "releaseLimitation": "Modern architecture rights are not established by the photograph CC0 license; Root release review pending.",
+      "visualReview": "reviewed-actual-pixels-2026-10-20"
+    },
+    {
+      "id": "yesil-river",
+      "optimizedPath": "photos/yesil-river.jpg",
+      "mimeType": "image/jpeg",
+      "width": 1440,
+      "height": 1080,
+      "bytes": 253753,
+      "derivativeSha256": "8e4478dc5b77cde07a0336dfc9575873bd34c3623f510b4432df52a0eb7dfc41",
+      "originalSha256": "33d259f7ce939c38c48763289434a202ec0f4fc677c0a91c024075b5881476c2",
+      "transform": {
+        "crop": "none-full-frame",
+        "cropBoxPixels": [
+          0,
+          0,
+          4032,
+          3024
+        ],
+        "cropBoxNormalized": [
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "exifOrientationApplied": false,
+        "color": "embedded ICC converted to sRGB",
+        "resizeFilter": "Pillow LANCZOS",
+        "jpegQuality": 88,
+        "progressive": true,
+        "subsampling": "4:2:0",
+        "metadataRemoved": "EXIF/IPTC/embedded camera position; attribution retained in manifest and credits",
+        "aiGenerated": false,
+        "contentEdits": false
+      },
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ishim_River,_Astana.jpg",
+      "filePagePermanentUrl": "https://commons.wikimedia.org/w/index.php?title=File%3AIshim_River%2C_Astana.jpg&oldid=976450900",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Ishim_River%2C_Astana.jpg",
+      "originalPath": "originals/yesil-river.jpg",
+      "originalBytes": 1821514,
+      "originalWidth": 4032,
+      "originalHeight": 3024,
+      "originalSha1": "658db278b2a5322f4098e1e5524eff05cec4c639",
+      "photographer": "Nikolamikovic82",
+      "photographerUrl": "https://commons.wikimedia.org/wiki/User:Nikolamikovic82",
+      "photoDateReported": "2024-07-06 12:07:35",
+      "checkedAt": "2026-10-20T16:11:02.054287Z",
+      "licenseId": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "derivativeLicenseId": "CC0-1.0",
+      "attribution": "Фото: Nikolamikovic82 · CC0",
+      "creditLine": "Ishim River, Astana.jpg — Nikolamikovic82, CC0. Resized and recompressed; full frame retained.",
+      "changes": "Resized and recompressed; full frame retained.",
+      "alt": {
+        "ru": "Есиль, мост и городская панорама",
+        "kk": "Есіл өзені, көпір және қала көрінісі",
+        "en": "The Yesil River, a bridge and the city skyline"
+      },
+      "photographerLicenseVerified": true,
+      "publicReleaseApproved": false,
+      "localPrivateReviewCandidate": true,
+      "releaseLimitation": "Root adoption/reuse review pending; photograph license and credits verified. No additional restriction was asserted from the file page.",
+      "visualReview": "reviewed-actual-pixels-2026-10-20"
+    },
+    {
+      "id": "seifullin-museum",
+      "optimizedPath": "photos/seifullin-museum.jpg",
+      "mimeType": "image/jpeg",
+      "width": 1440,
+      "height": 960,
+      "bytes": 346474,
+      "derivativeSha256": "7ab1416c3dcf1507b2751e56952138719322009721d69b7f242984d103632233",
+      "originalSha256": "dc16a7196af651551974a3b149c025c9d4d1d8bac58b2acb7c3bd129bab71a84",
+      "transform": {
+        "crop": "none-full-frame",
+        "cropBoxPixels": [
+          0,
+          0,
+          7952,
+          5304
+        ],
+        "cropBoxNormalized": [
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "exifOrientationApplied": false,
+        "color": "RGB conversion; no embedded ICC profile",
+        "resizeFilter": "Pillow LANCZOS",
+        "jpegQuality": 86,
+        "progressive": true,
+        "subsampling": "4:2:0",
+        "metadataRemoved": "EXIF/IPTC/embedded camera position; attribution retained in manifest and credits",
+        "aiGenerated": false,
+        "contentEdits": false
+      },
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Seifullin_Museum_Nur-Sultan.jpg",
+      "filePagePermanentUrl": "https://commons.wikimedia.org/w/index.php?title=File%3ASeifullin_Museum_Nur-Sultan.jpg&oldid=955291797",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Seifullin_Museum_Nur-Sultan.jpg",
+      "originalPath": "originals/seifullin-museum.jpg",
+      "originalBytes": 8712108,
+      "originalWidth": 7952,
+      "originalHeight": 5304,
+      "originalSha1": "19a3e8f832ce853f067c60a3c3784a9369de60ff",
+      "photographer": "Yakov Fedorov",
+      "photographerUrl": "https://commons.wikimedia.org/wiki/User:Mheidegger",
+      "photoDateReported": "2020-07-01 19:23:57",
+      "checkedAt": "2026-10-20T16:11:02.054287Z",
+      "licenseId": "CC-BY-SA-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "derivativeLicenseId": "CC-BY-SA-4.0",
+      "attribution": "Фото: Yakov Fedorov · CC BY-SA 4.0",
+      "creditLine": "Seifullin Museum Nur-Sultan.jpg — Yakov Fedorov, CC BY-SA 4.0. Resized and recompressed; full frame retained.",
+      "changes": "Resized and recompressed; full frame retained.",
+      "alt": {
+        "ru": "Деревянный фасад музея Сакена Сейфуллина",
+        "kk": "Сәкен Сейфуллин музейінің ағаш қасбеті",
+        "en": "The wooden facade of the Saken Seifullin Museum"
+      },
+      "photographerLicenseVerified": true,
+      "publicReleaseApproved": false,
+      "localPrivateReviewCandidate": true,
+      "releaseLimitation": "Root adoption/reuse review pending; photograph license and credits verified. No additional restriction was asserted from the file page.",
+      "visualReview": "reviewed-actual-pixels-2026-10-20"
+    },
+    {
+      "id": "gorky-theatre",
+      "optimizedPath": "photos/gorky-theatre.jpg",
+      "mimeType": "image/jpeg",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 253076,
+      "derivativeSha256": "c74611766ae9565b2df0ab610d77b3157b7108d7a90d4a20a0ce58621be42599",
+      "originalSha256": "0659195061af506737f07bc15586ba5569d7d99a20cc160c49d8d32bb36363fa",
+      "transform": {
+        "crop": "none-full-frame",
+        "cropBoxPixels": [
+          0,
+          0,
+          7952,
+          5304
+        ],
+        "cropBoxNormalized": [
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "exifOrientationApplied": false,
+        "color": "RGB conversion; no embedded ICC profile",
+        "resizeFilter": "Pillow LANCZOS",
+        "jpegQuality": 86,
+        "progressive": true,
+        "subsampling": "4:2:0",
+        "metadataRemoved": "EXIF/IPTC/embedded camera position; attribution retained in manifest and credits",
+        "aiGenerated": false,
+        "contentEdits": false
+      },
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gorky_Drama_Theatre_Nur-Sultan.jpg",
+      "filePagePermanentUrl": "https://commons.wikimedia.org/w/index.php?title=File%3AGorky_Drama_Theatre_Nur-Sultan.jpg&oldid=986451762",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Gorky_Drama_Theatre_Nur-Sultan.jpg",
+      "originalPath": "originals/gorky-theatre.jpg",
+      "originalBytes": 4463501,
+      "originalWidth": 7952,
+      "originalHeight": 5304,
+      "originalSha1": "4d3ae6c6ac52b03ce82e643c7dee1b8940ce1203",
+      "photographer": "Yakov Fedorov",
+      "photographerUrl": "https://commons.wikimedia.org/wiki/User:Mheidegger",
+      "photoDateReported": "2020-07-01 20:42:13",
+      "checkedAt": "2026-10-20T16:11:02.054287Z",
+      "licenseId": "CC-BY-SA-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "derivativeLicenseId": "CC-BY-SA-4.0",
+      "attribution": "Фото: Yakov Fedorov · CC BY-SA 4.0",
+      "creditLine": "Gorky Drama Theatre Nur-Sultan.jpg — Yakov Fedorov, CC BY-SA 4.0. Resized and recompressed; full frame retained.",
+      "changes": "Resized and recompressed; full frame retained.",
+      "alt": {
+        "ru": "Голубой фасад театра имени Горького",
+        "kk": "Горький атындағы театрдың көгілдір қасбеті",
+        "en": "The blue facade of the Gorky Drama Theatre"
+      },
+      "photographerLicenseVerified": true,
+      "publicReleaseApproved": false,
+      "localPrivateReviewCandidate": true,
+      "releaseLimitation": "Root adoption/reuse review pending; photograph license and credits verified. No additional restriction was asserted from the file page.",
+      "visualReview": "reviewed-actual-pixels-2026-10-20"
+    }
+  ],
+  "sources": {
+    "catalog-bayterek": {
+      "label": "OpenStreetMap: Байтерек, существующий T02 каталог",
+      "url": "https://www.openstreetmap.org/way/230401645",
+      "checkedAt": "2026-10-19T21:52:31.3613250Z",
+      "localEvidence": "../../outputs/AstanaAI/data/curated/poi-bayterek.json",
+      "license": "ODbL-1.0",
+      "attribution": "© OpenStreetMap contributors",
+      "localEvidenceSha256": "8526ee65b745d9eb007ee7cb594af004dc80dd1c0008d7732de372b34d56d033",
+      "locallyReviewedAt": "2026-10-20T16:16:41.554004Z"
+    },
+    "visit-map": {
+      "label": "Visit Astana: интерактивная карта и Байтерек",
+      "url": "https://www.visitastana.kz/ru/map/",
+      "checkedAt": "2026-10-20T16:16:41.554004Z",
+      "localEvidence": "source-evidence/visit-map.html",
+      "localEvidenceSha256": "f1c1902eed73ebb663db174996aedce45232346b0f75dd9101e36a4aa7ca3112"
+    },
+    "visit-khan-shatyr": {
+      "label": "Visit Astana: ТРЦ «Хан Шатыр»",
+      "url": "https://visitastana.kz/ru/about-city/what-to-see/trts-khan-shatyr/",
+      "checkedAt": "2026-10-20T16:16:41.554004Z",
+      "localEvidence": "source-evidence/visit-khan-shatyr.html",
+      "localEvidenceSha256": "3f97e60ea12f485cde6b86f601898afbe4a9e0c98deaec8d9bd015fc4b73cc41"
+    },
+    "visit-seifullin": {
+      "label": "Visit Astana: Государственный музей имени С. Сейфуллина",
+      "url": "https://visitastana.kz/ru/about-city/what-to-see/gosudarstvennyy-muzey-imeni-s-seyfullina/",
+      "checkedAt": "2026-10-20T16:16:41.554004Z",
+      "localEvidence": "source-evidence/visit-seifullin.html",
+      "localEvidenceSha256": "b04ca643f117f2f3fc2008f9a4692a8f4c7181416e8cbf7c548360c6e80c9d92"
+    },
+    "visit-gorky": {
+      "label": "Visit Astana: театр драмы имени М. Горького",
+      "url": "https://www.visitastana.kz/ru/about-city/what-to-see/gosudarstvennyy-akademicheskiy-russkiy-teatr-dramy-imeni-m-gorkogo/",
+      "checkedAt": "2026-10-20T16:16:41.554004Z",
+      "localEvidence": "source-evidence/visit-gorky.html",
+      "localEvidenceSha256": "c36d1c5ec567bedb4030d6fe5fb33cde387ff01f0d585b33ef0a0e9013290064"
+    },
+    "gorky-operator": {
+      "label": "Театр имени Горького: официальный сайт, основан в 1899 году",
+      "url": "https://gorkytheatre.kz/about",
+      "checkedAt": "2026-10-20T16:16:41.554004Z",
+      "localEvidence": "source-evidence/gorky-operator-about.html",
+      "localEvidenceSha256": "0781fe92576466393825c4038a7b89220c1e04586432284c2596bd76e2143544"
+    },
+    "visit-waterfront": {
+      "label": "Visit Astana: 24 и 48 часов в столице, набережная Астаны",
+      "url": "https://visitastana.kz/ru/about-city/24-and-48-hours-in-the-capital/",
+      "checkedAt": "2026-10-20T16:16:41.554004Z",
+      "localEvidence": "source-evidence/visit-24-hours.html",
+      "localEvidenceSha256": "8cdb7659b8d4f475003502766de29556abfb1cebccce686eb262921786797588"
+    },
+    "commons-public-viewpoint": {
+      "label": "Matti Blume: опубликованная точка съёмки моста Серуен на Есиле",
+      "url": "https://commons.wikimedia.org/wiki/File:Footbridge,_Astana_(P1190764).jpg",
+      "checkedAt": "2026-10-20T16:16:41.554004Z",
+      "localEvidence": "source-evidence/commons-viewpoint-metadata.json",
+      "note": "Published camera/viewpoint coordinate only; this source file was NOT downloaded as a photo. Not a surveyed entrance or routing anchor.",
+      "localEvidenceSha256": "2fc61931417de5e58ccce6be82b29ffa0ef08b73ec9372b329abda74ec791911"
+    }
+  },
+  "knownLimitations": [
+    "Four places are a primary-source supplement outside the existing twenty-card T02 catalogue; no shared catalogue was changed.",
+    "Coordinates are published place/viewpoint locations, not surveyed entrances or routable walking anchors.",
+    "No indoor hours, ticket, open-now, free-entry, route-distance or accessibility guarantee is made.",
+    "KK/EN human linguistic review and independent Root factual/visual/adoption review remain pending.",
+    "Modern architectural rights remain a release limitation separate from the verified photographer licenses."
+  ],
+  "rejectedPhoto": {
+    "title": "File:Astana-2021-10 - 12.jpg",
+    "reason": "Actual pixels show the square near Baiterek, but the monument itself is absent. Rejected to prevent a misleading card.",
+    "originalSha256": "5fd4579e731ebef96ff5ca16ff7c69727b550ef85716c390edc447c0bbdae56a",
+    "path": "rejected/square-near-bayterek-not-monument.original.jpg"
+  },
+  "downloadedDistinctPhotoCount": 6,
+  "reviewCandidatePhotoCount": 5,
+  "generativeImagesUsed": false,
+  "purchases": 0,
+  "paidApiCalls": 0
+}

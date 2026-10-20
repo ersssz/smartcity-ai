@@ -37,6 +37,7 @@ export const ProgressSchema = z.object({
   schemaVersion: z.literal(2), sessionId: IdSchema, bundleHash: Sha256Schema, bundleRevision: z.number().int().positive(),
   phase: z.enum(['prepared', 'active', 'paused', 'completed', 'abandoned']), version: z.number().int().nonnegative(),
   currentStopIndex: z.number().int().nonnegative(), manualStopIds: z.array(IdSchema), completedStopIds: z.array(IdSchema), skippedStopIds: z.array(IdSchema),
+  readStopIds: z.array(IdSchema).default([]),
   answers: z.record(IdSchema, z.object({ choiceId: IdSchema, correct: z.boolean() }).strict()),
   startedAt: InstantSchema.nullable(), updatedAt: InstantSchema,
 }).strict();
@@ -46,6 +47,7 @@ export const CommandSchema = z.object({
   action: z.discriminatedUnion('type', [
     z.object({ type: z.literal('start') }).strict(), z.object({ type: z.literal('pause') }).strict(), z.object({ type: z.literal('resume') }).strict(),
     z.object({ type: z.literal('mark_stop'), stopId: IdSchema }).strict(),
+    z.object({ type: z.literal('read_story'), stopId: IdSchema }).strict(),
     z.object({ type: z.literal('answer'), stopId: IdSchema, choiceId: IdSchema }).strict(),
     z.object({ type: z.literal('continue'), stopId: IdSchema }).strict(), z.object({ type: z.literal('skip'), stopId: IdSchema }).strict(),
     z.object({ type: z.literal('confirm_end') }).strict(), z.object({ type: z.literal('abandon') }).strict(),

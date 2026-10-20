@@ -50,6 +50,7 @@ export type UiWalkSession = {
   phase: 'ready' | 'active' | 'paused' | 'completed';
   currentStopIndex: number;
   completedStopIds: string[];
+  readStopIds?: string[];
   skippedStopIds: string[];
   manualStopIds: string[];
   answers: Record<string, { choiceId: string; correct: boolean; feedback: string }>;
@@ -92,10 +93,15 @@ export type WalkExperienceProps = {
   onOpenCity?: () => void;
   onOpenCanonical?: () => void;
   onBackToSaved?: () => void;
+  onBackToSavedLabel?: string;
+  storyOnly?: boolean;
+  onFinishStory?: (stopId: string) => void;
 };
 
 const COPY = {
   ru: {
+    storyAgain: 'Пройти ещё раз', storyStopped: 'Прогулка остановлена', storyStoppedBody: 'Прогресс сохранён. Вернитесь к местам или начните прогулку заново, когда захотите.',
+    storyVisit: 'истории', storyItinerary: 'Короткие истории у реальных мест. Читайте или слушайте в своём темпе.', storyRead: 'Историю прочитал · дальше →', storyReadDone: 'История прочитана', storyViewed: 'историй прочитано', storyPreview: 'Предварительный просмотр истории.', storyFinished: 'Прогулка завершена', storyClosing: 'Спасибо за прогулку. В Астане осталось ещё много историй — возвращайтесь за следующим открытием.', places: 'К местам', storyMapOnline: 'Карта загружается из интернета. Истории и линия маршрута сохранены на телефоне.',
     abandon: 'Завершить досрочно',
     freshWalk: 'Новая прогулка · со звуком', backSaved: 'К сохранённой прогулке', listenQuestion: 'Послушать задание', listenHint: 'Послушать подсказку', listenExplanation: 'Послушать объяснение',
     city: 'АСТАНА · ГОРОДСКИЕ ИСТОРИИ', explore: 'Исследовать', journal: 'Мой журнал',
@@ -122,6 +128,8 @@ const COPY = {
     expand: 'Развернуть карточку', collapse: 'Свернуть к карте', search: 'Остановка этой прогулки', noSearchResults: 'В этой прогулке нет такой остановки', map: 'Карта', current: 'Сейчас', more: 'Маршрут и главы',
   },
   kk: {
+    storyAgain: 'Тағы бір рет өту', storyStopped: 'Серуен тоқтатылды', storyStoppedBody: 'Ілгерілеу сақталды. Қаласаңыз, орындарға оралыңыз немесе серуенді қайта бастаңыз.',
+    storyVisit: 'хикаялар', storyItinerary: 'Нақты орындардағы қысқа хикаялар. Өз қарқыныңызбен оқыңыз немесе тыңдаңыз.', storyRead: 'Хикаяны оқыдым · әрі қарай →', storyReadDone: 'Хикая оқылды', storyViewed: 'хикая оқылды', storyPreview: 'Хикаяны алдын ала қарау.', storyFinished: 'Серуен аяқталды', storyClosing: 'Серуендегеніңізге рақмет. Астанада әлі талай хикая бар — келесі жаңалық үшін қайта оралыңыз.', places: 'Орындарға', storyMapOnline: 'Карта интернеттен жүктеледі. Хикаялар мен маршрут сызығы телефонда сақталған.',
     abandon: 'Мерзімінен бұрын аяқтау',
     freshWalk: 'Жаңа серуен · дыбыспен', backSaved: 'Сақталған серуенге', listenQuestion: 'Тапсырманы тыңдау', listenHint: 'Көмекті тыңдау', listenExplanation: 'Түсіндірмені тыңдау',
     city: 'АСТАНА · ҚАЛА ХИКАЯЛАРЫ', explore: 'Зерттеу', journal: 'Менің күнделігім',
@@ -148,6 +156,8 @@ const COPY = {
     expand: 'Карточканы ашу', collapse: 'Картаға жинау', search: 'Осы серуеннің аялдамасы', noSearchResults: 'Бұл серуенде мұндай аялдама жоқ', map: 'Карта', current: 'Қазір', more: 'Маршрут пен тараулар',
   },
   en: {
+    storyAgain: 'Walk again', storyStopped: 'Walk stopped', storyStoppedBody: 'Your progress is saved. Return to places or start the walk again when you wish.',
+    storyVisit: 'stories', storyItinerary: 'Short stories at real places. Read or listen at your own pace.', storyRead: 'I read the story · next →', storyReadDone: 'Story read', storyViewed: 'stories read', storyPreview: 'A preview of this story.', storyFinished: 'Walk completed', storyClosing: 'Thank you for walking. Astana has many more stories — come back for your next discovery.', places: 'Back to places', storyMapOnline: 'The map loads from the internet. Stories and the route line are saved on your phone.',
     abandon: 'End this walk early',
     freshWalk: 'New walk · with narration', backSaved: 'Back to the saved walk', listenQuestion: 'Listen to the quest', listenHint: 'Listen to the hint', listenExplanation: 'Listen to the explanation',
     city: 'ASTANA · CITY STORIES', explore: 'Explore', journal: 'My journal',
@@ -246,6 +256,7 @@ function StopSources({ stop, labels }: { stop: UiWalkStop; labels: Labels }) {
 
 export default function WalkExperience(props: WalkExperienceProps) {
   const { walk, session, locale, busy = false, error, audio } = props;
+  const storyOnly = props.storyOnly === true;
   const t = COPY[locale];
   const ending = walk.ending ?? { kind: 'return_to_start', label: t.returning, title: t.returnTitle, body: t.returnBody, confirmLabel: t.confirmReturn, tabLabel: t.returnTab };
   const [tab, setTab] = useState<'explore' | 'journal'>('explore');
@@ -263,20 +274,22 @@ export default function WalkExperience(props: WalkExperienceProps) {
   const returning = inSession && session.currentStopIndex === walk.stops.length;
   const showReturn = returning && selectedIndex >= walk.stops.length;
   const stop = walk.stops[selectedIndex] ?? walk.stops[session.currentStopIndex] ?? walk.stops[0];
-  const doneCount = session.completedStopIds.length;
-  const fullCompletion = isComplete && !session.abandoned && doneCount === walk.stops.length;
+  const finishedIds = new Set(storyOnly ? [...(session.readStopIds ?? []), ...session.completedStopIds] : session.completedStopIds);
+  const doneCount = storyOnly ? walk.stops.filter(item => finishedIds.has(item.id)).length : session.completedStopIds.length;
+  const fullCompletion = !storyOnly && isComplete && !session.abandoned && doneCount === walk.stops.length;
   const hasSavedDiscoveries = !!props.discoveries?.length;
   const answer = stop ? session.answers[stop.id] : undefined;
   const marked = stop ? session.manualStopIds.includes(stop.id) : false;
   const skipped = stop ? session.skippedStopIds.includes(stop.id) : false;
-  const stopDone = stop ? session.completedStopIds.includes(stop.id) : false;
+  const stopDone = stop ? finishedIds.has(stop.id) : false;
   const currentStop = stop?.id === walk.stops[session.currentStopIndex]?.id;
   const canAct = !busy && session.phase === 'active' && currentStop;
-  const journalShown = tab === 'journal';
+  const journalShown = !storyOnly && tab === 'journal';
   const { height: viewportHeight } = useWindowDimensions();
   const bottomInset = Math.max(20, props.bottomInset ?? (Platform.OS === 'ios' ? 28 : 48));
   const navigationHeight = 56 + bottomInset;
-  const footerHeight = navigationHeight + (inSession ? 64 : 0);
+  const storyReadFooter = storyOnly && inSession && !returning;
+  const footerHeight = navigationHeight + (inSession ? storyReadFooter ? 120 : 64 : 0);
   const collapsedHeight = 204;
   const sheetHeight = Math.max(260, viewportHeight - footerHeight - Math.max(154, viewportHeight * 0.2));
   const collapsedOffset = Math.max(0, sheetHeight - collapsedHeight);
@@ -323,12 +336,14 @@ export default function WalkExperience(props: WalkExperienceProps) {
     `${item.title} ${item.kicker}`.toLocaleLowerCase(locale).includes(query.trim().toLocaleLowerCase(locale))), [walk.stops, locale, query]);
 
   useEffect(() => {
+    if (storyOnly && session.phase === 'active' && previousPhase.current === 'ready') scrollRef.current?.scrollTo({ y: 0, animated: false });
     if (session.phase === 'completed') {
-      if (previousPhase.current !== 'completed') { setTab('journal'); settleSheetRef.current(true); }
+      if (previousPhase.current !== 'completed') { setTab(storyOnly ? 'explore' : 'journal'); settleSheetRef.current(true); }
       setSelectedIndex(0);
     } else setSelectedIndex(session.currentStopIndex);
     previousPhase.current = session.phase;
-  }, [session.currentStopIndex, session.phase]);
+  }, [session.currentStopIndex, session.phase, storyOnly]);
+  useEffect(() => { if (storyOnly) scrollRef.current?.scrollTo({ y: 0, animated: false }); }, [session.currentStopIndex, storyOnly]);
   useEffect(() => { setHintShown(false); setSourcesShown(false); }, [stop?.id]);
   useEffect(() => { setAnchorChosen(false); setDetail(false); setPreparedPlace(false); }, [walk.id]);
   const go = (nextTab: 'explore' | 'journal') => { setTab(nextTab); settleSheet(nextTab === 'journal'); scrollRef.current?.scrollTo({ y: 0, animated: true }); };
@@ -358,7 +373,7 @@ export default function WalkExperience(props: WalkExperienceProps) {
       {props.onOpenCity && <Pressable accessibilityRole="button" disabled={busy} accessibilityState={{ disabled: busy }} onPress={props.onOpenCity} style={s.cityButton}><Text style={s.cityButtonText}>{({ ru: 'О городе ↗', kk: 'Қала туралы ↗', en: 'City guide ↗' })[locale]}</Text></Pressable>}
     </View>}
     {!searchFocused && props.onOpenCanonical && <Pressable accessibilityRole="button" disabled={busy} accessibilityState={{ disabled: busy }} onPress={props.onOpenCanonical} style={s.freshWalkButton}><Text style={s.freshWalkText}>✦  {t.freshWalk}  →</Text></Pressable>}
-    {!searchFocused && props.onBackToSaved && <Pressable accessibilityRole="button" disabled={busy} accessibilityState={{ disabled: busy }} onPress={props.onBackToSaved} style={s.savedWalkButton}><Text style={s.cityButtonText}>← {t.backSaved}</Text></Pressable>}
+    {!searchFocused && props.onBackToSaved && <Pressable accessibilityRole="button" disabled={busy} accessibilityState={{ disabled: busy }} onPress={props.onBackToSaved} style={s.savedWalkButton}><Text style={s.cityButtonText}>← {props.onBackToSavedLabel ?? (storyOnly ? t.places : t.backSaved)}</Text></Pressable>}
     </View>
     <Animated.View style={[s.sheet, { bottom: footerHeight, height: sheetHeight, transform: [{ translateY: sheetOffset }] }]}>
       <View {...drag.panHandlers} style={s.sheetHandleArea}>
@@ -367,7 +382,7 @@ export default function WalkExperience(props: WalkExperienceProps) {
       <View style={s.sheetSummary}>
         <View style={s.summaryTop}><Text numberOfLines={1} style={[s.eyebrow, s.flex]}>{journalShown ? t.local : showReturn ? ending.label : isPrepared ? walk.eyebrow : isComplete ? session.abandoned ? t.partial : t.completed : session.phase === 'paused' ? t.paused : `${t.current} · ${stop?.title ?? walk.title}`}</Text>{busy && <ActivityIndicator size="small" color={COLORS.ink} />}</View>
         <Text accessibilityRole="header" numberOfLines={expanded ? 1 : 2} style={s.summaryTitle}>{journalShown ? t.journal : showReturn ? ending.title : isPrepared && preparedPlace && stop ? stop.title : walk.title}</Text>
-        <View style={s.summaryMetrics}><Text style={s.summaryMetric}>{walk.minutes} {t.minutes}</Text><Text style={s.summaryMetricDot}>·</Text><Text style={s.summaryMetric}>{(walk.distanceMeters / 1000).toLocaleString(locale, { maximumFractionDigits: 1 })} {t.km}</Text><Text style={s.summaryMetricDot}>·</Text><Text style={s.summaryMetric}>{isPrepared ? `${walk.stops.length} ${t.stops}` : `${doneCount}/${walk.stops.length} ${t.viewed}`}</Text></View>
+        <View style={s.summaryMetrics}><Text style={s.summaryMetric}>{walk.minutes} {t.minutes}</Text><Text style={s.summaryMetricDot}>·</Text><Text style={s.summaryMetric}>{(walk.distanceMeters / 1000).toLocaleString(locale, { maximumFractionDigits: 1 })} {t.km}</Text><Text style={s.summaryMetricDot}>·</Text><Text style={s.summaryMetric}>{isPrepared ? `${walk.stops.length} ${t.stops}` : `${doneCount}/${walk.stops.length} ${storyOnly ? t.storyViewed : t.viewed}`}</Text></View>
         {!expanded && <Button compact label={journalShown ? t.journal : isPrepared ? t.preview : t.more} onPress={() => settleSheet(true)} />}
       </View>
     <ScrollView ref={scrollRef} style={[s.sheetScroll, !expanded && s.hiddenSheetContent]} scrollEnabled={expanded} pointerEvents={expanded ? 'auto' : 'none'} importantForAccessibility={expanded ? 'auto' : 'no-hide-descendants'} contentContainerStyle={s.scrollContent} showsVerticalScrollIndicator={false}>
@@ -399,13 +414,19 @@ export default function WalkExperience(props: WalkExperienceProps) {
           {!isComplete && <Button label={t.returnToRoute} onPress={() => go('explore')} />}
           {isComplete && <Button label={t.restart} disabled={busy} onPress={() => { setTab('explore'); setAnchorChosen(false); setDetail(true); setPreparedPlace(false); props.onRestart(); }} />}
         </View>
+      </View> : storyOnly && isComplete ? <View style={s.section}>
+        <Eyebrow>{session.abandoned ? t.storyStopped : t.completed}</Eyebrow><Text accessibilityRole="header" style={s.storyTitle}>{session.abandoned ? t.storyStopped : t.storyFinished}</Text>
+        <Text style={s.body}>{session.abandoned ? t.storyStoppedBody : session.statusMessage ?? t.storyClosing}</Text>
+        <View style={s.budget}><Text style={s.budgetValue}>{doneCount} / {walk.stops.length} {t.storyViewed}</Text></View>
+        <Button label={t.storyAgain} onPress={() => { setTab('explore'); setAnchorChosen(false); setDetail(true); setPreparedPlace(false); props.onRestart(); }} disabled={busy} />
+        {props.onBackToSaved && <Button label={props.onBackToSavedLabel ?? t.places} onPress={props.onBackToSaved} disabled={busy} />}
       </View> : isPrepared ? <View>
         <View style={s.section}>
           {preparedPlace && stop && <View style={s.placePreview}>
             <View style={s.placePreviewHeading}><View style={s.stopNumber}><Text style={s.stopNumberLabel}>{String(selectedIndex + 1).padStart(2, '0')}</Text></View><View style={s.flex}><Text style={s.stopKicker}>{stop.kicker}</Text><Text accessibilityRole="header" style={s.cardTitle}>{stop.title}</Text></View></View>
             <Text style={s.storyTitle}>{stop.storyTitle}</Text><Text style={s.storyBody}>{stop.story.split('\n\n')[0]}</Text>
             <View style={s.observation}><Eyebrow>{t.look}</Eyebrow><Text style={s.observationText}>{stop.observation}</Text></View>
-            <Text style={s.meta}>{stop.minutes} {t.minutes} · {t.previewChapter}</Text>
+            <Text style={s.meta}>{stop.minutes} {t.minutes} · {storyOnly ? t.storyPreview : t.previewChapter}</Text>
             <Button tone="secondary" label={t.sources} onPress={() => setSourcesShown(value => !value)} />
             {sourcesShown && <StopSources stop={stop} labels={t} />}
             <Button tone="quiet" label={t.back} onPress={() => { setPreparedPlace(false); setSourcesShown(false); scrollRef.current?.scrollTo({ y: 0, animated: true }); }} />
@@ -414,11 +435,11 @@ export default function WalkExperience(props: WalkExperienceProps) {
           <Text style={s.body}>{walk.description}</Text>
           {!detail ? <Button label={t.preview} onPress={() => { setDetail(true); scrollRef.current?.scrollTo({ y: 0, animated: true }); }} /> : <>
             <View style={s.budget}>
-              {[[t.walk, walk.walkMinutes], [t.visit, walk.visitMinutes], [t.reserve, walk.reserveMinutes]].map(([label, value]) => <View key={label} style={s.budgetRow}><Text style={s.meta}>{label}</Text><Text style={s.budgetValue}>{value} {t.minutes}</Text></View>)}
+              {[[t.walk, walk.walkMinutes], [storyOnly ? t.storyVisit : t.visit, walk.visitMinutes], [t.reserve, walk.reserveMinutes]].map(([label, value]) => <View key={label} style={s.budgetRow}><Text style={s.meta}>{label}</Text><Text style={s.budgetValue}>{value} {t.minutes}</Text></View>)}
             </View>
             <View style={s.endpointCard}><View style={s.endpointRow}><View style={s.endpointDot} /><View style={s.flex}><Eyebrow>{t.startLabel}</Eyebrow><Text style={s.endpointTitle}>{walk.startLabel}</Text></View></View>
               <View style={s.endpointConnector} /><View style={s.endpointRow}><View style={s.endpointFinish} /><View style={s.flex}><Eyebrow>{t.endLabel}</Eyebrow><Text style={s.endpointTitle}>{walk.endLabel}</Text></View></View></View>
-            <Text accessibilityRole="header" style={s.sectionTitle}>{t.itinerary}</Text><Text style={s.body}>{t.itineraryBody}</Text>
+            <Text accessibilityRole="header" style={s.sectionTitle}>{t.itinerary}</Text><Text style={s.body}>{storyOnly ? t.storyItinerary : t.itineraryBody}</Text>
             {walk.stops.map((item, index) => <View key={item.id} style={[s.itineraryItem, selectedIndex === index && s.itinerarySelected]}>
               <View style={s.stopNumber}><Text style={s.stopNumberLabel}>{String(index + 1).padStart(2, '0')}</Text></View>
               <View style={s.flex}><Text style={s.stopKicker}>{item.kicker}</Text><Text style={s.cardTitle}>{item.title}</Text><Text style={s.body}>{item.observation}</Text><Text style={s.meta}>{item.minutes} {t.minutes}</Text></View>
@@ -433,7 +454,7 @@ export default function WalkExperience(props: WalkExperienceProps) {
       </View> : (inSession || isComplete) && stop ? <View>
         <View style={s.activeHeading}><Eyebrow>{isComplete ? fullCompletion ? t.completed : t.partial : session.phase === 'paused' ? t.paused : showReturn ? ending.label : t.active}</Eyebrow><Text accessibilityRole="header" style={s.activeTitle}>{walk.title}</Text><Text style={s.meta}>{props.locationStatus ?? walk.subtitle}</Text>{session.statusMessage && <Text style={s.noteBody}>{session.statusMessage}</Text>}</View>
         <View style={s.progressPanel}><View style={s.progressHeading}><Eyebrow>{t.progress}</Eyebrow><Text style={s.progressCount}>{doneCount} / {walk.stops.length}</Text></View>
-          <View style={s.progressTrack}>{walk.stops.map(item => <View key={item.id} style={[s.progressSegment, session.completedStopIds.includes(item.id) && s.progressSegmentDone, session.skippedStopIds.includes(item.id) && s.progressSegmentSkipped]} />)}</View>
+          <View style={s.progressTrack}>{walk.stops.map(item => <View key={item.id} style={[s.progressSegment, finishedIds.has(item.id) && s.progressSegmentDone, session.skippedStopIds.includes(item.id) && s.progressSegmentSkipped]} />)}</View>
           <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={s.chapterTabs}>
             {walk.stops.map((item, index) => <Pressable key={item.id} onPress={() => selectStop(index)} accessibilityRole="tab" accessibilityState={{ selected: !showReturn && item.id === stop.id }} style={[s.chapterTab, !showReturn && item.id === stop.id && s.chapterTabSelected]}>
               <Text style={[s.chapterTabNumber, !showReturn && item.id === stop.id && s.chapterTabNumberSelected]}>{String(index + 1).padStart(2, '0')}</Text><Text style={[s.chapterTabTitle, !showReturn && item.id === stop.id && s.chapterTabTitleSelected]} numberOfLines={1}>{item.title}</Text>
@@ -445,16 +466,17 @@ export default function WalkExperience(props: WalkExperienceProps) {
         {inSession && props.onAbandon && <View style={s.section}><Button tone="danger" compact label={t.abandon} onPress={props.onAbandon} disabled={busy} /></View>}
         <View style={s.section}>
           {props.onOpenExternalRoute && <Button tone="secondary" label={t.navigation} onPress={props.onOpenExternalRoute} />}
-          {props.tracking && <View style={s.trackingCard}><Text style={s.noteBody}>{props.tracking.label}</Text>
+          {!storyOnly && props.tracking && <View style={s.trackingCard}><Text style={s.noteBody}>{props.tracking.label}</Text>
             {props.tracking.unavailableReason && <Text style={s.audioNote}>{props.tracking.unavailableReason}</Text>}
             {props.onToggleTracking && <Button tone="secondary" label={props.tracking.active ? t.trackingOn : t.trackingOff} onPress={props.onToggleTracking} disabled={!props.tracking.active && (busy || !!props.tracking.unavailableReason || session.phase !== 'active')} />}
           </View>}
           {showReturn ? <View style={s.returnCard}>
             <Eyebrow>{ending.label}</Eyebrow><Text accessibilityRole="header" style={s.storyTitle}>{ending.title}</Text>
             <Text style={s.body}>{ending.body}</Text><View style={s.endpointCard}><Eyebrow>{t.startLabel}</Eyebrow><Text style={s.endpointTitle}>{walk.startLabel}</Text></View>
-            <Text style={s.noteBody}>{t.manualHelp}</Text><Button label={ending.confirmLabel} onPress={props.onConfirmReturn} disabled={busy || session.phase !== 'active'} />
+            {!storyOnly && <Text style={s.noteBody}>{t.manualHelp}</Text>}<Button label={ending.confirmLabel} onPress={props.onConfirmReturn} disabled={busy || session.phase !== 'active'} />
           </View> : <>
           <View style={s.chapterHeader}><Eyebrow>{`${t.chapter} ${String(selectedIndex + 1).padStart(2, '0')} · ${stop.minutes} ${t.minutes}`}</Eyebrow><Text accessibilityRole="header" style={s.storyTitle}>{stop.storyTitle}</Text><Text style={s.storyPlace}>{stop.title}</Text></View>
+          {storyOnly && !currentStop && !stopDone && !skipped && <Text style={s.audioNote}>{t.storyPreview}</Text>}
           {audio?.available ? <>
             <Button tone="secondary" label={audio.playing ? (props.onPauseAudio ? `Ⅱ  ${t.pauseAudio}` : `■  ${t.stopAudio}`) : `▷  ${t.listen}`}
               onPress={audio.playing ? (props.onPauseAudio ?? props.onStopAudio) : () => props.onSpeak(stop.id)} disabled={busy} />
@@ -463,7 +485,7 @@ export default function WalkExperience(props: WalkExperienceProps) {
           {audio?.available && audio.label && <Text style={s.audioNote}>{audio.label}</Text>}
           <Text selectable style={s.storyBody}>{stop.story}</Text>
           <View style={s.observation}><Eyebrow>{t.look}</Eyebrow><Text style={s.observationText}>{stop.observation}</Text></View>
-          <View style={s.markCard}>
+          {!storyOnly && <><View style={s.markCard}>
             <Text style={s.noteBody}>{marked ? t.marked : skipped ? t.skipped : stopDone ? t.done : t.manualHelp}</Text>
             {!marked && !stopDone && !skipped && <Button label={t.manual} onPress={() => props.onMarkStop(stop.id)} disabled={!canAct} />}
           </View>
@@ -484,7 +506,7 @@ export default function WalkExperience(props: WalkExperienceProps) {
             {hintShown && <Text style={s.hintText}>{stop.quest.hint}</Text>}
             {hintShown && props.onSpeakPart && audio?.available && <Button tone="quiet" compact label={`▷ ${t.listenHint}`} onPress={() => props.onSpeakPart?.(stop.id, 'hint')} disabled={busy} />}
             {answer?.correct && currentStop && !skipped && <Button label={t.continue} onPress={() => props.onContinue(stop.id)} disabled={!canAct || !marked} />}
-          </View>
+          </View></>}
           {!stopDone && !skipped && <Button tone="quiet" label={t.skip} onPress={() => props.onSkip(stop.id)} disabled={!canAct} />}
           <View style={s.chapterNavigation}>
             {selectedIndex > 0 && <View style={s.flex}><Button compact tone="secondary" label={t.previous} onPress={() => selectStop(selectedIndex - 1)} /></View>}
@@ -497,20 +519,25 @@ export default function WalkExperience(props: WalkExperienceProps) {
         </View>
       </View> : null}
 
-      <View style={s.attributionFooter}><Text style={s.attribution}>{walk.attribution}</Text><Text style={s.attribution}>{walk.materialsNote ?? t.mapOnline}</Text></View>
+      <View style={s.attributionFooter}><Text style={s.attribution}>{walk.attribution}</Text><Text style={s.attribution}>{walk.materialsNote ?? (storyOnly ? t.storyMapOnline : t.mapOnline)}</Text></View>
       <View style={s.footer}><Text style={s.footerBrand}>astana<Text style={s.wordmarkDot}>.</Text></Text><Button tone="quiet" compact label={t.diagnostics} onPress={props.onOpenDiagnostics} /></View>
     </ScrollView>
     </Animated.View>
-    {inSession && <View style={[s.persistentActions, { bottom: navigationHeight }]}><View style={s.flex}><Button compact tone="secondary" label={session.phase === 'active' ? t.pause : t.resume} onPress={session.phase === 'active' ? props.onPause : props.onResume} disabled={busy} /></View><View style={s.flex}><Button compact tone="danger" label={t.stop} onPress={props.onStop} /></View></View>}
+    {inSession && <View style={[s.persistentActions, storyReadFooter && s.persistentStoryActions, { bottom: navigationHeight }]}>
+      {storyReadFooter && <Button compact label={stopDone ? t.storyReadDone : t.storyRead} onPress={() => { if (stop) props.onFinishStory?.(stop.id); }} disabled={!canAct || stopDone || skipped || !props.onFinishStory} />}
+      <View style={s.sessionActionRow}><View style={s.flex}><Button compact tone="secondary" label={session.phase === 'active' ? t.pause : t.resume} onPress={session.phase === 'active' ? props.onPause : props.onResume} disabled={busy} /></View><View style={s.flex}><Button compact tone="danger" label={t.stop} onPress={props.onStop} /></View></View>
+    </View>}
     <View style={[s.bottomBar, { height: navigationHeight, paddingBottom: bottomInset }]}>
       <Pressable accessibilityRole="tab" accessibilityState={{ selected: !journalShown }} onPress={() => go('explore')} style={s.bottomTab}><Text style={[s.bottomIcon, !journalShown && s.bottomSelected]}>⌁</Text><Text style={[s.bottomLabel, !journalShown && s.bottomSelected]}>{t.map}</Text></Pressable>
-      <View style={s.bottomDivider} />
-      <Pressable accessibilityRole="tab" accessibilityState={{ selected: journalShown }} onPress={() => go('journal')} style={s.bottomTab}><Text style={[s.bottomIcon, journalShown && s.bottomSelected]}>▤</Text><Text style={[s.bottomLabel, journalShown && s.bottomSelected]}>{t.journal}</Text>{doneCount > 0 && <View style={s.tabBadge}><Text style={s.tabBadgeText}>{doneCount}</Text></View>}</Pressable>
+      {!storyOnly && <><View style={s.bottomDivider} />
+      <Pressable accessibilityRole="tab" accessibilityState={{ selected: journalShown }} onPress={() => go('journal')} style={s.bottomTab}><Text style={[s.bottomIcon, journalShown && s.bottomSelected]}>▤</Text><Text style={[s.bottomLabel, journalShown && s.bottomSelected]}>{t.journal}</Text>{doneCount > 0 && <View style={s.tabBadge}><Text style={s.tabBadgeText}>{doneCount}</Text></View>}</Pressable></>}
+      {storyOnly && props.onBackToSaved && <><View style={s.bottomDivider} /><Pressable accessibilityRole="button" disabled={busy} onPress={props.onBackToSaved} style={s.bottomTab}><Text style={s.bottomIcon}>↗</Text><Text style={s.bottomLabel}>{props.onBackToSavedLabel ?? t.places}</Text></Pressable></>}
     </View>
   </View>;
 }
 
 const s = StyleSheet.create({
+    persistentStoryActions: { height: 120, flexDirection: 'column', paddingTop: 9, gap: 7 }, sessionActionRow: { flex: 1, flexDirection: 'row', gap: 10 },
     freshWalkButton: { alignSelf: 'flex-start', marginTop: 10, paddingVertical: 12, paddingHorizontal: 17, minHeight: 46, borderRadius: 17, backgroundColor: COLORS.ink, borderWidth: 1, borderColor: '#D8E5CF' }, freshWalkText: { color: COLORS.paper, fontSize: 12, fontWeight: '700', lineHeight: 19 }, savedWalkButton: { alignSelf: 'flex-start', marginTop: 8, paddingVertical: 10, paddingHorizontal: 14, minHeight: 44, borderRadius: 15, backgroundColor: COLORS.paper, borderWidth: 1, borderColor: COLORS.line },
     mapBrandRow: { flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-between', gap: 10 },
     cityButton: { minHeight: 44, paddingHorizontal: 15, paddingVertical: 12, borderRadius: 16, marginTop: 12, backgroundColor: COLORS.paper, borderWidth: 1, borderColor: COLORS.line, justifyContent: 'center' },

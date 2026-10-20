@@ -1,0 +1,1498 @@
+Running: Data and recorded OSM replay tests
+test_enrichment_blocks_continuous_wall_and_preserves_existing_poi_center (test_barriers.BarrierTests.test_enrichment_blocks_continuous_wall_and_preserves_existing_poi_center) ... ok
+test_cli_exports_utf8_lf_so_git_transport_preserves_checksums (test_ingest_poi.IngestionTests.test_cli_exports_utf8_lf_so_git_transport_preserves_checksums) ... ok
+test_conflicting_current_hours_preserve_both_sources_and_explicit_preference (test_ingest_poi.IngestionTests.test_conflicting_current_hours_preserve_both_sources_and_explicit_preference) ... ok
+test_graph_only_barrier_record_without_center_is_quarantined (test_ingest_poi.IngestionTests.test_graph_only_barrier_record_without_center_is_quarantined) ... ok
+test_newer_osm_version_wins_even_when_it_removes_old_tags (test_ingest_poi.IngestionTests.test_newer_osm_version_wins_even_when_it_removes_old_tags) ... ok
+test_repeated_osm_id_keeps_full_tags_without_claiming_verified_entrance (test_ingest_poi.IngestionTests.test_repeated_osm_id_keeps_full_tags_without_claiming_verified_entrance) ... ok
+test_season_specific_evidence_cannot_claim_current_season_or_expired_hours (test_ingest_poi.IngestionTests.test_season_specific_evidence_cannot_claim_current_season_or_expired_hours) ... ok
+test_source_checksum_mismatch_is_rejected_instead_of_normalized (test_ingest_poi.IngestionTests.test_source_checksum_mismatch_is_rejected_instead_of_normalized) ... ok
+test_stale_snapshot_and_unparsed_hours_never_claim_current_indoor_availability (test_ingest_poi.IngestionTests.test_stale_snapshot_and_unparsed_hours_never_claim_current_indoor_availability) ... ok
+test_exact_public_coordinate_pairs_keep_requested_endpoints (test_probe_walking.ProbeTests.test_exact_public_coordinate_pairs_keep_requested_endpoints) ... ok
+test_mismatched_expectation_is_reported_and_does_not_accept_live_gates (test_probe_walking.ProbeTests.test_mismatched_expectation_is_reported_and_does_not_accept_live_gates) ... ok
+test_rejects_wrong_size_or_repeated_cases_before_claiming_baseline (test_probe_walking.ProbeTests.test_rejects_wrong_size_or_repeated_cases_before_claiming_baseline) ... ok
+test_ten_sourced_cases_replay_without_network_or_a_provider_key (test_recorded_probe.RecordedProbeTests.test_ten_sourced_cases_replay_without_network_or_a_provider_key) ... ok
+test_access_override_is_foot_specific_and_car_oneway_is_ignored (test_walking.WalkingTests.test_access_override_is_foot_specific_and_car_oneway_is_ignored) ... ok
+test_coincident_nodes_on_different_levels_require_clarification (test_walking.WalkingTests.test_coincident_nodes_on_different_levels_require_clarification) ... ok
+test_conditional_restriction_is_unknown_and_not_assumed_open (test_walking.WalkingTests.test_conditional_restriction_is_unknown_and_not_assumed_open) ... ok
+test_continuous_wall_way_blocks_path_at_shared_node_without_gate (test_walking.WalkingTests.test_continuous_wall_way_blocks_path_at_shared_node_without_gate) ... ok
+test_directional_foot_restriction_blocks_reverse_travel (test_walking.WalkingTests.test_directional_foot_restriction_blocks_reverse_travel) ... ok
+test_motorway_and_polygon_are_not_walking_lines (test_walking.WalkingTests.test_motorway_and_polygon_are_not_walking_lines) ... ok
+test_oneway_foot_overrides_car_direction (test_walking.WalkingTests.test_oneway_foot_overrides_car_direction) ... ok
+test_refuses_submetre_gap_instead_of_inventing_connector (test_walking.WalkingTests.test_refuses_submetre_gap_instead_of_inventing_connector) ... ok
+test_same_node_is_zero_travel_not_invalid_one_point_linestring (test_walking.WalkingTests.test_same_node_is_zero_travel_not_invalid_one_point_linestring) ... ok
+test_two_dimensional_crossing_creates_no_junction (test_walking.WalkingTests.test_two_dimensional_crossing_creates_no_junction) ... ok
+test_unknown_gate_and_private_path_do_not_form_a_through_route (test_walking.WalkingTests.test_unknown_gate_and_private_path_do_not_form_a_through_route) ... ok
+test_walk_uses_mapped_detour_and_return_to_identical_origin (test_walking.WalkingTests.test_walk_uses_mapped_detour_and_return_to_identical_origin) ... ok
+
+----------------------------------------------------------------------
+Ran 25 tests in 0.187s
+
+OK
+Running: No-charge policy tests
+TAP version 13
+# Subtest: unknown provider evidence is denied before a request can be authorized
+ok 1 - unknown provider evidence is denied before a request can be authorized
+  ---
+  duration_ms: 3.626
+  type: 'test'
+  ...
+# Subtest: a specific verified no-charge endpoint and model can pass the diagnostic gate
+ok 2 - a specific verified no-charge endpoint and model can pass the diagnostic gate
+  ---
+  duration_ms: 0.6059
+  type: 'test'
+  ...
+# Subtest: paid, mixed, credit-only and unknown billing are denied despite a verified label
+ok 3 - paid, mixed, credit-only and unknown billing are denied despite a verified label
+  ---
+  duration_ms: 0.4358
+  type: 'test'
+  ...
+# Subtest: card requirements, top-ups, paid fallback or unconfirmed safety flags deny use
+ok 4 - card requirements, top-ups, paid fallback or unconfirmed safety flags deny use
+  ---
+  duration_ms: 0.5032
+  type: 'test'
+  ...
+# Subtest: missing, infinite, fractional and non-numeric quota cannot authorize use
+ok 5 - missing, infinite, fractional and non-numeric quota cannot authorize use
+  ---
+  duration_ms: 1.6593
+  type: 'test'
+  ...
+# Subtest: an exhausted request or token allowance denies use instead of permitting paid overflow
+ok 6 - an exhausted request or token allowance denies use instead of permitting paid overflow
+  ---
+  duration_ms: 0.2749
+  type: 'test'
+  ...
+# Subtest: expired, older-than-one-day or future-dated no-charge proof is denied
+ok 7 - expired, older-than-one-day or future-dated no-charge proof is denied
+  ---
+  duration_ms: 0.3064
+  type: 'test'
+  ...
+# Subtest: quota observations expire at their boundary or after five minutes, and future observations are denied
+ok 8 - quota observations expire at their boundary or after five minutes, and future observations are denied
+  ---
+  duration_ms: 0.2359
+  type: 'test'
+  ...
+# Subtest: verification for a different provider, endpoint or model cannot authorize this target
+ok 9 - verification for a different provider, endpoint or model cannot authorize this target
+  ---
+  duration_ms: 0.4641
+  type: 'test'
+  ...
+# Subtest: wildcards, missing identities and credential-bearing or non-HTTPS endpoints are not specific targets
+ok 10 - wildcards, missing identities and credential-bearing or non-HTTPS endpoints are not specific targets
+  ---
+  duration_ms: 0.994
+  type: 'test'
+  ...
+# Subtest: a verified label without an auditable proof identity and source is denied
+ok 11 - a verified label without an auditable proof identity and source is denied
+  ---
+  duration_ms: 0.3044
+  type: 'test'
+  ...
+# Subtest: request authorization binds a bounded request to its verified target and never enables fallback
+ok 12 - request authorization binds a bounded request to its verified target and never enables fallback
+  ---
+  duration_ms: 0.2955
+  type: 'test'
+  ...
+# Subtest: a request with unbounded or invalid token ceilings is denied even with valid provider proof
+ok 13 - a request with unbounded or invalid token ceilings is denied even with valid provider proof
+  ---
+  duration_ms: 0.2495
+  type: 'test'
+  ...
+# Subtest: a bounded request exceeding either observed token allowance is denied
+ok 14 - a bounded request exceeding either observed token allowance is denied
+  ---
+  duration_ms: 0.1583
+  type: 'test'
+  ...
+# Subtest: request authorization preserves default-deny for unknown, paid and expired evidence
+ok 15 - request authorization preserves default-deny for unknown, paid and expired evidence
+  ---
+  duration_ms: 0.2101
+  type: 'test'
+  ...
+# Subtest: freshness is exclusive at its hard boundary and an invalid clock cannot authorize use
+ok 16 - freshness is exclusive at its hard boundary and an invalid clock cannot authorize use
+  ---
+  duration_ms: 0.1528
+  type: 'test'
+  ...
+# Subtest: an authorization is a detached immutable diagnostic, not a mutable retargetable request
+ok 17 - an authorization is a detached immutable diagnostic, not a mutable retargetable request
+  ---
+  duration_ms: 0.1732
+  type: 'test'
+  ...
+# Subtest: an accessor cannot replace a validated output-token ceiling with Infinity in the authorization
+ok 18 - an accessor cannot replace a validated output-token ceiling with Infinity in the authorization
+  ---
+  duration_ms: 0.1776
+  type: 'test'
+  ...
+# Subtest: a stateful endpoint accessor cannot retarget the validated diagnostic or authorized request
+ok 19 - a stateful endpoint accessor cannot retarget the validated diagnostic or authorized request
+  ---
+  duration_ms: 0.24
+  type: 'test'
+  ...
+# Subtest: a changing quota accessor cannot inflate the allowance after validation
+ok 20 - a changing quota accessor cannot inflate the allowance after validation
+  ---
+  duration_ms: 0.227
+  type: 'test'
+  ...
+# Subtest: a proof accessor cannot replace the validated evidence identity in the result
+ok 21 - a proof accessor cannot replace the validated evidence identity in the result
+  ---
+  duration_ms: 0.1972
+  type: 'test'
+  ...
+# Subtest: throwing accessors fail closed without leaking their errors
+ok 22 - throwing accessors fail closed without leaking their errors
+  ---
+  duration_ms: 0.3382
+  type: 'test'
+  ...
+1..22
+# tests 22
+# suites 0
+# pass 22
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 220.1025
+Running: No-charge policy strict types
+Running: Canonical bundle and parent-aware revision regressions
+TAP version 13
+# Subtest: a sealed immutable bundle survives JSON transport without adding progress or offline readiness
+ok 1 - a sealed immutable bundle survives JSON transport without adding progress or offline readiness
+  ---
+  duration_ms: 26.1245
+  type: 'test'
+  ...
+# Subtest: changed content and unknown-version bundles are reported separately without replacing the caller source
+ok 2 - changed content and unknown-version bundles are reported separately without replacing the caller source
+  ---
+  duration_ms: 12.489
+  type: 'test'
+  ...
+# Subtest: hash is verified before unknown fields can be discarded; private fields cannot be sealed
+ok 3 - hash is verified before unknown fields can be discarded; private fields cannot be sealed
+  ---
+  duration_ms: 12.9669
+  type: 'test'
+  ...
+# Subtest: last-stop ending omits the return leg and consumes exactly its shorter time
+ok 4 - last-stop ending omits the return leg and consumes exactly its shorter time
+  ---
+  duration_ms: 8.5577
+  type: 'test'
+  ...
+# Subtest: a tiny unproved connector, missing return, changed explicit end and omitted reserve never become feasible
+ok 5 - a tiny unproved connector, missing return, changed explicit end and omitted reserve never become feasible
+  ---
+  duration_ms: 13.3132
+  type: 'test'
+  ...
+# Subtest: required languages, valid fact references and unique quest answers survive transport validation
+ok 6 - required languages, valid fact references and unique quest answers survive transport validation
+  ---
+  duration_ms: 9.1926
+  type: 'test'
+  ...
+# Subtest: an indoor visit must fit the whole fresh access and opening window
+ok 7 - an indoor visit must fit the whole fresh access and opening window
+  ---
+  duration_ms: 14.3927
+  type: 'test'
+  ...
+# Subtest: canonical bytes are independent of object insertion order and retain arrays and Unicode
+ok 8 - canonical bytes are independent of object insertion order and retain arrays and Unicode
+  ---
+  duration_ms: 24.0175
+  type: 'test'
+  ...
+# Subtest: an intact text-only package remains partial even if no declared file is missing
+ok 9 - an intact text-only package remains partial even if no declared file is missing
+  ---
+  duration_ms: 7.2157
+  type: 'test'
+  ...
+# Subtest: pack integrity is derived from actual durable bytes, audio text and the current revision
+ok 10 - pack integrity is derived from actual durable bytes, audio text and the current revision
+  ---
+  duration_ms: 275.0878
+  type: 'test'
+  ...
+# Subtest: review baseline remains valid, hash-verified and deeply immutable
+ok 11 - review baseline remains valid, hash-verified and deeply immutable
+  ---
+  duration_ms: 29.3867
+  type: 'test'
+  ...
+# Subtest: same public return ID cannot silently resolve to a different point
+ok 12 - same public return ID cannot silently resolve to a different point
+  ---
+  duration_ms: 3.911
+  type: 'test'
+  ...
+# Subtest: same return anchor ID cannot remove the return by moving it onto the last stop
+ok 13 - same return anchor ID cannot remove the return by moving it onto the last stop
+  ---
+  duration_ms: 4.7059
+  type: 'test'
+  ...
+# Subtest: verified connector must actually be traversed by the complete route geometry
+ok 14 - verified connector must actually be traversed by the complete route geometry
+  ---
+  duration_ms: 3.5596
+  type: 'test'
+  ...
+# Subtest: fractional source ETAs can be represented by millisecond ISO timestamps
+ok 15 - fractional source ETAs can be represented by millisecond ISO timestamps
+  ---
+  duration_ms: 8.765
+  type: 'test'
+  ...
+# Subtest: a real missing minute is still rejected despite millisecond rounding tolerance
+ok 16 - a real missing minute is still rejected despite millisecond rounding tolerance
+  ---
+  duration_ms: 3.7157
+  type: 'test'
+  ...
+# Subtest: a revision may contain only the remaining supported return leg and zero new visits
+ok 17 - a revision may contain only the remaining supported return leg and zero new visits
+  ---
+  duration_ms: 8.7595
+  type: 'test'
+  ...
+# Subtest: a new initial walk still cannot substitute a zero-visit return for an experience
+ok 18 - a new initial walk still cannot substitute a zero-visit return for an experience
+  ---
+  duration_ms: 1.3788
+  type: 'test'
+  ...
+# Subtest: step-free stops alone cannot certify unverified transitions
+ok 19 - step-free stops alone cannot certify unverified transitions
+  ---
+  duration_ms: 3.252
+  type: 'test'
+  ...
+# Subtest: step-free constraint accepts fresh evidence at stops and every walk leg
+ok 20 - step-free constraint accepts fresh evidence at stops and every walk leg
+  ---
+  duration_ms: 8.1491
+  type: 'test'
+  ...
+# Subtest: required coffee cannot be inferred from unknown service or a place title
+ok 21 - required coffee cannot be inferred from unknown service or a place title
+  ---
+  duration_ms: 3.0197
+  type: 'test'
+  ...
+# Subtest: a known false coffee service does not satisfy the hard requirement
+ok 22 - a known false coffee service does not satisfy the hard requirement
+  ---
+  duration_ms: 2.591
+  type: 'test'
+  ...
+# Subtest: required coffee accepts positive fresh service evidence
+ok 23 - required coffee accepts positive fresh service evidence
+  ---
+  duration_ms: 7.2305
+  type: 'test'
+  ...
+# Subtest: coffee service evidence cannot substitute for a confirmed visit window
+ok 24 - coffee service evidence cannot substitute for a confirmed visit window
+  ---
+  duration_ms: 2.7793
+  type: 'test'
+  ...
+# Subtest: expired coffee evidence cannot certify the planned visit
+ok 25 - expired coffee evidence cannot certify the planned visit
+  ---
+  duration_ms: 2.7537
+  type: 'test'
+  ...
+# Subtest: a future weather model or observation is not known current context
+ok 26 - a future weather model or observation is not known current context
+  ---
+  duration_ms: 2.4991
+  type: 'test'
+  ...
+# Subtest: fresh dated synthetic weather remains representable
+ok 27 - fresh dated synthetic weather remains representable
+  ---
+  duration_ms: 5.8356
+  type: 'test'
+  ...
+# Subtest: progress identifiers remain outside immutable continuation content
+ok 28 - progress identifiers remain outside immutable continuation content
+  ---
+  duration_ms: 5.3879
+  type: 'test'
+  ...
+# Subtest: explicit extension proposal can exceed the original deadline without changing original intent
+ok 29 - explicit extension proposal can exceed the original deadline without changing original intent
+  ---
+  duration_ms: 9.2467
+  type: 'test'
+  ...
+# Subtest: the same overrun cannot be disguised as retaining the original deadline
+ok 30 - the same overrun cannot be disguised as retaining the original deadline
+  ---
+  duration_ms: 6.6797
+  type: 'test'
+  ...
+# Subtest: initial bundle cannot invent a pre-existing consented extension
+ok 31 - initial bundle cannot invent a pre-existing consented extension
+  ---
+  duration_ms: 2.2708
+  type: 'test'
+  ...
+# Subtest: transport hash detects a changed fact before accepting its schema
+ok 32 - transport hash detects a changed fact before accepting its schema
+  ---
+  duration_ms: 7.5542
+  type: 'test'
+  ...
+# Subtest: canonical hashing ignores object key insertion order but preserves array order
+ok 33 - canonical hashing ignores object key insertion order but preserves array order
+  ---
+  duration_ms: 0.6841
+  type: 'test'
+  ...
+# Subtest: unsupported major is distinct from a corrupt existing-v1 payload
+ok 34 - unsupported major is distinct from a corrupt existing-v1 payload
+  ---
+  duration_ms: 7.2247
+  type: 'test'
+  ...
+# Subtest: parent-aware extension validation derives consent from the actual later deadline
+ok 35 - parent-aware extension validation derives consent from the actual later deadline
+  ---
+  duration_ms: 25.4901
+  type: 'test'
+  ...
+# Subtest: later corrections retain an accepted parent extension without re-requesting it
+ok 36 - later corrections retain an accepted parent extension without re-requesting it
+  ---
+  duration_ms: 40.8188
+  type: 'test'
+  ...
+# Subtest: current_deadline cannot silently grow even when the itinerary still fits
+ok 37 - current_deadline cannot silently grow even when the itinerary still fits
+  ---
+  duration_ms: 13.8061
+  type: 'test'
+  ...
+# Subtest: a shorter selected window stays active and cannot silently grow on the next correction
+ok 38 - a shorter selected window stays active and cannot silently grow on the next correction
+  ---
+  duration_ms: 22.0437
+  type: 'test'
+  ...
+# Subtest: an explicit extension may follow an earlier shortening while preserving the original request
+ok 39 - an explicit extension may follow an earlier shortening while preserving the original request
+  ---
+  duration_ms: 13.864
+  type: 'test'
+  ...
+# Subtest: an older parent with slack deadline cannot erase its smaller selected time window
+ok 40 - an older parent with slack deadline cannot erase its smaller selected time window
+  ---
+  duration_ms: 15.4375
+  type: 'test'
+  ...
+# Subtest: an extension must name the actual active parent deadline
+ok 41 - an extension must name the actual active parent deadline
+  ---
+  duration_ms: 11.3751
+  type: 'test'
+  ...
+# Subtest: a candidate for a different immutable parent cannot be validated as current
+ok 42 - a candidate for a different immutable parent cannot be validated as current
+  ---
+  duration_ms: 13.1485
+  type: 'test'
+  ...
+# Subtest: the original request cannot be overwritten by revision preferences
+ok 43 - the original request cannot be overwritten by revision preferences
+  ---
+  duration_ms: 10.881
+  type: 'test'
+  ...
+# Subtest: duplicate, fabricated or still-pending completed IDs are rejected against the parent
+ok 44 - duplicate, fabricated or still-pending completed IDs are rejected against the parent
+  ---
+  duration_ms: 25.3803
+  type: 'test'
+  ...
+# Subtest: removing an already completed stop preserves the agreed remaining experience
+ok 45 - removing an already completed stop preserves the agreed remaining experience
+  ---
+  duration_ms: 14.802
+  type: 'test'
+  ...
+# Subtest: all completed visits can leave a return-only correction with unchanged original end
+ok 46 - all completed visits can leave a return-only correction with unchanged original end
+  ---
+  duration_ms: 7.8153
+  type: 'test'
+  ...
+# Subtest: initial effective constraints must match original declared intent
+ok 47 - initial effective constraints must match original declared intent
+  ---
+  duration_ms: 1.0998
+  type: 'test'
+  ...
+# Subtest: revised effective constraints are represented separately and require consent
+ok 48 - revised effective constraints are represented separately and require consent
+  ---
+  duration_ms: 17.254
+  type: 'test'
+  ...
+# Subtest: feasibility validates current constraints rather than only the original request
+ok 49 - feasibility validates current constraints rather than only the original request
+  ---
+  duration_ms: 3.777
+  type: 'test'
+  ...
+1..49
+# tests 49
+# suites 0
+# pass 49
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1884.5074
+Running: Canonical contract strict types
+Running: Generated contract schema and fixtures
+Contract artifacts verified; 3 fixtures.
+Running: CityEvidence actual-catalog retrieval regressions
+TAP version 13
+# Subtest: real sourced RU/KK/EN Baiterek names retrieve the same place and curated public anchor
+ok 1 - real sourced RU/KK/EN Baiterek names retrieve the same place and curated public anchor
+  ---
+  duration_ms: 92.0351
+  type: 'test'
+  ...
+# Subtest: a selected real place returns only its relevant fact/anchor/source closure
+ok 2 - a selected real place returns only its relevant fact/anchor/source closure
+  ---
+  duration_ms: 14.9818
+  type: 'test'
+  ...
+# Subtest: area filtering precedes the limit and can locate a curated observation area without inventing a center
+ok 3 - area filtering precedes the limit and can locate a curated observation area without inventing a center
+  ---
+  duration_ms: 12.1139
+  type: 'test'
+  ...
+# Subtest: real required-anchor filtering precedes limit and critical unknowns never become promises
+ok 4 - real required-anchor filtering precedes limit and critical unknowns never become promises
+  ---
+  duration_ms: 7.6951
+  type: 'test'
+  ...
+# Subtest: lexical prefixes and Unicode punctuation work while unsupported interests do not seed a fallback
+ok 5 - lexical prefixes and Unicode punctuation work while unsupported interests do not seed a fallback
+  ---
+  duration_ms: 10.743
+  type: 'test'
+  ...
+# Subtest: dated evidence preserves conflict/stale states and ages expired or future observations honestly
+ok 6 - dated evidence preserves conflict/stale states and ages expired or future observations honestly
+  ---
+  duration_ms: 4.2516
+  type: 'test'
+  ...
+# Subtest: bad query and broken catalog references fail generically without echoing input
+ok 7 - bad query and broken catalog references fail generically without echoing input
+  ---
+  duration_ms: 4.6235
+  type: 'test'
+  ...
+# Subtest: expired facts disappear with their refs while dated editorial history keeps its original precision
+ok 8 - expired facts disappear with their refs while dated editorial history keeps its original precision
+  ---
+  duration_ms: 5.17
+  type: 'test'
+  ...
+# Subtest: critical filtering precedes lexical rank/limit and closing instants are excluded
+ok 9 - critical filtering precedes lexical rank/limit and closing instants are excluded
+  ---
+  duration_ms: 2.5377
+  type: 'test'
+  ...
+# Subtest: context ages independently by model time and derives season in the declared city timezone
+ok 10 - context ages independently by model time and derives season in the declared city timezone
+  ---
+  duration_ms: 4.9245
+  type: 'test'
+  ...
+# Subtest: sourced dated closure/open exceptions override ordinary opening at the query instant
+ok 11 - sourced dated closure/open exceptions override ordinary opening at the query instant
+  ---
+  duration_ms: 5.2458
+  type: 'test'
+  ...
+# Subtest: caller mutations and later stale queries cannot corrupt another result or the catalog
+ok 12 - caller mutations and later stale queries cannot corrupt another result or the catalog
+  ---
+  duration_ms: 3.0588
+  type: 'test'
+  ...
+# Subtest: empty-term area browsing uses actual bounded cards and missing names retain source spelling
+ok 13 - empty-term area browsing uses actual bounded cards and missing names retain source spelling
+  ---
+  duration_ms: 7.2845
+  type: 'test'
+  ...
+# Subtest: constructor rejects duplicate identities, unknown sources/anchors and credential-bearing source URLs
+ok 14 - constructor rejects duplicate identities, unknown sources/anchors and credential-bearing source URLs
+  ---
+  duration_ms: 4.2204
+  type: 'test'
+  ...
+# Subtest: unsupported query shapes cannot smuggle endpoint/private fields into output
+ok 15 - unsupported query shapes cannot smuggle endpoint/private fields into output
+  ---
+  duration_ms: 4.5976
+  type: 'test'
+  ...
+# Subtest: untrusted source wording does not alter mandatory filters or search control flow
+ok 16 - untrusted source wording does not alter mandatory filters or search control flow
+  ---
+  duration_ms: 2.0079
+  type: 'test'
+  ...
+# Subtest: the public result is bounded to 24 when an injected synthetic catalog contains 30 rows
+ok 17 - the public result is bounded to 24 when an injected synthetic catalog contains 30 rows
+  ---
+  duration_ms: 4.6219
+  type: 'test'
+  ...
+# Subtest: future weather metadata cannot become current merely because its field TTL remains valid
+ok 18 - future weather metadata cannot become current merely because its field TTL remains valid
+  ---
+  duration_ms: 2.8685
+  type: 'test'
+  ...
+# Subtest: a dated interval crossing local midnight is matched by its actual instants
+ok 19 - a dated interval crossing local midnight is matched by its actual instants
+  ---
+  duration_ms: 1.2783
+  type: 'test'
+  ...
+1..19
+# tests 19
+# suites 0
+# pass 19
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1163.5873
+Running: CityEvidence catalog reproducibility
+{"revision": "city-evidence-4637d0b01e26bf6c", "pois": 22, "anchors": 3, "facts": 24, "sources": 24, "outputSha256": "50f160a1fc0e1e844750a58d7c6e418e966bb7d19fed1e7c0bdee8d43501ba1f"}
+Running: Recorded-graph planner and revision regressions
+TAP version 13
+# Subtest: actual source search produces one honestly labeled, sealed three-chapter walk with its entire return budget
+ok 1 - actual source search produces one honestly labeled, sealed three-chapter walk with its entire return budget
+  ---
+  duration_ms: 77.2942
+  type: 'test'
+  ...
+# Subtest: last-stop and explicitly selected end use actual paths and retain their exact selected endpoint
+ok 2 - last-stop and explicitly selected end use actual paths and retain their exact selected endpoint
+  ---
+  duration_ms: 27.4163
+  type: 'test'
+  ...
+# Subtest: a tiny off-node origin is refused without moving it to a landmark
+ok 3 - a tiny off-node origin is refused without moving it to a landmark
+  ---
+  duration_ms: 23.1497
+  type: 'test'
+  ...
+# Subtest: short time, distance and unknown hard indoor/coffee/step-free conditions never produce a false feasible walk
+ok 4 - short time, distance and unknown hard indoor/coffee/step-free conditions never produce a false feasible walk
+  ---
+  duration_ms: 14.6445
+  type: 'test'
+  ...
+# Subtest: GPS freshness uses service time for both endpoints, including future starts
+ok 5 - GPS freshness uses service time for both endpoints, including future starts
+  ---
+  duration_ms: 24.606
+  type: 'test'
+  ...
+# Subtest: a revoked fact or changed source with the same ID cannot support the old editorial claim
+ok 6 - a revoked fact or changed source with the same ID cannot support the old editorial claim
+  ---
+  duration_ms: 2.9139
+  type: 'test'
+  ...
+# Subtest: a source outage or malformed request returns a bounded error without echoing input or discarding the caller object
+ok 7 - a source outage or malformed request returns a bounded error without echoing input or discarding the caller object
+  ---
+  duration_ms: 2.6705
+  type: 'test'
+  ...
+# Subtest: after all visits a revision proposes the actual return alone, retaining the original origin and completed progress outside the bundle
+ok 8 - after all visits a revision proposes the actual return alone, retaining the original origin and completed progress outside the bundle
+  ---
+  duration_ms: 40.2719
+  type: 'test'
+  ...
+# Subtest: explicit extension and changed active constraints require consent and never mutate the accepted parent
+ok 9 - explicit extension and changed active constraints require consent and never mutate the accepted parent
+  ---
+  duration_ms: 49.1535
+  type: 'test'
+  ...
+# Subtest: unknown warm-indoor revision, insufficient return budget and fabricated completion leave the previous walk intact
+ok 10 - unknown warm-indoor revision, insufficient return budget and fabricated completion leave the previous walk intact
+  ---
+  duration_ms: 30.3906
+  type: 'test'
+  ...
+# Subtest: a shortened accepted window stays the active deadline and later growth requires an explicit matching extension
+ok 11 - a shortened accepted window stays the active deadline and later growth requires an explicit matching extension
+  ---
+  duration_ms: 50.3054
+  type: 'test'
+  ...
+# Subtest: valid-hash parent text cannot replace the approved pending editorial chapter, quest or cue
+ok 12 - valid-hash parent text cannot replace the approved pending editorial chapter, quest or cue
+  ---
+  duration_ms: 44.0949
+  type: 'test'
+  ...
+# Subtest: revised current context and fact provenance receive their relevant source closure
+ok 13 - revised current context and fact provenance receive their relevant source closure
+  ---
+  duration_ms: 35.0323
+  type: 'test'
+  ...
+1..13
+# tests 13
+# suites 0
+# pass 13
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1609.2639
+Running: Recorded planner catalog reproducibility
+{"paths": 6, "stops": 3, "sha256": "22ec97653c6da1219aa610f85ddc4379757c4d3eb23f186b8268314bf8a30e45"}
+Running: Offline pack real filesystem and SQLite boundaries
+TAP version 13
+# (node:13384) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: prepare verifies durable bytes, activation survives storage restart with exact identity
+ok 1 - prepare verifies durable bytes, activation survives storage restart with exact identity
+  ---
+  duration_ms: 667.8828
+  type: 'test'
+  ...
+# Subtest: an interrupted revision preserves current, retries reuse hashes, and session pin prevents eviction
+ok 2 - an interrupted revision preserves current, retries reuse hashes, and session pin prevents eviction
+  ---
+  duration_ms: 1784.8098
+  type: 'test'
+  ...
+# Subtest: downloads overlap only within four slots and every source receives identifying headers
+ok 3 - downloads overlap only within four slots and every source receives identifying headers
+  ---
+  duration_ms: 482.3362
+  type: 'test'
+  ...
+# Subtest: actual streamed bytes enforce transfer and storage bounds before writing the excessive chunk
+ok 4 - actual streamed bytes enforce transfer and storage bounds before writing the excessive chunk
+  ---
+  duration_ms: 110.3938
+  type: 'test'
+  ...
+# Subtest: tile-provider map and whole-pack budgets fail before a source is opened
+ok 5 - tile-provider map and whole-pack budgets fail before a source is opened
+  ---
+  duration_ms: 170.3653
+  type: 'test'
+  ...
+# Subtest: an unsupported bundle is preserved outside active state without parsing or fetching its paths
+ok 6 - an unsupported bundle is preserved outside active state without parsing or fetching its paths
+  ---
+  duration_ms: 631.8378
+  type: 'test'
+  ...
+# Subtest: cancelling a stalled source returns partial promptly and discards only its temporary writer
+ok 7 - cancelling a stalled source returns partial promptly and discards only its temporary writer
+  ---
+  duration_ms: 117.3713
+  type: 'test'
+  ...
+# Subtest: snapshot rechecks actual current bytes and a repaired retry restores the same identity
+ok 8 - snapshot rechecks actual current bytes and a repaired retry restores the same identity
+  ---
+  duration_ms: 784.4959
+  type: 'test'
+  ...
+# Subtest: filesystem adapter refuses traversal and a substituted object-directory junction before deletion
+ok 9 - filesystem adapter refuses traversal and a substituted object-directory junction before deletion
+  ---
+  duration_ms: 406.6638
+  type: 'test'
+  ...
+# Subtest: a killed writer leaves current and session pin intact; reopening reclaims only its dead temporary file
+ok 10 - a killed writer leaves current and session pin intact; reopening reclaims only its dead temporary file
+  ---
+  duration_ms: 636.2031
+  type: 'test'
+  ...
+# Subtest: a simulated storage-open failure reports a partial revision while the real previous pack stays ready
+ok 11 - a simulated storage-open failure reports a partial revision while the real previous pack stays ready
+  ---
+  duration_ms: 841.2396
+  type: 'test'
+  ...
+# Subtest: the actual storage byte quota rejects a chunk before persistence without evicting anything
+ok 12 - the actual storage byte quota rejects a chunk before persistence without evicting anything
+  ---
+  duration_ms: 116.9414
+  type: 'test'
+  ...
+# Subtest: unsafe bundled path normalization and a non-owned root fail closed
+ok 13 - unsafe bundled path normalization and a non-owned root fail closed
+  ---
+  duration_ms: 103.2702
+  type: 'test'
+  ...
+# Subtest: configuration cannot raise hard provider or concurrency caps
+ok 14 - configuration cannot raise hard provider or concurrency caps
+  ---
+  duration_ms: 24.3517
+  type: 'test'
+  ...
+1..14
+# tests 14
+# suites 0
+# pass 14
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 7548.9422
+Running: Public collection real SQLite and trusted catalog boundaries
+TAP version 13
+# (node:27112) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: publication is disabled without a valid explicit trusted catalog and standalone previews cannot omit it
+ok 1 - publication is disabled without a valid explicit trusted catalog and standalone previews cannot omit it
+  ---
+  duration_ms: 43.7385
+  type: 'test'
+  ...
+# Subtest: all locales publish the exact trusted titles and proof shown in the bound HTTP preview
+ok 2 - all locales publish the exact trusted titles and proof shown in the bound HTTP preview
+  ---
+  duration_ms: 289.5251
+  type: 'test'
+  ...
+# Subtest: unknown IDs, substituted localized titles and disallowed proofs fail preview, publish and update even with a matching attacker hash
+ok 3 - unknown IDs, substituted localized titles and disallowed proofs fail preview, publish and update even with a matching attacker hash
+  ---
+  duration_ms: 124.7188
+  type: 'test'
+  ...
+# Subtest: constructor snapshots nested catalog titles, IDs and proof permissions rather than retaining caller-mutable trust
+ok 4 - constructor snapshots nested catalog titles, IDs and proof permissions rather than retaining caller-mutable trust
+  ---
+  duration_ms: 54.6007
+  type: 'test'
+  ...
+# Subtest: reads and HTML fail closed after trusted content changes; they never silently rename a previously confirmed persisted snapshot
+ok 5 - reads and HTML fail closed after trusted content changes; they never silently rename a previously confirmed persisted snapshot
+  ---
+  duration_ms: 99.9199
+  type: 'test'
+  ...
+# (node:4864) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: an exact preview is private until confirmed publish, then reads only the selected public snapshot for thirty days
+ok 6 - an exact preview is private until confirmed publish, then reads only the selected public snapshot for thirty days
+  ---
+  duration_ms: 90.3539
+  type: 'test'
+  ...
+# Subtest: an interrupted publish is retried idempotently and explicit reviewed updates alone renew the same link
+ok 7 - an interrupted publish is retried idempotently and explicit reviewed updates alone renew the same link
+  ---
+  duration_ms: 100.4258
+  type: 'test'
+  ...
+# Subtest: rotation and revocation immediately retire old URLs without renewing expiry or permitting a public reader to manage them
+ok 8 - rotation and revocation immediately retire old URLs without renewing expiry or permitting a public reader to manage them
+  ---
+  duration_ms: 147.0878
+  type: 'test'
+  ...
+# Subtest: maintenance removes expired payloads and old receipts while an explicit new preview can renew the same expired URL
+ok 9 - maintenance removes expired payloads and old receipts while an explicit new preview can renew the same expired URL
+  ---
+  duration_ms: 94.9409
+  type: 'test'
+  ...
+# Subtest: restoring an old profile database cannot resurrect a revoked URL or grant an old revision control
+ok 10 - restoring an old profile database cannot resurrect a revoked URL or grant an old revision control
+  ---
+  duration_ms: 81.1878
+  type: 'test'
+  ...
+# Subtest: the HTTP interface publishes the reviewed selection and renders uncached JSON/HTML without exposing management secrets or executing names
+ok 11 - the HTTP interface publishes the reviewed selection and renders uncached JSON/HTML without exposing management secrets or executing names
+  ---
+  duration_ms: 117.5363
+  type: 'test'
+  ...
+# Subtest: an unavailable independent authority fails closed, and a new restore epoch requires an explicit publication with a new URL
+ok 12 - an unavailable independent authority fails closed, and a new restore epoch requires an explicit publication with a new URL
+  ---
+  duration_ms: 108.5669
+  type: 'test'
+  ...
+# Subtest: private coordinates, dates, device IDs and extra nested fields are rejected instead of being copied or silently published
+ok 13 - private coordinates, dates, device IDs and extra nested fields are rejected instead of being copied or silently published
+  ---
+  duration_ms: 73.0836
+  type: 'test'
+  ...
+# Subtest: the profile database cannot alias the independent authority file through a different hard-link path
+ok 14 - the profile database cannot alias the independent authority file through a different hard-link path
+  ---
+  duration_ms: 30.3141
+  type: 'test'
+  ...
+# Subtest: the HTTP owner path updates language, replaces the link, revokes both representations and rejects oversized or malformed requests
+ok 15 - the HTTP owner path updates language, replaces the link, revokes both representations and rejects oversized or malformed requests
+  ---
+  duration_ms: 143.3411
+  type: 'test'
+  ...
+# Subtest: a rotated URL is never revived by restoring an older profile snapshot or republishing its read token
+ok 16 - a rotated URL is never revived by restoring an older profile snapshot or republishing its read token
+  ---
+  duration_ms: 75.3024
+  type: 'test'
+  ...
+# Subtest: server clock rollback and ordinary reads cannot revive or silently extend an expired publication
+ok 17 - server clock rollback and ordinary reads cannot revive or silently extend an expired publication
+  ---
+  duration_ms: 69.0849
+  type: 'test'
+  ...
+# Subtest: concurrent HTTP updates cannot overwrite a winning revision and a later stale request cannot undo revoke
+ok 18 - concurrent HTTP updates cannot overwrite a winning revision and a later stale request cannot undo revoke
+  ---
+  duration_ms: 106.5391
+  type: 'test'
+  ...
+# Subtest: an invalid server clock or closed authority produces a bounded unavailable response without disclosing underlying errors
+ok 19 - an invalid server clock or closed authority produces a bounded unavailable response without disclosing underlying errors
+  ---
+  duration_ms: 62.5248
+  type: 'test'
+  ...
+# Subtest: atomic installation budgets enforce one mutation per second and reserve the tenth daily action for revoke
+ok 20 - atomic installation budgets enforce one mutation per second and reserve the tenth daily action for revoke
+  ---
+  duration_ms: 196.1598
+  type: 'test'
+  ...
+# Subtest: the persistent global mutation budget cannot be bypassed by creating fresh capabilities
+ok 21 - the persistent global mutation budget cannot be bypassed by creating fresh capabilities
+  ---
+  duration_ms: 70.9983
+  type: 'test'
+  ...
+# Subtest: aggregate persistent read and HTTP budgets bound traffic without IP identifiers and send Retry-After
+ok 22 - aggregate persistent read and HTTP budgets bound traffic without IP identifiers and send Retry-After
+  ---
+  duration_ms: 84.8129
+  type: 'test'
+  ...
+# Subtest: a finite storage ceiling closes publication fail closed and lets maintenance remove inaccessible payloads
+ok 23 - a finite storage ceiling closes publication fail closed and lets maintenance remove inaccessible payloads
+  ---
+  duration_ms: 48.1579
+  type: 'test'
+  ...
+1..23
+# tests 23
+# suites 0
+# pass 23
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1861.3065
+Running: Private Node workspace strict build
+Node workspace build passed. No mobile or hosted integration is implied.
+Running: Normal Node package export integration
+TAP version 13
+# (node:36092) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: normal Node package imports search real data, produce a sealed walk and refuse incomplete offline assets
+ok 1 - normal Node package imports search real data, produce a sealed walk and refuse incomplete offline assets
+  ---
+  duration_ms: 78.2952
+  type: 'test'
+  ...
+# Subtest: a real planned revision persists as a partial pinned pack across storage reopen without activation
+ok 2 - a real planned revision persists as a partial pinned pack across storage reopen without activation
+  ---
+  duration_ms: 114.082
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 516.7468
+Running: Prepared audio input/model integrity
+{"id": "cue:start:ru", "bytes": 1773, "cacheHit": false}
+{"id": "cue:pause:ru", "bytes": 1773, "cacheHit": false}
+{"id": "cue:start:ru", "bytes": 1773, "cacheHit": true}
+test_cache_receipt_path_traversal_cannot_read_an_unrelated_file (test_build_narration_corpus.CorpusBuildTests.test_cache_receipt_path_traversal_cannot_read_an_unrelated_file) ... ok
+test_changed_source_and_unowned_output_are_refused_without_rendering (test_build_narration_corpus.CorpusBuildTests.test_changed_source_and_unowned_output_are_refused_without_rendering) ... ok
+{"id": "cue:start:ru", "bytes": 1773, "cacheHit": false}
+{"id": "cue:pause:ru", "bytes": 1773, "cacheHit": false}
+{"id": "cue:start:ru", "bytes": 1773, "cacheHit": true}
+{"id": "cue:pause:ru", "bytes": 1773, "cacheHit": true}
+{"id": "cue:start:ru", "bytes": 1773, "cacheHit": true}
+test_complete_rerun_checks_real_cached_bytes_without_rendering_or_changing_manifest (test_build_narration_corpus.CorpusBuildTests.test_complete_rerun_checks_real_cached_bytes_without_rendering_or_changing_manifest) ... ok
+test_hardlinked_lock_never_modifies_outside_sentinel (test_build_narration_corpus.CorpusBuildTests.test_hardlinked_lock_never_modifies_outside_sentinel) ... ok
+{"id": "cue:start:ru", "bytes": 1773, "cacheHit": false}
+{"id": "cue:start:ru", "bytes": 1773, "cacheHit": true}
+{"id": "cue:pause:ru", "bytes": 1773, "cacheHit": false}
+test_interruption_reuses_only_verified_finished_files_and_publishes_no_partial_manifest (test_build_narration_corpus.CorpusBuildTests.test_interruption_reuses_only_verified_finished_files_and_publishes_no_partial_manifest) ... ok
+test_windows_junction_root_and_linked_parent_leave_outside_target_untouched (test_build_narration_corpus.CorpusBuildTests.test_windows_junction_root_and_linked_parent_leave_outside_target_untouched) ... ok
+test_canonical_text_and_explicit_formatting_pass_without_loading_engine (test_generate_prepared_audio.ManifestIntegrityTests.test_canonical_text_and_explicit_formatting_pass_without_loading_engine) ... ok
+test_changed_canonical_source_is_rejected (test_generate_prepared_audio.ManifestIntegrityTests.test_changed_canonical_source_is_rejected) ... ok
+test_corrupted_model_is_rejected (test_generate_prepared_audio.ManifestIntegrityTests.test_corrupted_model_is_rejected) ... ok
+test_existing_audio_is_preserved (test_generate_prepared_audio.ManifestIntegrityTests.test_existing_audio_is_preserved) ... ok
+test_text_cannot_be_rewritten_even_with_new_matching_manifest_hash (test_generate_prepared_audio.ManifestIntegrityTests.test_text_cannot_be_rewritten_even_with_new_matching_manifest_hash) ... ok
+test_unexpected_locale_and_unsafe_filename_are_rejected (test_generate_prepared_audio.ManifestIntegrityTests.test_unexpected_locale_and_unsafe_filename_are_rejected) ... ok
+test_voice_with_auxiliary_downloads_is_rejected (test_generate_prepared_audio.ManifestIntegrityTests.test_voice_with_auxiliary_downloads_is_rejected) ... ok
+test_wrong_manifest_hash_is_rejected_before_inputs (test_generate_prepared_audio.ManifestIntegrityTests.test_wrong_manifest_hash_is_rejected_before_inputs) ... ok
+test_another_voice_and_rewritten_text_are_rejected (test_generate_rhvoice_audio.PortableVoiceIntegrityTests.test_another_voice_and_rewritten_text_are_rejected) ... ok
+test_corrupted_voice_data_is_rejected (test_generate_rhvoice_audio.PortableVoiceIntegrityTests.test_corrupted_voice_data_is_rejected) ... ok
+test_extra_resource_cannot_be_loaded_silently (test_generate_rhvoice_audio.PortableVoiceIntegrityTests.test_extra_resource_cannot_be_loaded_silently) ... ok
+test_preflight_does_not_load_dll_or_create_output (test_generate_rhvoice_audio.PortableVoiceIntegrityTests.test_preflight_does_not_load_dll_or_create_output) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 6.723s
+
+OK
+Running: Canonical narration export and prepared asset binding
+TAP version 13
+# Subtest: canonical replay exports all 54 exact narrations, keeping quest answers separate
+ok 1 - canonical replay exports all 54 exact narrations, keeping quest answers separate
+  ---
+  duration_ms: 853.8331
+  type: 'test'
+  ...
+# Subtest: adapter binds all exact narration files, reseals a new bundle and keeps missing map partial
+ok 2 - adapter binds all exact narration files, reseals a new bundle and keeps missing map partial
+  ---
+  duration_ms: 598.3986
+  type: 'test'
+  ...
+# Subtest: adapter refuses text substitution, missing coverage, corruption and path escape
+ok 3 - adapter refuses text substitution, missing coverage, corruption and path escape
+  ---
+  duration_ms: 820.2428
+  type: 'test'
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2432.9424
+Running: Mobile strict types
+Running: Mobile lifecycle regression with simulated OS adapters
+TAP version 13
+# Subtest: capability reports native service truth even when durable progress says active
+ok 1 - capability reports native service truth even when durable progress says active
+  ---
+  duration_ms: 86.3077
+  type: 'test'
+  ...
+# Subtest: a cancelled pending Start cannot later stop the next accepted Start
+ok 2 - a cancelled pending Start cannot later stop the next accepted Start
+  ---
+  duration_ms: 23.034
+  type: 'test'
+  ...
+# Subtest: denied location or notification permission never starts native acquisition
+ok 3 - denied location or notification permission never starts native acquisition
+  ---
+  duration_ms: 55.6196
+  type: 'test'
+  ...
+# Subtest: native failure or partial promotion never becomes an active walk
+ok 4 - native failure or partial promotion never becomes an active walk
+  ---
+  duration_ms: 49.9075
+  type: 'test'
+  ...
+# Subtest: SQLite failures block Start and cannot prevent native cleanup or Stop
+ok 5 - SQLite failures block Start and cannot prevent native cleanup or Stop
+  ---
+  duration_ms: 60.1305
+  type: 'test'
+  ...
+# Subtest: granting a delayed permission after Stop cannot start a cancelled walk
+ok 6 - granting a delayed permission after Stop cannot start a cancelled walk
+  ---
+  duration_ms: 22.0203
+  type: 'test'
+  ...
+# Subtest: a delayed active write cannot undo the most recent Pause or Stop
+ok 7 - a delayed active write cannot undo the most recent Pause or Stop
+  ---
+  duration_ms: 22.0978
+  type: 'test'
+  ...
+# Subtest: reconciliation follows native lifetime and never automatically starts tracking
+ok 8 - reconciliation follows native lifetime and never automatically starts tracking
+  ---
+  duration_ms: 31.8653
+  type: 'test'
+  ...
+# Subtest: a stale reconciliation cannot pause a newer accepted Start
+ok 9 - a stale reconciliation cannot pause a newer accepted Start
+  ---
+  duration_ms: 10.446
+  type: 'test'
+  ...
+# Subtest: a delayed Pause write cannot undo a later explicit Stop
+ok 10 - a delayed Pause write cannot undo a later explicit Stop
+  ---
+  duration_ms: 12.7877
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 10
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 709.5024
+Running: Editorial progression, actual SQLite persistence and priority Stop
+TAP version 13
+# Subtest: the actual bundled walk fits its budget and completes all three chapters only after the return
+ok 1 - the actual bundled walk fits its budget and completes all three chapters only after the return
+  ---
+  duration_ms: 14.8049
+  type: 'test'
+  ...
+# Subtest: a broken return connector or a budget that omits its last leg is refused
+ok 2 - a broken return connector or a budget that omits its last leg is refused
+  ---
+  duration_ms: 5.8915
+  type: 'test'
+  ...
+# Subtest: Stop immediately cancels native and audio while a permission/save operation is still pending, then durably pauses
+ok 3 - Stop immediately cancels native and audio while a permission/save operation is still pending, then durably pauses
+  ---
+  duration_ms: 2.9122
+  type: 'test'
+  ...
+# Subtest: cleanup failure cannot suppress the other cleanup or durable pause after the pending operation
+ok 4 - cleanup failure cannot suppress the other cleanup or durable pause after the pending operation
+  ---
+  duration_ms: 0.954
+  type: 'test'
+  ...
+# Subtest: a rejected pending operation still pauses after both cleanup promises settle
+ok 5 - a rejected pending operation still pauses after both cleanup promises settle
+  ---
+  duration_ms: 0.5468
+  type: 'test'
+  ...
+# Subtest: durable pause failure rejects Stop instead of reporting successful cleanup as saved progress
+ok 6 - durable pause failure rejects Stop instead of reporting successful cleanup as saved progress
+  ---
+  duration_ms: 1.2808
+  type: 'test'
+  ...
+# Subtest: a prepared walk creates a ready session without marking visits or starting tracking
+ok 7 - a prepared walk creates a ready session without marking visits or starting tracking
+  ---
+  duration_ms: 4.4936
+  type: 'test'
+  ...
+# Subtest: Start, pause and explicit resume preserve progress and the original start time
+ok 8 - Start, pause and explicit resume preserve progress and the original start time
+  ---
+  duration_ms: 1.9609
+  type: 'test'
+  ...
+# Subtest: a manual visit unlocks its quest, a wrong answer stays here, and a correct answer waits for Continue
+ok 9 - a manual visit unlocks its quest, a wrong answer stays here, and a correct answer waits for Continue
+  ---
+  duration_ms: 3.0327
+  type: 'test'
+  ...
+# Subtest: completing every quest begins the return leg; only manual return confirmation earns the discovery
+ok 10 - completing every quest begins the return leg; only manual return confirmation earns the discovery
+  ---
+  duration_ms: 2.5846
+  type: 'test'
+  ...
+# Subtest: skipping an unfinished stop preserves earlier answers but cannot earn the full discovery
+ok 11 - skipping an unfinished stop preserves earlier answers but cannot earn the full discovery
+  ---
+  duration_ms: 1.5911
+  type: 'test'
+  ...
+# Subtest: completed answers cannot be overwritten and stale or future commands cannot fast-forward progress
+ok 12 - completed answers cannot be overwritten and stale or future commands cannot fast-forward progress
+  ---
+  duration_ms: 2.4435
+  type: 'test'
+  ...
+# Subtest: saved snapshots round-trip without resuming and reject a different walk, revision or malformed record
+ok 13 - saved snapshots round-trip without resuming and reject a different walk, revision or malformed record
+  ---
+  duration_ms: 3.2624
+  type: 'test'
+  ...
+# Subtest: restore rejects foreign or future visits, forged answers, overlapping skips and unexplained progress
+ok 14 - restore rejects foreign or future visits, forged answers, overlapping skips and unexplained progress
+  ---
+  duration_ms: 2.122
+  type: 'test'
+  ...
+# Subtest: restore requires a valid phase cursor and start time rather than treating arbitrary records as completion
+ok 15 - restore requires a valid phase cursor and start time rather than treating arbitrary records as completion
+  ---
+  duration_ms: 2.402
+  type: 'test'
+  ...
+# Subtest: callers cannot bypass restore validation when creating, advancing or displaying a discovery
+ok 16 - callers cannot bypass restore validation when creating, advancing or displaying a discovery
+  ---
+  duration_ms: 2.053
+  type: 'test'
+  ...
+# Subtest: the return leg survives pause and restoration, and premature or repeated return confirmation cannot finish it
+ok 17 - the return leg survives pause and restoration, and premature or repeated return confirmation cannot finish it
+  ---
+  duration_ms: 2.0059
+  type: 'test'
+  ...
+# (node:6480) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: a reopened database restores the selected bundle revision and durably pauses the active session
+ok 18 - a reopened database restores the selected bundle revision and durably pauses the active session
+  ---
+  duration_ms: 87.5761
+  type: 'test'
+  ...
+# Subtest: completion and discovery commit atomically, recover after SQLite failure and award once across restarts
+ok 19 - completion and discovery commit atomically, recover after SQLite failure and award once across restarts
+  ---
+  duration_ms: 32.5446
+  type: 'test'
+  ...
+# Subtest: corrupt progress is retained on load and only an explicit restart archives it before replacing it
+ok 20 - corrupt progress is retained on load and only an explicit restart archives it before replacing it
+  ---
+  duration_ms: 7.1761
+  type: 'test'
+  ...
+# Subtest: settings do not initialize a walk, and concurrent commands remain ordered through a delayed SQLite commit
+ok 21 - settings do not initialize a walk, and concurrent commands remain ordered through a delayed SQLite commit
+  ---
+  duration_ms: 8.0484
+  type: 'test'
+  ...
+# Subtest: cold load exposes no uncommitted pause and fails closed on corrupt stored discoveries
+ok 22 - cold load exposes no uncommitted pause and fails closed on corrupt stored discoveries
+  ---
+  duration_ms: 10.4201
+  type: 'test'
+  ...
+# Subtest: wall-clock correction does not prevent restoring, pausing and continuing valid manual progress
+ok 23 - wall-clock correction does not prevent restoring, pausing and continuing valid manual progress
+  ---
+  duration_ms: 8.0353
+  type: 'test'
+  ...
+1..23
+# tests 23
+# suites 0
+# pass 23
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 978.5895
+Running: Canonical mobile session, presentation and prepared audio wrapper
+TAP version 13
+# Subtest: only an explicit valid bundled path and matching hash reaches the native play seam
+ok 1 - only an explicit valid bundled path and matching hash reaches the native play seam
+  ---
+  duration_ms: 111.8439
+  type: 'test'
+  ...
+# Subtest: pause, stop and state cross the explicit native methods; stale state events cannot replace newer generations
+ok 2 - pause, stop and state cross the explicit native methods; stale state events cannot replace newer generations
+  ---
+  duration_ms: 23.0531
+  type: 'test'
+  ...
+# Subtest: a missing native audio implementation or invalid state is reported without any speech fallback
+ok 3 - a missing native audio implementation or invalid state is reported without any speech fallback
+  ---
+  duration_ms: 104.4179
+  type: 'test'
+  ...
+# (node:35908) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: a real canonical bundle opens prepared once and coexists with readable legacy progress
+ok 4 - a real canonical bundle opens prepared once and coexists with readable legacy progress
+  ---
+  duration_ms: 606.9825
+  type: 'test'
+  ...
+# Subtest: a complete manual story has explicit end confirmation and exactly one durable manual collection
+ok 5 - a complete manual story has explicit end confirmation and exactly one durable manual collection
+  ---
+  duration_ms: 156.4646
+  type: 'test'
+  ...
+# Subtest: a new database connection safely restores committed active progress paused without resetting answers
+ok 6 - a new database connection safely restores committed active progress paused without resetting answers
+  ---
+  duration_ms: 169.1353
+  type: 'test'
+  ...
+# Subtest: independent connections reject stale commands and event ID substitution without replaying an old projection over a pause
+ok 7 - independent connections reject stale commands and event ID substitution without replaying an old projection over a pause
+  ---
+  duration_ms: 152.4521
+  type: 'test'
+  ...
+# Subtest: an actual SQLite event-write failure rolls back projection and can be retried using the same event
+ok 8 - an actual SQLite event-write failure rolls back projection and can be retried using the same event
+  ---
+  duration_ms: 61.3589
+  type: 'test'
+  ...
+# Subtest: reading, manual visit, correct quest and explicit end remain separate user actions
+ok 9 - reading, manual visit, correct quest and explicit end remain separate user actions
+  ---
+  duration_ms: 124.6021
+  type: 'test'
+  ...
+# Subtest: last-stop and explicit-point endings can be confirmed after skips without manufacturing a collection
+ok 10 - last-stop and explicit-point endings can be confirmed after skips without manufacturing a collection
+  ---
+  duration_ms: 130.1239
+  type: 'test'
+  ...
+# Subtest: a different bundle cannot overwrite a nonterminal session and abandonment remains distinct from completion
+ok 11 - a different bundle cannot overwrite a nonterminal session and abandonment remains distinct from completion
+  ---
+  duration_ms: 102.5442
+  type: 'test'
+  ...
+# Subtest: each actual file connection configures foreign keys, WAL and a bounded busy timeout without changing the legacy schema version
+ok 12 - each actual file connection configures foreign keys, WAL and a bounded busy timeout without changing the legacy schema version
+  ---
+  duration_ms: 24.547
+  type: 'test'
+  ...
+# Subtest: a failed final collection transaction preserves the unfinished walk and awards the story once across sessions
+ok 13 - a failed final collection transaction preserves the unfinished walk and awards the story once across sessions
+  ---
+  duration_ms: 263.1183
+  type: 'test'
+  ...
+# Subtest: strict coordinate-free commands reject provider extras before journaling and keep errors bounded
+ok 14 - strict coordinate-free commands reject provider extras before journaling and keep errors bounded
+  ---
+  duration_ms: 34.6436
+  type: 'test'
+  ...
+# Subtest: invalid bundles and corrupted durable progress fail safely without replacing the original row
+ok 15 - invalid bundles and corrupted durable progress fail safely without replacing the original row
+  ---
+  duration_ms: 37.0579
+  type: 'test'
+  ...
+# Subtest: all three ending rules retain their actual endpoint and graph geometry instead of promising a return for every walk
+ok 16 - all three ending rules retain their actual endpoint and graph geometry instead of promising a return for every walk
+  ---
+  duration_ms: 220.9071
+  type: 'test'
+  ...
+# Subtest: the localized adapter preserves fact versus fiction, source references, quests, collections and cues without mutating canonical bytes
+ok 17 - the localized adapter preserves fact versus fiction, source references, quests, collections and cues without mutating canonical bytes
+  ---
+  duration_ms: 19.0616
+  type: 'test'
+  ...
+# Subtest: an unresolved canonical fact/source fails explicitly instead of presenting an unsupported story
+ok 18 - an unresolved canonical fact/source fails explicitly instead of presenting an unsupported story
+  ---
+  duration_ms: 18.1908
+  type: 'test'
+  ...
+# Subtest: session presentation maps prepared and abandoned explicitly and preserves manual provenance without inventing completion
+ok 19 - session presentation maps prepared and abandoned explicitly and preserves manual provenance without inventing completion
+  ---
+  duration_ms: 13.4456
+  type: 'test'
+  ...
+# Subtest: quest answer feedback uses the correct localized explanation or hint and rejects answers for unknown stops
+ok 20 - quest answer feedback uses the correct localized explanation or hint and rejects answers for unknown stops
+  ---
+  duration_ms: 14.6855
+  type: 'test'
+  ...
+# Subtest: available audio references never make missing offline maps ready; verification is bound to this immutable bundle
+ok 21 - available audio references never make missing offline maps ready; verification is bound to this immutable bundle
+  ---
+  duration_ms: 17.1388
+  type: 'test'
+  ...
+1..21
+# tests 21
+# suites 0
+# pass 21
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2271.3009
+Running: Prepared APK narration packaging identity
+{"entries":54,"bytes":9793210,"registrySha256":"959e466442bbe090a8523f0d88607454706ce67d2e7e763e6b4798587ab71925","checked":true}
+Running: Editorial catalog malformed-input checks (synthetic, in memory only)
+{
+  "kind": "synthetic-in-memory-refusal-checks",
+  "passed": true,
+  "checks": [
+    {
+      "name": "synthetic valid-shape mapping keeps date precision and quest answer",
+      "passed": true,
+      "productionCatalogWritten": false
+    },
+    {
+      "name": "missing graph provenance refused",
+      "passed": true,
+      "rejection": "route.source.graphSha256 must be a non-placeholder lower-case SHA256"
+    },
+    {
+      "name": "unbacked geometry point refused",
+      "passed": true,
+      "rejection": "Every geometry point must have its corresponding OSM node ID"
+    },
+    {
+      "name": "invented return connector refused",
+      "passed": true,
+      "rejection": "Leg endpoint differs from public stop anchor; no synthetic connector is permitted"
+    },
+    {
+      "name": "false declared distance refused",
+      "passed": true,
+      "rejection": "Declared leg distance differs from geometry (169.977 vs 69.977 metres)"
+    },
+    {
+      "name": "missing source way proof refused",
+      "passed": true,
+      "rejection": "Each leg requires sourceWayIds"
+    },
+    {
+      "name": "overbudget walk refused without dropping content",
+      "passed": true,
+      "rejection": "Walk does not fit budget: 28.209 > 15 minutes; refusing to truncate content or forge the return"
+    },
+    {
+      "name": "start must be first public anchor",
+      "passed": true,
+      "rejection": "Explicit start anchor must exactly equal the first stop, including OSM node proof"
+    }
+  ],
+  "productionCatalogWritten": false,
+  "limitation": "Invented node IDs and hashes are test fixtures; these checks do not verify any real OSM edge, live route, field condition or device."
+}
+Running: City guide, actual SQLite preferences and progress priority
+TAP version 13
+# Subtest: the app opens the actual six-district guide with linked evidence in all three languages
+ok 1 - the app opens the actual six-district guide with linked evidence in all three languages
+  ---
+  duration_ms: 2.3536
+  type: 'test'
+  ...
+# (node:34000) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: the city viewing marker persists after reopening the local store
+ok 2 - the city viewing marker persists after reopening the local store
+  ---
+  duration_ms: 12.5285
+  type: 'test'
+  ...
+# Subtest: a failed finish remains unseen and can be retried without losing the preference store
+ok 3 - a failed finish remains unseen and can be retried without losing the preference store
+  ---
+  duration_ms: 1.0544
+  type: 'test'
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 486.6124
+Running: City geometry malformed-input checks (synthetic)
+test_concave_district_label_remains_inside (test_geometry.GeometryInvariants.test_concave_district_label_remains_inside) ... ok
+test_hole_is_not_an_interior_hit (test_geometry.GeometryInvariants.test_hole_is_not_an_interior_hit) ... ok
+test_missing_boundary_way_refuses_to_invent_closing_segment (test_geometry.GeometryInvariants.test_missing_boundary_way_refuses_to_invent_closing_segment) ... ok
+test_self_crossing_ring_is_rejected (test_geometry.GeometryInvariants.test_self_crossing_ring_is_rejected) ... ok
+test_shuffled_and_reversed_source_ways_close_by_node_id (test_geometry.GeometryInvariants.test_shuffled_and_reversed_source_ways_close_by_node_id) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.016s
+
+OK
+Available local checks passed. This does not accept Android runtime, GPS, offline assets, live RAG or field gates.

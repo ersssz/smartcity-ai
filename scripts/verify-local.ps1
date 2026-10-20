@@ -42,6 +42,7 @@ Invoke-LocalCheck 'Normal Node package export integration' $repoRoot $nodeComman
 Invoke-LocalCheck 'Prepared audio input/model integrity' $repoRoot $pythonCommand.Source @('-X', 'utf8', '-B', '-m', 'unittest', 'discover', '-s', 'tools/audio', '-p', 'test_*.py', '-v')
 Invoke-LocalCheck 'Canonical narration export and prepared asset binding' $repoRoot $nodeCommand.Source @('--test', 'tools/audio/test_canonical_audio.cjs')
 Invoke-LocalCheck 'Mobile strict types' (Join-Path $repoRoot 'apps/mobile') $nodeCommand.Source @($tscPath, '--noEmit')
+Invoke-LocalCheck 'Discovery weather, holiday and hook boundaries' (Join-Path $repoRoot 'apps/mobile') $nodeCommand.Source @('--test', 'tests/discoveryContext.test.cjs', 'tests/discoveryContextHook.test.cjs')
 Invoke-LocalCheck 'Mobile lifecycle regression with simulated OS adapters' (Join-Path $repoRoot 'apps/mobile') $nodeCommand.Source @('--test', 'tests/walkDiagnostic.test.cjs')
 Invoke-LocalCheck 'Editorial progression, actual SQLite persistence and priority Stop' (Join-Path $repoRoot 'apps/mobile') $nodeCommand.Source @('--experimental-sqlite', '--test', 'tests/walkEngine.test.cjs', 'tests/walkRepository.test.cjs', 'tests/priorityStop.test.cjs', 'tests/preparedWalk.test.cjs')
 Invoke-LocalCheck 'Canonical mobile session, presentation and prepared audio wrapper' (Join-Path $repoRoot 'apps/mobile') $nodeCommand.Source @('--experimental-sqlite', '--test', 'src/canonical/session.test.cjs', 'tests/canonicalPresentation.test.cjs', 'modules/astana-active-walk/src/preparedAudio.test.cjs')

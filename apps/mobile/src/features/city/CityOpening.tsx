@@ -24,9 +24,9 @@ function currentAppState(): AppStateStatus {
   return state === 'active' || state === 'background' || state === 'inactive' || state === 'extension' ? state : 'unknown';
 }
 const COPY = {
-  ru: { title: 'Добро пожаловать в Астану!', eyebrow: 'ГОРОД, КОТОРЫЙ ОТКРЫВАЕТСЯ', body: 'Начнём с реки. Затем откроем характер каждого района.', skip: 'Сразу к карте →', continue: 'Открыть город →', foot: 'АСТАНА · 51° N' },
-  kk: { title: 'Астанаға қош келдіңіз!', eyebrow: 'ӨЗІН ЖАҢАША АШАТЫН ҚАЛА', body: 'Алдымен өзенмен танысайық. Содан соң әр ауданның ерекшелігін ашамыз.', skip: 'Бірден картаға →', continue: 'Қаланы ашу →', foot: 'АСТАНА · 51° N' },
-  en: { title: 'Welcome to Astana!', eyebrow: 'A CITY WAITING TO BE DISCOVERED', body: 'Begin with the river. Then discover the character of each district.', skip: 'Straight to the map →', continue: 'Discover the city →', foot: 'ASTANA · 51° N' },
+  ru: { title: 'Добро пожаловать в Астану!', eyebrow: 'ГОРОД, КОТОРЫЙ ОТКРЫВАЕТСЯ', body: 'Места с характером. Истории, которые хочется услышать.', skip: 'Сразу к местам →', continue: 'Открыть город →', foot: 'АСТАНА · 51° N' },
+  kk: { title: 'Астанаға қош келдіңіз!', eyebrow: 'ӨЗІН ЖАҢАША АШАТЫН ҚАЛА', body: 'Ерекше орындар. Тыңдағыңыз келетін хикаялар.', skip: 'Бірден орындарға →', continue: 'Қаланы ашу →', foot: 'АСТАНА · 51° N' },
+  en: { title: 'Welcome to Astana!', eyebrow: 'A CITY WAITING TO BE DISCOVERED', body: 'Places with character. Stories worth listening to.', skip: 'Straight to places →', continue: 'Discover the city →', foot: 'ASTANA · 51° N' },
 } as const;
 
 /** A paper curtain over a stable native map; no animation transforms the map surface. */

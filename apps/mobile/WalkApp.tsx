@@ -13,6 +13,7 @@ import CityIntro from './src/features/city/CityIntro';
 import { getCityGuide } from './src/city/catalog';
 import { getCityPreferences } from './src/city/mobilePreferences';
 import CanonicalApp from './src/canonical/CanonicalApp';
+import DiscoveryApp from './src/discovery/DiscoveryApp';
 
 const COPY = {
   ru: { loading: 'Открываем Астану…', retry: 'Повторить', diagnostics: 'Техническая проверка', error: 'Не удалось сохранить изменение. Предыдущее сохранение осталось на телефоне. Повторите действие.', loadError: 'Не удалось открыть сохранённую прогулку. Данные не удалены.', corrupt: 'Сохранённая прогулка не прошла проверку. Можно начать новую: прежняя запись останется в локальном архиве.', restart: 'Начать заново?', restartBody: 'Текущая прогулка останется в локальном архиве. Открытия сохранятся. Новый проход начнётся с первой главы.', reset: 'Новый проход', cancel: 'Отмена', gpsOff: 'GPS-сопровождение выключено', gpsWaiting: 'GPS включён · ждём свежую позицию', gpsPermission: 'Нет разрешения на геолокацию', gpsProvider: 'Геолокация устройства выключена', gpsLive: 'Живая позиция · точность около', meters: 'м', gpsHelp: 'Показать себя на карте?', gpsBody: 'Геолокация включится только после вашего разрешения. Позиция не сохраняется; остановки и задания вы отмечаете вручную. Остановить GPS можно здесь или в уведомлении.', enable: 'Включить', trackingError: 'Не удалось включить GPS. Проверьте геолокацию и разрешения приложения.', voice: 'Голос системы · может требовать интернет; офлайн не проверен', noVoice: 'Для этого языка нет доступного голоса на устройстве. Текст главы доступен полностью.', speechError: 'Системный голос не смог прочитать главу. Можно продолжить чтение.', fieldNote: 'Рассчитано по пешеходному графу OpenStreetMap. Проходимость на месте ещё не проверена. Учитывайте ограждения, погоду и переходы; время оценено для темпа 3,6 км/ч. Вход в здания не требуется.', eyebrow: 'ТРИ ФОРМЫ · ОДНА ИСТОРИЯ' },
@@ -46,6 +47,8 @@ export default function WalkApp({ onOpenDiagnostics, claimCityLaunch }: { onOpen
   const [playing, setPlaying] = useState(false);
   const [showCity, setShowCity] = useState(false);
   const [showCanonical, setShowCanonical] = useState(false);
+  const [showDiscovery, setShowDiscovery] = useState(true);
+  const [discoveryOpening, setDiscoveryOpening] = useState(false);
   const [cityReplay, setCityReplay] = useState(false);
   const [cityOpening, setCityOpening] = useState(false);
   const [cityNotice, setCityNotice] = useState<string | null>(null);
@@ -72,9 +75,8 @@ export default function WalkApp({ onOpenDiagnostics, claimCityLaunch }: { onOpen
   const chooseCityEntry = useCallback((phase: Snapshot['session']['phase']) => {
     if (!launchOpeningStarted.current && claimCityLaunch()) {
       launchOpeningStarted.current = true;
-      setCityReplay(phase !== 'ready');
-      setCityOpening(true);
-      setShowCity(true);
+      setDiscoveryOpening(true);
+      setShowDiscovery(true);
     }
   }, [claimCityLaunch]);
   const load = useCallback(async () => {
@@ -173,7 +175,7 @@ export default function WalkApp({ onOpenDiagnostics, claimCityLaunch }: { onOpen
   });
   const finishCity = () => {
     setShowCity(false);
-    if (snapshotRef.current?.session.phase === 'ready') setShowCanonical(true);
+    setShowCanonical(false); setShowDiscovery(true); setDiscoveryOpening(false);
     // Leaving an introduction is always possible, even if its preference cannot be saved.
     void getCityPreferences().then(preferences => preferences.finish()).catch(() => {
       if (mounted.current) setCityNotice({ ru: 'Не удалось сохранить отметку о просмотре знакомства. Можно продолжить прогулку.', kk: 'Танысуды көргеніңіз туралы белгі сақталмады. Серуенді жалғастыруға болады.', en: 'The introduction viewing marker could not be saved. You can continue your walk.' }[locale]);
@@ -231,9 +233,14 @@ export default function WalkApp({ onOpenDiagnostics, claimCityLaunch }: { onOpen
   if (showCity) return <CityIntro guide={cityGuide} locale={locale} replay={cityReplay} playOpening={cityOpening} busy={busy}
     onLocaleChange={next => void operate(async () => { await stopAudio(); await repository.current?.setLocale(next); setLocale(next); })}
     error={error} onFinish={finishCity} />;
-  if (showCanonical) return <CanonicalApp initialLocale={locale} onBack={() => setShowCanonical(false)}
+  if (showCanonical) return <CanonicalApp initialLocale={locale} onBack={() => { setShowCanonical(false); setShowDiscovery(true); setDiscoveryOpening(false); }}
     onLocaleChange={async next => { const repo = repository.current ?? await getWalkRepository(); await repo.setLocale(next); setLocale(next); }}
     onOpenCity={() => { setCityReplay(true); setCityOpening(false); setShowCity(true); }} onOpenDiagnostics={onOpenDiagnostics} />;
+  if (showDiscovery) return <DiscoveryApp locale={locale} guide={cityGuide} playOpening={discoveryOpening} busy={busy} error={error}
+    onLocaleChange={next => void operate(async () => { await repository.current?.setLocale(next); setLocale(next); })}
+    onAboutCity={openCity} onGuidedWalk={() => void operate(async () => { await stopTracking(); await stopAudio();
+      if (snapshotRef.current?.session.phase === 'active' && repository.current) publish(await repository.current.act({ type: 'pause' }));
+      setShowDiscovery(false); setDiscoveryOpening(false); setShowCanonical(true); })} />;
   return <WalkExperience locale={locale} walk={uiWalk} session={uiSession} busy={busy} error={error ?? cityNotice} locationStatus={locationStatus}
     discoveries={snapshot!.discoveries.map(discovery => ({ walkId: discovery.walkId, title: discovery.title[locale] }))}
     livePosition={tracking ? livePosition : undefined} tracking={{ active: tracking, label: locationStatus }} audio={{ available: !!voice, playing, label: voice ? t.voice : t.noVoice }}

@@ -12,9 +12,9 @@ import { type CanonicalSessionCommand, type Snapshot } from './session';
 import { runPriorityStop } from '../walk/priorityStop';
 
 const COPY = {
-  ru: { loading: 'Готовим вашу прогулку…', retry: 'Повторить', back: 'К сохранённой прогулке', error: 'Не удалось выполнить действие. Сохранённый прогресс остался на телефоне.', audio: 'Записанная озвучка · работает без сети', audioError: 'Звук не запустился. Полный текст доступен ниже.', gps: 'Ручное прохождение · отметки не означают GPS-посещение', cleanup: 'Не удалось подтвердить остановку. Повторите действие.', unavailable: 'Проверяем материалы прогулки…' },
-  kk: { loading: 'Серуеніңіз дайындалуда…', retry: 'Қайталау', back: 'Сақталған серуенге', error: 'Әрекет орындалмады. Сақталған ілгерілеу телефонда қалды.', audio: 'Дайын дыбыстау · желісіз жұмыс істейді', audioError: 'Дыбыс қосылмады. Толық мәтін төменде бар.', gps: 'Қолмен өту · белгі GPS-сапарды білдірмейді', cleanup: 'Тоқтағаны расталмады. Әрекетті қайталаңыз.', unavailable: 'Серуен материалдары тексерілуде…' },
-  en: { loading: 'Preparing your walk…', retry: 'Retry', back: 'Back to saved walk', error: 'The action failed. Your saved progress remains on this phone.', audio: 'Prepared narration · plays without a connection', audioError: 'Audio could not start. The full text is available below.', gps: 'Manual progression · marks do not prove a GPS visit', cleanup: 'Stop was not confirmed. Please retry.', unavailable: 'Checking walk materials…' },
+  ru: { loading: 'Готовим вашу прогулку…', retry: 'Повторить', back: 'К сохранённой прогулке', error: 'Не удалось выполнить действие. Сохранённый прогресс остался на телефоне.', audio: 'Записанная озвучка · работает без сети', audioError: 'Звук не запустился. Полный текст доступен ниже.', gps: 'Слушайте истории и сохраняйте прочитанные главы', cleanup: 'Не удалось подтвердить остановку. Повторите действие.', unavailable: 'Проверяем материалы прогулки…' },
+  kk: { loading: 'Серуеніңіз дайындалуда…', retry: 'Қайталау', back: 'Сақталған серуенге', error: 'Әрекет орындалмады. Сақталған ілгерілеу телефонда қалды.', audio: 'Дайын дыбыстау · желісіз жұмыс істейді', audioError: 'Дыбыс қосылмады. Толық мәтін төменде бар.', gps: 'Хикаяларды тыңдап, оқылған тарауларды сақтаңыз', cleanup: 'Тоқтағаны расталмады. Әрекетті қайталаңыз.', unavailable: 'Серуен материалдары тексерілуде…' },
+  en: { loading: 'Preparing your walk…', retry: 'Retry', back: 'Back to saved walk', error: 'The action failed. Your saved progress remains on this phone.', audio: 'Prepared narration · plays without a connection', audioError: 'Audio could not start. The full text is available below.', gps: 'Listen to stories and save the chapters you read', cleanup: 'Stop was not confirmed. Please retry.', unavailable: 'Checking walk materials…' },
 };
 type Repository = Awaited<ReturnType<typeof getCanonicalSession>>;
 let eventSequence = 0;
@@ -95,7 +95,7 @@ export default function CanonicalApp({ initialLocale, onBack, onOpenCity, onOpen
     publish(await repo.open(proposal.bundle)); setVerification(proposal.verification); setProposal(undefined);
   });
   const command = (action: CanonicalSessionCommand['action']) => void operate(async () => {
-    if (['continue', 'skip', 'confirm_end', 'abandon'].includes(action.type)) await stopAudio();
+    if (['continue', 'read_story', 'skip', 'confirm_end', 'abandon'].includes(action.type)) await stopAudio();
     if (['confirm_end', 'abandon'].includes(action.type)) await stopNative();
     await dispatch(action);
   });
@@ -112,9 +112,13 @@ export default function CanonicalApp({ initialLocale, onBack, onOpenCity, onOpen
     await preparedAudio.play(`astana-${asset.location.path}`, asset.sha256);
   });
   const changeLocale = (next: Locale) => void operate(async () => { await stopAudio(); await onLocaleChange(next); setLocale(next); });
-  const uiWalk = useMemo(() => snapshot && toCanonicalUiWalk(snapshot.bundle, locale), [snapshot, locale]);
+  const uiWalk = useMemo(() => snapshot && ({ ...toCanonicalUiWalk(snapshot.bundle, locale),
+    materialsNote: ({ ru: 'Истории и записанная озвучка сохранены в приложении. Для уличной подложки карты нужен интернет.',
+      kk: 'Хикаялар мен дайын дыбыстау қолданбада сақталған. Көше картасына интернет қажет.',
+      en: 'Stories and prepared narration are saved in the app. The street base map requires a connection.' })[locale],
+  }), [snapshot, locale]);
   const uiSession = useMemo(() => snapshot && toCanonicalUiSession(snapshot.bundle, snapshot.session, locale), [snapshot, locale]);
-  if (proposal) return <CanonicalPreview bundle={proposal.bundle} locale={locale} busy={busy} error={error} verification={proposal.verification}
+  if (proposal) return <CanonicalPreview bundle={proposal.bundle} locale={locale} busy={busy} error={error} verification={proposal.verification} storyOnly
     onChoose={choose} onCancel={() => void urgentStop(onBack)} onLocaleChange={changeLocale} />;
   if (!snapshot || !uiWalk || !uiSession) return <SafeAreaView style={s.page}><View style={s.loading}><Text style={s.title}>AstanaAI</Text>
     {busy && <ActivityIndicator color="#173F3B" />}<Text style={s.text}>{error ?? t.loading}</Text>
@@ -123,6 +127,8 @@ export default function CanonicalApp({ initialLocale, onBack, onOpenCity, onOpen
   </View></SafeAreaView>;
   const audioReady = verification && verification.state !== 'invalid_bundle' && !verification.missing.some(m => m.id !== 'map');
   return <WalkExperience locale={locale} walk={uiWalk} session={uiSession} busy={busy} error={error ?? (audioState?.status === 'error' ? t.audioError : null)}
+    storyOnly onFinishStory={stopId => command({ type: 'read_story', stopId })}
+    onBackToSavedLabel={({ ru: 'К местам', kk: 'Орындарға', en: 'Back to places' })[locale]}
     discoveries={snapshot.discoveries.map(d => ({ walkId: d.walkId, title: d.title[locale] }))}
     audio={{ available: !!audioReady, playing: audioState?.status === 'playing' || audioState?.status === 'loading', label: audioReady ? t.audio : t.unavailable }}
     locationStatus={t.gps} onLocaleChange={changeLocale}
@@ -139,7 +145,7 @@ export default function CanonicalApp({ initialLocale, onBack, onOpenCity, onOpen
     onPauseAudio={() => { generation.current++; void preparedAudio.pause().catch(() => setError(t.audioError)); }}
     onOpenCity={() => void urgentStop(onOpenCity)} onOpenDiagnostics={() => void urgentStop(onOpenDiagnostics)} onBackToSaved={() => void urgentStop(onBack)}
     onAbandon={() => Alert.alert(({ ru: 'Завершить прогулку досрочно?', kk: 'Серуенді ерте аяқтау керек пе?', en: 'End this walk early?' })[locale],
-      ({ ru: 'Отмеченные шаги сохранятся. Полное прохождение не будет присуждено.', kk: 'Белгіленген қадамдар сақталады. Толық өту берілмейді.', en: 'Recorded steps are kept. Full completion will not be awarded.' })[locale],
+      ({ ru: 'Прочитанные главы останутся на телефоне. Можно вернуться к местам и выбрать прогулку снова.', kk: 'Оқылған тараулар телефонда қалады. Орындарға оралып, серуенді қайта таңдауға болады.', en: 'Read chapters stay on this phone. You can return to places and choose the walk again.' })[locale],
       [{ text: ({ ru: 'Продолжить', kk: 'Жалғастыру', en: 'Keep walking' })[locale], style: 'cancel' },
         { text: ({ ru: 'Завершить', kk: 'Аяқтау', en: 'End walk' })[locale], style: 'destructive', onPress: () => void urgentStop(() => dispatch({ type: 'abandon' })) }])}
     onOpenExternalRoute={() => { const [lon, lat] = snapshot.bundle.originalOrigin.coordinate; void Linking.openURL(`https://www.openstreetmap.org/?mlat=${lat}&mlon=${lon}#map=17/${lat}/${lon}`).catch(() => setError(t.error)); }} />;

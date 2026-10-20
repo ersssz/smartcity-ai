@@ -6,7 +6,7 @@ export type { CanonicalSessionState } from './schema';
 export type Snapshot = { bundle: WalkBundleV1; session: CanonicalSessionState; discoveries: ManualDiscovery[] };
 export type CanonicalSessionCommand = { eventId: string; expectedVersion: number; action:
   | { type: 'start' | 'pause' | 'resume' | 'confirm_end' | 'abandon' }
-  | { type: 'mark_stop' | 'continue' | 'skip'; stopId: string }
+  | { type: 'mark_stop' | 'continue' | 'skip' | 'read_story'; stopId: string }
   | { type: 'answer'; stopId: string; choiceId: string }
 };
 export type CanonicalSessionErrorCode = 'INVALID_BUNDLE' | 'CORRUPT_PROGRESS' | 'INVALID_COMMAND' | 'INVALID_STATE' | 'NOT_CURRENT_STOP' | 'VISIT_REQUIRED' | 'QUEST_REQUIRED' | 'UNKNOWN_CHOICE' | 'NO_SESSION' | 'SESSION_CONFLICT' | 'STALE_VERSION' | 'EVENT_CONFLICT' | 'WRITE_FAILED';
@@ -41,25 +41,26 @@ export function createCanonicalWalkSession(db: WalkDatabase, dependencies: { has
     const parsed = ProgressSchema.safeParse(input);
     if (!parsed.success) return error('CORRUPT_PROGRESS');
     const state = parsed.data, count = bundle.stops.length;
-    const manual = new Set(state.manualStopIds), completed = new Set(state.completedStopIds), skipped = new Set(state.skippedStopIds);
+    const manual = new Set(state.manualStopIds), completed = new Set(state.completedStopIds), skipped = new Set(state.skippedStopIds), read = new Set(state.readStopIds);
     if (state.bundleHash !== bundle.sha256 || state.bundleRevision !== bundle.revision || state.currentStopIndex > count
-      || manual.size !== state.manualStopIds.length || completed.size !== state.completedStopIds.length || skipped.size !== state.skippedStopIds.length
+      || manual.size !== state.manualStopIds.length || completed.size !== state.completedStopIds.length || skipped.size !== state.skippedStopIds.length || read.size !== state.readStopIds.length
       || (state.phase === 'completed' && state.currentStopIndex !== count)
       || (['active', 'paused', 'completed'].includes(state.phase) && state.startedAt === null)) return error('CORRUPT_PROGRESS');
-    if (state.phase === 'prepared' && (state.currentStopIndex !== 0 || state.startedAt !== null || state.version !== 0 || manual.size || completed.size || skipped.size || Object.keys(state.answers).length)) return error('CORRUPT_PROGRESS');
+    if (state.phase === 'prepared' && (state.currentStopIndex !== 0 || state.startedAt !== null || state.version !== 0 || manual.size || completed.size || skipped.size || read.size || Object.keys(state.answers).length)) return error('CORRUPT_PROGRESS');
     const indices = new Map(bundle.stops.map((stop, index) => [stop.id, index]));
-    for (const id of [...manual, ...completed, ...skipped, ...Object.keys(state.answers)]) {
+    for (const id of [...manual, ...completed, ...skipped, ...read, ...Object.keys(state.answers)]) {
       const index = indices.get(id);
       if (index === undefined || index > state.currentStopIndex) return error('CORRUPT_PROGRESS');
     }
     for (const id of completed) if (!manual.has(id) || skipped.has(id) || state.answers[id]?.correct !== true) return error('CORRUPT_PROGRESS');
     for (const id of skipped) if (indices.get(id)! >= state.currentStopIndex) return error('CORRUPT_PROGRESS');
+    for (const id of read) if (indices.get(id)! >= state.currentStopIndex || skipped.has(id)) return error('CORRUPT_PROGRESS');
     for (const [id, answer] of Object.entries(state.answers)) {
       const stop = bundle.stops[indices.get(id)!]!, quest = bundle.content.quests.find(q => q.id === stop.questId);
       if (!manual.has(id) || !quest?.choices.some(choice => choice.id === answer.choiceId)
         || answer.correct !== (answer.choiceId === quest.correctChoiceId) || answer.correct !== completed.has(id)) return error('CORRUPT_PROGRESS');
     }
-    for (let index = 0; index < state.currentStopIndex; index++) if (!completed.has(bundle.stops[index]!.id) && !skipped.has(bundle.stops[index]!.id)) return error('CORRUPT_PROGRESS');
+    for (let index = 0; index < state.currentStopIndex; index++) if (!completed.has(bundle.stops[index]!.id) && !skipped.has(bundle.stops[index]!.id) && !read.has(bundle.stops[index]!.id)) return error('CORRUPT_PROGRESS');
     return state;
   };
   const currentId = async () => (await db.getFirstAsync<{ session_id: string }>('SELECT session_id FROM canonical_selection WHERE id = 1'))?.session_id ?? null;
@@ -100,7 +101,11 @@ export function createCanonicalWalkSession(db: WalkDatabase, dependencies: { has
     if (state.phase !== 'active' || !('stopId' in action)) return error('INVALID_STATE');
     const stop = bundle.stops[state.currentStopIndex];
     if (!stop || stop.id !== action.stopId) return error('NOT_CURRENT_STOP');
-    if (action.type === 'mark_stop') {
+    if (action.type === 'read_story') {
+      // Reading is durable progress, independent of arrival, quiz answers and rewards.
+      state.readStopIds.push(stop.id);
+      state.currentStopIndex++;
+    } else if (action.type === 'mark_stop') {
       if (!state.manualStopIds.includes(stop.id)) state.manualStopIds.push(stop.id);
     } else if (action.type === 'answer') {
       if (!state.manualStopIds.includes(stop.id)) return error('VISIT_REQUIRED');

@@ -10,7 +10,7 @@ export type CanonicalUiWalk = UiWalk & {
 /** Projection only. The repository owns validation, transitions, awards and immutable identity. */
 export type CanonicalPresentationSession = {
   phase: 'prepared' | 'active' | 'paused' | 'completed' | 'abandoned';
-  currentStopIndex: number; manualStopIds: string[]; completedStopIds: string[]; skippedStopIds: string[];
+  currentStopIndex: number; manualStopIds: string[]; completedStopIds: string[]; skippedStopIds: string[]; readStopIds?: string[];
   answers: Record<string, { choiceId: string; correct: boolean }>;
   bundleHash: string; bundleRevision: number;
 };
@@ -105,6 +105,7 @@ export function toCanonicalUiSession(bundle: WalkBundleV1, session: CanonicalPre
   return { phase: session.phase === 'prepared' ? 'ready' : session.phase === 'abandoned' ? 'completed' : session.phase,
     abandoned: session.phase === 'abandoned', statusMessage: session.phase === 'abandoned' ? COPY[locale].abandoned : undefined,
     currentStopIndex: session.currentStopIndex, manualStopIds: [...session.manualStopIds], completedStopIds: [...session.completedStopIds], skippedStopIds: [...session.skippedStopIds],
+    readStopIds: [...(session.readStopIds ?? [])],
     answers: Object.fromEntries(Object.entries(session.answers).map(([stopId, answer]) => {
       const stop = required(bundle.stops.find(s => s.id === stopId)), quest = required(bundle.content.quests.find(q => q.id === stop.questId));
       return [stopId, { ...answer, feedback: answer.correct ? quest.explanation[locale] : quest.hint[locale] }];
